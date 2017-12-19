@@ -24,6 +24,10 @@
 		margin-right: -18px;
 		font-size: 0;
 
+		@include tablet {
+			margin-right: -15px;
+		}
+
 		@include phone {
 			padding: 0 10px;
 			margin-right: 0;
@@ -67,6 +71,11 @@
 		@include font(14px, 600, 17px);
 		text-transform: uppercase;
 		transition: color 0.25s;
+		
+		@include tablet {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
 
 		@include phone {
 			display: block;
