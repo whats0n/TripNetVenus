@@ -1,0 +1,145 @@
+.ui-datepicker {
+	padding: 0 16px 9px;
+	border: none !important;
+	border-radius: 4px;
+	width: 273px;
+	color: $gray;
+	background: $white;
+	box-shadow: $container-shadow;
+
+	.ui-datepicker-header {
+		position: relative;
+		padding: 10px 30px;
+		margin: 0 -16px;
+		border: none;
+		color: $gray;
+		background: none;
+	}
+
+	.ui-datepicker-title {
+		@include font(16px, 700, 19px);
+	}
+
+	//arrows
+	.ui-datepicker-prev,
+	.ui-datepicker-next {
+		top: 3px !important;
+		padding: 0 !important;
+		border: none !important;
+		width: 37px;
+		height: 35px;
+		background-color: rgba($white, 0) !important;
+		background-size: 5px 9px;
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		@include hover {
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0;
+			background-size: 5px 9px;
+			background-position: center center;
+			background-repeat: no-repeat;
+			transition: opacity 0.25s;
+		}
+
+		span {
+			display: none;
+		}
+	}
+	.ui-datepicker-prev {
+		left: 0 !important;
+		background-image: url(../img/prev.svg);
+
+		&:before {
+			background-image: url(../img/prev-green.svg);
+		}
+	}
+	.ui-datepicker-next {
+		right: 0 !important;
+		background-image: url(../img/next.svg);
+		
+		&:before {
+			background-image: url(../img/next-green.svg);
+		}
+	}
+	//body
+	table {
+		table-layout: fixed;
+		margin: 0;
+		@include font(14px, 400, 17px);
+	}
+
+	thead {
+		border-bottom: 1px solid $lightGreen;
+	}
+
+	th {
+		padding: 0 0 7px;
+		font-weight: 400;
+
+		&.ui-datepicker-week-end {
+			font-weight: 700;
+		}
+	}
+
+	td {
+		padding: 2px 4px;
+		a,
+		span {
+			padding: 3px 0;
+		}
+
+		a {
+			border: 1px solid $lightGreen;
+			border-radius: 4px;
+			transition: border-color 0.25s, color 0.25s, background 0.25s;
+
+			&:not(.ui-priority-secondary) {
+				&.ui-state-hover,
+				&.ui-state-active {
+					border-color: $lightGreen;
+				}
+				&.ui-state-active {
+					color: $white;
+					background: $lightGreen;
+				}
+			}
+		}
+	}
+
+	//days
+	.ui-priority-secondary, 
+	.ui-widget-content .ui-priority-secondary,
+	.ui-widget-header .ui-priority-secondary {
+		opacity: 0.5;
+	}
+
+	.ui-state-default, 
+	.ui-widget-content .ui-state-default, 
+	.ui-widget-header .ui-state-default {
+		position: relative;
+		border-color: rgba($white, 0);
+		color: $gray;
+		background: none;
+		text-align: center;
+	}
+
+	.ui-state-highlight, 
+	.ui-widget-content .ui-state-highlight, 
+	.ui-widget-header .ui-state-highlight {
+		border: none;
+		color: $gray;
+		background: none;
+	}
+}

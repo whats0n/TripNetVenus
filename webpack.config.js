@@ -45,6 +45,7 @@ function createConfig(env) {
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
+        'window.$': 'jquery',
       }),
       new webpack.NoEmitOnErrorsPlugin(),
 
@@ -86,7 +87,22 @@ function createConfig(env) {
           exclude: [
             path.resolve(__dirname, 'node_modules'),
           ],
-        }],
+        },
+        {
+          test: /\.(jpe?g|png|gif)$/i,
+          loader: "file-loader",
+          query:{
+            name:'[name].[ext]',
+            outputPath: '../img/'
+            //the images will be emmited to public/assets/images/ folder 
+            //the images will be put in the DOM <style> tag as eg. background: url(assets/images/image.png); 
+          }
+        },
+        {
+          test: /\.css$/,
+          loaders: ["css-loader"]
+        }
+      ],
     },
   };
 

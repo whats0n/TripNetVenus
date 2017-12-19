@@ -1,32 +1,7 @@
 <!-- begin hero -->
 <div class="v-hero">
-	<div class="v-hero__heading">
-		<div class="v-hero__heading-in">
-			<div class="v-hero__title">Dormy House Hotel Etretat</div>
-			<div class="v-hero__subtitle">Route du Havre, Étretat, France</div>
-			{% set stars = {
-				classList: 'v-hero__stars',
-				range: 3
-			} %}
-			{% include '../components/_stars.html' %}
-		</div>
-	</div>
-	<div class="v-hero__meta">
-		<a href="#" class="v-rating v-hero__rating">
-			<div class="v-rating__value">
-				<strong>4.1</strong>
-				<small>out of 5</small>
-			</div>
-			<div class="v-rating__container">
-				<img src="img/logo-tripadvisor.svg" alt="TripAdvisor" class="v-rating__logo">
-				<div class="v-rating__meta">120 reviews</div>
-			</div>
-		</a>
-		<button class="btn-gallery v-hero__btn-gallery">
-			{{mixins.icon('picture')}}
-			<span>Photo Gallery</span>
-		</button>
-	</div>
+	{% include './_heading.html' %}
+	{% include './_meta.html' %}
 	<div class="v-hero__slider js-hero-slider">
 		{% for item in [
 			'https://placecage.com/1440/1440',

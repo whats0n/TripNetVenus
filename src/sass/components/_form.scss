@@ -1,0 +1,239 @@
+.v-form {
+	position: relative;
+	z-index: 5;
+	
+	&__inner {
+		margin: -41px auto 0;
+		max-width: 945px;
+	}
+
+	&__title {
+		padding: 9px 10px 10px;
+		border-radius: 4px 4px 0 0;
+		background: rgba($white,0.8);
+		box-shadow: $container-shadow;
+		text-align: center;
+	}
+
+	&__body {
+		padding: 21px 30px 30px;
+		border-radius: 0 0 4px 4px;
+		background: $white;
+		box-shadow: $container-shadow;
+		font-size: 0;
+		@include clr;
+	}
+
+	&__row {
+		width: calc(100% - 210px);
+		color: $gray;
+		@include clr;
+	}
+
+	&__submit {
+		padding-left: 10px;
+		width: 210px;
+	}
+
+	&__row,
+	&__submit {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+	&__box {
+		position: relative;
+		float: left;
+		width: 25%;
+
+		&:first-child {
+			.v-form__control {
+				border-radius: 4px 0 0 4px;
+			}
+		}
+
+		&:last-child {
+			.v-form__control {
+				border-radius: 0 4px 4px 0;
+			}
+		}
+
+		&:not(:last-child) {
+			.v-form__field {
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					border-left: 1px solid $lightGreen;
+					opacity: 0;
+					transition: opacity 0.25s;
+				}
+			}
+			.v-form__control{
+				border-right: none;
+			}
+		}
+
+		&_lg {
+			width: 30%;
+		}
+
+		&_sm {
+			width: 20%;
+		}
+
+		&.is-active {
+			.v-form__field {
+				&:before {
+					opacity: 1;
+				}
+				.icon-adults,
+				.icon-children,
+				.icon-calendar {
+					fill: $lightGreen;
+				}
+				.icon-down {
+					transform: rotate(180deg);
+				}
+			}
+			.v-form__control {
+				border-color: $lightGreen;
+			}
+			.v-form__dropdown {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&__label {
+		padding: 0 0 10px 16px;
+		@include font(16px, 700, 19px);
+	}
+
+	&__field {
+		position: relative;
+
+		.icon {
+			position: absolute;
+			top: 50%;
+			fill: currentColor;
+			pointer-events: none;
+			transition: fill 0.25s;
+		}
+
+		.icon-calendar,
+		.icon-adults,
+		.icon-children {
+			left: 15px;
+		}
+
+		.icon-calendar {
+			margin-top: -10px;
+			font-size: 20px;
+		}
+
+		.icon-adults,
+		.icon-children {
+			margin-top: -11px;
+			font-size: 23px;
+		}
+
+		.icon-down {
+			right: 15px;
+			margin-top: -3px;
+			font-size: 7px;
+			transition: transform 0.25s;
+		}
+	}
+
+	&__control {
+		padding: 0 33px 0 50px;
+		border: 1px solid $lightGray;
+		width: 100%;
+		height: 40px;
+		color: $gray;
+		@include font(14px, null, normal);
+		cursor: pointer;
+		transition: border-color 0.25s;
+
+		&_lg {
+			font-size: 16px;
+		}
+	}
+
+	&__dropdown {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		padding: 10px 0;
+		margin-top: 2px;
+		border-radius: 4px;
+		opacity: 0;
+		visibility: hidden;
+		background: $white;
+		box-shadow: $container-shadow;
+		transition: opacity 0.25s, visibility 0.25s;
+
+		&_sm {
+			min-width: 175px;
+		}
+
+		&_lg {
+			min-width: 206px;
+		}
+	}
+
+	&__item {
+		position: relative;
+		padding: 7px 40px 7px 55px;
+		border-radius: 4px;
+		min-height: 33px;
+		color: $gray;
+		@include font(16px, 400, 19px);
+		white-space: nowrap;
+		cursor: pointer;
+		transition: color 0.2s, background 0.2s;
+
+		@include hover {
+			color: $white;
+			background: $lightGreen;
+		}
+
+		&.is-active {
+			color: $white;
+			background: $lightGreen;
+			.icon-check {
+				opacity: 1;
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 3px;
+		}
+
+		.icon {
+			position: absolute;
+			top: 50%;
+			fill: currentColor;
+			pointer-events: none;
+		}
+
+		.icon-adults,
+		.icon-children {
+			left: 15px;
+			margin-top: -11px;
+			font-size: 23px;
+		}
+
+		.icon-check {
+			right: 19px;
+			margin-top: -4px;
+			color: $white;
+			opacity: 0;
+			font-size: 8px;
+		}
+	}
+}

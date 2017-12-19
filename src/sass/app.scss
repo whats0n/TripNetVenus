@@ -3,6 +3,9 @@
 .Venus {
 	@import 'generated/sprite-svg';
 	@import 'lib/slick';
+	@import 'lib/jquery-ui.min';
+	@import 'lib/jquery-ui.theme.min';
+
 	@import 'common';
 
 	@import 'components/typography';
@@ -24,4 +27,7 @@
 	@import 'components/header';
 
 	@import 'components/hero';
+
+	@import 'components/form';
+	@import 'components/datepicker';
 }
