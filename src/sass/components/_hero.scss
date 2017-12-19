@@ -1,0 +1,134 @@
+.v-hero {
+	position: relative;
+
+	&__heading {
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 20px 20px 18px;
+		text-align: center;
+
+		@include phone {
+			padding: 25px 10px;
+		}
+	}
+
+	&__title {
+		@include font(24px, 700, 29px);
+		@include textoverflow;
+		text-transform: uppercase;
+
+		@include phone {
+			@include font(18px, null, 22px);
+		}
+	}
+
+	&__subtitle {
+		margin-top: 7px;
+		@include font(14px, 700, 19px);
+		@include textoverflow;
+
+		@include phone {
+			margin-top: 3px;
+			@include font(12px, null, 17px);
+		}
+	}
+
+	&__stars {
+		margin-top: 6px;
+
+		@include phone {
+			margin-top: 1px;
+		}
+	}
+
+	&__btn-gallery {
+		top: 38px;
+		right: 20px;
+
+		@include phone {
+			float: right;
+		}
+	}
+
+	&__rating {
+		top: 32px;
+		left: 20px;
+
+		@include phone {
+			float: left;
+		}
+	}
+
+	&__btn-gallery,
+	&__rating {
+		position: absolute;
+		z-index: 3;
+		
+		@include tablet {
+			top: 30px;
+		}
+
+		@include phone {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+		}
+	}
+
+	&__meta {
+		@include phone {
+			position: absolute;
+			z-index: 3;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding: 5px 10px;
+			border-radius: 4px 4px 0 0;
+			background: rgba($white,0.5);
+
+			@include clr;
+		}
+	}
+
+	&__slide,
+	&__slide-blur {
+		position: relative;
+		z-index: 1;
+		height: 516px;
+		@include cover;
+
+		@include phone {
+			height: 384px;
+		}
+	}
+
+	&__slide-header{
+		position: relative;
+		overflow: hidden;
+		height: 114px;
+
+		@include phone {
+			height: 103px;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(243,247,248,0.30);
+		}
+	}
+
+	&__slide-blur {
+		background-color: rgba(243,247,248,0.30);
+		filter: blur(10px);
+	}
+}

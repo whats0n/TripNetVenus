@@ -1,0 +1,75 @@
+.v-rating {
+	display: inline-block;
+	vertical-align: top;
+	color: $gray;
+	font-size: 0;
+
+	@include hover {
+		.v-rating__meta{
+			color: $blue;
+		}
+	}
+
+	&__value {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 7px 6px 7px 7px;
+		border-radius: 4px;
+		min-width: 54px;
+		background: $white;
+		text-align: center;
+
+		@include phone {
+			padding: 3px 2px 4px;
+			border: 1px solid $white;
+			min-width: 40px;
+			color: $white;
+			background: none;
+		}
+
+		strong,
+		small {
+			display: block;
+		}
+
+		strong {
+			@include font(22px, 900, 27px);
+
+			@include phone {
+				@include font(18px, null, 22px);
+			}
+		}
+
+		small {
+			margin-top: -2px;
+			@include font(12px, 700, 15px);
+
+			@include phone {
+				margin-top: -3px;
+				@include font(10px, 400, 12px);
+			}
+		}
+	}
+
+	&__container {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0 0 2px 10px;
+
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&__logo {
+		margin-bottom: 4px;
+		height: 21px;
+	}
+
+	&__meta {
+		display: block;
+		color: inherit;
+		@include font(14px, null, 13px);
+		transition: color 0.25s;
+	}
+}

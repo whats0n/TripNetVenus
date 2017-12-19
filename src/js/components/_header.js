@@ -13,6 +13,17 @@ import {getWidth} from '../_utils';
       .removeClass(OPEN);
   };
 
+  const setNavAnimation = () => {
+    const activeWidth = getWidth(phoneWidth);
+
+    if (activeWidth && !nav.hasClass(PHONE)) {
+      nav.addClass(PHONE);
+    } else if (!activeWidth && nav.hasClass(PHONE)) {
+      reset();
+      nav.removeClass(PHONE);
+    }
+  };
+
   btn.on('click', e => {
     e.preventDefault();
     btn.toggleClass(ACTIVE);
@@ -30,16 +41,8 @@ import {getWidth} from '../_utils';
 
     reset();
   });
-
-  WIN.on('resize', () => {
-    const activeWidth = getWidth(phoneWidth);
-    
-    if (activeWidth && !nav.hasClass(PHONE)) {
-      nav.addClass(PHONE);
-    } else if (!activeWidth && nav.hasClass(PHONE)) {
-      reset();
-      nav.removeClass(PHONE);
-    }
-  });
+  
+  setNavAnimation();
+  WIN.on('resize', setNavAnimation);
 
 })();

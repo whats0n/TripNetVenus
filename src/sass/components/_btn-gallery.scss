@@ -1,0 +1,52 @@
+.btn-gallery {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 26px;
+	border-radius: 4px;
+	color: $gray;
+	background: $white;
+	box-shadow: $btn-shadow;
+	font-size: 0;
+	text-transform: uppercase;
+
+	@include tablet {
+		padding: 15px;
+	}
+
+	@include phone {
+		padding: 9px;
+		border: 1px solid $white;
+		color: $white;
+		background: none;
+		box-shadow: none;
+	}
+
+	.icon,
+	span {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.icon {
+		fill: currentColor;
+		font-size: 20px;
+
+		@include tablet {
+			font-size: 24px;
+		}
+
+		@include phone {
+			font-size: 20px;
+		}
+	}
+
+	span {
+		padding: 3px 0 2px;
+		margin-left: 10px;
+		@include font(12px, 700, 15px);
+
+		@include tablet {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+<!-- begin v-stars -->
+<div class="v-stars {{stars.classList}}">
+	{% for item in range(0,stars.range or 5) %}
+		<div class="v-stars__item">
+			{{mixins.icon('star')}}
+		</div>
+	{% endfor %}
+</div>
+<!-- end v-stars -->
