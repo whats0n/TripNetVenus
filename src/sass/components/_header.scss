@@ -1,0 +1,29 @@
+.v-header {
+	position: relative;
+	z-index: 100;
+
+	&__inner {
+		padding-top: 7px;
+		padding-bottom: 9px;
+
+		@include phone {
+			padding-top: 6px;
+			padding-bottom: 8px;
+		}
+	}
+
+	&__main {
+		position: relative;
+		float: left;
+
+		@include phone {
+			z-index: 1;
+			float: none;
+			padding: 6px 10px 8px;
+			margin: -6px -10px -8px;
+			background: $white;
+			box-shadow: $container-shadow-phone;
+		}
+	}
+
+}

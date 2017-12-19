@@ -1,0 +1,70 @@
+.v-nav-submenu {
+	position: absolute;
+	top: 100%;
+	right: -44px;
+	margin-top: -2px;
+	border: 1px solid $green;
+	border-radius: 4px;
+	opacity: 0;
+	visibility: hidden;
+	background: $white;
+	box-shadow: $container-shadow;
+	transition: opacity 0.25s, visibility 0.25s;
+
+	@include phone {
+		position: relative;
+		top: auto;
+		right: auto;
+		display: none;
+		padding-left: 0;
+		padding-right: 0;
+		margin: 0;
+		border: none;
+		border-top: 1px solid $lightGreen;
+		border-radius: 0;
+		width: 100%;
+		opacity: 1;
+		visibility: visible;
+		background: $white;
+		box-shadow: none;
+	}
+	
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		right: 68px;
+		bottom: 100%;
+		pointer-events: none;
+
+		@include phone {
+			display: none;
+		}
+	}
+
+	&:before {
+		@include arr(18, 7, $green, t);
+	}
+	&:after {
+		margin-bottom: -1px;
+		@include arr(18, 7, $white, t);
+	}
+
+	&_hotels {
+		padding: 11px 18px 13px 20px;
+		width: 335px;
+	}
+
+	&_contacts {
+		padding: 14px 20px 17px;
+		width: 230px;
+	}
+
+	&_hotels,
+	&_contacts {
+		@include phone {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+	}
+}

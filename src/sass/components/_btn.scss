@@ -1,0 +1,45 @@
+.btn {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 20px;
+	border: 1px solid $green;
+	border-radius: 4px;
+	color: $white;
+	background: $green;
+	box-shadow: $btn-shadow;
+	@include font(15px, 700, 1.2);
+	text-transform: uppercase;
+	transition: color 0.25s, border-radius 0.25s, background 0.25s, box-shadow 0.25s;
+
+	@include hover {
+		border-color: $darkGreen;
+		background: $darkGreen;
+	}
+
+	&:disabled {
+		border-color: rgba($gray, 0);
+		background: rgba($gray, 0.4);
+		box-shadow: none;
+		cursor: not-allowed;
+	}
+
+	&_secondary {
+		border-color: $lightGreen;
+		color: $lightGreen;
+		background: none;
+		box-shadow: none;
+
+		@include hover {
+			border-color: $lightGreen;
+			color: $white;
+			background: $lightGreen;
+		}
+
+		&:disabled {
+			border-color: $gray;
+			color: $gray;
+			opacity: 0.5;
+			background: $white;
+		}
+	}
+}

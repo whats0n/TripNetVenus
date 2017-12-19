@@ -1,0 +1,18 @@
+<!-- begin v-nav-submenu v-nav-submenu_contacts -->
+<div class="v-nav-submenu v-nav-submenu_contacts" data-accordion-container>
+	<div class="v-nav-contacts">
+		<div class="v-nav-contacts__title">Contact Us</div>
+		<ul class="v-nav-contacts__list">
+			{% for item in [
+				{ icon: 'mail', link: 'mailto:hello@hotel.com', text: 'hello@hotel.com' },
+				{ icon: 'phone', link: 'tel:+380638975262', text: '+380 63 897 52 62' },
+				{ icon: 'chat', link: '#', text: 'FAQ' }
+			] %}
+			<li class="v-nav-contacts__item">
+				<a href="{{item.link}}" class="v-nav-contacts__link">{{mixins.icon(item.icon)}}{{item.text}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+<!-- end v-nav-submenu v-nav-submenu_contacts -->

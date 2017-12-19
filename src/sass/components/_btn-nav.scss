@@ -1,0 +1,66 @@
+.v-btn-nav {
+	display: none;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 42px;
+	height: 36px;
+	transform: translate3d(0,-50%,0);
+	transition: opacity 0.25s;
+
+	@include phone {
+		display: block;
+	}
+
+	&.is-active {
+		opacity: 0.5;
+		
+		@include hover {
+			opacity: 1;
+		}
+
+		&:before {
+			transform: translate3d(-3px,-1px,0) rotate(-45deg);
+		}
+		&:after {
+			transform: translate3d(-3px,1px,0) rotate(45deg);
+		}
+		span {
+			opacity: 0;
+			transform: translate3d(25%,-50%,0) scale(0.5);
+		}
+	}
+
+	&:before,
+	&:after,
+	span {
+		position: absolute;
+		right: 10px;
+		border-bottom: 2px solid $gray;
+		width: 22px;
+	}
+
+	&:before,
+	&:after {
+		content: '';
+		transform: translate3d(0,0,0);
+		transition: transform 0.25s;
+	}
+
+	&:before {
+		top: 10px;
+		transform-origin: right bottom;
+	}
+
+	&:after {
+		bottom: 10px;
+		transform-origin: right top;
+	}
+
+	span {
+		top: 50%;
+		transform: translate3d(0,-50%,0);
+		transform-origin: right center;
+		transition: opacity 0.25s, transform 0.25s;
+	}
+}

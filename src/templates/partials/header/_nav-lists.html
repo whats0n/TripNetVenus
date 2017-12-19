@@ -1,0 +1,21 @@
+<!-- begin v-nav-submenu v-nav-submenu_lists -->
+<div class="v-nav-submenu v-nav-submenu_lists" data-accordion-container>
+	<div class="v-nav-lists">
+		<div class="v-nav-lists__title">{{lists.title}}</div>
+		<ul class="v-list v-nav-lists__header">
+			{% for item in lists.header %}
+				<li class="v-list__item v-nav-lists__item">
+					<a href="#" class="v-list__link"><abbr title="{{item.text}}">{{item.abbr}}</abbr> {{item.text}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<ul class="v-list v-nav-lists__body">
+			{% for item in lists.body %}
+				<li class="v-list__item v-nav-lists__item">
+					<a href="#" class="v-list__link"><abbr title="{{item.text}}">{{item.abbr}}</abbr> {{item.text}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+<!-- end v-nav-submenu v-nav-submenu_lists -->

@@ -1,0 +1,112 @@
+//FONTS MIXINS
+@mixin fontpath($name, $name1, $file) {
+	src: local($name), 
+		local($name1), 
+		url("../fonts/" + $file + ".woff2") format("woff2"), 
+		url("../fonts/" + $file + ".woff") format("woff");
+}
+@mixin fontdefault($style, $weight, $family: null) {
+	@if $family != null {
+		font-family: $family;
+	} @else {
+		font-family: $lato;
+	}
+
+	font-style: $style;
+	font-weight: $weight;
+}
+
+//ADD FONTS
+//LATO
+//thin
+@font-face {
+	@include fontdefault(normal, 100);
+	@include fontpath('Lato Hairline', 'Lato-Hairline', lato-hairline);
+}
+@font-face {
+	@include fontdefault(italic, 100);
+	@include fontpath('Lato Hairline Italic', 'Lato-HairlineItalic', lato-hairlineitalic);
+}
+//light
+@font-face {
+	@include fontdefault(normal, 300);
+	@include fontpath('Lato Light', 'Lato-Light', lato-light);
+}
+@font-face {
+	@include fontdefault(italic, 300);
+	@include fontpath('Lato Light Italic', 'Lato-LightItalic', lato-lightitalic);
+}
+//regular
+@font-face {
+	@include fontdefault(normal, 400);
+	@include fontpath('Lato Regular', 'Lato-Regular', lato-regular);
+}
+@font-face {
+	@include fontdefault(italic, 400);
+	@include fontpath('Lato Italic', 'Lato-Italic', lato-italic);
+}
+//bold
+@font-face {
+	@include fontdefault(normal, 700);
+	@include fontpath('Lato Bold', 'Lato-Bold', lato-bold);
+}
+@font-face {
+	@include fontdefault(italic, 700);
+	@include fontpath('Lato Bold Italic', 'Lato-BoldItalic', lato-bolditalic);
+}
+//black
+@font-face {
+	@include fontdefault(normal, 900);
+	@include fontpath('Lato Black', 'Lato-Black', lato-black);
+}
+@font-face {
+	@include fontdefault(italic, 900);
+	@include fontpath('Lato Black Italic', 'Lato-BlackItalic', lato-blackitalic);
+}
+
+//OPEN SANS
+//light
+@font-face {
+	@include fontdefault(normal, 300, $opensans);
+	@include fontpath('Open Sans Light', 'OpenSans-Light', opensans-light);
+}
+@font-face {
+	@include fontdefault(italic, 300, $opensans);
+	@include fontpath('Open Sans Light Italic', 'OpenSans-LightItalic', opensans-lightitalic);
+}
+//regular
+@font-face {
+	@include fontdefault(normal, 400, $opensans);
+	@include fontpath('Open Sans Regular', 'OpenSans-Regular', opensans-regular);
+}
+@font-face {
+	@include fontdefault(italic, 400, $opensans);
+	@include fontpath('Open Sans Italic', 'OpenSans-Italic', opensans-italic);
+}
+//semibold
+@font-face {
+	@include fontdefault(normal, 600, $opensans);
+	@include fontpath('Open Sans SemiBold', 'OpenSans-SemiBold', opensans-semibold);
+}
+@font-face {
+	@include fontdefault(italic, 600, $opensans);
+	@include fontpath('Open Sans SemiBold Italic', 'OpenSans-SemiBoldItalic', opensans-semibolditalic);
+}
+//bold
+@font-face {
+	@include fontdefault(normal, 700, $opensans);
+	@include fontpath('Open Sans Bold', 'OpenSans-Bold', opensans-bold);
+}
+@font-face {
+	@include fontdefault(italic, 700, $opensans);
+	@include fontpath('Open Sans Bold Italic', 'OpenSans-BoldItalic', opensans-bolditalic);
+}
+//extrabold
+@font-face {
+	@include fontdefault(normal, 800, $opensans);
+	@include fontpath('Open Sans ExtraBold', 'OpenSans-ExtraBold', opensans-extrabold);
+}
+@font-face {
+	@include fontdefault(italic, 800, $opensans);
+	@include fontpath('Open Sans ExtraBold Italic', 'OpenSans-ExtraBoldItalic', opensans-extrabolditalic);
+}

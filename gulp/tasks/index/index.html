@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title><%= pages.ProjectTitle %></title>
+</head>
+<body>
+  <section>
+    <ol class="pagelist">
+      <% i = 0;%>
+      <% _.each(pages.PageList, function(page) { i++; %>
+          <li>
+          	<a class="pagelist__title" target="_blank" href="<%= page.file %>"><%= _.split(page.file, '.', 1) %></a>
+          </li>
+        <% }) %>
+  
+    </ol>
+  </section>
+</body>
+</html>
+
+
+

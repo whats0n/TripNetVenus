@@ -1,0 +1,37 @@
+.v-list {
+	&__item {
+		position: relative;
+		padding: 5px 0 5px 16px;
+		@include font(14px, null, 17px);
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 11px;
+			left: 0;
+			border-radius: 50%;
+			width: 6px;
+			height: 6px;
+			background: $green;
+		}
+	}
+
+	&__link {
+		display: block;
+		color: inherit;
+		transition: color 0.25s;
+
+		@include hover {
+			color: $blue;
+		}
+
+		span,
+		abbr {
+			color: $blue;
+		}
+
+		abbr {
+			text-decoration: none;
+		}
+	}
+}

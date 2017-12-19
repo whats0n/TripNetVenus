@@ -1,0 +1,47 @@
+.v-nav-contacts {
+	color: $gray;
+	@include font(14px, null, 17px);
+
+	&__title {
+		margin-bottom: 10px;
+		font-weight: 700;
+		text-align: center;
+
+		@include phone {
+			display: none;
+		}
+	}
+
+	&__link {
+		position: relative;
+		display: block;
+		padding: 5px 0 5px 30px;
+		color: inherit;
+		transition: color 0.25s;
+
+		@include hover {
+			color: $blue;
+		}
+
+		.icon {
+			position: absolute;
+			left: 0;
+			fill: $blue;
+		}
+
+		.icon-mail {
+			top: 7px;
+			font-size: 13px;
+		}
+
+		.icon-phone {
+			top: 3px;
+			font-size: 18px;
+		}
+
+		.icon-chat {
+			top: 6px;
+			font-size: 19px;
+		}
+	}
+}

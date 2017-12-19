@@ -1,0 +1,103 @@
+.v-nav {
+	float: right;
+	&.is-phone {
+		transition: transform 0.3s;
+	}
+
+	@include phone {
+		position: absolute;
+		top: 51px;
+		left: 0;
+		right: 0;
+		overflow: auto;
+		max-height: calc(100vh - 51px);
+		background: $white;
+		box-shadow: $container-shadow-phone;
+		transform: translate3d(0,-100%,0);
+	}
+
+	&.is-open {
+		@include gpu;
+	}
+
+	&__list {
+		margin-right: -18px;
+		font-size: 0;
+
+		@include phone {
+			padding: 0 10px;
+			margin-right: 0;
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+
+		@include phone {
+			display: block;
+		}
+
+		&:not(:last-child) {
+			@include phone {
+				border-bottom: 1px solid $lightGray;
+			}
+		}
+
+		&:hover {
+			.v-nav__link {
+				color: $blue;
+			}
+
+			.v-nav-submenu {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&__link {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		padding: 16px 18px;
+		color: $gray;
+		font-family: $opensans;
+		@include font(14px, 600, 17px);
+		text-transform: uppercase;
+		transition: color 0.25s;
+
+		@include phone {
+			display: block;
+			padding: 15px 0;
+		}
+
+		@include hover {
+			color: $blue;
+		}
+
+		&.is-active {
+			color: $green;
+
+			.icon-down {
+				transform: rotate(180deg);
+			}
+		}
+
+		.icon-down {
+			display: none;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin-top: -3px;
+			font-size: 6px;
+			fill: currentColor;
+			transition: transform 0.25s;
+
+			@include phone {
+				display: block;
+			}
+		}
+	}
+}

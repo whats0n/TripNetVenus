@@ -1,0 +1,53 @@
+.v-nav-lists {
+	padding: 13px 20px;
+	width: 536px;
+	color: $gray;
+	@include font(14px, null, 17px);
+
+	@include phone {
+		padding: 15px 0;
+		width: auto;
+	}
+
+	&__title {
+		margin-bottom: 10px;
+		font-weight: 700;
+		text-align: center;
+
+		@include phone {
+			padding-left: 16px;
+			margin-bottom: 7px;
+			text-align: left;
+		}
+	}
+
+	&__header,
+	&__body {
+		font-size: 0;
+	}
+
+	&__body {
+		padding-top: 14px;
+		margin-top: 3px;
+		border-top: 1px solid $lightGreen;
+
+		@include phone {
+			padding-top: 7px;
+			margin-top: 6px;
+			border-color: rgba($gray, 0.1);
+		}
+	}
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		padding-top: 6px;
+		padding-bottom: 7px;
+		width: 33.33%;
+
+		@include phone {
+			display: block;
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+@import 'helpers/all';
+
+.Venus {
+	@import 'generated/sprite-svg';
+	@import 'lib/slick';
+	@import 'common';
+
+	@import 'components/typography';
+	@import 'components/btn';
+	@import 'components/btn-direction';
+
+	@import 'components/list';
+
+	@import 'components/logo';
+	@import 'components/btn-nav';
+	@import 'components/nav';
+	@import 'components/nav-submenu';
+	@import 'components/nav-contacts';
+	@import 'components/nav-lists';
+	@import 'components/header';
+}

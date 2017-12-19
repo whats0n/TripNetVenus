@@ -1,0 +1,41 @@
+.v-logo {
+	display: inline-block;
+	vertical-align: top;
+	color: $gray;
+	font-size: 0;
+	text-align: center;
+	white-space: nowrap;
+
+	.icon {
+		fill: currentColor;
+		font-size: 12px;
+
+		@include phone {
+			font-size: 10px;
+		}
+	}
+
+	&__title,
+	&__subtitle {
+		display: block;
+	}
+
+	&__title {
+		margin-bottom: -1px;
+		@include font(18px, 700, 22px);
+		text-transform: uppercase;
+
+		@include phone {
+			margin: 0;
+			@include font(13px, null, 16px);
+		}
+	}
+
+	&__subtitle {
+		@include font(13px, 700, 16px);
+
+		@include phone {
+			@include font(9px, null, 11px);
+		}
+	}
+}

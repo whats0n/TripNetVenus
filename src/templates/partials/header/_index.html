@@ -1,0 +1,52 @@
+<!-- begin header -->
+<header class="v-header">
+	<div class="v-inner v-header__inner">
+		<div class="v-header__main">
+			<a href="#" class="v-logo v-header__logo">
+				{{mixins.icon('logo-waves')}}
+				<strong class="v-logo__title">Upper Normandy</strong>
+				<span class="v-logo__subtitle">hotel collection</span>
+			</a>
+			<button class="v-btn-nav js-btn-nav">
+				<span></span>
+			</button>
+		</div>
+		<nav class="v-nav js-nav">
+			<ul class="v-nav__list" data-accordion-main="phone">
+				{% for item in [
+					{
+						link: 'About us'
+					},
+					{
+						link: 'Find Hotel',
+						submenu: '_nav-hotels'
+					},
+					{
+						link: 'Support',
+						submenu: '_nav-contacts'
+					},
+					{
+						link: 'UAH',
+						submenu: '_nav-currency'
+					},
+					{
+						link: 'ENG',
+						submenu: '_nav-lang'
+					}
+				] %}
+					<li class="v-nav__item" data-accordion-item>
+						<a 
+							href="#" 
+							class="v-nav__link"
+							{% if item.submenu %}data-accordion-btn{% endif %}
+						>{{item.link}}{% if item.submenu %}{{mixins.icon('down')}}{% endif %}</a>
+						{% if item.submenu %}
+							{% include './' + item.submenu + '.html' %}
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
+</header>
+<!-- end header -->

@@ -1,0 +1,9 @@
+.title-lg {
+	@include font(18px, 700, 22px);
+	text-transform: uppercase;
+}
+
+.title-md {
+	@include font(14px, 700, 17px);
+	text-transform: uppercase;
+}

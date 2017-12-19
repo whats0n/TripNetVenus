@@ -1,0 +1,122 @@
+//COMMON
+@mixin smooth-scroll {
+	-webkit-overflow-scrolling: touch;
+}
+@mixin smooth-font {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+@mixin gpu {
+	transform: translate3d(0,0,0);
+}
+@mixin cover {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+@mixin vertical {
+	font-size: 0;
+	text-align: center;
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: 0;
+		height: 100%;
+	}
+}
+
+@mixin clr {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin noselect {
+	user-select: none;
+}
+
+@mixin textoverflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin arr($width, $height, $bg, $direction) {
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	@if $direction == t {
+		border-width: 0 $width / 2 + px $height + px $width / 2 + px;
+		border-color: transparent transparent $bg transparent;
+	}
+	@if $direction == r {
+		border-width: $height / 2 + px 0 $height / 2 + px $width + px;
+		border-color: transparent transparent transparent $bg;
+	}
+	@if $direction == b {
+		border-width: $height + px $width / 2 + px 0 $width / 2 + px;
+		border-color: $bg transparent transparent transparent;
+	}
+	@if $direction == l {
+		border-width: $height / 2 + px $width + px $height / 2 + px 0;
+		border-color: transparent $bg transparent transparent;
+	}
+	@if $direction == tl {
+		border-width: $height + px $width + px 0 0;
+		border-color: $bg transparent transparent transparent;
+	}
+	@if $direction == tr {
+		border-width: 0 $width + px $height + px 0;
+		border-color: transparent $bg transparent transparent;
+	}
+	@if $direction == br {
+		border-width: 0 0 $height + px $width + px;
+		border-color: transparent transparent $bg transparent;
+	}
+	@if $direction == bl {
+		border-width: $width + px 0 0 $height + px;
+		border-color: transparent transparent transparent $bg;
+	}
+}
+
+@mixin hover {
+	&:hover {
+		@content;
+	}
+}
+
+//FONT STYLES
+@mixin font($font-size: null, $font-weight: null, $line-height: null) {
+	@if $font-size != null {
+		font-size: $font-size;
+	}
+	@if $font-weight != null {
+		font-weight: $font-weight;
+	}
+	@if $line-height != null {
+		line-height: $line-height;
+	}
+}
+
+//MEDIA
+@mixin mediaWidth($width) {
+	@media only screen and (max-width: $width+ "px") {
+		@content;
+	}
+}
+
+//adaptive
+@mixin tablet {
+	@include mediaWidth('1300') {
+		@content;
+	}
+}
+@mixin phone {
+	@include mediaWidth('767') {
+		@content;
+	}
+}

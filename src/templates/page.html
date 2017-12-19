@@ -1,0 +1,19 @@
+---
+title: Index page
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	<h2 class="title-lg">Title h2 (title-lg)</h2>
+	<h2 class="title-md">Title h3 (title-md)</h2>
+	<button class="btn">Check Availability</button>
+	<button class="btn btn_secondary">Try another dates</button>
+	<button class="btn-direction btn-direction_prev">
+		{{mixins.icon('prev')}}
+	</button>
+	<button class="btn-direction btn-direction_next">
+		{{mixins.icon('next')}}
+	</button>
+
+{% endblock %}
