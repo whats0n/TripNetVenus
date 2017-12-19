@@ -1,13 +1,15 @@
 <!-- begin hero -->
 <div class="v-hero">
 	<div class="v-hero__heading">
-		<div class="v-hero__title">Dormy House Hotel Etretat</div>
-		<div class="v-hero__subtitle">Route du Havre, Étretat, France</div>
-		{% set stars = {
-			classList: 'v-hero__stars',
-			range: 3
-		} %}
-		{% include '../components/_stars.html' %}
+		<div class="v-hero__heading-in">
+			<div class="v-hero__title">Dormy House Hotel Etretat</div>
+			<div class="v-hero__subtitle">Route du Havre, Étretat, France</div>
+			{% set stars = {
+				classList: 'v-hero__stars',
+				range: 3
+			} %}
+			{% include '../components/_stars.html' %}
+		</div>
 	</div>
 	<div class="v-hero__meta">
 		<a href="#" class="v-rating v-hero__rating">

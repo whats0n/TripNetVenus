@@ -15,6 +15,11 @@
 		}
 	}
 
+	&__heading-in {
+		margin: 0 auto;
+		max-width: 500px;
+	}
+
 	&__title {
 		@include font(24px, 700, 29px);
 		@include textoverflow;
