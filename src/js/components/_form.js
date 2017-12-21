@@ -1,3 +1,4 @@
+import daterangepicker from 'daterangepicker';
 import {ACTIVE, DOC} from '../_constants';
 
 ;(() => {
@@ -40,48 +41,62 @@ import {ACTIVE, DOC} from '../_constants';
     	const minTo = new Date();
     	const getDate = (element, direction) => {
     		let date;
-	      try {
-	        date = $.datepicker.parseDate( dateFormat, element.value );
-	      } catch( error ) {
-	        date = new Date();
-	      }
-	      let newDate = 
-	      	direction === TO ? new Date().setDate(date.getDate() - 1) :
-	      	direction === FROM ? new Date().setDate(date.getDate() + 1) : date;
-	      return new Date(newDate);
+        try {
+          date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+          date = new Date();
+        }
+        let newDate = 
+      	direction === TO ? new Date().setDate(date.getDate() - 1) :
+      	direction === FROM ? new Date().setDate(date.getDate() + 1) : date;
+        return new Date(newDate);
     	};
 
     	const options = {
-  			showOtherMonths: true,
-  		  selectOtherMonths: true,
-  		  firstDay: 1,
-  		  dateFormat: dateFormat,
-  		  onClose(id) {
-          $('[data-datepicker-wrapper]')
-            .removeClass(ACTIVE);
-  		  },
-  		  beforeShow(input) {
-  		  	$(input)
-            .closest('[data-datepicker-wrapper]')
-            .addClass(ACTIVE);
-  		  }
-  		};
+        showOtherMonths: true,
+			  selectOtherMonths: true,
+			  firstDay: 1,
+			  dateFormat: dateFormat,
+			  onClose(id) {
+	        $('[data-datepicker-wrapper]')
+	          .removeClass(ACTIVE);
+			  },
+			  beforeShow(input) {
+			  	$(input)
+	          .closest('[data-datepicker-wrapper]')
+	          .addClass(ACTIVE);
+			  }
+      };
 
-      datepickerFrom.datepicker(Object.assign({
-  		  minDate: minFrom
-      }, options));
-      datepickerTo.datepicker(Object.assign({
-  		  minDate: new Date(minTo.setDate(minTo.getDate() + 1))
-      }, options));
+	    datepickerFrom.datepicker(Object.assign({
+			  minDate: minFrom
+	    }, options));
+	    datepickerTo.datepicker(Object.assign({
+			  minDate: new Date(minTo.setDate(minTo.getDate() + 1))
+	    }, options));
 
-      datepickerFrom.on('change', function() {
-        datepickerTo.datepicker('option', 'minDate', getDate(this, FROM));
-      });
-      datepickerTo.on('change', function() {
-        datepickerFrom.datepicker('option', 'maxDate', getDate(this, TO));
-      });
+	    datepickerFrom.on('change', function() {
+	      datepickerTo.datepicker('option', 'minDate', getDate(this, FROM));
+	    });
+	    datepickerTo.on('change', function() {
+	      datepickerFrom.datepicker('option', 'maxDate', getDate(this, TO));
+	    });
+
+    //  const options = {
+      //  	singleDatePicker: true,
+      //  	// ranges: {
+      //  	// 	cancelLabel: 'Clear'
+      //  	// }
+      //  };
+
+      //  datepickerFrom.daterangepicker(Object.assign({}, options));
+      //  datepickerTo.daterangepicker(Object.assign({}, options));
+
+      //  datepickerFrom.on('hide:daterangepicker', (e,picker) => {
+      //  	console.log(e,picker);
+	    // });
+	    
     }
-
     initSelect() {
     	const {all, adults, children} = this.cache.select;
 
