@@ -20,18 +20,18 @@
 						<input type="text" class="v-form__control" data-datepicker="to" readonly>
 					</div>
 				</div>
-				<div class="v-form__box v-form__box_sm" data-select="adults">
+				<div class="v-form__box v-form__box_sm" data-select-box="adults">
 					<div class="v-form__label">Adults</div>
-					<div class="v-form__field" data-select-prevent>
+					<div class="v-form__field" data-select-box-prevent>
 						{{mixins.icon('adults')}}
 						{{mixins.icon('down')}}
-						<input type="text" class="v-form__control v-form__control_lg" readonly data-select-input>
+						<input type="text" class="v-form__control v-form__control_lg" readonly data-select-box-input>
 					</div>
-					<div class="v-form__dropdown v-form__dropdown_sm" data-select-prevent>
+					<div class="v-form__dropdown v-form__dropdown_sm" data-select-box-prevent>
 						<div class="v-form__label">Adults:</div>
 						<ul class="v-form__list">
 							{% for item in range(0,4) %}
-								<li class="v-form__item" data-value="{{loop.index}}" data-select-item>
+								<li class="v-form__item" data-value="{{loop.index}}" data-select-box-item>
 									{{mixins.icon('adults')}}
 									{{mixins.icon('check')}}
 									<span>{{loop.index}} adult</span>
@@ -40,27 +40,44 @@
 						</ul>
 					</div>
 				</div>
-				<div class="v-form__box v-form__box_sm" data-select="children">
+				<div class="v-form__box v-form__box_sm" data-select-box="children">
 					<div class="v-form__label">Children</div>
-					<div class="v-form__field" data-select-prevent>
+					<div class="v-form__field" data-select-box-prevent>
 						{{mixins.icon('children')}}
 						{{mixins.icon('down')}}
-						<input type="text" class="v-form__control v-form__control_lg" readonly data-select-input>
+						<input type="text" class="v-form__control v-form__control_lg" readonly data-select-box-input>
 					</div>
-					<div class="v-form__dropdown v-form__dropdown_lg" data-select-prevent>
+					<div class="v-form__dropdown v-form__dropdown_lg js-form-ages-container-default" data-select-box-prevent>
 						<div class="v-form__label">Children:</div>
 						<ul class="v-form__list">
 							{% for item in range(0,3) %}
-								<li class="v-form__item" data-value="{{loop.index}}" data-select-item>
+								<li class="v-form__item" data-value="{{loop.index}}" data-select-box-item>
 									{{mixins.icon('children')}}
 									{{mixins.icon('check')}}
 									<span>{{loop.index}} children</span>
 								</li>
 							{% endfor %}
 						</ul>
+						<div class="v-form__items js-form-ages" data-items="0">
+							<div class="v-form__label">Children Age</div>
+							<div class="v-form__container">
+								{% for item in range(0,3) %}
+									<div class="v-form__select" data-select-container>
+										<select name="first_child" data-select="child-{{loop.index}}" style="width: 100%;" data-placeholder="&#8212;">
+											<option></option>
+											<option value="< 1">< 1</option>
+											{% for item in range(0,16) %}
+											    <option value="{{loop.index}}">{{loop.index}}</option>
+											{% endfor %}
+										</select>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="v-form__ages-mobile js-form-ages-container-mobile"></div>
 			<div class="v-form__submit">
 				<button type="submit" class="btn btn_wide">Check Availability</button>
 			</div>

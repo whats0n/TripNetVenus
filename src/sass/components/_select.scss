@@ -1,0 +1,88 @@
+.select2-container {
+	&.select2-container--open {
+		.select2-selection--single {
+			border-color: $lightGreen;
+		}
+	}
+
+	.select2-selection--single {
+		border: 1px solid $lightGray;
+		border-radius: 4px;
+		height: auto;
+		background: $white;
+
+
+
+		.select2-selection__rendered {
+			padding: 2px 16px 2px 8px;
+			@include font(16px, null, 19px);
+
+			@include phone {
+				padding-top: 10px;
+				padding-bottom: 9px;
+			}
+		}
+
+		.select2-selection__arrow {
+			top: 50%;
+			right: 7px;
+			margin-top: -3px;
+			width: 11px;
+			height: 6px;
+			background: url(../img/down.svg) no-repeat center center;
+			background-size: cover;
+
+			b {
+				display: none;
+			}
+		}
+	}
+
+	.select2-dropdown {
+		border: 1px solid $lightGreen;
+		border-radius: 4px;
+		background: $white;
+
+		&.select2-dropdown--above {
+			margin-top: 1px;
+			border-bottom-color: $white;
+			border-radius: 4px 4px 0 0;
+		}
+
+		&.select2-dropdown--below {
+			margin-top: -1px;
+			border-top-color: $white;
+			border-radius: 0 0 4px 4px;
+		}
+	}
+
+	.select2-results__options {
+		max-height: 366px !important;
+
+		@include phone {
+			max-height: 200px !important;
+		}
+	}
+
+	.select2-results__option {
+		padding: 0;
+		margin-bottom: 1px;
+		border-radius: 4px;
+		@include font(16px, null, 18px);
+		text-align: center;
+
+		@include phone {
+			margin-bottom: 3px;
+		}
+
+		&[aria-selected=true] {
+			color: $lightGreen;
+			background: none;
+		}
+
+		&--highlighted[aria-selected] {
+			color: $white;
+			background: $lightGreen;
+		}
+	}
+}

@@ -1,10 +1,26 @@
 .v-form {
 	position: relative;
 	z-index: 5;
+	padding: 0 15px;
+
+	@include phone {
+		position: absolute;
+		z-index: 200;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 0;
+		background: rgba($black, 0.8);
+	}
 	
 	&__inner {
 		margin: -41px auto 0;
 		max-width: 945px;
+
+		@include phone {
+			margin: 0;
+		}
 	}
 
 	&__title {
@@ -13,6 +29,15 @@
 		background: rgba($white,0.8);
 		box-shadow: $container-shadow;
 		text-align: center;
+
+		@include phone {
+			position: relative;
+			padding: 17px 40px 16px 10px;
+			border-radius: 0;
+			background: $white;
+			box-shadow: $container-shadow-phone;
+			text-align: left;
+		}
 	}
 
 	&__body {
@@ -22,17 +47,36 @@
 		box-shadow: $container-shadow;
 		font-size: 0;
 		@include clr;
+
+		@include tablet {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		@include phone {
+			padding-top: 20px;
+			padding-bottom: 25px;
+		}
 	}
 
 	&__row {
 		width: calc(100% - 210px);
 		color: $gray;
 		@include clr;
+
+		@include phone {
+			width: 100%;
+		}
 	}
 
 	&__submit {
 		padding-left: 10px;
 		width: 210px;
+
+		@include phone {
+			padding: 0;
+			width: 100%;
+		}
 	}
 
 	&__row,
@@ -46,6 +90,11 @@
 		float: left;
 		width: 25%;
 
+		@include phone {
+			width: 50%;
+			margin-bottom: 15px;
+		}
+
 		&:first-child {
 			.v-form__control {
 				border-radius: 4px 0 0 4px;
@@ -58,30 +107,67 @@
 			}
 		}
 
+		&:nth-child(2) {
+			.v-form__field {
+				&:before {
+					@include phone {
+						display: none;
+					}
+				}
+			}
+			.v-form__control {
+				@include phone {
+					border-right-width: 1px;
+					border-radius: 0 4px 4px 0;
+				}
+			}
+		}
+
+		&:nth-child(3) {
+			.v-form__control {
+				@include phone {
+					border-radius: 4px 0 0 4px;
+				}
+			}
+		}
+
 		&:not(:last-child) {
 			.v-form__field {
 				&:before {
 					content: '';
 					position: absolute;
+					z-index: 1;
 					top: 0;
 					right: 0;
 					bottom: 0;
 					border-left: 1px solid $lightGreen;
 					opacity: 0;
 					transition: opacity 0.25s;
+
+					@include phone {
+						right: -1px;
+					}
 				}
 			}
 			.v-form__control{
-				border-right: none;
+				border-right-width: 0;
 			}
 		}
 
 		&_lg {
 			width: 30%;
+
+			@include tablet {
+				width: 32.281%;
+			}
 		}
 
 		&_sm {
 			width: 20%;
+
+			@include tablet {
+				width: 17.719%;
+			}
 		}
 
 		&.is-active {
@@ -106,6 +192,15 @@
 				visibility: visible;
 			}
 		}
+
+		> .v-form__label {
+			padding-left: 3px;
+
+			@include phone {
+				padding-left: 5px;
+				@include font(14px, null, 17px);
+			}
+		}
 	}
 
 	&__label {
@@ -128,6 +223,10 @@
 		.icon-adults,
 		.icon-children {
 			left: 15px;
+
+			@include tablet {
+				left: 9px;
+			}
 		}
 
 		.icon-calendar {
@@ -135,10 +234,14 @@
 			font-size: 20px;
 		}
 
-		.icon-adults,
-		.icon-children {
+		.icon-adults{
 			margin-top: -11px;
 			font-size: 23px;
+		}
+
+		.icon-children {
+			margin-top: -10px;
+			font-size: 20px;
 		}
 
 		.icon-down {
@@ -146,6 +249,15 @@
 			margin-top: -3px;
 			font-size: 7px;
 			transition: transform 0.25s;
+
+			@include tablet {
+				right: 10px;
+			}
+
+			@include phone {
+				right: 9px;
+				font-size: 5px;
+			}
 		}
 	}
 
@@ -159,13 +271,29 @@
 		cursor: pointer;
 		transition: border-color 0.25s;
 
+		@include tablet {
+			padding-left: 40px;
+			padding-right: 28px;
+		}
+		
+		@include phone {
+			padding-left: 35px;
+			padding-right: 30px;
+		}
+
 		&_lg {
 			font-size: 16px;
+
+			@include phone {
+				padding-left: 45px;
+				font-size: 14px;
+			}
 		}
 	}
 
 	&__dropdown {
 		position: absolute;
+		z-index: 10;
 		top: 100%;
 		left: 0;
 		padding: 10px 0;
@@ -177,12 +305,25 @@
 		box-shadow: $container-shadow;
 		transition: opacity 0.25s, visibility 0.25s;
 
+		@include phone {
+			width: 100%;
+			min-width: 100%;
+		}
+
 		&_sm {
 			min-width: 175px;
 		}
 
 		&_lg {
 			min-width: 206px;
+		}
+
+		.v-form__label {
+			padding-bottom: 5px;
+
+			@include phone {
+				padding-bottom: 7px;
+			}
 		}
 	}
 
@@ -196,6 +337,10 @@
 		white-space: nowrap;
 		cursor: pointer;
 		transition: color 0.2s, background 0.2s;
+
+		@include phone {
+			padding-left: 42px;
+		}
 
 		@include hover {
 			color: $white;
@@ -224,8 +369,16 @@
 		.icon-adults,
 		.icon-children {
 			left: 15px;
+		}
+
+		.icon-adults{
 			margin-top: -11px;
 			font-size: 23px;
+		}
+
+		.icon-children {
+			margin-top: -10px;
+			font-size: 20px;
 		}
 
 		.icon-check {
@@ -234,6 +387,85 @@
 			color: $white;
 			opacity: 0;
 			font-size: 8px;
+
+			@include phone {
+				right: 10px;
+			}
+		}
+	}
+
+	&__items {
+		display: none;
+		padding-top: 2px;
+		padding-bottom: 5px;
+
+		@include phone {
+			padding-top: 0;
+			padding-bottom: 20px;
+		}
+
+		&[data-items="1"], 
+		&[data-items="2"], 
+		&[data-items="3"], {
+			display: block;
+			.v-form__select:nth-child(1) {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		&[data-items="2"], 
+		&[data-items="3"], {
+			.v-form__select:nth-child(2) {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		&[data-items="3"] {
+			.v-form__select:nth-child(3) {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		.v-form__label {
+			@include phone {
+				padding-left: 5px;
+				@include font(14px, null, 17px);
+			}
+		}
+	}
+
+	&__container {
+		padding: 0 9px;
+		@include clr;
+
+		@include phone {
+			padding: 0;
+		}
+	}
+
+	&__select {
+		float: left;
+		padding: 0 7px;
+		width: 33.33%;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.25s, visibility 0.25s;
+
+		@include phone {
+			padding: 0;
+			margin-right: 15px;
+			width: 60px;
+		}
+	}
+
+	&__ages-mobile {
+		display: none;
+
+		@include phone {
+			display: block;
 		}
 	}
 }

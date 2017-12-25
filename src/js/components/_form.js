@@ -1,5 +1,5 @@
-import daterangepicker from 'daterangepicker';
-import {ACTIVE, DOC} from '../_constants';
+import {ACTIVE, DOC, WIN, phoneWidth} from '../_constants';
+import {getWidth} from '../_utils';
 
 ;(() => {
 
@@ -17,24 +17,43 @@ import {ACTIVE, DOC} from '../_constants';
     }
 
     initializeCache() {
-      this.cache.main = this.options.main;
-      this.cache.datepickerFrom = this.options.main.find('[data-datepicker="from"]');
-      this.cache.datepickerTo = this.options.main.find('[data-datepicker="to"]');
+    	const {main} = this.options;
+      this.cache.main = main;
+      this.cache.datepickerFrom = main.find('[data-datepicker="from"]');
+      this.cache.datepickerTo = main.find('[data-datepicker="to"]');
+      this.cache.ages = main.find('.js-form-ages');
+      this.cache.containers = {
+        ages: {
+          default: main.find('.js-form-ages-container-default'),
+          mobile: main.find('.js-form-ages-container-mobile')
+        }
+      };
+      this.cache.selectBox = {
+      	all: main.find('[data-select-box]'),
+      	adults: main.find('[data-select-box="adults"]'),
+      	children: main.find('[data-select-box="children"]')
+      };
       this.cache.select = {
-      	all: this.options.main.find('[data-select]'),
-      	adults: this.options.main.find('[data-select="adults"]'),
-      	children: this.options.main.find('[data-select="children"]')
+        all: main.find('[data-select]'),
+        first: main.find('[data-select="child-1"]'),
+        second: main.find('[data-select="child-2"]'),
+        third: main.find('[data-select="child-3"]')
       };
     }
 
     initializeEvents() {
       this.initDatepickers();
+      this.initSelectBox();
       this.initSelect();
+			
+      this.moveAges = this.moveAges.bind(this);
+      this.moveAges();
+      WIN.on('resize', this.moveAges);
     }
 
     initDatepickers() {
     	const {datepickerFrom, datepickerTo} = this.cache;
-    	const dateFormat = 'd - M - yy';
+    	const dateFormat = 'd-M-yy';
     	const FROM = 'FROM';
     	const TO = 'TO';
     	const minFrom = new Date();
@@ -81,29 +100,16 @@ import {ACTIVE, DOC} from '../_constants';
 	    datepickerTo.on('change', function() {
 	      datepickerFrom.datepicker('option', 'maxDate', getDate(this, TO));
 	    });
-
-    //  const options = {
-      //  	singleDatePicker: true,
-      //  	// ranges: {
-      //  	// 	cancelLabel: 'Clear'
-      //  	// }
-      //  };
-
-      //  datepickerFrom.daterangepicker(Object.assign({}, options));
-      //  datepickerTo.daterangepicker(Object.assign({}, options));
-
-      //  datepickerFrom.on('hide:daterangepicker', (e,picker) => {
-      //  	console.log(e,picker);
-	    // });
-	    
     }
-    initSelect() {
-    	const {all, adults, children} = this.cache.select;
+
+    initSelectBox() {
+    	const {all, adults, children} = this.cache.selectBox;
+    	const {ages} = this.cache;
 
     	const enableSelect = (select, single) => {
     		select = $(select);
-        const input = select.find('[data-select-input]');
-        const items = select.find('[data-select-item]');
+        const input = select.find('[data-select-box-input]');
+        const items = select.find('[data-select-box-item]');
 				
         input.on('click', e => {
         	if (select.hasClass(ACTIVE)) {
@@ -123,18 +129,41 @@ import {ACTIVE, DOC} from '../_constants';
           if (single) select.removeClass(ACTIVE);
         });
     	};
+
       adults.each((i, select) => {
       	enableSelect(select, true);
       });
       children.each((i, select) => {
       	enableSelect(select);
+        $(select).find('[data-select-box-item]').on('click', e => ages.attr('data-items', $(e.currentTarget).data('value')));
       });
       DOC.on('click', e => {
         const target = $(e.target);
-        if (target.closest('[data-select-prevent]').length ||
+        if (target.closest('[data-select-box-prevent]').length ||
 					!all.hasClass(ACTIVE)) return;
         all.removeClass(ACTIVE);
       });
+    }
+
+    initSelect() {
+      const {select} = this.cache;
+      select.all.each((i, select) => {
+      	const _this = $(select);
+      	const placeholder = _this.data('placeholder');
+      	const container = _this.closest('[data-select-container]');
+      	_this.select2({
+	      	minimumResultsForSearch: Infinity,
+      		placeholder: placeholder,
+      		dropdownParent: container
+      	});
+      });
+    }
+
+    moveAges() {
+    	const {ages, containers} = this.cache;
+    	getWidth(phoneWidth)
+    		? ages.appendTo(containers.ages.mobile) 
+    		: ages.appendTo(containers.ages.default);
     }
 
   }

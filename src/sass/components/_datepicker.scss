@@ -7,6 +7,12 @@
 	background: $white;
 	box-shadow: $container-shadow;
 
+	@include phone {
+		left: 50% !important;
+		margin-left: -150px;
+		width: 300px;
+	}
+
 	.ui-datepicker-header {
 		position: relative;
 		padding: 10px 30px;
@@ -95,14 +101,21 @@
 
 	td {
 		padding: 2px 4px;
+
+		@include phone {
+			padding: 4px;
+		}
+
 		a,
 		span {
 			padding: 3px 0;
 		}
 
 		a {
+			margin: 0 auto;
 			border: 1px solid $lightGreen;
 			border-radius: 4px;
+			width: 25px;
 			transition: border-color 0.25s, color 0.25s, background 0.25s;
 
 			&:not(.ui-priority-secondary) {

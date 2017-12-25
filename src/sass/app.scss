@@ -5,6 +5,7 @@
 	@import 'lib/slick';
 	@import 'lib/jquery-ui.min';
 	@import 'lib/jquery-ui.theme.min';
+	@import 'lib/select2.min';
 	// @import 'lib/daterangepicker';
 
 	@import 'common';
@@ -31,4 +32,5 @@
 
 	@import 'components/form';
 	@import 'components/datepicker';
+	@import 'components/select';
 }

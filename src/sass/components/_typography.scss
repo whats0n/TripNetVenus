@@ -1,6 +1,10 @@
 .title-lg {
 	@include font(18px, 700, 22px);
 	text-transform: uppercase;
+
+	@include phone {
+		@include font(15px, null, 18px);
+	}
 }
 
 .title-md {
