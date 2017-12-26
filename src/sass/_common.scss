@@ -8,6 +8,10 @@
 	font-family: $lato;
 }
 
+[hidden] {
+	display: none !important;
+}
+
 .v-inner {
 	position: relative;
 	padding-left: 20px;
@@ -44,6 +48,50 @@
 		@include phone {
 			opacity: 1;
 			visibility: visible;
+		}
+	}
+}
+
+.slick {
+	&-dots {
+		font-size: 0;
+
+		li {
+			display: inline-block;
+			vertical-align: top;
+			margin: -5px 0;
+
+			&.slick-active {
+				button:after {
+					opacity: 1;
+				}
+			}
+
+			button {
+				position: relative;
+				width: 20px;
+				height: 20px;
+				background: none;
+				font-size: 0;
+
+				&:before,
+				&:after {
+					content: '';
+					position: absolute;
+					top: 5px;
+					left: 5px;
+					right: 5px;
+					bottom: 5px;
+					border: 1px solid $lightGreen;
+					border-radius: 50%;
+				}
+
+				&:after {
+					opacity: 0;
+					background: $lightGreen;
+					transition: opacity 0.25s;
+				}
+			}
 		}
 	}
 }

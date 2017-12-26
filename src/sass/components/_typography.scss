@@ -10,4 +10,8 @@
 .title-md {
 	@include font(14px, 700, 17px);
 	text-transform: uppercase;
+
+	@include phone {
+		@include font(13px, null, 16px);
+	}
 }

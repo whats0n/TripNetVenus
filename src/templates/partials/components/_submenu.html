@@ -1,0 +1,28 @@
+<!-- begin v-submenu -->
+<div class="v-submenu js-submenu">
+	<div class="v-submenu__wrap js-submenu-inner">
+		<div class="v-submenu__container">
+			<div class="v-submenu__inner">
+				<button class="v-submenu__btn js-submenu-btn">
+					<span class="v-submenu__value js-submenu-value">Overview</span>
+					{{mixins.icon('down')}}
+				</button>
+				<ul class="v-submenu__list js-submenu-list">
+					{% for item in [
+						{ target: 'overview', title: 'OVERVIEW' },
+						{ target: 'gallery', title: 'GALLERY' },
+						{ target: 'amenities', title: 'AMENITIES' },
+						{ target: 'rooms', title: 'ROOMS' },
+						{ target: 'location', title: 'LOCATION' },
+						{ target: 'review', title: 'REVIEW' }
+					] %}
+						<li class="v-submenu__item">
+							<a href="#{{item.target}}" class="v-submenu__link js-submenu-link">{{item.title}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end v-submenu -->

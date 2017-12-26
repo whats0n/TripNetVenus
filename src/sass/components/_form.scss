@@ -11,7 +11,23 @@
 		right: 0;
 		bottom: 0;
 		padding: 0;
+		opacity: 0;
+		visibility: hidden;
 		background: rgba($black, 0.8);
+		transition: opacity 0.3s, visibility 0.3s;
+	}
+
+	&.is-open {
+		@include phone {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.v-form__inner {
+			@include phone {
+				@include gpu;
+			}
+		}
 	}
 	
 	&__inner {
@@ -20,6 +36,8 @@
 
 		@include phone {
 			margin: 0;
+			transform: translate3d(0,-100%,0);
+			transition: transform 0.3s;
 		}
 	}
 

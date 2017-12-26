@@ -1,0 +1,160 @@
+.v-overview {
+	background: rgba(207,222,229,0.25);
+
+	&.is-cutted {
+		.v-overview__text {
+			max-height: none;
+		}
+
+		.v-overview__less {
+			display: inline-block;
+		}
+
+		.v-overview__more {
+			display: none;
+		}
+
+		.v-overview__btn {
+			.icon-down {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__inner {
+		padding-top: 40px;
+		padding-bottom: 25px;
+
+		@include phone {
+			padding-top: 25px;
+			padding-bottom: 10px;
+		}
+	}
+
+	&__title {
+		margin-bottom: 15px;
+		text-align: center;
+
+		@include phone {
+			margin-bottom: 5px;
+		}
+	}
+
+	&__content {
+		float: left;
+		padding: 15px 15px 15px 0;
+		width: 50%;
+		@include font(14px, null, 24px);
+
+		@include phone {
+			padding: 10px 0 5px;
+			width: 100%;
+			line-height: 20px;
+		}
+	}
+
+	&__text {
+		overflow: hidden;
+		max-height: 216px;
+
+		@include phone {
+			max-height: 200px;
+		}
+	}
+
+	&__less {
+		display: none;
+	}
+
+	&__btn {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		padding-right: 14px;
+		color: $blue;
+		font-weight: 700;
+
+		.icon-down {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin-top: -2px;
+			fill: currentColor;
+			font-size: 5px;
+		}
+	}
+
+	&__items {
+		float: right;
+		padding-left: 15px;
+		width: 50%;
+		font-size: 0;
+
+		@include phone {
+			padding: 10px 0;
+			width: 100%;
+		}
+	}
+
+	&__items-in {
+		margin: 0 -15px;
+
+		@include phone {
+			margin: 0 -5px;
+		}
+	}
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		padding: 15px;
+		width: 50%;
+
+		@include phone {
+			padding: 5px;
+		}
+
+		&[data-visible="hidden"] {
+			display: none;
+		}
+	}
+
+	&__box {
+		padding: 15px 15px 12px;
+		border-radius: 4px;
+		background: $white;
+		box-shadow: $container-shadow;
+		text-align: center;
+
+		@include phone {
+			padding: 25px 15px;
+		}
+	}
+
+	&__icon {
+		margin-bottom: 10px;
+		height: 34px;
+		@include vertical;
+
+		.icon {
+			display: inline-block;
+			vertical-align: middle;
+			fill: $blue;
+			font-size: 34px;
+		}
+	}
+
+	&__subtitle {
+		@include textoverflow;
+	}
+
+	&__description {
+		margin-top: 5px;
+		@include font(14px, null, 17px);
+		@include textoverflow;
+
+		@include phone {
+			display: none;
+		}
+	}
+}
