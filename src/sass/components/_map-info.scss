@@ -1,0 +1,105 @@
+.v-map-info {
+	position: relative;
+	padding-top: 15px;
+	padding-bottom: 7px;
+
+	@include phone {
+		padding: 15px 0 5px;
+	}
+
+	&:not(:last-child) {
+		&:after {
+			content: '';
+			position: absolute;
+			left: 10px;
+			right: 10px;
+			bottom: 0;
+			border-bottom: 1px solid $theme-main-color;
+
+			@include tablet {
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	&__header {
+		padding-bottom: 8px;
+		font-size: 0;
+		text-align: center;
+
+		@include tablet {
+			padding-left: 16px;
+			text-align: left;
+		}
+
+		@include phone {
+			padding: 0 0 10px 0;
+		}
+
+		.icon {
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 5px;
+			fill: $blue;
+		}
+
+		.icon-airplane {
+			font-size: 22px;
+		}
+
+		.icon-train {
+			font-size: 24px;
+		}
+
+		.icon-diamond {
+			font-size: 21px;
+		}
+	}
+
+	&__title {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__item {
+		position: relative;
+		padding-left: 16px;
+		@include font(14px, null, 17px);
+		@include clr;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 11px;
+			left: 0;
+			border-radius: 50%;
+			width: 6px;
+			height: 6px;
+			background: $theme-main-color-darken;
+		}
+
+		a {
+			display: block;
+			padding: 7px 0 8px;
+			@include clr;
+
+			@include phone {
+				padding: 5px 0;
+			}
+		}
+	}
+
+	&__key {
+		float: left;
+		width: 75%;
+	}
+
+	&__value {
+		float: right;
+		width: 25%;
+		opacity: 0.5;
+		@include font(12px, 700, 17px);
+		text-align: right;
+	}
+}

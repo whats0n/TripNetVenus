@@ -1,14 +1,25 @@
 @import 'helpers/all';
 
 .Venus {
+	color: $gray;
+	font-family: $lato;
+	@include font(14px, 400, 1.3);
+
+	&.is-overflow-hidden {
+		overflow: hidden;
+	}
+
 	@import 'generated/sprite-svg';
 	@import 'lib/slick';
-	@import 'lib/jquery-ui.min';
-	@import 'lib/jquery-ui.theme.min';
 	@import 'lib/select2.min';
-	// @import 'lib/daterangepicker';
+	@import 'lib/_bootstrap-datepicker';
 
 	@import 'common';
+
+	@import 'components/accordion';
+	@import 'components/tabs';
+	@import 'components/autocomplete';
+	@import 'components/scrollbar';
 
 	@import 'components/typography';
 
@@ -20,6 +31,7 @@
 	@import 'components/stars';
 	@import 'components/rating';
 	@import 'components/list';
+	@import 'components/pagination';
 
 	@import 'components/logo';
 	@import 'components/nav';
@@ -31,10 +43,42 @@
 	@import 'components/hero';
 
 	@import 'components/form';
+	@import 'components/fixed-button';
 	@import 'components/datepicker';
 	@import 'components/select';
 
+	@import 'components/item';
+	@import 'components/img-box';
+
 	@import 'components/submenu';
+	@import 'components/slider';
 	@import 'components/gallery';
 	@import 'components/overview';
+	@import 'components/service';
+	@import 'components/policy';
+	@import 'components/amenities';
+
+	@import 'components/map-switches';
+	@import 'components/map-control';
+	@import 'components/map-info';
+	@import 'components/map-type';
+	@import 'components/map-group';
+	@import 'components/map-path';
+	@import 'components/map-meta';
+	@import 'components/map-item';
+	@import 'components/info-box';
+	@import 'components/location';
+
+	@import 'components/rating-box';
+	@import 'components/comment';
+	@import 'components/review';
+	@import 'components/radio';
+	@import 'components/radios';
+	@import 'components/input';
+	@import 'components/textarea';
+	@import 'components/sm-form';
+	@import 'components/popular';
+
+	@import 'components/social';
+	@import 'components/footer';
 }

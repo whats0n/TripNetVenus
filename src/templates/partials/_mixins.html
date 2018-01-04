@@ -1,3 +1,45 @@
 {% macro icon(i) %}
 <svg class="icon icon-{{i}}"><use xlink:href="img/sprite.svg#icon-{{i}}"></use></svg>
 {% endmacro %}
+
+{% macro radios(props) %}
+<div class="v-radios">
+	<div class="v-radios__label">{{props.label}}</div>
+	{% for item in range(0,props.range or 5) %}
+		{{radio({
+			classList: 'v-radios__item',
+			name: props.name,
+			checked: loop.index == props.active
+		})}}
+	{% endfor %}
+	{{icon('check')}}
+</div>
+{% endmacro %}
+
+{% macro radio(props) %}
+<label class="v-radio {{props.classList}}">
+	<input type="radio" name="{{props.name}}" {% if props.checked %}checked{% endif %}>
+	<span class="v-radio__icon"></span>
+</label>
+{% endmacro %}
+
+{% macro input(props) %}
+<div class="v-input js-input">
+	{{icon('check')}}
+	{{icon('close')}}
+	<input type="{{props.type or 'text'}}" class="v-input__field js-input-field">
+	<div class="v-input__label">{{props.placeholder}}</div>
+	{% if props.errorMessage %}
+		<div class="v-input__message">{{props.errorMessage}}</div>
+	{% endif %}
+</div>
+{% endmacro %}
+
+{% macro textarea(props) %}
+<div class="v-textarea js-input">
+	<textarea class="v-textarea__field js-input-field" placeholder="{{props.placeholder or 'Type something'}}"></textarea>
+	<div class="v-textarea__icon">
+		{{icon('speech-bubble')}}
+	</div>
+</div>
+{% endmacro %}

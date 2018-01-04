@@ -1,0 +1,70 @@
+.v-slider {
+
+	&__inner {
+		margin: 0 -15px;
+
+		@include tablet {
+			margin: 0 -10px;
+		}
+
+		@include phone {
+			overflow: hidden;
+		}
+
+		.slick-list {
+			@include phone {
+				margin-left: -44px;
+			}
+		}
+	}
+	
+
+	&__item {
+		float: left;
+		padding: 30px 15px;
+		width: 33.33%;
+
+		@include tablet {
+			padding-left: 10px;
+			padding-right: 10px;
+			width: 50%;
+		}
+
+		@include phone {
+			// padding: 15px 5px 26px;
+			padding: 15px 0 26px 10px;
+			width: 276px;
+		}
+	}
+
+	
+	&__prev,
+	&__next {
+		position: absolute;
+		top: 50%;
+		margin-top: -20px;
+	}
+
+	&__prev {
+		left: -77px;
+
+		@include mediaWidth(1400) {
+			left: -40px;
+		}
+	}
+
+	&__next {
+		right: -77px;
+
+		@include mediaWidth(1400) {
+			right: -40px;
+		}
+	}
+
+	&__dots {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

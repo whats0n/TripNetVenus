@@ -4,8 +4,8 @@
 	padding: 0 15px;
 
 	@include phone {
-		position: absolute;
-		z-index: 200;
+		position: fixed;
+		z-index: 300;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -156,9 +156,9 @@
 					position: absolute;
 					z-index: 1;
 					top: 0;
-					right: 0;
+					right: -1px;
 					bottom: 0;
-					border-left: 1px solid $lightGreen;
+					border-left: 1px solid $theme-main-color;
 					opacity: 0;
 					transition: opacity 0.25s;
 
@@ -196,14 +196,14 @@
 				.icon-adults,
 				.icon-children,
 				.icon-calendar {
-					fill: $lightGreen;
+					fill: $theme-main-color;
 				}
 				.icon-down {
 					transform: rotate(180deg);
 				}
 			}
 			.v-form__control {
-				border-color: $lightGreen;
+				border-color: $theme-main-color;
 			}
 			.v-form__dropdown {
 				opacity: 1;
@@ -362,12 +362,12 @@
 
 		@include hover {
 			color: $white;
-			background: $lightGreen;
+			background: $theme-main-color;
 		}
 
 		&.is-active {
 			color: $white;
-			background: $lightGreen;
+			background: $theme-main-color;
 			.icon-check {
 				opacity: 1;
 			}
@@ -484,6 +484,31 @@
 
 		@include phone {
 			display: block;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: none;
+		padding: 17px 10px 16px;
+		opacity: 0.5;
+		background: none;
+		font-size: 0;
+		transition: opacity 0.25s;
+
+		@include phone {
+			display: block;
+		}
+
+		@include hover {
+			opacity: 1;
+		}
+
+		.icon {
+			fill: $gray;
+			font-size: 18px;
 		}
 	}
 }

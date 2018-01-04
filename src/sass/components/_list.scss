@@ -1,4 +1,73 @@
 .v-list {
+	
+	&_tablet-inline {
+		@include tablet {
+			position: relative;
+			padding-left: 16px;
+		}
+
+		@include phone {
+			padding-left: 0;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 11px;
+			left: 0;
+			display: none;
+			border-radius: 50%;
+			width: 6px;
+			height: 6px;
+			background: $theme-main-color-darken;
+
+			@include tablet {
+				display: block;
+			}
+
+			@include phone {
+				display: none;
+			}
+		}
+
+		.v-list__item {
+			@include tablet {
+				display: inline-block;
+				vertical-align: top;
+				padding: 5px 0;
+			}
+
+			@include phone {
+				display: block;
+				padding: 5px 0 5px 16px;
+			}
+
+			&:before {
+				@include tablet {
+					display: none;
+				}
+
+				@include phone {
+					display: block;
+				}
+			}
+
+			&:not(:last-child) {
+				&:after {
+					@include tablet {
+						content: ',';
+						display: inline-block;
+						vertical-align: top;
+					}
+
+					@include phone {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
 	&__item {
 		position: relative;
 		padding: 5px 0 5px 16px;
@@ -12,7 +81,7 @@
 			border-radius: 50%;
 			width: 6px;
 			height: 6px;
-			background: $green;
+			background: $theme-main-color-darken;
 		}
 	}
 

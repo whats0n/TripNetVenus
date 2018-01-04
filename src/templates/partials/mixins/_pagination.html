@@ -1,0 +1,30 @@
+{% import 'partials/_mixins.html' as mixins %}
+{% macro call(props) %}
+<!-- begin v-pagination -->
+<div class="v-pagination {{props.classList}}">
+	<div class="v-pagination__inner">
+		<a href="#" class="v-pagination__prev is-disabled">
+			{{mixins.icon('prev')}}
+			<span>Previous</span>
+		</a>
+		<div class="v-pagination__pages">
+			{% for item in range(0,3) %}
+				{% if loop.first %}
+					<a href="#" class="v-pagination__page is-active">{{loop.index}}</a>
+				{% else %}
+					<a href="#" class="v-pagination__page">{{loop.index}}</a>
+				{% endif %}
+			{% endfor %}
+			<span class="v-pagination__splitter">
+				<span>. . . . . . . . .</span>
+			</span>
+			<a href="#" class="v-pagination__page v-pagination__last">10</a>
+		</div>
+		<a href="#" class="v-pagination__next">
+			<span>Next</span>
+			{{mixins.icon('next')}}
+		</a>
+	</div>	
+</div>
+<!-- end v-pagination -->
+{% endmacro %}

@@ -1,0 +1,234 @@
+.v-rating-box {
+	padding: 20px;
+	border-radius: 4px;
+	background: $white;
+	box-shadow: $container-shadow;
+	@include clr;
+
+	@include tablet {
+		padding: 20px 15px 25px;
+	}
+
+	@include phone {
+		padding: 15px 10px;
+	}
+
+	&__header {
+		position: relative;
+		padding-bottom: 20px;
+
+		@include tablet {
+			float: left;
+			width: 34%;
+		}
+
+		@include phone {
+			float: none;
+			padding-bottom: 10px;
+			width: 100%;
+		}
+	}
+
+	&__out {
+		position: relative;
+		padding: 8px 0 8px 79px;
+		min-height: 54px;
+		font-size: 0;
+
+		@include phone {
+			padding: 7px 0 4px 74px;
+		}
+	}
+
+	&__evaluation {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 7px 5px;
+		border-radius: 4px;
+		width: 54px;
+		height: 54px;
+		color: $white;
+		background: $theme-main-color;
+		text-align: center;
+
+		strong,
+		small {
+			display: block;
+		}
+
+		strong {
+			margin-bottom: -2px;
+			@include font(22px, 900, 27px);
+		}
+
+		small {
+			@include font(12px, 700, 15px);
+		}
+	}
+
+	&__logo {
+		margin-bottom: 4px;
+		height: 21px;
+		opacity: 0.5;
+
+		@include phone {
+			margin-bottom: 6px;
+			height: 17px;
+		}
+	}
+
+	&__meta {
+		@include font(14px, null, 13px);
+
+		@include phone {
+			line-height: 20px;
+		}
+	}
+
+	&__info {
+		padding-top: 15px;
+		max-width: 205px;
+		@include font(14px, null, 21px);
+
+		@include phone {
+			padding-top: 10px;
+			line-height: 20px;
+		}
+
+		strong {
+			color: $blue;
+			font-weight: 700;
+		}
+	}
+
+	&__body {
+		position: relative;
+		padding-top: 20px;
+
+		@include tablet {
+			float: left;
+			padding: 0 0 0 32px;
+			width: 66%;
+			font-size: 0;
+		}
+
+		@include phone {
+			float: none;
+			padding: 15px 0 5px;
+			width: 100%;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 10px;
+			right: 10px;
+			border-bottom: 1px solid $theme-main-color;
+
+			@include tablet {
+				left: 0;
+				right: auto;
+				bottom: 5px;
+				border-left: 1px solid $theme-main-color;
+				border-bottom: none;
+			}
+
+			@include phone {
+				right: 0;
+				bottom: auto;
+				border-bottom: 1px solid $theme-main-color;
+			}
+		}
+	}
+
+	&__title {
+		margin-bottom: 9px;
+		text-align: center;
+
+		@include tablet {
+			margin: 0;
+			text-align: left;
+		}
+
+		@include phone {
+			margin-bottom: 10px;
+			text-align: center;
+		}
+	}
+
+	&__item {
+		padding: 10px 0;
+		font-size: 0;
+
+		@include tablet {
+			display: inline-block;
+			vertical-align: top;
+			padding: 15px 0;
+			width: 50%;
+		}
+
+		@include phone {
+			padding: 5px 0;
+			width: 100%;
+		}
+
+		&-in,
+		&-icon {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		&-in {
+			padding-left: 61px;
+			margin-left: -61px;
+			width: 100%;
+		}
+
+		&-icon {
+			width: 61px;
+		}
+
+		.icon {
+			fill: $blue;
+		}
+
+		.icon-sunset,
+		.icon-vegetables {
+			font-size: 30px;
+
+			@include phone {
+				font-size: 28px;
+			}
+		}
+
+		.icon-map {
+			font-size: 34px;
+
+			@include phone {
+				font-size: 30px;
+			}
+		}
+
+		.icon-livingroom {
+			font-size: 27px;
+
+			@include phone {
+				font-size: 19px;
+			}
+		}
+
+		.v-rating-box__meta {
+			line-height: 21px;
+
+			@include phone {
+				line-height: 20px;
+			}
+		}
+	}
+
+	&__subtitle {
+		@include font(14px, 700, 21px);
+	}
+}

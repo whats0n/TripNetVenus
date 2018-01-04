@@ -1,0 +1,43 @@
+.v-scrollbar {
+	position: relative;
+	overflow: hidden !important;
+
+	&.ps--active-y {
+		padding-right: 26px;
+	}
+
+	.ps__rail-y {
+		position: absolute;
+		top: 0;
+		right: 10px;
+		width: 6px;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 5px;
+			left: 0;
+			right: 0;
+			bottom: 5px;
+			border-radius: 4px;
+			background: rgba($lightGray, 0.5);
+		}
+	}
+
+	.ps__thumb-y {
+		position: absolute;
+		left: 0;
+		right: 0;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 5px;
+			left: 0;
+			right: 0;
+			bottom: 5px;
+			background: $lightGray;
+			border-radius: 4px;
+		}
+	}
+}

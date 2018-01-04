@@ -1,0 +1,48 @@
+[data-accordion-main] {
+	[data-accordion-btn] {
+		&.is-active {
+			.icon-down {
+				transform: translate3d(0,-50%,0) rotate(180deg);
+			}
+		}
+
+		.icon-down {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			font-size: 6px;
+			fill: currentColor;
+			transform: translate3d(0,-50%,0);
+			transition: transform .25s;
+		}
+	}
+}
+
+[data-accordion-main*="phone"] {
+	[data-accordion-btn] {
+		
+		@include phone {
+			cursor: pointer;
+		}
+
+		.icon-down {
+			display: none;
+
+			@include phone {
+				display: block;
+			}
+		}
+	}
+
+	[data-accordion-container] {
+		@include phone {
+			display: none;
+		}
+
+		&.is-active {
+			@include phone {
+				display: block;
+			}
+		}
+	}
+}

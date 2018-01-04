@@ -1,0 +1,36 @@
+<!-- begin v-popular -->
+<div class="v-popular js-more">
+	<div class="v-inner v-popular__inner">
+		<div class="v-popular__title">Popular hotels in Upper Normandy</div>
+		<div class="v-popular__content js-more-content">
+			<ul class="v-popular__list">
+				{% for item in [
+					'Hotel De Paris Rouen ',
+					'Mont Vernon Hotel',
+					'Hotel Normandy Vernon',
+					'Hotel Au Grand Duquesne Dieppe',
+					'Ibis Rouen Champ De Mars ',
+					'Premiere Classe Rouen Sud Hotel ',
+					'Continental Forges',
+					'Le Drakkar',
+					'Val De Reuil Novotel Rouen Sud',
+					'Motel Aubin',
+					'Hotel De La Cathedrale',
+					'Hotel Bonaparte Rouen ',
+					'Le Manoir Des Deux Amants',
+					'Hotel Normandy Vernon',
+					'Hotel De Bourgtheroulde',
+					' Qualys Hotel La Berteliere Rouen'
+				] %}
+					<li class="v-popular__item">
+						<a href="#">{{item}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="v-popular__more">
+			<a href="#" class="js-more-control">More hotels {{mixins.icon('down')}}</a>
+		</div>
+	</div>
+</div>
+<!-- end v-popular -->

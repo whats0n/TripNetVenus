@@ -1,0 +1,20 @@
+<div class="v-amenities__item v-amenities__extra">
+	<div class="v-service v-service_wide">
+		<div class="v-service__header">
+			<div class="v-service__icon">
+				{{mixins.icon('children')}}
+			</div>
+			<h3 class="title-md v-service__title">Children and extra beds</h3>
+		</div>
+		<ul class="v-service__list">
+			{% for item in [
+				'Older children/adults may stay at the price of EUR 55 per person per night  in an extra bed.',
+				'All children under the age of 12 may  stay at the price of EUR 20 per person per night in an extra bed.',
+				'All children under the age of 2 may stay at the price of EUR 15 per person per night in a crib.',
+				'Maximum capacity of extra beds in a room is 1.'
+			] %}
+				<li class="v-service__item">{{item}}</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

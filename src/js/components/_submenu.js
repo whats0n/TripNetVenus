@@ -1,4 +1,4 @@
-import {ACTIVE, FIXED, DOC} from '../_constants';
+import {ACTIVE, FIXED, DOC, WIN} from '../_constants';
 
 ;(() => {
 
@@ -24,12 +24,16 @@ import {ACTIVE, FIXED, DOC} from '../_constants';
       this.cache.link = container.find('.js-submenu-link');
       this.cache.btn = container.find('.js-submenu-btn');
       this.cache.value = container.find('.js-submenu-value');
+      this.cache.sections = $('[data-scrollto-section]');
     }
 
     initializeEvents() {
       this.handleOnLinkClick();
       this.handleOnBtnClick();
       this.handleOnDocumentClick();
+      this.detectPosition();
+
+      WIN.on('scroll', () => this.detectPosition());
     }
 
     handleOnLinkClick() {
@@ -38,11 +42,9 @@ import {ACTIVE, FIXED, DOC} from '../_constants';
       link.on('click', e => {
         e.preventDefault();
         const _this = $(e.currentTarget);
-        const text = _this.text();
 
         link.removeClass(ACTIVE);
-        _this.addClass(ACTIVE);
-        value.text(text);
+        this.setActive(_this);
         this.close();
       });
     }
@@ -63,6 +65,46 @@ import {ACTIVE, FIXED, DOC} from '../_constants';
           !this.cache.container.hasClass(ACTIVE)) return;
         this.close();
       });
+    }
+
+    detectPosition() {
+      const {link, sections, container, inner} = this.cache;
+      container.css('min-height', inner.outerHeight());
+
+      const winTop = WIN.scrollTop();
+      const winHeight = WIN.outerHeight();
+      const winBottom = winTop + winHeight;
+      const containerHeight = container.outerHeight();
+      
+
+      if (winTop >= container.offset().top) {
+        container.addClass(FIXED);
+      } else {
+        container.removeClass(FIXED);
+      }
+
+      sections.each((i, section) => {
+        const _this = $(section);
+        const target = _this.data('scrollto-section');
+        const offset = _this.offset();
+        const height = +_this.outerHeight().toFixed();
+        const control = link.filter(`[data-scrollto="${target}"]`);
+        const top = +offset.top.toFixed();
+        
+        if (!control.length) return;
+        
+        if (top <= winTop + containerHeight && top + height > winTop + containerHeight) {
+          this.setActive(control);
+        } else {
+          control.removeClass(ACTIVE);;
+        }
+      });
+    }
+
+    setActive(control) {
+      const text = control.text();
+      control.addClass(ACTIVE);
+      this.cache.value.text(text);
     }
 
     close() {

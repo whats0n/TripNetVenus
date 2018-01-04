@@ -1,0 +1,11 @@
+{% import 'partials/_mixins.html' as mixins %}
+{% macro call(img) %}
+<a href="#" class="v-img-box">
+	<div class="v-img-box__picture" style="background-image: url({{img}});">
+		<div class="v-img-box__btn">
+			{{mixins.icon('picture')}}
+			<span>Photo Gallery</span>
+		</div>
+	</div>
+</a>
+{% endmacro %}

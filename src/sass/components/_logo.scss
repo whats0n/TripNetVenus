@@ -38,4 +38,35 @@
 			@include font(9px, null, 11px);
 		}
 	}
+
+	//mod
+
+	&_lg {
+		.icon {
+			font-size: 17px;
+
+			@include phone {
+				font-size: 17px;
+			}
+		}
+		
+		.v-logo {
+			&__title {
+				margin: 0;
+				@include font(23px, null, 28px);
+
+				@include phone {
+					@include font(23px, null, 28px);
+				}
+			}
+
+			&__subtitle {
+				@include font(15px, null, 18px);
+
+				@include phone {
+					@include font(15px, null, 18px);
+				}
+			}
+		}
+	}
 }

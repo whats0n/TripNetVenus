@@ -1,0 +1,79 @@
+<div class="v-amenities__items" data-accordion-main="phone">
+	{% for item in [
+		{
+			icon: 'reception',
+			title: 'General',
+			list: [
+				'On-site parking',
+				'Free Wi-Fi in public areas',
+				'Express Check-in/Check-out',
+				'24-Hour front desk',
+				'Non-smoking rooms',
+				'Soundproofed rooms',
+				'Rooms/Facilities for disabled',
+				'Business center',
+				'Terrace',
+				'Garden',
+				'All Spaces Non-smoking',
+				'Elevator',
+				'Pets Allowed'
+			]
+		},
+		{
+			icon: 'bar',
+			title: 'Food & Drinks',
+			list: [
+				'Restaurant',
+				"Children's menu",
+				'Bar'
+			]
+		},
+		{
+			icon: 'gym',
+			title: 'Leisure & Activities',
+			list: [
+				'Golf course',
+				'Billiards'
+			]
+		},
+		{
+			icon: 'room-service',
+			title: 'Services',
+			list: [
+				'Breakfast in the Room',
+				'Meeting/Banquet Facilities',
+				'Fax/Photocopying',
+				'Laundry',
+				'Ironing Service'
+			]
+		},
+		{
+			icon: 'hotel',
+			title: 'Room Amenities',
+			list: [
+				'Heating',
+				'Dressing area',
+				'Carpeted floor',
+				'Mini-bar',
+				'AM/FM Alarm clock'
+			]
+		}
+	] %}
+		<div class="v-amenities__item">
+			<div class="v-service" data-accordion-item>
+				<div class="v-service__header" data-accordion-btn>
+					<div class="v-service__icon">
+						{{mixins.icon(item.icon)}}
+					</div>
+					{{mixins.icon('down')}}
+					<h3 class="title-md v-service__title">{{item.title}}</h3>
+				</div>
+				<ul class="v-service__list" data-accordion-container>
+					{% for item in item.list %}
+						<li class="v-service__item">{{item}}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	{% endfor %}
+</div>

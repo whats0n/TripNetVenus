@@ -8,6 +8,7 @@
 	box-shadow: $btn-shadow;
 	font-size: 0;
 	text-transform: uppercase;
+	transition: color 0.25s;
 
 	@include tablet {
 		padding: 15px;
@@ -19,6 +20,10 @@
 		color: $white;
 		background: none;
 		box-shadow: none;
+	}
+
+	@include hover {
+		color: $blue;
 	}
 
 	.icon,

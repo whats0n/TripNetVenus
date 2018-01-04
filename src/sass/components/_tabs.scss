@@ -1,0 +1,19 @@
+[data-tabs] {
+	[data-tabs-control] {
+		cursor: pointer;
+
+		&[disabled],
+		&.is-disabled {
+			cursor: not-allowed;
+			@include noselect;
+		}
+	}
+
+	[data-tabs-container] {
+		display: none;
+
+		&.is-open {
+			display: block;
+		}
+	}
+}

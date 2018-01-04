@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>close-button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Form_children2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-292.000000, -16.000000)" opacity="0.5">
+        <g id="Form-with-dates-Copy" transform="translate(0.000000, -1.000000)" fill="#5B6D7C">
+            <g id="online-hotel-booking">
+                <g id="close-button" transform="translate(292.000000, 17.000000)">
+                    <g id="close-button-copy">
+                        <polygon id="Shape" fill-rule="nonzero" points="18 1.8 16.2 0 9 7.2 1.8 0 0 1.8 7.2 9 0 16.2 1.8 18 9 10.8 16.2 18 18 16.2 10.8 9"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

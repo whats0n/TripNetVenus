@@ -9,15 +9,15 @@
 				</button>
 				<ul class="v-submenu__list js-submenu-list">
 					{% for item in [
-						{ target: 'overview', title: 'OVERVIEW' },
-						{ target: 'gallery', title: 'GALLERY' },
-						{ target: 'amenities', title: 'AMENITIES' },
-						{ target: 'rooms', title: 'ROOMS' },
-						{ target: 'location', title: 'LOCATION' },
-						{ target: 'review', title: 'REVIEW' }
+						{ target: 'v-overview', title: 'OVERVIEW' },
+						{ target: 'v-gallery', title: 'GALLERY' },
+						{ target: 'v-amenities', title: 'AMENITIES' },
+						{ target: 'v-rooms', title: 'ROOMS' },
+						{ target: 'v-location', title: 'LOCATION' },
+						{ target: 'v-review', title: 'REVIEW' }
 					] %}
 						<li class="v-submenu__item">
-							<a href="#{{item.target}}" class="v-submenu__link js-submenu-link">{{item.title}}</a>
+							<a href="#" class="v-submenu__link js-submenu-link" data-scrollto="{{item.target}}">{{item.title}}</a>
 						</li>
 					{% endfor %}
 				</ul>

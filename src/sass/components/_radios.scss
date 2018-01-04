@@ -1,0 +1,66 @@
+.v-radios {
+	position: relative;
+	padding: 14px 30px 14px 15px;
+	border-radius: 4px;
+	background: $white;
+	box-shadow: $container-shadow;
+	font-size: 0;
+
+	&.is-success {
+		.icon-check {
+			opacity: 1;
+		}
+	}
+
+	&__label,
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	&__label {
+		margin-right: 15px;
+		@include font(14px, 700, 17px);
+
+		@include tablet {
+			margin-right: 25px;
+		}
+
+		@include phone {
+			margin-right: 15px;
+		}
+	}
+
+	&__item {
+		margin-top: 4px;
+		margin-bottom: 1px;
+
+		@include phone {
+			margin-top: 2px;
+			margin-bottom: 0;
+		}
+
+		+ .v-radios__item {
+			margin-left: 10px;
+
+			@include tablet {
+				margin-left: 25px;
+			}
+
+			@include phone {
+				margin-left: 15px;
+			}
+		}
+	}
+
+	.icon-check {
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		margin-top: -4px;
+		fill: $theme-main-color;
+		opacity: 0;
+		font-size: 8px;
+		transition: opacity 0.25s;
+	}
+}

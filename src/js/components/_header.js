@@ -1,5 +1,5 @@
 import {ACTIVE, OPEN, PHONE, WIN, DOC, OVERLAY, phoneWidth} from '../_constants';
-import {getWidth} from '../_utils';
+import {getWidth, toggleBodyScroll} from '../_utils';
 
 ;(() => {
 
@@ -8,9 +8,8 @@ import {getWidth} from '../_utils';
 
   const reset = () => {
     btn.removeClass(ACTIVE);
-    nav
-      .add(OVERLAY)
-      .removeClass(OPEN);
+    nav.removeClass(OPEN);
+    toggleBodyScroll(false);
   };
 
   const setNavAnimation = () => {
@@ -27,22 +26,23 @@ import {getWidth} from '../_utils';
   btn.on('click', e => {
     e.preventDefault();
     btn.toggleClass(ACTIVE);
-    nav
-      .add(OVERLAY)
-      .toggleClass(OPEN);
+    nav.toggleClass(OPEN);
+    toggleBodyScroll();
   });
 
   DOC.on('click', e => {
     const target = $(e.target);
 
     if (target.closest('.js-btn-nav').length ||
-      target.closest('.js-nav').length ||
+      target.closest('.js-nav-inner').length ||
       !nav.hasClass(OPEN)) return;
 
     reset();
   });
   
   setNavAnimation();
-  WIN.on('resize', setNavAnimation);
+  WIN.on('resize', () => {
+    setNavAnimation();
+  });
 
 })();

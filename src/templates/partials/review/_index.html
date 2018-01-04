@@ -1,0 +1,17 @@
+<!-- begin v-review -->
+<div class="v-review" data-scrollto-section="v-review">
+	<div class="v-inner v-review__inner">
+		<h2 class="title-lg v-review__title">Review</h2>
+		<div class="v-review__sidebar">
+			{% include './_sidebar.html' %}
+		</div>
+		<div class="v-review__main">
+			{% include './_items.html' %}
+			{{pagination.call({
+				classList: 'v-review__pagination'
+			})}}
+			{% include './_form.html' %}
+		</div>
+	</div>
+</div>
+<!-- end v-review -->

@@ -1,0 +1,42 @@
+.v-social {
+	font-size: 0;
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		border: 1px solid $gray;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+		color: $gray;
+		@include vertical;
+
+		@include phone {
+			width: 35px;
+			height: 35px;
+		}
+
+		&:not(:last-child) {
+			margin-right: 15px;
+		}
+
+		.icon {
+			display: inline-block;
+			vertical-align: middle;
+			fill: currentColor;
+		}
+
+		.icon-facebook,
+		.icon-pinterest {
+			font-size: 18px;
+		}
+
+		.icon-twitter {
+			font-size: 14px;
+		}
+
+		.icon-google-plus {
+			font-size: 17px;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+<div class="v-rating-box">
+	<div class="v-rating-box__header">
+		<div class="v-rating-box__out">
+			<div class="v-rating-box__evaluation">
+				<strong>4.1</strong>
+				<small>out of 5</small>
+			</div>
+			<img src="img/tripadvisor-nederland.svg" alt="TripAdvisor" class="v-rating-box__logo">
+			<div class="v-rating-box__meta">120 reviews</div>
+		</div>
+		<div class="v-rating-box__info">Average rating of hotels in Upper Normandy: <strong>3.9</strong></div>
+	</div>
+	<div class="v-rating-box__body">
+		<h3 class="title-md v-rating-box__title">Guests like:</h3>
+		{% for item in [
+			{
+				icon: 'sunset',
+				title: 'amazing view',
+				meta: '78  hotel reviews'
+			},
+			{
+				icon: 'map',
+				title: 'great location',
+				meta: '50 hotel reviews'
+			},
+			{
+				icon: 'vegetables',
+				title: 'tasty food',
+				meta: '39 hotel reviews'
+			},
+			{
+				icon: 'livingroom',
+				title: 'unique style'
+			}
+		] %}
+			<div class="v-rating-box__item">
+				<div class="v-rating-box__item-icon">
+					{{mixins.icon(item.icon)}}
+				</div>
+				<div class="v-rating-box__item-in">
+					<h4 class="v-rating-box__subtitle">{{item.title}}</h4>
+					<div class="v-rating-box__meta">{{item.meta}}</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

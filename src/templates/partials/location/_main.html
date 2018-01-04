@@ -1,0 +1,208 @@
+<!-- begin v-location__main -->
+<div class="v-location__main">
+	<div class="v-location__map">
+		<div class="v-location__map-inner" style="background-image: url(https://placekitten.com/g/900/500);"></div>
+	</div>
+	<div class="v-location__sidebar">
+		<div class="v-map-control" data-tabs>
+			<div class="v-map-control__switches">
+				<div class="v-map-switches">
+					<div class="v-map-switches__container">
+						{% for item in [
+							{
+								icon: 'flight',
+								target: 'transportation',
+								title: 'Transportation',
+								classList: 'sm-visible'
+							},
+							{
+								icon: 'compass',
+								target: 'route-planner',
+								title: 'Route planner',
+								classList: 'sm-hidden'
+							}
+						] %}
+							<a class="v-map-switches__item {{item.classList}}" data-tabs-control="{{item.target}}">
+								{{mixins.icon(item.icon)}}
+								<span>{{item.title}}</span>
+							</a>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="v-map-control__info sm-visible" data-tabs-container="transportation">
+				{% for item in [
+					{
+						icon: 'airplane',
+						title: 'Airports',
+						list: [ { key: 'Octeville', value: '20.9 km' } ]
+					},
+					{
+						icon: 'train',
+						title: 'Train stations',
+						list: [ { key: 'Le Havre Train Station', value: '4.2 km' }, { key: 'Le Havre Train Station', value: '1.3 km' } ]
+					},
+					{
+						icon: 'diamond',
+						title: 'City center',
+						list: [ { key: 'City center', value: '1.2 km' } ]
+					}
+				] %}
+					<div class="v-map-info">
+						<div class="v-map-info__header">
+							{{mixins.icon(item.icon)}}
+							<h3 class="title-md title-md_simple v-map-info__title">{{item.title}}</h3>
+						</div>
+						<ul class="v-map-info__list">
+							{% for item in item.list %}
+								<li class="v-map-info__item">
+									<a href="#">
+										<span class="v-map-info__key">{{item.key}}</span>
+										<span class="v-map-info__value">{{item.value}}</span>
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="v-map-control__container sm-hidden" data-tabs-container="route-planner">
+				<div class="v-map-control__outer">
+					<div class="v-map-control__header">
+						<div class="v-map-type v-map-control__type">
+							<h4 class="title-md title-md_simple v-map-type__label">Directions:</h4>
+							{% for item in [ { icon: 'front-car' }, { icon: 'bus', attrs: 'checked' }, { icon: 'walking' } ] %}
+								<label class="v-map-type__radio">
+									<input type="radio" name="v-map-type" {{item.attrs | safe}}>
+									<span class="v-map-type__icon">
+										{{mixins.icon(item.icon)}}
+									</span>
+								</label>
+							{% endfor %}
+						</div>
+						<div class="v-map-group v-map-control__group js-fields-group" data-state="empty">
+							<div class="v-map-group__icons">
+								{{mixins.icon('aim')}}
+								<span></span>
+								{{mixins.icon('marker')}}
+							</div>
+							<button type="button" class="v-map-group__sort">
+								{{mixins.icon('sort')}}
+							</button>
+							<div class="v-map-group__field js-fields-group-box">
+								<input type="text" placeholder="Enter address" class="v-map-group__input js-fields-group-input" data-target="from">
+								<ul class="v-map-group__list js-fields-group-list">
+									{% for item in [
+										'Lorem.',
+										'Lorem ipsum.',
+										'Lorem ipsum dolor.',
+										'Lorem ipsum.',
+										'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptates.',
+										'Lorem.',
+										'Lorem ipsum dolor sit.'
+									] %}
+										<li class="v-map-group__item" data-value="{{item}}">{{item}}</li>
+									{% endfor %}
+								</ul>
+							</div>
+							<div class="v-map-group__field js-fields-group-box">
+								<input type="text" placeholder="Enter address" class="v-map-group__input js-fields-group-input" data-target="to">
+								<ul class="v-map-group__list js-fields-group-list">
+									{% for item in [
+										'Lorem.',
+										'Lorem ipsum.',
+										'Lorem ipsum dolor.',
+										'Lorem ipsum.',
+										'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptates.',
+										'Lorem.',
+										'Lorem ipsum dolor sit.'
+									] %}
+										<li class="v-map-group__item" data-value="{{item}}">{{item}}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+						<div class="v-map-control__submit">
+							<button class="btn btn_large">Get Directions</button>
+						</div>
+					</div>
+					<div class="v-map-control__body js-scrollbar v-scrollbar">
+						<div class="v-map-control__items">
+							{% for item in range(0,3) %}
+								{% for item in [
+									{
+										icon: 'bus',
+										time: '17.45-18.49',
+										duration: '24 min',
+										path: [
+											{ icon: 'walking' },
+											{ icon: 'bus', number: { color: 'orange', value: '5' } },
+											{ icon: 'walking' }
+										],
+										info: 'At 17.56 from:Chapelle Notre-Dam',
+										meta: {
+											price: '€ 20',
+											duration: '15 min',
+											periodicity: 'every 5 min'
+										}
+									},
+									{
+										icon: 'bus',
+										time: '17.45-18.49',
+										duration: '26 min',
+										path: [
+											{ icon: 'walking' },
+											{ icon: 'bus', number: { color: 'blue', value: '6' } },
+											{ icon: 'walking' }
+										]
+									},
+									{
+										icon: 'bus',
+										time: '17.45-18.49',
+										duration: '31 min',
+										path: [
+											{ icon: 'walking' },
+											{ icon: 'bus', number: { color: 'orange', value: '4' } }
+										]
+									}
+								] %}
+									<div class="v-map-item">
+										<div class="v-map-item__icon">
+											{{mixins.icon(item.icon)}}
+										</div>
+										<div class="v-map-item__time">
+											<span>{{item.time}}</span>
+											<strong>{{item.duration}}</strong>
+										</div>
+										<ul class="v-map-path">
+											{% for item in item.path %}
+												<li class="v-map-path__item">
+													{{mixins.icon(item.icon)}}
+													{% if item.number %}
+														<span class="v-map-path__number v-map-path__number_{{item.number.color}}">{{item.number.value}}</span>
+													{% endif %}
+													{{mixins.icon('next')}}
+												</li>
+											{% endfor %}
+										</ul>
+										{% if item.info %}
+											<div class="v-map-item__info">{{item.info}}</div>
+										{% endif %}
+										{% if item.meta %}
+											<div class="v-map-meta v-map-item__meta">
+												<div class="v-map-meta__price v-map-meta__item">{{item.meta.price}}</div>
+												<div class="v-map-meta__duration v-map-meta__item">{{mixins.icon('walking')}} {{item.meta.duration}}</div>
+												<div class="v-map-meta__periodicity v-map-meta__item">{{item.meta.periodicity}}</div>
+											</div>
+										{% endif %}
+									</div>
+								{% endfor %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end v-location__main -->

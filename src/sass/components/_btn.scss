@@ -2,18 +2,18 @@
 	display: inline-block;
 	vertical-align: top;
 	padding: 10px 20px;
-	border: 1px solid $green;
+	border: 1px solid $theme-main-color-darken;
 	border-radius: 4px;
 	color: $white;
-	background: $green;
+	background: $theme-main-color-darken;
 	box-shadow: $btn-shadow;
 	@include font(15px, 700, 1.2);
 	text-transform: uppercase;
 	transition: color 0.25s, border-radius 0.25s, background 0.25s, box-shadow 0.25s;
 
 	@include hover {
-		border-color: $darkGreen;
-		background: $darkGreen;
+		border-color: $theme-main-color-active;
+		background: $theme-main-color-active;
 	}
 
 	&:disabled {
@@ -24,15 +24,15 @@
 	}
 
 	&_secondary {
-		border-color: $lightGreen;
-		color: $lightGreen;
+		border-color: $theme-main-color;
+		color: $theme-main-color;
 		background: none;
 		box-shadow: none;
 
 		@include hover {
-			border-color: $lightGreen;
+			border-color: $theme-main-color;
 			color: $white;
-			background: $lightGreen;
+			background: $theme-main-color;
 		}
 
 		&:disabled {
@@ -40,6 +40,15 @@
 			color: $gray;
 			opacity: 0.5;
 			background: $white;
+		}
+	}
+
+	&_large {
+		width: 100%;
+		max-width: 198px;
+
+		@include phone {
+			max-width: none;
 		}
 	}
 

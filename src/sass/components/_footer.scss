@@ -1,0 +1,154 @@
+.v-footer {
+	background: rgba($gray, 0.3);
+
+	&__inner {
+		padding-top: 30px;
+
+		@include tablet {
+			padding-top: 25px;
+		}
+
+		@include phone {
+			padding-bottom: 60px;
+		}
+	}
+
+	&__copy {
+		padding: 15px 0;
+		border-top: 1px solid rgba($gray, 0.5);
+		@include font(12px, null, 15px);
+		text-align: center;
+
+		@include phone {
+			padding: 10px 0 15px;
+		}
+	}
+
+	&__row {
+		padding-bottom: 35px;
+		margin: 0 -10px;
+		@include clr;
+
+		@include phone {
+			padding-bottom: 20px;
+			margin: 0;
+		}
+	}
+
+	&__col {
+		float: left;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 25%;
+
+		@include tablet {
+			width: 33.33%;
+		}
+
+		@include phone {
+			padding-left: 0;
+			padding-right: 0;
+			width: 100%;
+		}
+	}
+
+	&__logo {
+		text-align: center;
+
+		@include tablet {
+			padding-bottom: 30px;
+			width: 100%;
+		}
+
+		@include phone {
+			padding-bottom: 10px;
+		}
+	}
+
+	&__subtitle {
+		margin-bottom: 10px;
+		@include font(14px, 700, 17px);
+
+		@include phone {
+			margin: 0;
+		}
+	}
+
+	&__header {
+		position: relative;
+		
+		@include phone {
+			padding: 15px 25px 15px 0;
+			border-bottom: 1px solid rgba($gray, 0.5);
+		}
+
+		.icon {
+			display: none;
+		}
+	}
+
+	&__list {
+		@include phone {
+			padding-bottom: 10px;
+			border-bottom: 1px solid rgba($gray, 0.2);
+		}
+	}
+
+	&__item,
+	&__link {
+		@include font(14px, null, 13px);
+
+		a {
+			display: block;
+			padding: 10px 0 5px;
+			color: inherit;
+			transition: color 0.25s;
+
+			@include hover {
+				color: $blue;
+			}
+		}
+	}
+
+	&__contacts {
+		@include phone {
+			padding-top: 15px;
+		}
+
+		.v-footer__subtitle {
+			@include phone {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	&__link {
+		a {
+			position: relative;
+			padding-left: 26px;
+		}
+
+		.icon {
+			position: absolute;
+			left: 0;
+			bottom: 5px;
+			fill: currentColor;
+		}
+
+		.icon-mail {
+			font-size: 13px;
+		}
+
+		.icon-phone {
+			font-size: 18px;
+		}
+	}
+
+	&__social {
+		padding-top: 21px;
+
+		@include phone {
+			padding-top: 15px;
+		}
+	}
+}

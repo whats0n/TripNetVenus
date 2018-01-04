@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>close</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Состояния" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-2400.000000, -1008.000000)">
+        <g id="Group-21-Copy-2" transform="translate(1582.000000, 946.000000)">
+            <g id="close" transform="translate(818.000000, 62.000000)">
+                <g id="close-(1)">
+                    <ellipse id="Oval" fill="#FC4163" fill-rule="nonzero" cx="7.5" cy="7.5" rx="7.5" ry="7.49507813"></ellipse>
+                    <g id="close" transform="translate(1.000000, 1.000000)" fill="currentColor">
+                        <g id="Group" transform="translate(6.494221, 6.494057) rotate(135.000000) translate(-6.494221, -6.494057) translate(2.304808, 2.289996)">
+                            <rect id="Rectangle-path" fill-rule="nonzero" x="3.36852238" y="0.0112791887" width="1.64037489" height="8.36921661"></rect>
+                            <rect id="Rectangle-path" fill-rule="nonzero" x="0.00503901418" y="3.37452818" width="8.36921661" height="1.64037489"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

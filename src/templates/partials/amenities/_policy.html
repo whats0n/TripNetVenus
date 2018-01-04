@@ -1,0 +1,52 @@
+<div class="v-policy" data-accordion-main="phone">
+	{% for item in [
+		{
+			icon: 'alarm-clock',
+			title: 'HOTEL POLICY',
+			list: [
+				'<strong>Check-in:</strong> <span>from 15:00 hours</span>',
+				'<strong>Check-out:</strong> <span>until 11:00 hours</span>'
+			]
+		},
+		{
+			accordion: true,
+			icon: 'cards',
+			title: 'payment method',
+			listClassList: 'v-list_tablet-inline',
+			list: [
+				'Visa',
+				'Master Card',
+				'American Express',
+				'You can pay at the hotel in local currency (EUR €)'
+			]
+		},
+		{
+			accordion: true,
+			icon: 'bell-boy',
+			title: 'staff speaks',
+			listClassList: 'v-list_tablet-inline',
+			list: [
+				'English',
+				'Deutsch',
+				'Polski',
+				'Russian',
+				'Dansk'
+			]
+		}
+	] %}
+		<div class="v-policy__box {{item.classList}}" {% if item.accordion %}data-accordion-item{% endif %}>
+			<div class="v-policy__header" {% if item.accordion %}data-accordion-btn{% endif %}>
+				{{mixins.icon(item.icon)}}
+				<h2 class="title-md v-policy__title">{{item.title}}</h2>
+				{% if item.accordion %}
+					{{mixins.icon('down')}}
+				{% endif %}
+			</div>
+			<ul class="v-list v-policy__list {{item.listClassList}}" {% if item.accordion %}data-accordion-container{% endif %}>
+				{% for item in item.list %}
+					<li class="v-list__item v-policy__item">{{item | safe}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endfor %}
+</div>

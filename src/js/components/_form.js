@@ -1,5 +1,5 @@
-import {ACTIVE, DOC, WIN, phoneWidth} from '../_constants';
-import {getWidth} from '../_utils';
+import {ACTIVE, OPEN, DOC, WIN, phoneWidth} from '../_constants';
+import {getWidth, toggleBodyScroll} from '../_utils';
 
 ;(() => {
 
@@ -17,11 +17,13 @@ import {getWidth} from '../_utils';
     }
 
     initializeCache() {
-    	const {main} = this.options;
+      const main = $('.js-form');
       this.cache.main = main;
-      this.cache.datepickerFrom = main.find('[data-datepicker="from"]');
-      this.cache.datepickerTo = main.find('[data-datepicker="to"]');
+      this.cache.inner = main.find('.js-form-inner');
       this.cache.ages = main.find('.js-form-ages');
+      this.cache.datepickers = main.find('[data-datepicker]');
+      this.cache.selects = main.find('[data-select]');
+      this.cache.control = $('.js-form-control');
       this.cache.containers = {
         ages: {
           default: main.find('.js-form-ages-container-default'),
@@ -33,110 +35,63 @@ import {getWidth} from '../_utils';
       	adults: main.find('[data-select-box="adults"]'),
       	children: main.find('[data-select-box="children"]')
       };
-      this.cache.select = {
-        all: main.find('[data-select]'),
-        first: main.find('[data-select="child-1"]'),
-        second: main.find('[data-select="child-2"]'),
-        third: main.find('[data-select="child-3"]')
-      };
     }
 
     initializeEvents() {
       this.initDatepickers();
       this.initSelectBox();
       this.initSelect();
+      this.toggleOnClick();
 			
-      this.moveAges = this.moveAges.bind(this);
       this.moveAges();
-      WIN.on('resize', this.moveAges);
+      WIN.on('resize', () => this.moveAges());
     }
 
     initDatepickers() {
-    	const {datepickerFrom, datepickerTo} = this.cache;
-    	const dateFormat = 'd-M-yy';
-    	const FROM = 'FROM';
-    	const TO = 'TO';
-    	const minFrom = new Date();
-    	const minTo = new Date();
-    	const getDate = (element, direction) => {
-    		let date;
-        try {
-          date = $.datepicker.parseDate( dateFormat, element.value );
-        } catch( error ) {
-          date = new Date();
-        }
-        let newDate = 
-      	direction === TO ? new Date().setDate(date.getDate() - 1) :
-      	direction === FROM ? new Date().setDate(date.getDate() + 1) : date;
-        return new Date(newDate);
-    	};
-
-    	const options = {
-        showOtherMonths: true,
-			  selectOtherMonths: true,
-			  firstDay: 1,
-			  dateFormat: dateFormat,
-			  onClose(id) {
-	        $('[data-datepicker-wrapper]')
-	          .removeClass(ACTIVE);
-			  },
-			  beforeShow(input) {
-			  	$(input)
-	          .closest('[data-datepicker-wrapper]')
-	          .addClass(ACTIVE);
-			  }
-      };
-
-	    datepickerFrom.datepicker(Object.assign({
-			  minDate: minFrom
-	    }, options));
-	    datepickerTo.datepicker(Object.assign({
-			  minDate: new Date(minTo.setDate(minTo.getDate() + 1))
-	    }, options));
-
-	    datepickerFrom.on('change', function() {
-	      datepickerTo.datepicker('option', 'minDate', getDate(this, FROM));
-	    });
-	    datepickerTo.on('change', function() {
-	      datepickerFrom.datepicker('option', 'maxDate', getDate(this, TO));
-	    });
+      const {datepickers} = this.cache;
+      datepickers.each((i, datepicker) => {
+        const _this = $(datepicker);
+        const inputs = _this.find('[data-datepicker-input]');
+        _this.datepicker({
+          format: 'dd-M-yy',
+          autoclose: true,
+          keyboardNavigation: false,
+          maxViewMode: 0,
+          weekStart: 1,
+          daysOfWeekHighlighted: [0,6],
+          inputs: inputs
+        });
+      });
     }
 
     initSelectBox() {
     	const {all, adults, children} = this.cache.selectBox;
-    	const {ages} = this.cache;
+    	const {ages, selects} = this.cache;
 
-    	const enableSelect = (select, single) => {
-    		select = $(select);
-        const input = select.find('[data-select-box-input]');
-        const items = select.find('[data-select-box-item]');
-				
-        input.on('click', e => {
-        	if (select.hasClass(ACTIVE)) {
-	          select.removeClass(ACTIVE);
-        	} else {
-        		all.removeClass(ACTIVE);
-	          select.addClass(ACTIVE);
-        	}
-        });
+      adults.each((i, select) => this.addSelectBoxHandlers($(select), true));
 
-        items.on('click', e => {
-          const that = $(e.currentTarget);
-          const value = that.data('value');
-          input.val(value);
-          items.removeClass(ACTIVE);
-          that.addClass(ACTIVE);
-          if (single) select.removeClass(ACTIVE);
-        });
-    	};
-
-      adults.each((i, select) => {
-      	enableSelect(select, true);
-      });
       children.each((i, select) => {
-      	enableSelect(select);
-        $(select).find('[data-select-box-item]').on('click', e => ages.attr('data-items', $(e.currentTarget).data('value')));
+        select = $(select);
+
+        this.addSelectBoxHandlers(select);
+        
+        select
+          .find('[data-select-box-item]')
+          .on('click', e => {
+            const target = $(e.currentTarget);
+            const value = target.data('value');
+
+            ages.attr('data-items', value);
+
+            selects.each((i, currentSelect) => {
+              currentSelect = $(currentSelect);
+              if (+currentSelect.data('select') > value && currentSelect.val().length) {
+                currentSelect.val(null).trigger('change.select2');
+              }
+            });
+          });
       });
+
       DOC.on('click', e => {
         const target = $(e.target);
         if (target.closest('[data-select-box-prevent]').length ||
@@ -146,8 +101,8 @@ import {getWidth} from '../_utils';
     }
 
     initSelect() {
-      const {select} = this.cache;
-      select.all.each((i, select) => {
+      const {selects} = this.cache;
+      selects.each((i, select) => {
       	const _this = $(select);
       	const placeholder = _this.data('placeholder');
       	const container = _this.closest('[data-select-container]');
@@ -156,6 +111,47 @@ import {getWidth} from '../_utils';
       		placeholder: placeholder,
       		dropdownParent: container
       	});
+      });
+    }
+
+    addSelectBoxHandlers(select, single) {
+      const {all} = this.cache.selectBox;
+      const input = select.find('[data-select-box-input]');
+      const items = select.find('[data-select-box-item]');
+      
+      input.on('click', e => {
+        if (select.hasClass(ACTIVE)) {
+          select.removeClass(ACTIVE);
+        } else {
+          all.removeClass(ACTIVE);
+          select.addClass(ACTIVE);
+        }
+      });
+
+      items.on('click', e => {
+        const that = $(e.currentTarget);
+        const value = that.data('value');
+        input.val(value);
+        items.removeClass(ACTIVE);
+        that.addClass(ACTIVE);
+        if (single) select.removeClass(ACTIVE);
+      });
+    }
+
+    toggleOnClick() {
+      const {control, main, inner} = this.cache;
+
+      control.on('click', e => {
+        e.preventDefault();
+        toggleBodyScroll();
+        main.toggleClass(OPEN);
+      });
+
+      main.on('click', e => {
+        e.preventDefault();
+        if ($(e.target).closest(inner).length) return;
+        toggleBodyScroll(false);
+        main.removeClass(OPEN);
       });
     }
 
@@ -168,10 +164,6 @@ import {getWidth} from '../_utils';
 
   }
 
-  $('.js-form').each((i, form) => {
-    new Form({
-      main: $(form)
-    });
-  });
+  new Form();
 
 })();

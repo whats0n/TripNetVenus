@@ -1,0 +1,101 @@
+<div class="v-review__items">
+	{% for item in [
+		{
+			color: '#b0c7e8',
+			name: 'Mina Tyler',
+			initials: 'MT',
+			description: 'New Conniefort',
+			rating: '4.3',
+			time: '2 weeks ago',
+			logo: true,
+			title: 'Perfect location with fantastic views!',
+			content: [
+				'Perfect location with fantastic views!',
+				'Magic Etretat is a wonderful hotel: a magical view from the window, very comfortable room. Of course, you need to book with a view of the sea. Breakfast may seem small, but all products are fresh and delicious!'
+			],
+			likes: '12'
+		},
+		{
+			color: '#f2a171',
+			name: 'Adele Wood',
+			initials: 'AW',
+			description: 'Nyahstad',
+			rating: '3.8',
+			time: '4 weeks ago',
+			logo: true,
+			title: 'Great hotel!',
+			content: [
+				'Amazing view of the sea, rocks. Parking at the hotel on Sunday was very useful. Pleasant breakfast.',
+				'Service in the restaurant is worse. Panoramic restaurant in the hotel. Great food.'
+			],
+			likes: '9',
+			liked: true
+		},
+		{
+			img: 'https://placekitten.com/g/200/200',
+			name: 'Blake Ortiz',
+			description: 'Lake Kathryn',
+			rating: '4.5',
+			time: '12.09.2017',
+			title: 'Very nice hotel in a fabulous place.',
+			content: [ 'Liked everything. As for the food in the hotel I can not say anything, because I did not take it. But there is a fish restaurant nearby, where fresh oysters are served. Places in it must be ordered in advance.' ],
+			likes: '9',
+			liked: true
+		},
+		{
+			color: '#fba1ab',
+			name: 'Cory Gutierrez',
+			initials: 'CG',
+			description: 'New Evangeline',
+			rating: '3.9',
+			time: '03.09.2017',
+			logo: true,
+			title: 'Perfect location with fantastic views!',
+			content: [ 'Good-natured hosts, everything is cozy and clean. Excellent French breakfast.Magic Etretat is a wonderful hotel: a magical view from the window, very comfortable room. Of course, you need to book with a view of the sea. Breakfast may seem small, but all products are fresh and delicious!' ],
+			likes: '12'
+		}
+	] %}
+		<div class="v-comment v-review__item">
+			<div class="v-comment__user">
+				<div class="v-comment__avatar" {% if item.color %}style="background-color: {{item.color}};"{% endif %}>
+					{% if item.img %}
+						<div class="v-comment__img" style="background-image: url({{item.img}});"></div>
+					{% else %}
+						<div class="v-comment__initials">{{item.initials}}</div>
+					{% endif %}
+				</div>
+				<div class="v-comment__name">{{item.name}}</div>
+				<div class="v-comment__description">{{item.description}}</div>
+				<div class="v-comment__label">{{item.time}}</div>
+			</div>
+			<div class="v-comment__body">
+				{% if item.logo %}
+					<img src="img/logo-tripadvisor.svg" alt="TripAdvisor" class="v-comment__logo">
+				{% endif %}
+				<div class="v-comment__meta">
+					<div class="v-comment__label">Guest rating</div>
+					<div class="v-comment__rating">{{item.rating}}</div>
+					<div class="v-comment__time sm-hidden">{{item.time}}</div>
+				</div>
+				<div class="v-comment__content">
+					<div class="v-comment__title">{{item.title}}</div>
+					<div class="v-comment__text">
+						{% for item in item.content %}
+							<p>{{item | safe}}</p>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="v-comment__footer">
+					<button class="v-comment__like {% if item.liked %}is-active{% endif %}">
+						<span class="v-comment__like-number">{{item.likes}}</span>
+						<span class="v-comment__like-icons">
+							{{mixins.icon('like-empty')}}
+							{{mixins.icon('like-full')}}
+						</span>
+						<span class="v-comment__like-label">Helpful</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

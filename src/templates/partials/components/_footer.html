@@ -1,0 +1,79 @@
+<!-- begin v-footer -->
+<div class="v-footer" data-accordion-main="phone">
+	<div class="v-inner v-footer__inner">
+		<div class="v-footer__row">
+			<div class="v-footer__logo v-footer__col">
+				<a href="#" class="v-logo v-logo_lg v-footer__logo-in">
+					{{mixins.icon('logo-waves')}}
+					<strong class="v-logo__title">Upper Normandy</strong>
+					<span class="v-logo__subtitle">hotel collection</span>
+				</a>
+			</div>
+			{% for item in [
+				{
+					title: 'Helpul info',
+					list: [
+						'About us',
+						'Career',
+						'Privacy',
+						'Support'
+					]
+				},
+				{
+					title: 'Languages',
+					list: [
+						'English',
+						'Italian',
+						'French',
+						'German'
+					]
+				}
+			] %}
+				<div class="v-footer__info v-footer__col" data-accordion-item>
+					<div class="v-footer__header" data-accordion-btn>
+						<div class="v-footer__subtitle">{{item.title}}</div>
+						{{mixins.icon('down')}}
+					</div>
+					<ul class="v-footer__list" data-accordion-container>
+						{% for item in item.list %}
+							<li class="v-footer__item">
+								<a href="#">{{item}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endfor %}
+			<div class="v-footer__contacts v-footer__col">
+				<div class="v-footer__subtitle">Contact Us</div>
+				<div class="v-footer__link">
+					<a href="#">
+						{{mixins.icon('mail')}}
+						<span>Upper-Normandy-Hotels.com</span>
+					</a>
+				</div>
+				<div class="v-footer__link">
+					<a href="tel:+3806389752462">
+						{{mixins.icon('phone')}}
+						<span>+380 63 897 524 62</span>
+					</a>
+				</div>
+				<div class="v-social v-footer__social">
+					{% for item in [
+						'facebook',
+						'twitter',
+						'pinterest',
+						'google-plus'
+					] %}
+						<a href="#" class="v-social__item">
+							{{mixins.icon(item)}}
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="v-footer__copy">
+			<p>Hotel Reservation System | 2017 © upper-normandy-hotels.com. All rights reserved</p>
+		</div>
+	</div>
+</div>
+<!-- end v-footer -->

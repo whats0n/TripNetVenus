@@ -1,16 +1,24 @@
-import {sliderButton} from '../_utils';
+import {sliderButton, updateSvgSpriteIcon} from '../_utils';
 import {slickTabletWidth, slickPhoneWidth} from '../_constants';
 
 ;(() => {
 
-  $('.js-gallery').slick({
-    prevArrow: sliderButton('prev', 'v-gallery__prev'),
-    nextArrow: sliderButton('next', 'v-gallery__next'),
+  const slider = $('.js-slider');
+
+  slider.slick({
+    prevArrow: sliderButton('prev', 'v-slider__prev'),
+    nextArrow: sliderButton('next', 'v-slider__next'),
     dots: true,
-    dotsClass: 'slick-dots v-gallery__dots',
+    dotsClass: 'slick-dots v-slider__dots',
     slidesToShow: 3,
     slidesToScroll: 3,
     responsive: [
+      {
+        breakpoint: 1301,
+        settings: {
+          arrows: false
+        }
+      },
       {
         breakpoint: slickTabletWidth,
         settings: {
@@ -27,11 +35,20 @@ import {slickTabletWidth, slickPhoneWidth} from '../_constants';
       		slidesToShow: 1,
       		slidesToScroll: 1,
       		centerMode: true,
-      		centerPadding: '34px',
+      		centerPadding: '44px',
       		focusOnSelect: true
       	}
       }
     ]
+  });
+
+  slider.on('breakpoint', (event, slick, breakpoint ) => {
+    setTimeout(() => {
+      slick
+        .$slides
+        .find('.icon')
+        .each((i, icon) => updateSvgSpriteIcon(icon));
+    }, 50);
   });
 
 })();

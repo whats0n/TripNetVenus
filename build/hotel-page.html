@@ -25,7 +25,7 @@
 				<span></span>
 			</button> </div>
         <nav class="v-nav js-nav">
-          <ul class="v-nav__list" data-accordion-main="phone">
+          <ul class="v-nav__list js-nav-inner" data-accordion-main="phone">
             <li class="v-nav__item" data-accordion-item> <a href="#" class="v-nav__link">About us</a> </li>
             <li class="v-nav__item" data-accordion-item> <a href="#" class="v-nav__link" data-accordion-btn>Find Hotel
 <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
@@ -149,7 +149,7 @@ FAQ</a> </li>
         </div>
       </div>
       <div class="v-hero__meta">
-        <a href="#" class="v-rating v-hero__rating">
+        <a href="#" class="v-rating v-hero__rating" data-scrollto="v-review">
           <div class="v-rating__value"> <strong>4.1</strong> <small>out of 5</small> </div>
           <div class="v-rating__container"> <img src="img/logo-tripadvisor.svg" alt="TripAdvisor" class="v-rating__logo">
             <div class="v-rating__meta">120 reviews</div>
@@ -161,9 +161,9 @@ FAQ</a> </li>
 		<span>Photo Gallery</span>
 	</button> </div>
       <div class="v-hero__slider js-hero-slider">
-        <div class="v-hero__slide" style="background-image: url(https://placecage.com/1440/1440);">
+        <div class="v-hero__slide" style="background-image: url(https://placeholdit.co//i/1440x1440?bg=111111);">
           <div class="v-hero__slide-header">
-            <div class="v-hero__slide-blur" style="background-image: url(https://placecage.com/1440/1440);"></div>
+            <div class="v-hero__slide-blur" style="background-image: url(https://placeholdit.co//i/1440x1440?bg=111111);"></div>
           </div>
         </div>
         <div class="v-hero__slide" style="background-image: url(https://placekitten.com/1440/1440);">
@@ -171,29 +171,33 @@ FAQ</a> </li>
             <div class="v-hero__slide-blur" style="background-image: url(https://placekitten.com/1440/1440);"></div>
           </div>
         </div>
-        <div class="v-hero__slide" style="background-image: url(https://fillmurray.com/1440/1440);">
+        <div class="v-hero__slide" style="background-image: url(https://placeholdit.co//i/1440x1440?bg=ffffcc);">
           <div class="v-hero__slide-header">
-            <div class="v-hero__slide-blur" style="background-image: url(https://fillmurray.com/1440/1440);"></div>
+            <div class="v-hero__slide-blur" style="background-image: url(https://placeholdit.co//i/1440x1440?bg=ffffcc);"></div>
           </div>
         </div>
       </div>
     </div>
     <!-- end hero -->
     <!-- begin form -->
-    <div class="v-form">
-      <div class="v-form__inner">
-        <h2 class="title-lg v-form__title">Online HOTEL Booking</h2>
-        <form action="/" class="v-form__body js-form">
-          <div class="v-form__row">
-            <div class="v-form__box v-form__box_lg" data-datepicker-wrapper>
+    <div class="v-form js-form">
+      <div class="v-form__inner js-form-inner">
+        <h2 class="title-lg v-form__title">Online HOTEL Booking</h2> <button type="button" class="v-form__close js-form-control">
+			
+<svg class="icon icon-close-button"><use xlink:href="img/sprite.svg#icon-close-button"></use></svg>
+
+		</button>
+        <form action="/" class="v-form__body">
+          <div class="v-form__row" data-datepicker>
+            <div class="v-form__box v-form__box_lg">
               <div class="v-form__label">Check-in</div>
-              <div class="v-form__field"> <svg class="icon icon-calendar"><use xlink:href="img/sprite.svg#icon-calendar"></use></svg> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> <input type="text" class="v-form__control" data-datepicker="from"
-                  readonly> </div>
+              <div class="v-form__field"> <svg class="icon icon-calendar"><use xlink:href="img/sprite.svg#icon-calendar"></use></svg> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> <input type="text" class="v-form__control" data-datepicker-input
+                  name="start" readonly> </div>
             </div>
-            <div class="v-form__box v-form__box_lg" data-datepicker-wrapper>
+            <div class="v-form__box v-form__box_lg">
               <div class="v-form__label">Check-out</div>
-              <div class="v-form__field"> <svg class="icon icon-calendar"><use xlink:href="img/sprite.svg#icon-calendar"></use></svg> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> <input type="text" class="v-form__control" data-datepicker="to"
-                  readonly> </div>
+              <div class="v-form__field"> <svg class="icon icon-calendar"><use xlink:href="img/sprite.svg#icon-calendar"></use></svg> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> <input type="text" class="v-form__control" data-datepicker-input
+                  name="end" readonly> </div>
             </div>
             <div class="v-form__box v-form__box_sm" data-select-box="adults">
               <div class="v-form__label">Adults</div>
@@ -216,131 +220,133 @@ FAQ</a> </li>
               <div class="v-form__label">Children</div>
               <div class="v-form__field" data-select-box-prevent> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> <input type="text" class="v-form__control v-form__control_lg"
                   readonly data-select-box-input> </div>
-              <div class="v-form__dropdown v-form__dropdown_lg js-form-ages-container-default" data-select-box-prevent>
+              <div class="v-form__dropdown v-form__dropdown_lg" data-select-box-prevent>
                 <div class="v-form__label">Children:</div>
                 <ul class="v-form__list">
-                  <li class="v-form__item" data-value="1" data-select-box-item> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <span>1 children</span> </li>
-                  <li class="v-form__item"
-                    data-value="2" data-select-box-item> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <span>2 children</span> </li>
-                  <li class="v-form__item"
-                    data-value="3" data-select-box-item> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <span>3 children</span> </li>
+                  <li class="v-form__item" data-value="1" data-select-box-item> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <span>1 adult</span> </li>
+                  <li class="v-form__item" data-value="2"
+                    data-select-box-item> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <span>2 adult</span> </li>
+                  <li class="v-form__item" data-value="3"
+                    data-select-box-item> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <span>3 adult</span> </li>
                 </ul>
+                <!-- begin ages -->
                 <div class="v-form__items js-form-ages" data-items="0">
                   <div class="v-form__label">Children Age</div>
                   <div class="v-form__container">
-                    <div class="v-form__select" data-select-container> <select name="first_child" data-select="child-1" style="width: 100%;" data-placeholder="&#8212;">
-											<option></option>
-											<option value="< 1">< 1</option>
-											
-											    <option value="1">1</option>
-											
-											    <option value="2">2</option>
-											
-											    <option value="3">3</option>
-											
-											    <option value="4">4</option>
-											
-											    <option value="5">5</option>
-											
-											    <option value="6">6</option>
-											
-											    <option value="7">7</option>
-											
-											    <option value="8">8</option>
-											
-											    <option value="9">9</option>
-											
-											    <option value="10">10</option>
-											
-											    <option value="11">11</option>
-											
-											    <option value="12">12</option>
-											
-											    <option value="13">13</option>
-											
-											    <option value="14">14</option>
-											
-											    <option value="15">15</option>
-											
-											    <option value="16">16</option>
-											
-										</select> </div>
-                    <div class="v-form__select" data-select-container> <select name="first_child" data-select="child-2" style="width: 100%;" data-placeholder="&#8212;">
-											<option></option>
-											<option value="< 1">< 1</option>
-											
-											    <option value="1">1</option>
-											
-											    <option value="2">2</option>
-											
-											    <option value="3">3</option>
-											
-											    <option value="4">4</option>
-											
-											    <option value="5">5</option>
-											
-											    <option value="6">6</option>
-											
-											    <option value="7">7</option>
-											
-											    <option value="8">8</option>
-											
-											    <option value="9">9</option>
-											
-											    <option value="10">10</option>
-											
-											    <option value="11">11</option>
-											
-											    <option value="12">12</option>
-											
-											    <option value="13">13</option>
-											
-											    <option value="14">14</option>
-											
-											    <option value="15">15</option>
-											
-											    <option value="16">16</option>
-											
-										</select> </div>
-                    <div class="v-form__select" data-select-container> <select name="first_child" data-select="child-3" style="width: 100%;" data-placeholder="&#8212;">
-											<option></option>
-											<option value="< 1">< 1</option>
-											
-											    <option value="1">1</option>
-											
-											    <option value="2">2</option>
-											
-											    <option value="3">3</option>
-											
-											    <option value="4">4</option>
-											
-											    <option value="5">5</option>
-											
-											    <option value="6">6</option>
-											
-											    <option value="7">7</option>
-											
-											    <option value="8">8</option>
-											
-											    <option value="9">9</option>
-											
-											    <option value="10">10</option>
-											
-											    <option value="11">11</option>
-											
-											    <option value="12">12</option>
-											
-											    <option value="13">13</option>
-											
-											    <option value="14">14</option>
-											
-											    <option value="15">15</option>
-											
-											    <option value="16">16</option>
-											
-										</select> </div>
+                    <div class="v-form__select" data-select-container> <select name="first_child" data-select="1" style="width: 100%;" data-placeholder="&#8212;">
+													<option></option>
+													<option value="< 1">< 1</option>
+													
+													    <option value="1">1</option>
+													
+													    <option value="2">2</option>
+													
+													    <option value="3">3</option>
+													
+													    <option value="4">4</option>
+													
+													    <option value="5">5</option>
+													
+													    <option value="6">6</option>
+													
+													    <option value="7">7</option>
+													
+													    <option value="8">8</option>
+													
+													    <option value="9">9</option>
+													
+													    <option value="10">10</option>
+													
+													    <option value="11">11</option>
+													
+													    <option value="12">12</option>
+													
+													    <option value="13">13</option>
+													
+													    <option value="14">14</option>
+													
+													    <option value="15">15</option>
+													
+													    <option value="16">16</option>
+													
+												</select> </div>
+                    <div class="v-form__select" data-select-container> <select name="first_child" data-select="2" style="width: 100%;" data-placeholder="&#8212;">
+													<option></option>
+													<option value="< 1">< 1</option>
+													
+													    <option value="1">1</option>
+													
+													    <option value="2">2</option>
+													
+													    <option value="3">3</option>
+													
+													    <option value="4">4</option>
+													
+													    <option value="5">5</option>
+													
+													    <option value="6">6</option>
+													
+													    <option value="7">7</option>
+													
+													    <option value="8">8</option>
+													
+													    <option value="9">9</option>
+													
+													    <option value="10">10</option>
+													
+													    <option value="11">11</option>
+													
+													    <option value="12">12</option>
+													
+													    <option value="13">13</option>
+													
+													    <option value="14">14</option>
+													
+													    <option value="15">15</option>
+													
+													    <option value="16">16</option>
+													
+												</select> </div>
+                    <div class="v-form__select" data-select-container> <select name="first_child" data-select="3" style="width: 100%;" data-placeholder="&#8212;">
+													<option></option>
+													<option value="< 1">< 1</option>
+													
+													    <option value="1">1</option>
+													
+													    <option value="2">2</option>
+													
+													    <option value="3">3</option>
+													
+													    <option value="4">4</option>
+													
+													    <option value="5">5</option>
+													
+													    <option value="6">6</option>
+													
+													    <option value="7">7</option>
+													
+													    <option value="8">8</option>
+													
+													    <option value="9">9</option>
+													
+													    <option value="10">10</option>
+													
+													    <option value="11">11</option>
+													
+													    <option value="12">12</option>
+													
+													    <option value="13">13</option>
+													
+													    <option value="14">14</option>
+													
+													    <option value="15">15</option>
+													
+													    <option value="16">16</option>
+													
+												</select> </div>
                   </div>
                 </div>
+                <!-- end ages -->
               </div>
             </div>
           </div>
@@ -350,6 +356,9 @@ FAQ</a> </li>
       </div>
     </div>
     <!-- end form -->
+    <!-- begin v-fixed-button -->
+    <div class="v-fixed-button"> <button type="button" class="btn btn_wide js-form-control">Check Availability</button> </div>
+    <!-- end v-fixed-button -->
     <!-- begin v-submenu -->
     <div class="v-submenu js-submenu">
       <div class="v-submenu__wrap js-submenu-inner">
@@ -361,12 +370,12 @@ FAQ</a> </li>
 
 				</button>
             <ul class="v-submenu__list js-submenu-list">
-              <li class="v-submenu__item"> <a href="#overview" class="v-submenu__link js-submenu-link">OVERVIEW</a> </li>
-              <li class="v-submenu__item"> <a href="#gallery" class="v-submenu__link js-submenu-link">GALLERY</a> </li>
-              <li class="v-submenu__item"> <a href="#amenities" class="v-submenu__link js-submenu-link">AMENITIES</a> </li>
-              <li class="v-submenu__item"> <a href="#rooms" class="v-submenu__link js-submenu-link">ROOMS</a> </li>
-              <li class="v-submenu__item"> <a href="#location" class="v-submenu__link js-submenu-link">LOCATION</a> </li>
-              <li class="v-submenu__item"> <a href="#review" class="v-submenu__link js-submenu-link">REVIEW</a> </li>
+              <li class="v-submenu__item"> <a href="#" class="v-submenu__link js-submenu-link" data-scrollto="v-overview">OVERVIEW</a> </li>
+              <li class="v-submenu__item"> <a href="#" class="v-submenu__link js-submenu-link" data-scrollto="v-gallery">GALLERY</a> </li>
+              <li class="v-submenu__item"> <a href="#" class="v-submenu__link js-submenu-link" data-scrollto="v-amenities">AMENITIES</a> </li>
+              <li class="v-submenu__item"> <a href="#" class="v-submenu__link js-submenu-link" data-scrollto="v-rooms">ROOMS</a> </li>
+              <li class="v-submenu__item"> <a href="#" class="v-submenu__link js-submenu-link" data-scrollto="v-location">LOCATION</a> </li>
+              <li class="v-submenu__item"> <a href="#" class="v-submenu__link js-submenu-link" data-scrollto="v-review">REVIEW</a> </li>
             </ul>
           </div>
         </div>
@@ -374,7 +383,7 @@ FAQ</a> </li>
     </div>
     <!-- end v-submenu -->
     <!-- begin v-overview -->
-    <div class="v-overview js-overview">
+    <div class="v-overview js-overview" data-scrollto-section="v-overview">
       <div class="v-inner v-overview__inner">
         <h2 class="title-lg v-overview__title">Hotel Overview</h2>
         <div class="v-overview__content">
@@ -387,7 +396,7 @@ FAQ</a> </li>
             <p>The venue is notable for the panoramic location within a 25-minute drive to Octeville airport.</p>
             <p>Such business facilities as a business center, a meeting room and a photocopier are available on site.</p>
           </div> <a href="#" class="v-overview__btn js-overview-toggle">
-				View <span class="v-overview__more">more</span> <span class="v-overview__less">less</span>
+				<span class="v-overview__more">View more</span> <span class="v-overview__less">Less</span>
 				
 <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
 
@@ -442,77 +451,1322 @@ FAQ</a> </li>
     </div>
     <!-- end v-overview -->
     <!-- begin v-gallery -->
-    <div class="v-gallery">
+    <div class="v-gallery" data-scrollto-section="v-gallery">
       <div class="v-inner v-gallery__inner">
         <h2 class="title-lg v-gallery__title">Gallery</h2>
-        <div class="v-gallery__items js-gallery">
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://placecage.com/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://placekitten.com/g/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://fillmurray.com/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://placecage.com/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://placekitten.com/g/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://fillmurray.com/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://placecage.com/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://placekitten.com/g/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
-          </div>
-          <div class="v-gallery__item">
-            <a href="#" class="v-gallery__box">
-              <div class="v-gallery__img" style="background-image: url(https://fillmurray.com/400/400);">
-                <div class="v-gallery__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
-              </div>
-            </a>
+        <div class="v-slider">
+          <div class="v-slider__inner js-slider">
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://placecage.com/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://placekitten.com/g/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://fillmurray.com/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://placecage.com/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://placekitten.com/g/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://fillmurray.com/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://placecage.com/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://placekitten.com/g/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
+            <div class="v-slider__item">
+              <a href="#" class="v-img-box">
+                <div class="v-img-box__picture" style="background-image: url(https://fillmurray.com/400/400);">
+                  <div class="v-img-box__btn"> <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg> <span>Photo Gallery</span> </div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- end v-gallery -->
+    <!-- begin v-amenities -->
+    <div class="v-amenities" data-scrollto-section="v-amenities">
+      <div class="v-amenities__header">
+        <div class="v-inner">
+          <h2 class="title-lg v-amenities__title">Amenities</h2>
+        </div>
+      </div>
+      <div class="v-inner v-amenities__inner">
+        <div class="v-amenities__main">
+          <div class="v-amenities__items" data-accordion-main="phone">
+            <div class="v-amenities__item">
+              <div class="v-service" data-accordion-item>
+                <div class="v-service__header" data-accordion-btn>
+                  <div class="v-service__icon"> <svg class="icon icon-reception"><use xlink:href="img/sprite.svg#icon-reception"></use></svg> </div> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
+                  <h3 class="title-md v-service__title">General</h3>
+                </div>
+                <ul class="v-service__list" data-accordion-container>
+                  <li class="v-service__item">On-site parking</li>
+                  <li class="v-service__item">Free Wi-Fi in public areas</li>
+                  <li class="v-service__item">Express Check-in/Check-out</li>
+                  <li class="v-service__item">24-Hour front desk</li>
+                  <li class="v-service__item">Non-smoking rooms</li>
+                  <li class="v-service__item">Soundproofed rooms</li>
+                  <li class="v-service__item">Rooms/Facilities for disabled</li>
+                  <li class="v-service__item">Business center</li>
+                  <li class="v-service__item">Terrace</li>
+                  <li class="v-service__item">Garden</li>
+                  <li class="v-service__item">All Spaces Non-smoking</li>
+                  <li class="v-service__item">Elevator</li>
+                  <li class="v-service__item">Pets Allowed</li>
+                </ul>
+              </div>
+            </div>
+            <div class="v-amenities__item">
+              <div class="v-service" data-accordion-item>
+                <div class="v-service__header" data-accordion-btn>
+                  <div class="v-service__icon"> <svg class="icon icon-bar"><use xlink:href="img/sprite.svg#icon-bar"></use></svg> </div> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
+                  <h3 class="title-md v-service__title">Food &amp; Drinks</h3>
+                </div>
+                <ul class="v-service__list" data-accordion-container>
+                  <li class="v-service__item">Restaurant</li>
+                  <li class="v-service__item">Children&#39;s menu</li>
+                  <li class="v-service__item">Bar</li>
+                </ul>
+              </div>
+            </div>
+            <div class="v-amenities__item">
+              <div class="v-service" data-accordion-item>
+                <div class="v-service__header" data-accordion-btn>
+                  <div class="v-service__icon"> <svg class="icon icon-gym"><use xlink:href="img/sprite.svg#icon-gym"></use></svg> </div> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
+                  <h3 class="title-md v-service__title">Leisure &amp; Activities</h3>
+                </div>
+                <ul class="v-service__list" data-accordion-container>
+                  <li class="v-service__item">Golf course</li>
+                  <li class="v-service__item">Billiards</li>
+                </ul>
+              </div>
+            </div>
+            <div class="v-amenities__item">
+              <div class="v-service" data-accordion-item>
+                <div class="v-service__header" data-accordion-btn>
+                  <div class="v-service__icon"> <svg class="icon icon-room-service"><use xlink:href="img/sprite.svg#icon-room-service"></use></svg> </div> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
+                  <h3 class="title-md v-service__title">Services</h3>
+                </div>
+                <ul class="v-service__list" data-accordion-container>
+                  <li class="v-service__item">Breakfast in the Room</li>
+                  <li class="v-service__item">Meeting/Banquet Facilities</li>
+                  <li class="v-service__item">Fax/Photocopying</li>
+                  <li class="v-service__item">Laundry</li>
+                  <li class="v-service__item">Ironing Service</li>
+                </ul>
+              </div>
+            </div>
+            <div class="v-amenities__item">
+              <div class="v-service" data-accordion-item>
+                <div class="v-service__header" data-accordion-btn>
+                  <div class="v-service__icon"> <svg class="icon icon-hotel"><use xlink:href="img/sprite.svg#icon-hotel"></use></svg> </div> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
+                  <h3 class="title-md v-service__title">Room Amenities</h3>
+                </div>
+                <ul class="v-service__list" data-accordion-container>
+                  <li class="v-service__item">Heating</li>
+                  <li class="v-service__item">Dressing area</li>
+                  <li class="v-service__item">Carpeted floor</li>
+                  <li class="v-service__item">Mini-bar</li>
+                  <li class="v-service__item">AM/FM Alarm clock</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="v-amenities__item v-amenities__extra">
+            <div class="v-service v-service_wide">
+              <div class="v-service__header">
+                <div class="v-service__icon"> <svg class="icon icon-children"><use xlink:href="img/sprite.svg#icon-children"></use></svg> </div>
+                <h3 class="title-md v-service__title">Children and extra beds</h3>
+              </div>
+              <ul class="v-service__list">
+                <li class="v-service__item">Older children/adults may stay at the price of EUR 55 per person per night in an extra bed.</li>
+                <li class="v-service__item">All children under the age of 12 may stay at the price of EUR 20 per person per night in an extra bed.</li>
+                <li class="v-service__item">All children under the age of 2 may stay at the price of EUR 15 per person per night in a crib.</li>
+                <li class="v-service__item">Maximum capacity of extra beds in a room is 1.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="v-amenities__sidebar">
+          <div class="v-policy" data-accordion-main="phone">
+            <div class="v-policy__box ">
+              <div class="v-policy__header"> <svg class="icon icon-alarm-clock"><use xlink:href="img/sprite.svg#icon-alarm-clock"></use></svg>
+                <h2 class="title-md v-policy__title">HOTEL POLICY</h2>
+              </div>
+              <ul class="v-list v-policy__list ">
+                <li class="v-list__item v-policy__item"><strong>Check-in:</strong> <span>from 15:00 hours</span></li>
+                <li class="v-list__item v-policy__item"><strong>Check-out:</strong> <span>until 11:00 hours</span></li>
+              </ul>
+            </div>
+            <div class="v-policy__box " data-accordion-item>
+              <div class="v-policy__header" data-accordion-btn> <svg class="icon icon-cards"><use xlink:href="img/sprite.svg#icon-cards"></use></svg>
+                <h2 class="title-md v-policy__title">payment method</h2> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> </div>
+              <ul class="v-list v-policy__list v-list_tablet-inline" data-accordion-container>
+                <li class="v-list__item v-policy__item">Visa</li>
+                <li class="v-list__item v-policy__item">Master Card</li>
+                <li class="v-list__item v-policy__item">American Express</li>
+                <li class="v-list__item v-policy__item">You can pay at the hotel in local currency (EUR €)</li>
+              </ul>
+            </div>
+            <div class="v-policy__box " data-accordion-item>
+              <div class="v-policy__header" data-accordion-btn> <svg class="icon icon-bell-boy"><use xlink:href="img/sprite.svg#icon-bell-boy"></use></svg>
+                <h2 class="title-md v-policy__title">staff speaks</h2> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> </div>
+              <ul class="v-list v-policy__list v-list_tablet-inline" data-accordion-container>
+                <li class="v-list__item v-policy__item">English</li>
+                <li class="v-list__item v-policy__item">Deutsch</li>
+                <li class="v-list__item v-policy__item">Polski</li>
+                <li class="v-list__item v-policy__item">Russian</li>
+                <li class="v-list__item v-policy__item">Dansk</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end v-amenities -->
+    <!-- begin v-gallery -->
+    <div class="v-gallery" data-scrollto-section="v-rooms">
+      <div class="v-inner v-gallery__inner">
+        <h2 class="title-lg v-gallery__title">Rooms</h2>
+        <div class="v-slider">
+          <div class="v-slider__inner js-slider">
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <a href="#" class="v-item__img-in" style="background-image: url(https://placekitten.com/g/330/150);"></a> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                      <div class="v-item__cell"> <em>21</em> <span>m<sup>2</sup></span> <strong>Room area</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <svg class="icon icon-photo-camera"><use xlink:href="img/sprite.svg#icon-photo-camera"></use></svg> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <a href="#" class="v-item__img-in" style="background-image: url(https://placekitten.com/g/330/150);"></a> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                      <div class="v-item__cell"> <em>21</em> <span>m<sup>2</sup></span> <strong>Room area</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <a href="#" class="v-item__img-in" style="background-image: url(https://placekitten.com/g/330/150);"></a> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                      <div class="v-item__cell"> <em>21</em> <span>m<sup>2</sup></span> <strong>Room area</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <svg class="icon icon-photo-camera"><use xlink:href="img/sprite.svg#icon-photo-camera"></use></svg> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <a href="#" class="v-item__img-in" style="background-image: url(https://placekitten.com/g/330/150);"></a> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                      <div class="v-item__cell"> <em>21</em> <span>m<sup>2</sup></span> <strong>Room area</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <a href="#" class="v-item__img-in" style="background-image: url(https://placekitten.com/g/330/150);"></a> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                      <div class="v-item__cell"> <em>21</em> <span>m<sup>2</sup></span> <strong>Room area</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <svg class="icon icon-photo-camera"><use xlink:href="img/sprite.svg#icon-photo-camera"></use></svg> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+            <div class="v-slider__item">
+              <div class="v-item">
+                <div class="v-item__img"> <a href="#" class="v-item__img-in" style="background-image: url(https://placekitten.com/g/330/150);"></a> </div>
+                <div class="v-item__header">
+                  <h3 class="title-md v-item__title">Superior Double Room</h3>
+                  <div class="v-item__meta">Sea view</div>
+                </div>
+                <div class="v-item__body">
+                  <div class="v-item__container">
+                    <div class="v-item__row">
+                      <div class="v-item__cell"> <em>1</em> <svg class="icon icon-bed"><use xlink:href="img/sprite.svg#icon-bed"></use></svg> <strong>Double bed</strong> </div>
+                      <div class="v-item__cell"> <em>2</em> <svg class="icon icon-adults"><use xlink:href="img/sprite.svg#icon-adults"></use></svg> <strong>Guests</strong> </div>
+                      <div class="v-item__cell"> <em>21</em> <span>m<sup>2</sup></span> <strong>Room area</strong> </div>
+                    </div>
+                  </div>
+                  <div class="v-item__details">
+                    <div class="v-item__icons"> <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      <svg class="icon icon-coffee-cup"><use xlink:href="img/sprite.svg#icon-coffee-cup"></use></svg> <svg class="icon icon-wifi"><use xlink:href="img/sprite.svg#icon-wifi"></use></svg> <svg class="icon icon-tv"><use xlink:href="img/sprite.svg#icon-tv"></use></svg>                      </div> <a href="#" class="v-item__link">Photo & Details</a> </div>
+                </div>
+                <div class="v-item__footer"> <a href="#" class="btn btn_large">Get Price</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end v-gallery -->
+    <!-- begin v-location -->
+    <div class="v-location" data-scrollto-section="v-location">
+      <div class="v-location__header">
+        <div class="v-inner">
+          <h2 class="title-lg v-location__title">Location</h2>
+        </div>
+      </div>
+      <div class="v-inner v-location__inner">
+        <!-- begin v-location__main -->
+        <div class="v-location__main">
+          <div class="v-location__map">
+            <div class="v-location__map-inner" style="background-image: url(https://placekitten.com/g/900/500);"></div>
+          </div>
+          <div class="v-location__sidebar">
+            <div class="v-map-control" data-tabs>
+              <div class="v-map-control__switches">
+                <div class="v-map-switches">
+                  <div class="v-map-switches__container"> <a class="v-map-switches__item sm-visible" data-tabs-control="transportation">
+								
+<svg class="icon icon-flight"><use xlink:href="img/sprite.svg#icon-flight"></use></svg>
+
+								<span>Transportation</span>
+							</a> <a class="v-map-switches__item sm-hidden" data-tabs-control="route-planner">
+								
+<svg class="icon icon-compass"><use xlink:href="img/sprite.svg#icon-compass"></use></svg>
+
+								<span>Route planner</span>
+							</a> </div>
+                </div>
+              </div>
+              <div class="v-map-control__info sm-visible" data-tabs-container="transportation">
+                <div class="v-map-info">
+                  <div class="v-map-info__header"> <svg class="icon icon-airplane"><use xlink:href="img/sprite.svg#icon-airplane"></use></svg>
+                    <h3 class="title-md title-md_simple v-map-info__title">Airports</h3>
+                  </div>
+                  <ul class="v-map-info__list">
+                    <li class="v-map-info__item"> <a href="#">
+										<span class="v-map-info__key">Octeville</span>
+										<span class="v-map-info__value">20.9 km</span>
+									</a> </li>
+                  </ul>
+                </div>
+                <div class="v-map-info">
+                  <div class="v-map-info__header"> <svg class="icon icon-train"><use xlink:href="img/sprite.svg#icon-train"></use></svg>
+                    <h3 class="title-md title-md_simple v-map-info__title">Train stations</h3>
+                  </div>
+                  <ul class="v-map-info__list">
+                    <li class="v-map-info__item"> <a href="#">
+										<span class="v-map-info__key">Le Havre Train Station</span>
+										<span class="v-map-info__value">4.2 km</span>
+									</a> </li>
+                    <li class="v-map-info__item"> <a href="#">
+										<span class="v-map-info__key">Le Havre Train Station</span>
+										<span class="v-map-info__value">1.3 km</span>
+									</a> </li>
+                  </ul>
+                </div>
+                <div class="v-map-info">
+                  <div class="v-map-info__header"> <svg class="icon icon-diamond"><use xlink:href="img/sprite.svg#icon-diamond"></use></svg>
+                    <h3 class="title-md title-md_simple v-map-info__title">City center</h3>
+                  </div>
+                  <ul class="v-map-info__list">
+                    <li class="v-map-info__item"> <a href="#">
+										<span class="v-map-info__key">City center</span>
+										<span class="v-map-info__value">1.2 km</span>
+									</a> </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="v-map-control__container sm-hidden" data-tabs-container="route-planner">
+                <div class="v-map-control__outer">
+                  <div class="v-map-control__header">
+                    <div class="v-map-type v-map-control__type">
+                      <h4 class="title-md title-md_simple v-map-type__label">Directions:</h4> <label class="v-map-type__radio">
+									<input type="radio" name="v-map-type" >
+									<span class="v-map-type__icon">
+										
+<svg class="icon icon-front-car"><use xlink:href="img/sprite.svg#icon-front-car"></use></svg>
+
+									</span>
+								</label> <label class="v-map-type__radio">
+									<input type="radio" name="v-map-type" checked>
+									<span class="v-map-type__icon">
+										
+<svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg>
+
+									</span>
+								</label> <label class="v-map-type__radio">
+									<input type="radio" name="v-map-type" >
+									<span class="v-map-type__icon">
+										
+<svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg>
+
+									</span>
+								</label> </div>
+                    <div class="v-map-group v-map-control__group js-fields-group" data-state="empty">
+                      <div class="v-map-group__icons"> <svg class="icon icon-aim"><use xlink:href="img/sprite.svg#icon-aim"></use></svg> <span></span> <svg class="icon icon-marker"><use xlink:href="img/sprite.svg#icon-marker"></use></svg> </div> <button type="button" class="v-map-group__sort">
+								
+<svg class="icon icon-sort"><use xlink:href="img/sprite.svg#icon-sort"></use></svg>
+
+							</button>
+                      <div class="v-map-group__field js-fields-group-box"> <input type="text" placeholder="Enter address" class="v-map-group__input js-fields-group-input" data-target="from">
+                        <ul class="v-map-group__list js-fields-group-list">
+                          <li class="v-map-group__item" data-value="Lorem.">Lorem.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum.">Lorem ipsum.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum dolor.">Lorem ipsum dolor.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum.">Lorem ipsum.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptates.">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptates.</li>
+                          <li class="v-map-group__item" data-value="Lorem.">Lorem.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum dolor sit.">Lorem ipsum dolor sit.</li>
+                        </ul>
+                      </div>
+                      <div class="v-map-group__field js-fields-group-box"> <input type="text" placeholder="Enter address" class="v-map-group__input js-fields-group-input" data-target="to">
+                        <ul class="v-map-group__list js-fields-group-list">
+                          <li class="v-map-group__item" data-value="Lorem.">Lorem.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum.">Lorem ipsum.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum dolor.">Lorem ipsum dolor.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum.">Lorem ipsum.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptates.">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptates.</li>
+                          <li class="v-map-group__item" data-value="Lorem.">Lorem.</li>
+                          <li class="v-map-group__item" data-value="Lorem ipsum dolor sit.">Lorem ipsum dolor sit.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="v-map-control__submit"> <button class="btn btn_large">Get Directions</button> </div>
+                  </div>
+                  <div class="v-map-control__body js-scrollbar v-scrollbar">
+                    <div class="v-map-control__items">
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>24 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_orange">5</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                        </ul>
+                        <div class="v-map-item__info">At 17.56 from:Chapelle Notre-Dam</div>
+                        <div class="v-map-meta v-map-item__meta">
+                          <div class="v-map-meta__price v-map-meta__item">€ 20</div>
+                          <div class="v-map-meta__duration v-map-meta__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> 15 min</div>
+                          <div class="v-map-meta__periodicity v-map-meta__item">every 5 min</div>
+                        </div>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>26 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_blue">6</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                        </ul>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>31 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_orange">4</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                        </ul>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>24 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_orange">5</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                        </ul>
+                        <div class="v-map-item__info">At 17.56 from:Chapelle Notre-Dam</div>
+                        <div class="v-map-meta v-map-item__meta">
+                          <div class="v-map-meta__price v-map-meta__item">€ 20</div>
+                          <div class="v-map-meta__duration v-map-meta__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> 15 min</div>
+                          <div class="v-map-meta__periodicity v-map-meta__item">every 5 min</div>
+                        </div>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>26 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_blue">6</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                        </ul>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>31 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_orange">4</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                        </ul>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>24 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_orange">5</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                        </ul>
+                        <div class="v-map-item__info">At 17.56 from:Chapelle Notre-Dam</div>
+                        <div class="v-map-meta v-map-item__meta">
+                          <div class="v-map-meta__price v-map-meta__item">€ 20</div>
+                          <div class="v-map-meta__duration v-map-meta__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> 15 min</div>
+                          <div class="v-map-meta__periodicity v-map-meta__item">every 5 min</div>
+                        </div>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>26 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_blue">6</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                        </ul>
+                      </div>
+                      <div class="v-map-item">
+                        <div class="v-map-item__icon"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> </div>
+                        <div class="v-map-item__time"> <span>17.45-18.49</span> <strong>31 min</strong> </div>
+                        <ul class="v-map-path">
+                          <li class="v-map-path__item"> <svg class="icon icon-walking"><use xlink:href="img/sprite.svg#icon-walking"></use></svg> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg> </li>
+                          <li class="v-map-path__item"> <svg class="icon icon-bus"><use xlink:href="img/sprite.svg#icon-bus"></use></svg> <span class="v-map-path__number v-map-path__number_orange">4</span> <svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>                            </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end v-location__main -->
+        <!-- begin v-location__items -->
+        <div class="v-location__items">
+          <h2 class="title-lg v-location__subtitle">LOCAL ATTRACTIONS</h2>
+          <div class="v-location__description">Click on the name to get directions to the local attractions</div>
+          <div class="v-slider">
+            <div class="v-slider__inner js-slider">
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-museum"><use xlink:href="img/sprite.svg#icon-museum"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">museums</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Falaise d&#39;Etretat</div>
+                          <div class="v-info-box__value">3.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Espace Art contemporain</div>
+                          <div class="v-info-box__value">1.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Natterra Private Tours</div>
+                          <div class="v-info-box__value">7.7 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Le Clos Arsene Lupin</div>
+                          <div class="v-info-box__value">0.5 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-tree"><use xlink:href="img/sprite.svg#icon-tree"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">parks</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Ferme Le Valaine</div>
+                          <div class="v-info-box__value">2.1 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">étretat</div>
+                          <div class="v-info-box__value">0.9 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">City Center</div>
+                          <div class="v-info-box__value">1.2 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-cinema"><use xlink:href="img/sprite.svg#icon-cinema"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">theaters</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Aiguille</div>
+                          <div class="v-info-box__value">3.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Falaise d&#39;Etretat</div>
+                          <div class="v-info-box__value">1.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Espace Art contemporain</div>
+                          <div class="v-info-box__value">7.7 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Octeville</div>
+                          <div class="v-info-box__value">0.5 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Le Clos Arsene Lupin</div>
+                          <div class="v-info-box__value">3.5 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-museum"><use xlink:href="img/sprite.svg#icon-museum"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">museums</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Falaise d&#39;Etretat</div>
+                          <div class="v-info-box__value">3.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Espace Art contemporain</div>
+                          <div class="v-info-box__value">1.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Natterra Private Tours</div>
+                          <div class="v-info-box__value">7.7 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Le Clos Arsene Lupin</div>
+                          <div class="v-info-box__value">0.5 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-tree"><use xlink:href="img/sprite.svg#icon-tree"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">parks</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Ferme Le Valaine</div>
+                          <div class="v-info-box__value">2.1 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">étretat</div>
+                          <div class="v-info-box__value">0.9 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">City Center</div>
+                          <div class="v-info-box__value">1.2 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-cinema"><use xlink:href="img/sprite.svg#icon-cinema"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">theaters</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Aiguille</div>
+                          <div class="v-info-box__value">3.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Falaise d&#39;Etretat</div>
+                          <div class="v-info-box__value">1.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Espace Art contemporain</div>
+                          <div class="v-info-box__value">7.7 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Octeville</div>
+                          <div class="v-info-box__value">0.5 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Le Clos Arsene Lupin</div>
+                          <div class="v-info-box__value">3.5 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-museum"><use xlink:href="img/sprite.svg#icon-museum"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">museums</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Falaise d&#39;Etretat</div>
+                          <div class="v-info-box__value">3.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Espace Art contemporain</div>
+                          <div class="v-info-box__value">1.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Natterra Private Tours</div>
+                          <div class="v-info-box__value">7.7 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Le Clos Arsene Lupin</div>
+                          <div class="v-info-box__value">0.5 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-tree"><use xlink:href="img/sprite.svg#icon-tree"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">parks</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Ferme Le Valaine</div>
+                          <div class="v-info-box__value">2.1 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">étretat</div>
+                          <div class="v-info-box__value">0.9 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">City Center</div>
+                          <div class="v-info-box__value">1.2 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="v-slider__item">
+                <div class="v-info-box"> <svg class="icon icon-cinema"><use xlink:href="img/sprite.svg#icon-cinema"></use></svg>
+                  <div class="v-info-box__content">
+                    <h3 class="title-md v-info-box__title">theaters</h3>
+                    <ul class="v-info-box__list">
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Aiguille</div>
+                          <div class="v-info-box__value">3.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Falaise d&#39;Etretat</div>
+                          <div class="v-info-box__value">1.3 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Espace Art contemporain</div>
+                          <div class="v-info-box__value">7.7 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Octeville</div>
+                          <div class="v-info-box__value">0.5 km</div>
+                        </a>
+                      </li>
+                      <li class="v-info-box__item">
+                        <a href="#">
+                          <div class="v-info-box__key">Le Clos Arsene Lupin</div>
+                          <div class="v-info-box__value">3.5 km</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end v-location__items -->
+      </div>
+    </div>
+    <!-- end v-location -->
+    <!-- begin v-review -->
+    <div class="v-review" data-scrollto-section="v-review">
+      <div class="v-inner v-review__inner">
+        <h2 class="title-lg v-review__title">Review</h2>
+        <div class="v-review__sidebar">
+          <div class="v-rating-box">
+            <div class="v-rating-box__header">
+              <div class="v-rating-box__out">
+                <div class="v-rating-box__evaluation"> <strong>4.1</strong> <small>out of 5</small> </div> <img src="img/tripadvisor-nederland.svg" alt="TripAdvisor" class="v-rating-box__logo">
+                <div class="v-rating-box__meta">120 reviews</div>
+              </div>
+              <div class="v-rating-box__info">Average rating of hotels in Upper Normandy: <strong>3.9</strong></div>
+            </div>
+            <div class="v-rating-box__body">
+              <h3 class="title-md v-rating-box__title">Guests like:</h3>
+              <div class="v-rating-box__item">
+                <div class="v-rating-box__item-icon"> <svg class="icon icon-sunset"><use xlink:href="img/sprite.svg#icon-sunset"></use></svg> </div>
+                <div class="v-rating-box__item-in">
+                  <h4 class="v-rating-box__subtitle">amazing view</h4>
+                  <div class="v-rating-box__meta">78 hotel reviews</div>
+                </div>
+              </div>
+              <div class="v-rating-box__item">
+                <div class="v-rating-box__item-icon"> <svg class="icon icon-map"><use xlink:href="img/sprite.svg#icon-map"></use></svg> </div>
+                <div class="v-rating-box__item-in">
+                  <h4 class="v-rating-box__subtitle">great location</h4>
+                  <div class="v-rating-box__meta">50 hotel reviews</div>
+                </div>
+              </div>
+              <div class="v-rating-box__item">
+                <div class="v-rating-box__item-icon"> <svg class="icon icon-vegetables"><use xlink:href="img/sprite.svg#icon-vegetables"></use></svg> </div>
+                <div class="v-rating-box__item-in">
+                  <h4 class="v-rating-box__subtitle">tasty food</h4>
+                  <div class="v-rating-box__meta">39 hotel reviews</div>
+                </div>
+              </div>
+              <div class="v-rating-box__item">
+                <div class="v-rating-box__item-icon"> <svg class="icon icon-livingroom"><use xlink:href="img/sprite.svg#icon-livingroom"></use></svg> </div>
+                <div class="v-rating-box__item-in">
+                  <h4 class="v-rating-box__subtitle">unique style</h4>
+                  <div class="v-rating-box__meta"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="v-review__main">
+          <div class="v-review__items">
+            <div class="v-comment v-review__item">
+              <div class="v-comment__user">
+                <div class="v-comment__avatar" style="background-color: #b0c7e8;">
+                  <div class="v-comment__initials">MT</div>
+                </div>
+                <div class="v-comment__name">Mina Tyler</div>
+                <div class="v-comment__description">New Conniefort</div>
+                <div class="v-comment__label">2 weeks ago</div>
+              </div>
+              <div class="v-comment__body"> <img src="img/logo-tripadvisor.svg" alt="TripAdvisor" class="v-comment__logo">
+                <div class="v-comment__meta">
+                  <div class="v-comment__label">Guest rating</div>
+                  <div class="v-comment__rating">4.3</div>
+                  <div class="v-comment__time sm-hidden">2 weeks ago</div>
+                </div>
+                <div class="v-comment__content">
+                  <div class="v-comment__title">Perfect location with fantastic views!</div>
+                  <div class="v-comment__text">
+                    <p>Perfect location with fantastic views!</p>
+                    <p>Magic Etretat is a wonderful hotel: a magical view from the window, very comfortable room. Of course, you need to book with a view of the sea. Breakfast may seem small, but all products are fresh and delicious!</p>
+                  </div>
+                </div>
+                <div class="v-comment__footer"> <button class="v-comment__like ">
+						<span class="v-comment__like-number">12</span>
+						<span class="v-comment__like-icons">
+							
+<svg class="icon icon-like-empty"><use xlink:href="img/sprite.svg#icon-like-empty"></use></svg>
+
+							
+<svg class="icon icon-like-full"><use xlink:href="img/sprite.svg#icon-like-full"></use></svg>
+
+						</span>
+						<span class="v-comment__like-label">Helpful</span>
+					</button> </div>
+              </div>
+            </div>
+            <div class="v-comment v-review__item">
+              <div class="v-comment__user">
+                <div class="v-comment__avatar" style="background-color: #f2a171;">
+                  <div class="v-comment__initials">AW</div>
+                </div>
+                <div class="v-comment__name">Adele Wood</div>
+                <div class="v-comment__description">Nyahstad</div>
+                <div class="v-comment__label">4 weeks ago</div>
+              </div>
+              <div class="v-comment__body"> <img src="img/logo-tripadvisor.svg" alt="TripAdvisor" class="v-comment__logo">
+                <div class="v-comment__meta">
+                  <div class="v-comment__label">Guest rating</div>
+                  <div class="v-comment__rating">3.8</div>
+                  <div class="v-comment__time sm-hidden">4 weeks ago</div>
+                </div>
+                <div class="v-comment__content">
+                  <div class="v-comment__title">Great hotel!</div>
+                  <div class="v-comment__text">
+                    <p>Amazing view of the sea, rocks. Parking at the hotel on Sunday was very useful. Pleasant breakfast.</p>
+                    <p>Service in the restaurant is worse. Panoramic restaurant in the hotel. Great food.</p>
+                  </div>
+                </div>
+                <div class="v-comment__footer"> <button class="v-comment__like is-active">
+						<span class="v-comment__like-number">9</span>
+						<span class="v-comment__like-icons">
+							
+<svg class="icon icon-like-empty"><use xlink:href="img/sprite.svg#icon-like-empty"></use></svg>
+
+							
+<svg class="icon icon-like-full"><use xlink:href="img/sprite.svg#icon-like-full"></use></svg>
+
+						</span>
+						<span class="v-comment__like-label">Helpful</span>
+					</button> </div>
+              </div>
+            </div>
+            <div class="v-comment v-review__item">
+              <div class="v-comment__user">
+                <div class="v-comment__avatar">
+                  <div class="v-comment__img" style="background-image: url(https://placekitten.com/g/200/200);"></div>
+                </div>
+                <div class="v-comment__name">Blake Ortiz</div>
+                <div class="v-comment__description">Lake Kathryn</div>
+                <div class="v-comment__label">12.09.2017</div>
+              </div>
+              <div class="v-comment__body">
+                <div class="v-comment__meta">
+                  <div class="v-comment__label">Guest rating</div>
+                  <div class="v-comment__rating">4.5</div>
+                  <div class="v-comment__time sm-hidden">12.09.2017</div>
+                </div>
+                <div class="v-comment__content">
+                  <div class="v-comment__title">Very nice hotel in a fabulous place.</div>
+                  <div class="v-comment__text">
+                    <p>Liked everything. As for the food in the hotel I can not say anything, because I did not take it. But there is a fish restaurant nearby, where fresh oysters are served. Places in it must be ordered in advance.</p>
+                  </div>
+                </div>
+                <div class="v-comment__footer"> <button class="v-comment__like is-active">
+						<span class="v-comment__like-number">9</span>
+						<span class="v-comment__like-icons">
+							
+<svg class="icon icon-like-empty"><use xlink:href="img/sprite.svg#icon-like-empty"></use></svg>
+
+							
+<svg class="icon icon-like-full"><use xlink:href="img/sprite.svg#icon-like-full"></use></svg>
+
+						</span>
+						<span class="v-comment__like-label">Helpful</span>
+					</button> </div>
+              </div>
+            </div>
+            <div class="v-comment v-review__item">
+              <div class="v-comment__user">
+                <div class="v-comment__avatar" style="background-color: #fba1ab;">
+                  <div class="v-comment__initials">CG</div>
+                </div>
+                <div class="v-comment__name">Cory Gutierrez</div>
+                <div class="v-comment__description">New Evangeline</div>
+                <div class="v-comment__label">03.09.2017</div>
+              </div>
+              <div class="v-comment__body"> <img src="img/logo-tripadvisor.svg" alt="TripAdvisor" class="v-comment__logo">
+                <div class="v-comment__meta">
+                  <div class="v-comment__label">Guest rating</div>
+                  <div class="v-comment__rating">3.9</div>
+                  <div class="v-comment__time sm-hidden">03.09.2017</div>
+                </div>
+                <div class="v-comment__content">
+                  <div class="v-comment__title">Perfect location with fantastic views!</div>
+                  <div class="v-comment__text">
+                    <p>Good-natured hosts, everything is cozy and clean. Excellent French breakfast.Magic Etretat is a wonderful hotel: a magical view from the window, very comfortable room. Of course, you need to book with a view of the sea. Breakfast may
+                      seem small, but all products are fresh and delicious!</p>
+                  </div>
+                </div>
+                <div class="v-comment__footer"> <button class="v-comment__like ">
+						<span class="v-comment__like-number">12</span>
+						<span class="v-comment__like-icons">
+							
+<svg class="icon icon-like-empty"><use xlink:href="img/sprite.svg#icon-like-empty"></use></svg>
+
+							
+<svg class="icon icon-like-full"><use xlink:href="img/sprite.svg#icon-like-full"></use></svg>
+
+						</span>
+						<span class="v-comment__like-label">Helpful</span>
+					</button> </div>
+              </div>
+            </div>
+          </div>
+          <!-- begin v-pagination -->
+          <div class="v-pagination v-review__pagination">
+            <div class="v-pagination__inner"> <a href="#" class="v-pagination__prev is-disabled">
+			
+<svg class="icon icon-prev"><use xlink:href="img/sprite.svg#icon-prev"></use></svg>
+
+			<span>Previous</span>
+		</a>
+              <div class="v-pagination__pages"> <a href="#" class="v-pagination__page is-active">1</a> <a href="#" class="v-pagination__page">2</a> <a href="#" class="v-pagination__page">3</a> <span class="v-pagination__splitter">
+				<span>. . . . . . . . .</span> </span> <a href="#" class="v-pagination__page v-pagination__last">10</a> </div> <a href="#" class="v-pagination__next">
+			<span>Next</span>
+			
+<svg class="icon icon-next"><use xlink:href="img/sprite.svg#icon-next"></use></svg>
+
+		</a> </div>
+          </div>
+          <!-- end v-pagination -->
+          <!-- begin v-sm-form -->
+          <div class="v-sm-form">
+            <form action="/">
+              <h3 class="title-md v-sm-form__title">quick review</h3>
+              <div class="v-sm-form__container">
+                <div class="v-sm-form__row">
+                  <div class="v-sm-form__col v-sm-form__col_md-100">
+                    <div class="v-radios">
+                      <div class="v-radios__label">Hotel rating</div> <label class="v-radio v-radios__item">
+	<input type="radio" name="hotel-rating" >
+	<span class="v-radio__icon"></span>
+</label> <label class="v-radio v-radios__item">
+	<input type="radio" name="hotel-rating" >
+	<span class="v-radio__icon"></span>
+</label> <label class="v-radio v-radios__item">
+	<input type="radio" name="hotel-rating" >
+	<span class="v-radio__icon"></span>
+</label> <label class="v-radio v-radios__item">
+	<input type="radio" name="hotel-rating" checked>
+	<span class="v-radio__icon"></span>
+</label> <label class="v-radio v-radios__item">
+	<input type="radio" name="hotel-rating" >
+	<span class="v-radio__icon"></span>
+</label> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> </div>
+                  </div>
+                  <div class="v-sm-form__col v-sm-form__col_md-50">
+                    <div class="v-input js-input"> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <svg class="icon icon-close"><use xlink:href="img/sprite.svg#icon-close"></use></svg> <input type="text" class="v-input__field js-input-field">
+                      <div
+                        class="v-input__label">Name</div>
+                  </div>
+                </div>
+                <div class="v-sm-form__col v-sm-form__col_md-50">
+                  <div class="v-input js-input"> <svg class="icon icon-check"><use xlink:href="img/sprite.svg#icon-check"></use></svg> <svg class="icon icon-close"><use xlink:href="img/sprite.svg#icon-close"></use></svg> <input type="text" class="v-input__field js-input-field">
+                    <div
+                      class="v-input__label">Email</div>
+                  <div class="v-input__message">Please enter a valid</div>
+                </div>
+              </div>
+          </div>
+          <div class="v-sm-form__message">
+            <h4 class="v-sm-form__subtitle">Share your impressio</h4>
+            <div class="v-textarea js-input"> <textarea class="v-textarea__field js-input-field" placeholder="Type something"></textarea>
+              <div class="v-textarea__icon"> <svg class="icon icon-speech-bubble"><use xlink:href="img/sprite.svg#icon-speech-bubble"></use></svg> </div>
+            </div>
+          </div>
+          <div class="v-sm-form__footer"> <button class="btn btn_large">Leave Review</button> </div>
+        </div>
+        </form>
+      </div>
+      <!-- end v-sm-form -->
+    </div>
+    </div>
+    </div>
+    <!-- end v-review -->
+    <!-- begin v-popular -->
+    <div class="v-popular js-more">
+      <div class="v-inner v-popular__inner">
+        <div class="v-popular__title">Popular hotels in Upper Normandy</div>
+        <div class="v-popular__content js-more-content">
+          <ul class="v-popular__list">
+            <li class="v-popular__item"> <a href="#">Hotel De Paris Rouen </a> </li>
+            <li class="v-popular__item"> <a href="#">Mont Vernon Hotel</a> </li>
+            <li class="v-popular__item"> <a href="#">Hotel Normandy Vernon</a> </li>
+            <li class="v-popular__item"> <a href="#">Hotel Au Grand Duquesne Dieppe</a> </li>
+            <li class="v-popular__item"> <a href="#">Ibis Rouen Champ De Mars </a> </li>
+            <li class="v-popular__item"> <a href="#">Premiere Classe Rouen Sud Hotel </a> </li>
+            <li class="v-popular__item"> <a href="#">Continental Forges</a> </li>
+            <li class="v-popular__item"> <a href="#">Le Drakkar</a> </li>
+            <li class="v-popular__item"> <a href="#">Val De Reuil Novotel Rouen Sud</a> </li>
+            <li class="v-popular__item"> <a href="#">Motel Aubin</a> </li>
+            <li class="v-popular__item"> <a href="#">Hotel De La Cathedrale</a> </li>
+            <li class="v-popular__item"> <a href="#">Hotel Bonaparte Rouen </a> </li>
+            <li class="v-popular__item"> <a href="#">Le Manoir Des Deux Amants</a> </li>
+            <li class="v-popular__item"> <a href="#">Hotel Normandy Vernon</a> </li>
+            <li class="v-popular__item"> <a href="#">Hotel De Bourgtheroulde</a> </li>
+            <li class="v-popular__item"> <a href="#"> Qualys Hotel La Berteliere Rouen</a> </li>
+          </ul>
+        </div>
+        <div class="v-popular__more"> <a href="#" class="js-more-control">More hotels 
+<svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg>
+</a> </div>
+      </div>
+    </div>
+    <!-- end v-popular -->
+    <!-- begin v-footer -->
+    <div class="v-footer" data-accordion-main="phone">
+      <div class="v-inner v-footer__inner">
+        <div class="v-footer__row">
+          <div class="v-footer__logo v-footer__col"> <a href="#" class="v-logo v-logo_lg v-footer__logo-in">
+					
+<svg class="icon icon-logo-waves"><use xlink:href="img/sprite.svg#icon-logo-waves"></use></svg>
+
+					<strong class="v-logo__title">Upper Normandy</strong>
+					<span class="v-logo__subtitle">hotel collection</span>
+				</a> </div>
+          <div class="v-footer__info v-footer__col" data-accordion-item>
+            <div class="v-footer__header" data-accordion-btn>
+              <div class="v-footer__subtitle">Helpul info</div> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> </div>
+            <ul class="v-footer__list" data-accordion-container>
+              <li class="v-footer__item"> <a href="#">About us</a> </li>
+              <li class="v-footer__item"> <a href="#">Career</a> </li>
+              <li class="v-footer__item"> <a href="#">Privacy</a> </li>
+              <li class="v-footer__item"> <a href="#">Support</a> </li>
+            </ul>
+          </div>
+          <div class="v-footer__info v-footer__col" data-accordion-item>
+            <div class="v-footer__header" data-accordion-btn>
+              <div class="v-footer__subtitle">Languages</div> <svg class="icon icon-down"><use xlink:href="img/sprite.svg#icon-down"></use></svg> </div>
+            <ul class="v-footer__list" data-accordion-container>
+              <li class="v-footer__item"> <a href="#">English</a> </li>
+              <li class="v-footer__item"> <a href="#">Italian</a> </li>
+              <li class="v-footer__item"> <a href="#">French</a> </li>
+              <li class="v-footer__item"> <a href="#">German</a> </li>
+            </ul>
+          </div>
+          <div class="v-footer__contacts v-footer__col">
+            <div class="v-footer__subtitle">Contact Us</div>
+            <div class="v-footer__link"> <a href="#">
+						
+<svg class="icon icon-mail"><use xlink:href="img/sprite.svg#icon-mail"></use></svg>
+
+						<span>Upper-Normandy-Hotels.com</span>
+					</a> </div>
+            <div class="v-footer__link"> <a href="tel:+3806389752462">
+						
+<svg class="icon icon-phone"><use xlink:href="img/sprite.svg#icon-phone"></use></svg>
+
+						<span>+380 63 897 524 62</span>
+					</a> </div>
+            <div class="v-social v-footer__social"> <a href="#" class="v-social__item">
+							
+<svg class="icon icon-facebook"><use xlink:href="img/sprite.svg#icon-facebook"></use></svg>
+
+						</a> <a href="#" class="v-social__item">
+							
+<svg class="icon icon-twitter"><use xlink:href="img/sprite.svg#icon-twitter"></use></svg>
+
+						</a> <a href="#" class="v-social__item">
+							
+<svg class="icon icon-pinterest"><use xlink:href="img/sprite.svg#icon-pinterest"></use></svg>
+
+						</a> <a href="#" class="v-social__item">
+							
+<svg class="icon icon-google-plus"><use xlink:href="img/sprite.svg#icon-google-plus"></use></svg>
+
+						</a> </div>
+          </div>
+        </div>
+        <div class="v-footer__copy">
+          <p>Hotel Reservation System | 2017 © upper-normandy-hotels.com. All rights reserved</p>
+        </div>
+      </div>
+    </div>
+    <!-- end v-footer -->
     <!-- END content -->
     <!-- begin v-overlay -->
     <div class="v-overlay js-overlay"></div>

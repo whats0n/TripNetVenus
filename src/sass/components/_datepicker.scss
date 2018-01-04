@@ -1,200 +1,236 @@
-.ui-datepicker {
-	padding: 0 16px 9px;
-	border: none !important;
-	border-radius: 4px;
+.datepicker {
+	position: absolute;
+	// padding: 0 4px 5px;
+	padding: 0 0 5px;
 	width: 273px;
 	color: $gray;
 	background: $white;
 	box-shadow: $container-shadow;
+	@include font(14px, null, 17px);
 
-	@include phone {
-		left: 50% !important;
-		margin-left: -150px;
-		width: 300px;
+	&.datepicker-orient-top {
+		margin-top: -2px;
 	}
 
-	.ui-datepicker-header {
-		position: relative;
-		padding: 10px 30px;
-		margin: 0 -16px;
-		border: none;
-		color: $gray;
-		background: none;
+	&.datepicker-orient-bottom {
+		margin-top: 2px;
 	}
 
-	.ui-datepicker-title {
+	&:before,
+	&:after {
+		display: none;
+	}
+
+	//NAVIGATION
+	.datepicker-switch {
+		vertical-align: middle;
+		height: 40px;
+		background: none !important;
 		@include font(16px, 700, 19px);
+		cursor: default;
 	}
 
-	//arrows
-	.ui-datepicker-prev,
-	.ui-datepicker-next {
-		top: 3px !important;
-		padding: 0 !important;
-		border: none !important;
-		width: 37px;
-		height: 35px;
-		background-color: rgba($white, 0) !important;
-		background-size: 5px 9px;
-		background-position: center center;
-		background-repeat: no-repeat;
+	.prev,
+	.next {
+		position: relative;
+		vertical-align: middle;
+		font-size: 0;
+		background: none !important;
 
 		@include hover {
 			&:before {
+				opacity: 0;
+			}
+
+			&:after {
 				opacity: 1;
 			}
 		}
 
-		&:before {
+		&:before,
+		&:after {
 			content: '';
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
-			opacity: 0;
-			background-size: 5px 9px;
 			background-position: center center;
 			background-repeat: no-repeat;
+			background-size: 5px 9px;
 			transition: opacity 0.25s;
 		}
 
-		span {
-			display: none;
+		&:after {
+			opacity: 0;
 		}
 	}
-	.ui-datepicker-prev {
-		left: 0 !important;
-		background-image: url(../img/prev.svg);
 
+	.prev {
 		&:before {
+			background-image: url(../img/prev.svg);
+		}
+
+		&:after {
 			background-image: url(../img/prev-green.svg);
 		}
 	}
-	.ui-datepicker-next {
-		right: 0 !important;
-		background-image: url(../img/next.svg);
-		
+
+	.next {
 		&:before {
+			background-image: url(../img/next.svg);
+		}
+
+		&:after {
 			background-image: url(../img/next-green.svg);
 		}
 	}
-	//body
+	//END NAVIGATION
+
 	table {
-		table-layout: fixed;
-		margin: 0;
-		@include font(14px, 400, 17px);
-	}
+		tr {
+			th {
+				height: auto;
+				font-weight: 400;
 
-	thead {
-		border-bottom: 1px solid $lightGreen;
-	}
+				&.dow {
+					position: relative;
+					padding-bottom: 7px;
 
-	th {
-		padding: 0 0 7px;
-		font-weight: 400;
+					&:after {
+						content: '';
+						position: absolute;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						border-bottom: 1px solid $theme-main-color;
+					}
 
-		&.ui-datepicker-week-end {
-			font-weight: 700;
-		}
-	}
+					&:first-child {
+						&:after {
+							left: 12px;
+						}
+					}
 
-	td {
-		padding: 2px 4px;
-
-		@include phone {
-			padding: 4px;
-		}
-
-		a,
-		span {
-			padding: 3px 0;
-		}
-
-		a {
-			margin: 0 auto;
-			border: 1px solid $lightGreen;
-			border-radius: 4px;
-			width: 25px;
-			transition: border-color 0.25s, color 0.25s, background 0.25s;
-
-			&:not(.ui-priority-secondary) {
-				&.ui-state-hover,
-				&.ui-state-active {
-					border-color: $lightGreen;
+					&:last-child {
+						&:after {
+							right: 12px;
+						}
+					}
 				}
-				&.ui-state-active {
-					color: $white;
-					background: $lightGreen;
+
+				&:nth-child(6),
+				&:nth-child(7) {
+					font-weight: 700;
+				}
+			}
+
+			td {
+				vertical-align: middle;
+				position: relative;
+				background: none !important;
+
+				@include hover {
+					&:before {
+						opacity: 1;
+					}
+				}
+
+				&.selected, 
+				&.selected.highlighted {
+					font-weight: 700;
+					text-shadow: none;
+
+					&:before {
+						opacity: 1;
+						background: $theme-main-color;
+					}
+				}
+
+				&.range,
+				&.range.highlighted {
+					color: $gray;
+
+					@include hover {
+						color: $gray;
+					}
+
+					&:after {
+						width: 100%;
+						opacity: 1;
+					}
+				}
+
+				&.range-start {
+					&.range-end {
+						&:after {
+							display: none;
+						}
+					}
+
+					&:after {
+						left: 50%;
+						opacity: 1;
+					}
+				}
+
+				&.range-end {
+					&:after {
+						left: 0;
+						right: 50%;
+						opacity: 1;
+					}
+				}
+
+				&.old,
+				&.new {
+					color: rgba($gray, 0.5);
+
+					&.highlighted {
+						color: rgba($gray, 0.5);
+					}
+
+					&.selected,
+					&.selected.highlighted {
+						color: $white;
+					}
+				}
+
+				&.highlighted {
+					color: $gray;
+					font-weight: 700;
+
+					@include hover {
+						color: $gray;
+					}
+				}
+
+				&:before,
+				&:after {
+					content: '';
+					position: absolute;
+					z-index: -1;
+					top: 50%;
+					left: 50%;
+					height: 25px;
+					opacity: 0;
+					transition: opacity 0.25s, background 0.25s;
+				}
+
+				&:before {
+					border: 1px solid $theme-main-color;
+					border-radius: 4px;
+					width: 25px;
+					transform: translate3d(-50%,-50%,0);
+				}
+
+				&:after {
+					left: 0;
+					right: 0;
+					background: rgba($theme-main-color, 0.3);
+					transform: translate3d(0,-50%,0);
 				}
 			}
 		}
 	}
-
-	//days
-	.ui-priority-secondary, 
-	.ui-widget-content .ui-priority-secondary,
-	.ui-widget-header .ui-priority-secondary {
-		opacity: 0.5;
-	}
-
-	.ui-state-default, 
-	.ui-widget-content .ui-state-default, 
-	.ui-widget-header .ui-state-default {
-		position: relative;
-		border-color: rgba($white, 0);
-		color: $gray;
-		background: none;
-		text-align: center;
-	}
-
-	.ui-state-highlight, 
-	.ui-widget-content .ui-state-highlight, 
-	.ui-widget-header .ui-state-highlight {
-		border: none;
-		color: $gray;
-		background: none;
-	}
 }
-
-// .dropdown-menu {
-// 	display: none;
-// }
-
-// .daterangepicker {
-// 	padding: 0;
-// 	border-radius: 4px;
-// 	width: 273px;
-// 	color: $gray;
-// 	background: $white;
-// 	box-shadow: $container-shadow;
-
-// 	&:before,
-// 	&:after {
-// 		display: none;
-// 	}
-
-// 	.calendar {
-// 		margin: 0;
-// 	}
-
-// 	.calendar-table {
-// 		padding: 0 16px 9px;
-// 	}
-
-// 	thead {
-// 		tr:last-child th {
-// 			padding-bottom: 8px;
-// 			border-bottom: 1px solid $lightGreen;
-// 		}
-// 	}
-
-// 	tbody {
-
-// 	}
-
-// 	td.active,
-// 	td.active:hover {
-// 		background: $green;
-// 	}
-// }

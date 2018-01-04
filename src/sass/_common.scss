@@ -1,17 +1,25 @@
-&.Venus {
-	color: $gray;
-	font-family: $lato;
-	@include font(14px, 400, 1.3);
-}
-
 * {
 	font-family: $lato;
 }
 
+//states
 [hidden] {
 	display: none !important;
 }
 
+.sm-hidden {
+	@include phone {
+		display: none !important;
+	}
+}
+
+.sm-visible {
+	@include phone {
+		display: block !important;
+	}
+}
+
+//common styles
 .v-inner {
 	position: relative;
 	padding-left: 20px;
@@ -55,6 +63,7 @@
 .slick {
 	&-dots {
 		font-size: 0;
+		text-align: center;
 
 		li {
 			display: inline-block;
@@ -82,13 +91,13 @@
 					left: 5px;
 					right: 5px;
 					bottom: 5px;
-					border: 1px solid $lightGreen;
+					border: 1px solid $theme-main-color;
 					border-radius: 50%;
 				}
 
 				&:after {
 					opacity: 0;
-					background: $lightGreen;
+					background: $theme-main-color;
 					transition: opacity 0.25s;
 				}
 			}

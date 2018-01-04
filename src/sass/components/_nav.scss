@@ -1,23 +1,33 @@
 .v-nav {
 	float: right;
 	&.is-phone {
-		transition: transform 0.3s;
+		transition: opacity 0.3s, visibility 0.3s;
+
+		.v-nav__list {
+			transition: transform 0.3s;
+		}
 	}
 
 	@include phone {
 		position: absolute;
-		top: 51px;
+		top: 0;
 		left: 0;
 		right: 0;
-		overflow: auto;
-		max-height: calc(100vh - 51px);
-		background: $white;
+		padding-top: 51px;
+		height: calc(100vh + 51px);
+		opacity: 0;
+		visibility: hidden;
+		background: rgba($black, 0.8);
 		box-shadow: $container-shadow-phone;
-		transform: translate3d(0,-100%,0);
 	}
 
 	&.is-open {
-		@include gpu;
+		opacity: 1;
+		visibility: visible;
+
+		.v-nav__list {
+			@include gpu;
+		}
 	}
 
 	&__list {
@@ -29,8 +39,12 @@
 		}
 
 		@include phone {
+			overflow: auto;
 			padding: 0 10px;
 			margin-right: 0;
+			max-height: 100%;
+			background: $white;
+			transform: translate3d(0,-100%,0);
 		}
 	}
 
@@ -86,25 +100,10 @@
 		}
 
 		&.is-active {
-			color: $green;
+			color: $theme-main-color-darken;
 
 			.icon-down {
-				transform: rotate(180deg);
-			}
-		}
-
-		.icon-down {
-			display: none;
-			position: absolute;
-			top: 50%;
-			right: 0;
-			margin-top: -3px;
-			font-size: 6px;
-			fill: currentColor;
-			transition: transform 0.25s;
-
-			@include phone {
-				display: block;
+				color: $gray;
 			}
 		}
 	}

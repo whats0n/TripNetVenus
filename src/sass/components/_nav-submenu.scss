@@ -3,7 +3,7 @@
 	top: 100%;
 	right: -44px;
 	margin-top: -2px;
-	border: 1px solid $green;
+	border: 1px solid $theme-main-color-darken;
 	border-radius: 4px;
 	opacity: 0;
 	visibility: hidden;
@@ -19,12 +19,11 @@
 		position: relative;
 		top: auto;
 		right: auto;
-		display: none;
 		padding-left: 0;
 		padding-right: 0;
 		margin: 0;
 		border: none;
-		border-top: 1px solid $lightGreen;
+		border-top: 1px solid $theme-main-color;
 		border-radius: 0;
 		width: 100%;
 		opacity: 1;
@@ -51,7 +50,7 @@
 	}
 
 	&:before {
-		@include arr(18, 7, $green, t);
+		@include arr(18, 7, $theme-main-color-darken, t);
 	}
 	&:after {
 		margin-bottom: -1px;

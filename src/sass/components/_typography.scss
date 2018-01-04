@@ -5,6 +5,10 @@
 	@include phone {
 		@include font(15px, null, 18px);
 	}
+
+	&_simple {
+		text-transform: none;
+	}
 }
 
 .title-md {
@@ -13,5 +17,9 @@
 
 	@include phone {
 		@include font(13px, null, 16px);
+	}
+
+	&_simple {
+		text-transform: none;
 	}
 }

@@ -84,8 +84,10 @@
 }
 
 @mixin hover {
-	&:hover {
-		@content;
+	.is-notouch & {
+		&:hover {
+			@content;
+		}
 	}
 }
 
@@ -109,9 +111,15 @@
 	}
 }
 
+@mixin IE {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
 //adaptive
 @mixin tablet {
-	@include mediaWidth('1300') {
+	@include mediaWidth('1279') {
 		@content;
 	}
 }
