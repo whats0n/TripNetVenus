@@ -1,0 +1,28 @@
+<div class="v-gallery__container">
+	<h3 class="title-md v-gallery__subtitle">Available hotels nearby</h3>
+	<div class="v-slider">
+		<div class="v-slider__inner js-slider">
+			{% for item in range(0,3) %}
+				{% for option in [
+					{
+						title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, animi!',
+						place: 'Place Foch, Étretat, France'
+					},
+					{
+						title: 'LA TAVERNE DES DEUX AUGUSTINS',
+						place: 'Place Foch, Étretat, France'
+					},
+					{
+						title: 'LA TAVERNE DES DEUX AUGUSTINS',
+						place: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, necessitatibus!',
+						stars: 5
+					}
+				] %}
+					<div class="v-slider__item">
+						{{itemBox.call(option)}}
+					</div>
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+</div>

@@ -49,18 +49,37 @@ import {getWidth, toggleBodyScroll} from '../_utils';
 
     initDatepickers() {
       const {datepickers} = this.cache;
+
+      const toggleFieldState = e => {
+        const input = $(e.target);
+        const field = input.closest('[data-datepicker-item]');
+        switch (e.type) {
+          case 'show':
+            field.addClass(ACTIVE);
+            return;
+          case 'hide':
+            field.removeClass(ACTIVE);
+            return;
+        }
+      };
+
       datepickers.each((i, datepicker) => {
-        const _this = $(datepicker);
-        const inputs = _this.find('[data-datepicker-input]');
-        _this.datepicker({
-          format: 'dd-M-yy',
-          autoclose: true,
-          keyboardNavigation: false,
-          maxViewMode: 0,
-          weekStart: 1,
-          daysOfWeekHighlighted: [0,6],
-          inputs: inputs
-        });
+        datepicker = $(datepicker);
+        const inputs = datepicker.find('[data-datepicker-input]');
+
+        datepicker
+          .datepicker({
+            format: 'dd-M-yy',
+            autoclose: true,
+            keyboardNavigation: false,
+            maxViewMode: 0,
+            weekStart: 1,
+            daysOfWeekHighlighted: [0,6],
+            inputs: inputs
+          })
+          .on('show', toggleFieldState)
+          .on('hide', toggleFieldState);
+
       });
     }
 

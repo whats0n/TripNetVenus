@@ -1,0 +1,81 @@
+.v-loader {
+	padding: 20px;
+	margin: 40px auto;
+	border-radius: 4px;
+	max-width: 753px;
+	background: $white;
+	box-shadow: $container-shadow;
+	font-size: 0;
+
+	@include tablet {
+		padding: 15px;
+		margin: 30px auto;
+	}
+
+	@include phone {
+		padding: 15px 10px;
+		margin: 15px auto;
+	}
+
+	&__icon,
+	&__title {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__icon {
+		width: 59px;
+		height: 59px;
+		@include vertical;
+
+		&.is-rotation {
+			transform: translate3d(0,0,0);
+			animation: rotation 1s linear infinite;
+		}
+
+		+ .v-loader__title {
+			padding-left: 30px;
+
+			@include phone {
+				padding-left: 0;
+			}
+		}
+
+		.icon {
+			display: inline-block;
+			vertical-align: middle;
+			fill: $theme-main-color;
+			font-size: 56px;
+		}
+
+		.icon-spinner-circle {
+			opacity: 0.74;
+		}
+	}
+
+	&__title {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		@include font(16px, 700, 19px);
+
+		@include phone {
+			display: block;
+		}
+
+		span {
+			display: inline-block;
+			vertical-align: top;
+			color: $theme-main-color;
+		}
+	}
+}
+
+@keyframes rotation {
+	0% {
+		transform: translate3d(0,0,0) rotate(0);
+	}
+
+	100% {
+		transform: translate3d(0,0,0) rotate(360deg);
+	}
+}
