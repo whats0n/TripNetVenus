@@ -20,11 +20,16 @@
 
 	&.is-fixed {
 		z-index: 200;
+		
 		.v-submenu__wrap {
 			position: fixed;
 			top: 0;
 			left: 0;
 			right: 0;
+		}
+
+		.v-submenu__container {
+			background: $white;
 		}
 	}
 
@@ -49,7 +54,6 @@
 
 		@include phone {
 			padding: 0;
-			background: $white;
 		}
 	}
 
