@@ -27,7 +27,7 @@ import {getWidth, toggleBodyScroll} from '../_utils';
     e.preventDefault();
     btn.toggleClass(ACTIVE);
     nav.toggleClass(OPEN);
-    toggleBodyScroll();
+    toggleBodyScroll(nav.hasClass(OPEN));
   });
 
   DOC.on('click', e => {

@@ -143,8 +143,8 @@ import {getWidth, toggleBodyScroll} from '../_utils';
 
       control.on('click', e => {
         e.preventDefault();
-        toggleBodyScroll();
         main.toggleClass(OPEN);
+        toggleBodyScroll(main.hasClass(OPEN));
       });
 
       main.on('click', e => {

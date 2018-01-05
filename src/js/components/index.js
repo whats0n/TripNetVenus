@@ -11,3 +11,5 @@ import './_scrollbar';
 import './_input';
 import './_popular';
 import './_scroll-to';
+import './_modal';
+import './_photo-gallery';

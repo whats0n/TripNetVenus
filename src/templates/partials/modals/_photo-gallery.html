@@ -1,0 +1,41 @@
+{% set items = [
+	'https://placekitten.com/g/950/516',
+	'https://placekitten.com/g/516/400',
+	'https://placekitten.com/g/500/900',
+	'https://placekitten.com/g/1000/1000',
+	'https://placekitten.com/g/350/800',
+	'https://placekitten.com/g/800/200',
+	'https://placekitten.com/g/700/750',
+	'https://placekitten.com/g/500/555',
+	'https://placekitten.com/g/600/600',
+	'https://placekitten.com/g/200/400',
+	'https://placekitten.com/g/1000/350',
+	'https://placekitten.com/g/300/700',
+	'https://placekitten.com/g/750/450',
+	'https://placekitten.com/g/1200/1400'
+] %}
+<!-- begin v-photo-gallery -->
+<div class="v-photo-gallery v-modal js-photo-gallery js-modal" data-modal="v-photo-gallery">
+	<button type="button" class="v-modal__close v-photo-gallery__close js-modal-close">
+		{{mixins.icon('close-button')}}
+	</button>
+	<div class="v-photo-gallery__inner js-photo-gallery-inner">
+		<h3 class="title-md v-photo-gallery__title">Photo Gallery</h3>
+		<div class="v-photo-gallery__slideshow js-photo-gallery-slideshow">
+			{% for item in items %}
+				<div class="v-photo-gallery__slide">
+					<img src="{{item}}" alt="{{item}}">
+				</div>
+			{% endfor %}
+		</div>
+		<div class="v-photo-gallery__track js-photo-gallery-track">
+			{% for item in items %}
+				<div class="v-photo-gallery__item js-photo-gallery-item" data-index="{{loop.index0}}">
+					<div class="v-photo-gallery__box" style="background-image: url({{item}});"></div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="v-photo-gallery__counter js-photo-gallery-counter"></div>
+	</div>
+</div>
+<!-- end v-photo-gallery -->

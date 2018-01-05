@@ -1,0 +1,207 @@
+.v-photo-gallery {
+	overflow: hidden;
+	padding: 66px 0 42px;
+
+	@include phone {
+		padding: 10px 10px 18px;
+	}
+
+	&__close {
+		@include phone {
+			padding: 19px 20px;
+			color: $gray;
+			opacity: 0.5;
+			font-size: 18px;
+			transition: opacity 0.25s;
+		}
+
+		@include hover {
+			@include phone {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__title {
+		position: absolute;
+		top: 0;
+		left: 10px;
+		right: 10px;
+		display: none;
+		padding: 10px 0;
+		border-bottom: 1px solid $lightGray;
+
+		@include phone {
+			display: block;
+		}
+	}
+
+	&__counter {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: none;
+		padding: 20px;
+		opacity: 0.5;
+		@include font(18px, null, 22px);
+		text-align: center;
+
+		@include phone {
+			display: block;
+		}
+	}
+
+	&__inner {
+		position: relative;
+		padding: 0 15px 110px;
+		margin: 0 auto;
+		max-width: 980px;
+		height: 100%;
+
+		@include phone {
+			padding: 58px 10px 62px;
+			border-radius: 4px;
+			background: $white;
+			box-shadow: $container-shadow;
+		}
+	}
+
+	&__slideshow {
+		padding-bottom: 30px;
+		border-bottom: 1px solid $lightGray;
+		height: 100%;
+
+		@include phone {
+			padding-bottom: 0;
+			border: none;
+		}
+
+		.slick-list,
+		.slick-track,
+		.slick-slide,
+		.slick-slide > div {
+			height: 100%;
+		}
+	}
+
+	&__slide {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 4px;
+			max-width: 100%;
+			max-height: 100%;
+			transform: translate3d(-50%,-50%,0);
+		}
+	}
+
+	&__prev,
+	&__next {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		margin-top: -20px;
+	}
+
+	&__prev {
+		left: 20px;
+
+		@include tablet {
+			left: 15px;
+		}
+	}
+
+	&__next {
+		right: 20px;
+
+		@include tablet {
+			right: 15px;
+		}
+	}
+
+	&__track {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0 10px;
+		font-size: 0;
+		@include clr;
+
+		@include phone {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		&:not(.slick-initialized) {
+			overflow: auto;
+			white-space: nowrap;
+		}
+
+		.slick-list {
+			overflow: visible;
+		}
+	}
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		padding: 5px;
+		width: 160px !important;
+
+		&.is-active {
+			.v-photo-gallery__box {
+				&:before {
+					opacity: 0;
+				}
+
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__box {
+		position: relative;
+		border-radius: 4px;
+		width: 100%;
+		height: 85px;
+		@include cover;
+		cursor: pointer;
+
+		@include hover {
+			&:before {
+				opacity: 0;
+			}
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-radius: 4px;
+			transition: opacity 0.25s;
+		}
+
+		&:before {
+			background: rgba($black, 0.5);
+		}
+
+		&:after {
+			border: 1px solid $theme-main-color;
+			opacity: 0;
+		}
+	}
+	
+}

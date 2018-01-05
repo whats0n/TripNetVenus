@@ -1,0 +1,33 @@
+.v-modal {
+	position: fixed;
+	z-index: 400;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	background: rgba($black, 0.8);
+	transition: opacity 0.3s, visibility 0.3s;
+
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__close {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		right: 0;
+		padding: 20px;
+		color: $white;
+		background: none;
+		font-size: 20px;
+
+		.icon {
+			fill: currentColor;
+		}
+	}
+}

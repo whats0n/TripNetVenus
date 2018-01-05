@@ -154,7 +154,7 @@ FAQ</a> </li>
           <div class="v-rating__container"> <img src="img/logo-tripadvisor.svg" alt="TripAdvisor" class="v-rating__logo">
             <div class="v-rating__meta">120 reviews</div>
           </div>
-        </a> <button class="btn-gallery v-hero__btn-gallery">
+        </a> <button class="btn-gallery v-hero__btn-gallery js-modal-control" data-modal="v-photo-gallery">
 		
 <svg class="icon icon-picture"><use xlink:href="img/sprite.svg#icon-picture"></use></svg>
 
@@ -1767,6 +1767,80 @@ FAQ</a> </li>
       </div>
     </div>
     <!-- end v-footer -->
+    <!-- begin modals -->
+    <!-- begin v-photo-gallery -->
+    <div class="v-photo-gallery v-modal js-photo-gallery js-modal" data-modal="v-photo-gallery"> <button type="button" class="v-modal__close v-photo-gallery__close js-modal-close">
+		
+<svg class="icon icon-close-button"><use xlink:href="img/sprite.svg#icon-close-button"></use></svg>
+
+	</button>
+      <div class="v-photo-gallery__inner js-photo-gallery-inner">
+        <h3 class="title-md v-photo-gallery__title">Photo Gallery</h3>
+        <div class="v-photo-gallery__slideshow js-photo-gallery-slideshow">
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/950/516" alt="https://placekitten.com/g/950/516"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/516/400" alt="https://placekitten.com/g/516/400"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/500/900" alt="https://placekitten.com/g/500/900"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/1000/1000" alt="https://placekitten.com/g/1000/1000"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/350/800" alt="https://placekitten.com/g/350/800"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/800/200" alt="https://placekitten.com/g/800/200"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/700/750" alt="https://placekitten.com/g/700/750"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/500/555" alt="https://placekitten.com/g/500/555"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/600/600" alt="https://placekitten.com/g/600/600"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/200/400" alt="https://placekitten.com/g/200/400"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/1000/350" alt="https://placekitten.com/g/1000/350"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/300/700" alt="https://placekitten.com/g/300/700"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/750/450" alt="https://placekitten.com/g/750/450"> </div>
+          <div class="v-photo-gallery__slide"> <img src="https://placekitten.com/g/1200/1400" alt="https://placekitten.com/g/1200/1400"> </div>
+        </div>
+        <div class="v-photo-gallery__track js-photo-gallery-track">
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="0">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/950/516);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="1">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/516/400);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="2">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/500/900);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="3">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/1000/1000);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="4">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/350/800);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="5">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/800/200);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="6">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/700/750);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="7">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/500/555);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="8">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/600/600);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="9">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/200/400);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="10">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/1000/350);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="11">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/300/700);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="12">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/750/450);"></div>
+          </div>
+          <div class="v-photo-gallery__item js-photo-gallery-item" data-index="13">
+            <div class="v-photo-gallery__box" style="background-image: url(https://placekitten.com/g/1200/1400);"></div>
+          </div>
+        </div>
+        <div class="v-photo-gallery__counter js-photo-gallery-counter"></div>
+      </div>
+    </div>
+    <!-- end v-photo-gallery -->
+    <!-- end modals -->
     <!-- END content -->
     <!-- begin v-overlay -->
     <div class="v-overlay js-overlay"></div>
