@@ -1,6 +1,6 @@
 .v-modal {
 	position: fixed;
-	z-index: 400;
+	z-index: -1;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -9,11 +9,61 @@
 	opacity: 0;
 	visibility: hidden;
 	background: rgba($black, 0.8);
-	transition: opacity 0.3s, visibility 0.3s;
+	transition: opacity 0.3s, visibility 0.3s, z-index 0.3s;
 
 	&.is-open {
+		z-index: 400;
 		opacity: 1;
 		visibility: visible;
+	}
+
+	&_form {
+		padding: 51px 15px;
+
+		@include tablet {
+			padding-top: 140px;
+		}
+
+		@include phone {
+			padding: 0;
+		}
+
+		.v-modal__close {
+			@include phone {
+				padding: 17px 10px 16px;
+				opacity: 0.5;
+				font-size: 18px;
+				transition: opacity 0.25s;
+			}
+
+			@include hover {
+				@include phone {
+					opacity: 1;
+				}
+			}
+
+			.icon {
+				@include phone {
+					fill: $gray;
+				}
+			}
+		}
+
+		.v-form {
+			position: relative;
+			z-index: 1;
+			top: auto;
+			left: auto;
+			right: auto;
+			bottom: auto;
+			opacity: 1;
+			visibility: inherit;
+			transition: none;
+
+			&__inner {
+				margin: 0 auto;
+			}
+		}
 	}
 
 	&__close {

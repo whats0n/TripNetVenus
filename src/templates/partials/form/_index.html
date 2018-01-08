@@ -1,5 +1,5 @@
 <!-- begin form -->
-<div class="v-form js-form">
+<div class="v-form js-form" data-form="check-availability-static">
 	<div class="v-form__inner js-form-inner">
 		<h2 class="title-lg v-form__title">Online HOTEL Booking</h2>
 		<button type="button" class="v-form__close js-form-control">
@@ -12,7 +12,7 @@
 					<div class="v-form__field">
 						{{mixins.icon('calendar')}}
 						{{mixins.icon('down')}}
-						<input type="text" class="v-form__control" data-datepicker-input name="start" readonly>
+						<input type="text" class="v-form__control" data-datepicker-input name="start" readonly value="select date">
 					</div>
 				</div>
 				<div class="v-form__box v-form__box_lg" data-datepicker-item>
@@ -20,7 +20,7 @@
 					<div class="v-form__field">
 						{{mixins.icon('calendar')}}
 						{{mixins.icon('down')}}
-						<input type="text" class="v-form__control" data-datepicker-input name="end" readonly>
+						<input type="text" class="v-form__control" data-datepicker-input name="end" readonly value="select date">
 					</div>
 				</div>
 
@@ -95,6 +95,6 @@
 
 <!-- begin v-fixed-button -->
 <div class="v-fixed-button">
-	<button type="button" class="btn btn_wide js-form-control">Check Availability</button>
+	<button type="button" class="btn btn_wide js-form-control" data-form="check-availability-static">Check Availability</button>
 </div>
 <!-- end v-fixed-button -->

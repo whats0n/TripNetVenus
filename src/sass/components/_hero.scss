@@ -1,5 +1,10 @@
 .v-hero {
 	position: relative;
+	height: 516px;
+
+	@include phone {
+		height: 384px;
+	}
 
 	&__heading {
 		position: absolute;

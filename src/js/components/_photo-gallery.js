@@ -1,4 +1,4 @@
-import {WIN, ACTIVE, slickPhoneWidth, slickTabletWidth} from '../_constants';
+import {WIN, ACTIVE, tabletWidthStart, desktopWidthStart} from '../_constants';
 
 ;(() => {
   const sliderButton = (direction, classList) => `<button class="btn-direction btn-direction_${direction} ${classList}"><svg class="icon icon-${direction}"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-${direction}"></use></svg></button>`;
@@ -56,7 +56,7 @@ import {WIN, ACTIVE, slickPhoneWidth, slickTabletWidth} from '../_constants';
         nextArrow: next,
         responsive: [
           {
-            breakpoint: slickPhoneWidth,
+            breakpoint: tabletWidthStart,
             settings: {
               arrows: false
             }
@@ -68,14 +68,14 @@ import {WIN, ACTIVE, slickPhoneWidth, slickTabletWidth} from '../_constants';
         nextArrow: next,
         responsive: [
           {
-            breakpoint: slickTabletWidth,
+            breakpoint: desktopWidthStart,
             settings: {
               arrows: false,
               adaptiveHeight: true
             }
           },
           {
-            breakpoint: slickPhoneWidth,
+            breakpoint: tabletWidthStart,
             settings: {
               arrows: false,
               dots: true,

@@ -17,8 +17,9 @@ import {getWidth, toggleBodyScroll} from '../_utils';
     }
 
     initializeCache() {
-      const main = $('.js-form');
+      const {main, forms} = this.options;
       this.cache.main = main;
+      this.cache.forms = forms;
       this.cache.inner = main.find('.js-form-inner');
       this.cache.ages = main.find('.js-form-ages');
       this.cache.datepickers = main.find('[data-datepicker]');
@@ -41,7 +42,7 @@ import {getWidth, toggleBodyScroll} from '../_utils';
       this.initDatepickers();
       this.initSelectBox();
       this.initSelect();
-      this.toggleOnClick();
+      this.options.control && this.toggleOnClick();
 			
       this.moveAges();
       WIN.on('resize', () => this.moveAges());
@@ -158,19 +159,22 @@ import {getWidth, toggleBodyScroll} from '../_utils';
     }
 
     toggleOnClick() {
-      const {control, main, inner} = this.cache;
+      const {control, main, inner, forms} = this.cache;
 
       control.on('click', e => {
         e.preventDefault();
-        main.toggleClass(OPEN);
-        toggleBodyScroll(main.hasClass(OPEN));
+        const target = $(e.currentTarget).data('form');
+        const currentForm = forms.filter(`[data-form="${target}"]`);
+        console.log(currentForm);
+        currentForm.toggleClass(OPEN);
+        toggleBodyScroll(currentForm.hasClass(OPEN));
       });
 
       main.on('click', e => {
         e.preventDefault();
         if ($(e.target).closest(inner).length) return;
         toggleBodyScroll(false);
-        main.removeClass(OPEN);
+        forms.removeClass(OPEN);
       });
     }
 
@@ -183,6 +187,17 @@ import {getWidth, toggleBodyScroll} from '../_utils';
 
   }
 
-  new Form();
+  const forms = $('.js-form');
+
+  forms.each((i, form) => {
+    form = $(form);
+    const target = form.data('form');
+    const control = $(`.js-form-control[data-form="${target}"]`);
+    new Form({ 
+      main: form,
+      forms: forms,
+      control: control.length && control
+    });
+  });
 
 })();

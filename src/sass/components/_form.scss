@@ -22,12 +22,6 @@
 			opacity: 1;
 			visibility: visible;
 		}
-
-		.v-form__inner {
-			@include phone {
-				@include gpu;
-			}
-		}
 	}
 	
 	&__inner {
@@ -36,8 +30,6 @@
 
 		@include phone {
 			margin: 0;
-			transform: translate3d(0,-100%,0);
-			transition: transform 0.3s;
 		}
 	}
 

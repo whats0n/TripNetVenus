@@ -1,0 +1,98 @@
+<div class="v-modal v-modal_form js-modal" data-modal="check-availability-form">
+	<button type="button" class="v-modal__close js-modal-close">
+		{{mixins.icon('close-button')}}
+	</button>
+	<div class="v-modal__inner js-modal-inner">
+		<!-- begin form -->
+		<div class="v-form js-form">
+			<div class="v-form__inner js-form-inner">
+				<h2 class="title-lg v-form__title">Online HOTEL Booking</h2>
+				<form action="/" class="v-form__body">
+					<div class="v-form__row" data-datepicker>
+						<div class="v-form__box v-form__box_lg" data-datepicker-item>
+							<div class="v-form__label">Check-in</div>
+							<div class="v-form__field">
+								{{mixins.icon('calendar')}}
+								{{mixins.icon('down')}}
+								<input type="text" class="v-form__control" data-datepicker-input name="start" readonly value="select date">
+							</div>
+						</div>
+						<div class="v-form__box v-form__box_lg" data-datepicker-item>
+							<div class="v-form__label">Check-out</div>
+							<div class="v-form__field">
+								{{mixins.icon('calendar')}}
+								{{mixins.icon('down')}}
+								<input type="text" class="v-form__control" data-datepicker-input name="end" readonly value="select date">
+							</div>
+						</div>
+
+						{% for item in [
+							{
+								id: 'adults',
+								title: 'Adults',
+								icon: 'adults',
+								range: 4,
+								dropdownClassList: 'v-form__dropdown_sm'
+							},
+							{
+								id: 'children',
+								title: 'Children',
+								icon: 'children',
+								range: 3,
+								ages: true,
+								dropdownClassList: 'v-form__dropdown_lg'
+							}
+						] %}
+							<div class="v-form__box v-form__box_sm" data-select-box="{{item.id}}">
+								<div class="v-form__label">{{item.title}}</div>
+								<div class="v-form__field" data-select-box-prevent>
+									{{mixins.icon(item.icon)}}
+									{{mixins.icon('down')}}
+									<input type="text" class="v-form__control v-form__control_lg" readonly data-select-box-input>
+								</div>
+								<div class="v-form__dropdown {{item.dropdownClassList}}" data-select-box-prevent>
+									<div class="v-form__label">{{item.title}}:</div>
+									<ul class="v-form__list">
+										{% for subitem in range(0,item.range or 3) %}
+											<li class="v-form__item" data-value="{{loop.index}}" data-select-box-item>
+												{{mixins.icon(item.icon)}}
+												{{mixins.icon('check')}}
+												<span>{{loop.index}} {{item.id}}</span>
+											</li>
+										{% endfor %}
+									</ul>
+
+									{% if item.ages %}
+										<!-- begin ages -->
+										<div class="v-form__items js-form-ages" data-items="0">
+											<div class="v-form__label">Children Age</div>
+											<div class="v-form__container">
+												{% for item in range(0,3) %}
+													<div class="v-form__select" data-select-container>
+														<select name="first_child" data-select="{{loop.index}}" style="width: 100%;" data-placeholder="&#8212;">
+															<option></option>
+															<option value="< 1">< 1</option>
+															{% for item in range(0,16) %}
+															    <option value="{{loop.index}}">{{loop.index}}</option>
+															{% endfor %}
+														</select>
+													</div>
+												{% endfor %}
+											</div>
+										</div>
+										<!-- end ages -->
+									{% endif %}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="v-form__ages-mobile js-form-ages-container-mobile"></div>
+					<div class="v-form__submit">
+						<button type="submit" class="btn btn_wide">Check Availability</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- end form -->
+	</div>
+</div>

@@ -16,9 +16,6 @@ export const phoneWidthStart = 320;
 export const tabletWidthStart = 768;
 export const desktopWidthStart = 1280;
 
-export const slickTabletWidth = 1280;
-export const slickPhoneWidth = 768;
-
 export const WIN = $(window);
 export const DOC = $(document);
 export const BODY = $('body');

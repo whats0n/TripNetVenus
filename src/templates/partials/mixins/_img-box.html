@@ -1,11 +1,11 @@
 {% import 'partials/_mixins.html' as mixins %}
 {% macro call(img) %}
-<a href="#" class="v-img-box">
+<div class="v-img-box" data-im>
 	<div class="v-img-box__picture" style="background-image: url({{img}});">
-		<div class="v-img-box__btn">
+		<a href="#" class="v-img-box__btn js-modal-control" data-modal="v-photo-gallery">
 			{{mixins.icon('picture')}}
 			<span>Photo Gallery</span>
-		</div>
+		</a>
 	</div>
-</a>
+</div>
 {% endmacro %}
