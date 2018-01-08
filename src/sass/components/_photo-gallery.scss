@@ -203,5 +203,158 @@
 			opacity: 0;
 		}
 	}
+
+	//DETAILS
+	&[data-photo-gallery="details"] {
+		.v-photo-gallery__slideshow {
+			.slick-list, 
+			.slick-slide, 
+			.slick-slide > div, 
+			.slick-track,
+			.v-photo-gallery__slide {
+				@include tablet {
+					height: auto;
+				}
+			}
+
+			.v-photo-gallery__slide {
+				@include tablet {
+					vertical-align: top;
+				}
+
+				img {
+					@include tablet {
+						position: relative;
+						top: auto;
+						left: auto;
+						margin: 0 auto;
+						max-height: 516px;
+						@include gpu;
+					}
+
+					@include phone {
+						max-height: 200px;
+					}
+				}
+			}
+		}
+	}
+
+	&_details {
+		padding: 40px 0;
+
+		@include tablet {
+			overflow: auto;
+			padding: 80px 0 60px;
+		}
+
+		.v-photo-gallery {
+			&__close {
+				padding: 10px;
+
+				@include tablet {
+					padding: 20px;
+				}
+
+				@include phone {
+					padding: 19px 20px;
+				}
+
+				.icon {
+					font-size: 15px;
+
+					@include tablet {
+						font-size: 20px;
+					}
+
+					@include phone {
+						font-size: 18px;
+					}
+				}
+			}
+
+			&__inner {
+				padding: 0;
+				max-width: 1110px;
+				@include clr;
+
+				@include phone {
+					padding-top: 53px;
+					height: auto;
+				}
+			}
+
+			&__track {
+				bottom: -5px;
+
+				.slick-list {
+					overflow: hidden;
+				}
+			}
+
+			&__counter {
+				display: none;
+			}
+		}
+	}
+
+	&__dots {
+		@include phone {
+			padding-top: 10px;
+		}
+
+		li button {
+			@include phone {
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+
+	&__main {
+		position: relative;
+		padding-bottom: 106px;
+		width: 67%;
+
+		@include tablet {
+			padding-bottom: 115px;
+			// height: 663px;
+			height: auto;
+		}
+
+		@include phone {
+			padding-bottom: 10px;
+		}
+	}
+
+	&__sidebar {
+		width: 33%;
+
+		@include tablet {
+			padding-top: 30px;
+			height: auto;
+		}
+
+		@include phone {
+			padding-top: 0;
+		}
+	}
+
+	&__main,
+	&__sidebar {
+		float: left;
+		padding-left: 15px;
+		padding-right: 15px;
+		height: 100%;
+
+		@include tablet {
+			width: 100%;
+		}
+
+		@include phone {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
 	
 }

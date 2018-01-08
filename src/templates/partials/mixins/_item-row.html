@@ -1,0 +1,191 @@
+{% import 'partials/_mixins.html' as mixins %}
+{% macro call(props) %}
+<div class="v-item-row js-item-row">
+	<div class="v-item-row__sidebar">
+		<div class="v-item-row__img" style="background-image: url({{props.img or 'https://placekitten.com/g/300/300'}});"></div>
+		<div class="v-item-row__info">
+			<h3 class="title-md v-item-row__title">{{props.title or 'Standard Double Room'}}</h3>
+			<div class="v-item-row__meta">Sea view</div>
+		</div>
+		<div class="v-item-row__body v-item-row__tablet-table">
+			<div class="v-item-row__tablet-tr">
+				<div class="v-item-row__tablet-td">
+					<div class="v-item-row__table v-item-row__container">
+						<div class="v-item-row__tr">
+							{% for item in [
+								{
+									number: '1',
+									title: 'Double bed',
+									icon: 'bed'
+								},
+								{
+									number: '2',
+									title: 'Guests',
+									icon: 'adults'
+								},
+								{
+									number: '21',
+									title: 'Room area'
+								}
+							] %}
+								{% if not (loop.last and props.area == false) %}
+									<div class="v-item-row__td">
+										<em>{{item.number}}</em>
+										{% if item.icon %}
+											{{mixins.icon(item.icon)}}
+										{% else %}
+											<span>m<sup>2</sup></span>
+										{% endif %}
+										<strong>{{item.title}}</strong>
+									</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="v-item-row__tablet-td">
+					<div class="v-item-row__details">
+						<div class="v-item-row__icons">
+							{{mixins.icon('coffee-cup')}}
+							{{mixins.icon('wifi')}}
+							{{mixins.icon('tv')}}
+							{{mixins.icon('coffee-cup')}}
+							{{mixins.icon('wifi')}}
+							{{mixins.icon('tv')}}
+						</div>
+						<a href="#" class="v-item-row__link">Photo & Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="v-item-row__main">
+		<div class="v-item-row__lines">
+			{% set details = [
+				{
+					title: 'Food & Drinks',
+					description: 'Breakfast included'
+				},
+				{
+					title: 'Cancellation',
+					description: 'Free cancellation'
+				},
+				{
+					title: 'Taxes',
+					description: '10% VAT is included. € 0.80 City tax per person per night is excluded'
+				},
+				{
+					title: 'Prepayment',
+					description: 'No deposit will be charged'
+				}
+			] %}
+			{% for item in props.lines or [
+				{
+					activity: 'Free cancellation',
+					labelClassList: 'is-active',
+					price: '1 130',
+					settings: [
+						{
+							icon: 'bed',
+							title: '1 King-size bed'
+						},
+						{
+							icon: 'coffee-cup',
+							title: 'Breakfast included',
+							classList: 'is-active'
+						},
+						{
+							icon: 'wifi',
+							title: 'Free Wi-Fi included',
+							classList: 'is-active'
+						}
+					]
+				},
+				{
+					activity: 'Non-refundable',
+					price: '930',
+					settings: [
+						{
+							icon: 'bed',
+							title: '1 King-size bed'
+						},
+						{
+							icon: 'coffee-cup',
+							title: 'Breakfast included'
+						},
+						{
+							icon: 'wifi',
+							title: 'Free Wi-Fi included'
+						}
+					]
+				},
+				{
+					activity: 'Non-refundable',
+					price: '1 000',
+					settings: [
+						{
+							icon: 'bed',
+							title: '1 King-size bed'
+						},
+						{
+							icon: 'coffee-cup',
+							title: 'Breakfast included',
+							classList: 'is-active'
+						},
+						{
+							icon: 'wifi',
+							title: 'Free Wi-Fi included'
+						}
+					]
+				}
+			] %}
+				<div class="v-item-row__line js-item-row-line">
+					<div class="v-item-row__cell">
+						<div class="v-item-row__activity">
+							<div class="v-item-row__label {{item.labelClassList}}">{{item.activity}}</div>
+							<div class="v-item-row__hint js-hint">
+								<a href="#" class="v-item-row__hint-control js-hint-control">Details</a>
+								<div class="v-item-row__hint-container">
+									<ul class="v-item-row__list">
+										{% for item in details %}
+											<li>
+												<strong>{{item.title}}</strong>
+												<span>{{item.description}}</span>
+											</li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="v-item-row__cell">
+						<ul class="v-item-row__settings">
+							{% for item in item.settings %}
+								<li class="v-item-row__setting {{item.classList}}">
+									{{mixins.icon(item.icon)}}
+									<span>{{item.title}}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="v-item-row__cell">
+						<div class="v-item-row__price">
+							<strong>{{item.price or '1 130'}} €</strong>
+							<span>for 3 nights</span>
+						</div>
+						<div class="v-item-row__btn">
+							<a href="#" class="btn btn_large">Book now</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="v-item-row__footer">
+			<a href="#" class="v-item-row__toggle js-item-row-toggle">
+				<span class="v-item-row__more">Show 1 more rates</span>
+				<span class="v-item-row__less">Hide</span>
+			</a>
+		</div>
+	</div>
+</div>
+{% endmacro %}

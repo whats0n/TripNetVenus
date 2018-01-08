@@ -1,6 +1,7 @@
 export const ACTIVE = 'is-active';
 export const OPEN = 'is-open';
 export const DISABLED = 'is-disabled';
+export const HIDDEN = 'is-hidden';
 export const FIXED = 'is-fixed';
 export const EMPTY = 'is-empty';
 export const FULL = 'is-full';
@@ -10,6 +11,11 @@ export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
 
 export const tabletWidth = 1279;
 export const phoneWidth = 767;
+
+export const phoneWidthStart = 320;
+export const tabletWidthStart = 768;
+export const desktopWidthStart = 1280;
+
 export const slickTabletWidth = 1280;
 export const slickPhoneWidth = 768;
 

@@ -9,18 +9,64 @@
 		padding: 10px 10px 20px;
 	}
 
+	.slick-list {
+		margin: 0 !important;
+	}
+
 	&__display {
 		position: relative;
+		overflow: hidden;
 		margin-bottom: 15px;
+		font-size: 0;
 
 		@include phone {
 			margin-bottom: 10px;
+		}
+
+		@include hover {
+			.v-item-box__blur, 
+			.v-item-box__caption {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+
+	&__arrow {
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		bottom: 0;
+		width: 50%;
+		background: none;
+
+		.icon {
+			fill: $white;
+			font-size: 24px;
+		}
+	}
+
+	&__prev {
+		left: 0;
+		padding-left: 7px;
+
+		.icon {
+			float: left;
+		}
+	}
+
+	&__next {
+		right: 0;
+		padding-right: 7px;
+
+		.icon {
+			float: right;
 		}
 	}
 	
 	&__img,
 	&__blur-in,
-	&__slider {
+	&__display {
 		height: 0;
 		padding-bottom: 47.58%;
 
@@ -29,18 +75,22 @@
 		}
 	}
 
-	&__img,
+	&__img-in,
 	&__blur-in {
 		border-radius: 4px;
 		@include cover;
 	}
 
-	&__slider {
-		overflow: hidden;
-	}
-
 	&__img {
 		position: relative;
+
+		&-in {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
 	}
 
 	&__blur,
@@ -56,6 +106,7 @@
 		overflow: hidden;
 		border-radius: 0 0 4px 4px;
 		height: 46px;
+		transition: opacity 0.25s, visibility 0.25s;
 
 		&:before {
 			content: '';
@@ -81,6 +132,7 @@
 		padding: 7px;
 		color: $white;
 		font-size: 0;
+		transition: opacity 0.25s, visibility 0.25s;
 		@include clr;
 
 		&-in {

@@ -1,16 +1,13 @@
-import slick from 'slick-carousel';
-
 ;(() => {
 
-  const slider = $('.js-hero-slider');
-  slider.slick({
-    fade: true,
+  $('.js-hero-slider').owlCarousel({
+    loop: true,
     autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    swipe: false,
-    pauseOnHover: false,
-    pauseOnFocus: false
+    autoplayTimeout: 3000,
+    mouseDrag: false,
+    touchDrag: false,
+    items: 1,
+    animateOut: 'fadeOut'
   });
 
 })();

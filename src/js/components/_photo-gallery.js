@@ -1,7 +1,7 @@
-import {WIN, ACTIVE, slickPhoneWidth} from '../_constants';
-import {sliderButton} from '../_utils';
+import {WIN, ACTIVE, slickPhoneWidth, slickTabletWidth} from '../_constants';
 
 ;(() => {
+  const sliderButton = (direction, classList) => `<button class="btn-direction btn-direction_${direction} ${classList}"><svg class="icon icon-${direction}"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-${direction}"></use></svg></button>`;
   const prev = sliderButton('prev', 'v-photo-gallery__prev');
   const next = sliderButton('next', 'v-photo-gallery__next');
 
@@ -41,7 +41,7 @@ import {sliderButton} from '../_utils';
     const itemsWidth = items
       .toArray()
       .reduce((p,n) => p + $(n).outerWidth(), 0);
-    const options = {
+    const paginationOptions = {
       arrows: false,
       variableWidth: true,
       swipeToSlide: true,
@@ -49,22 +49,58 @@ import {sliderButton} from '../_utils';
       focusOnSelect: true,
       slidesToShow: 4
     };
+    const slideshowOptions = (gallery.data('photo-gallery') !== 'details') 
+      ? {
+        fade: true,
+        prevArrow: prev,
+        nextArrow: next,
+        responsive: [
+          {
+            breakpoint: slickPhoneWidth,
+            settings: {
+              arrows: false
+            }
+          }
+        ]
+      } : {
+        fade: true,
+        prevArrow: prev,
+        nextArrow: next,
+        responsive: [
+          {
+            breakpoint: slickTabletWidth,
+            settings: {
+              arrows: false,
+              adaptiveHeight: true
+            }
+          },
+          {
+            breakpoint: slickPhoneWidth,
+            settings: {
+              arrows: false,
+              dots: true,
+              dotsClass: 'slick-dots v-photo-gallery__dots',
+              adaptiveHeight: true
+            }
+          }
+        ]
+      };
     const initSlide = 0;
 
     addSliderToPagination({
       pagination: track,
-      options: options,
+      options: paginationOptions,
       width: itemsWidth
     });
 
     WIN.on('resize', () => addSliderToPagination({
       pagination: track,
-      options: options,
+      options: paginationOptions,
       width: itemsWidth
     }));
 
     slideshow.on('init', () => {
-      counting({
+      if (gallery.data('photo-gallery') !== 'details') counting({
         counter: counter,
         current: initSlide,
         total: items.length
@@ -76,22 +112,10 @@ import {sliderButton} from '../_utils';
       });
     });
 
-    slideshow.slick({
-      fade: true,
-      prevArrow: prev,
-      nextArrow: next,
-      responsive: [
-        {
-          breakpoint: slickPhoneWidth,
-          settings: {
-            arrows: false
-          }
-        }
-      ]
-    });
+    slideshow.slick(slideshowOptions);
 
     slideshow.on('beforeChange', (e, slick, current, next) => {
-      counting({
+      if (gallery.data('photo-gallery') !== 'details') counting({
         counter: counter,
         current: next,
         total: items.length
@@ -107,6 +131,10 @@ import {sliderButton} from '../_utils';
       const item = $(e.currentTarget);
       const index = +item.data('index');
       slideshow.slick('slickGoTo', index);
+    });
+
+    track.on('beforeChange', (e, slick, current, next) => {
+      slideshow.slick('slickGoTo', next);
     });
   });
 

@@ -4,6 +4,11 @@
 
 	&.ps--active-y {
 		padding-right: 26px;
+
+		.ps__rail-y {
+			opacity: 1;
+			visibility: visible;
+		}
 	}
 
 	.ps__rail-y {
@@ -11,6 +16,9 @@
 		top: 0;
 		right: 10px;
 		width: 6px;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.25s, visibility 0.25s;
 
 		&:before {
 			content: '';

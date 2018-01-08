@@ -1,0 +1,169 @@
+{% set items = [
+	'https://placekitten.com/g/950/516',
+	'https://placekitten.com/g/516/400',
+	'https://placekitten.com/g/500/900',
+	'https://placekitten.com/g/1000/1000',
+	'https://placekitten.com/g/350/800',
+	'https://placekitten.com/g/800/200',
+	'https://placekitten.com/g/700/750',
+	'https://placekitten.com/g/500/555',
+	'https://placekitten.com/g/600/600',
+	'https://placekitten.com/g/200/400',
+	'https://placekitten.com/g/1000/350',
+	'https://placekitten.com/g/300/700',
+	'https://placekitten.com/g/750/450',
+	'https://placekitten.com/g/1200/1400'
+] %}
+<!-- begin v-photo-gallery v-photo-gallery_details -->
+<div class="v-photo-gallery v-photo-gallery_details v-modal js-photo-gallery js-modal" data-photo-gallery="details" data-modal="v-photo-gallery-details">
+	<button type="button" class="v-modal__close v-photo-gallery__close js-modal-close">
+		{{mixins.icon('close-button')}}
+	</button>
+	<div class="v-photo-gallery__inner js-photo-gallery-inner js-modal-inner">
+		<h3 class="title-md v-photo-gallery__title">Photo & Details</h3>
+		<div class="v-photo-gallery__main">
+			<div class="v-photo-gallery__slideshow js-photo-gallery-slideshow">
+				{% for item in items %}
+					<div class="v-photo-gallery__slide">
+						<img src="{{item}}" alt="{{item}}">
+					</div>
+				{% endfor %}
+			</div>
+			<div class="v-photo-gallery__track js-photo-gallery-track">
+				{% for item in items %}
+					<div class="v-photo-gallery__item js-photo-gallery-item" data-index="{{loop.index0}}">
+						<div class="v-photo-gallery__box" style="background-image: url({{item}});"></div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="v-photo-gallery__counter js-photo-gallery-counter"></div>
+		</div>
+		<div class="v-photo-gallery__sidebar">
+			<div class="v-details">
+				<div class="v-details__header">
+					<h2 class="title-lg v-details__title">Superior double room</h2>
+					<div class="v-details__meta">Sea view</div>
+				</div>
+				<div class="v-details__body js-scrollbar v-scrollbar">
+					<div class="v-details__tablet-table">
+						<div class="v-details__tablet-tr">
+							<div class="v-details__tablet-td v-details__box">
+								<h3 class="title-md v-details__subtitle">Room settings</h3>
+								<div class="v-details__tablet-box">
+									<div class="v-details__settings v-details__tablet-box-in">
+										<div class="v-details__settings-in">
+											{% for item in [
+												{
+													number: '1',
+													title: 'Double bed',
+													icon: 'bed'
+												},
+												{
+													number: '2',
+													title: 'Guests',
+													icon: 'adults'
+												},
+												{
+													number: '21',
+													title: 'Room area'
+												}
+											] %}
+												{% if not (loop.last and props.area == false) %}
+													<div class="v-details__setting">
+														<em>{{item.number}}</em>
+														{% if item.icon %}
+															{{mixins.icon(item.icon)}}
+														{% else %}
+															<span>m<sup>2</sup></span>
+														{% endif %}
+														<strong>{{item.title}}</strong>
+													</div>
+												{% endif %}
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="v-details__tablet-td v-details__box">
+								<h3 class="title-md v-details__subtitle">Top facilities</h3>
+								<div class="v-details__tablet-box">
+									<div class="v-details__top v-details__tablet-box-in">
+										<div class="v-details__top-in">
+											{{mixins.icon('coffee-cup')}}
+											{{mixins.icon('wifi')}}
+											{{mixins.icon('tv')}}
+											{{mixins.icon('coffee-cup')}}
+											{{mixins.icon('wifi')}}
+											{{mixins.icon('tv')}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="v-details__items">
+						<h3 class="title-md v-details__subtitle">General facilities</h3>
+						<div class="v-details__general">
+							{% for item in [
+								{
+									icon: 'toiletries',
+									title: 'Toiletries',
+									list: [
+										'hair dryer',
+										'bath',
+										'hair dryer',
+										'toiletries'
+									]
+								},
+								{
+									icon: 'puzzle',
+									title: 'Entertainment',
+									list: [
+										'flat-screen TV',
+										'wi-fi'
+									]
+								},
+								{
+									icon: 'armchair',
+									title: 'Room comfortability',
+									list: [
+										'ventilator',
+										'air conditioning',
+										'wake up service',
+										'heavy curtains',
+										'ventilator',
+										'air conditioning'
+									]
+								},
+								{
+									icon: 'bedside-table',
+									title: 'Furnishings',
+									list: [
+										'desk',
+										'separate dining area',
+										'rest zone',
+										'private swimming pool',
+										'sofa'
+									]
+								}
+							] %}
+								<div class="v-details__item">
+									<div class="v-details__heading">
+										{{mixins.icon(item.icon)}}
+										<span>{{item.title}}</span>
+									</div>
+									<ul class="v-details__list">
+										{% for item in item.list %}
+											<li>{{item}}</li>
+										{% endfor %}
+									</ul>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end v-photo-gallery v-photo-gallery_details -->

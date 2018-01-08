@@ -9,6 +9,7 @@
 	box-shadow: $btn-shadow;
 	@include font(15px, 700, 1.2);
 	text-transform: uppercase;
+	text-align: center;
 	transition: color 0.25s, border-radius 0.25s, background 0.25s, box-shadow 0.25s;
 
 	@include hover {

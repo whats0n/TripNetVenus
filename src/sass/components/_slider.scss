@@ -2,6 +2,7 @@
 
 	&__inner {
 		margin: 0 -15px;
+		width: auto;
 
 		@include tablet {
 			margin: 0 -10px;
@@ -66,5 +67,48 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
+		margin: -5px 0;
+		font-size: 0;
+		text-align: center;
+	}
+
+	&__dot {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 20px;
+		height: 20px;
+		background: none;
+		font-size: 0;
+
+		&.active {
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			right: 5px;
+			bottom: 5px;
+			border: 1px solid $theme-main-color;
+			border-radius: 50%;
+		}
+
+		&:after {
+			opacity: 0;
+			background: $theme-main-color;
+			transition: opacity 0.25s;
+		}
+	}
+}
+
+.owl-item {
+	.v-slider__item {
+		width: 100% !important;
 	}
 }
