@@ -1,11 +1,9 @@
 .datepicker {
 	position: absolute;
-	// padding: 0 4px 5px;
 	padding: 0 0 5px;
 	width: 273px;
 	color: $gray;
-	background: $white;
-	box-shadow: $container-shadow;
+	@include container;
 	@include font(14px, null, 17px);
 
 	&.datepicker-orient-top {

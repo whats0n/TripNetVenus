@@ -2,11 +2,9 @@
 	position: relative;
 	padding: 20px;
 	margin: 40px auto;
-	border-radius: 4px;
 	max-width: 753px;
-	background: $white;
-	box-shadow: $container-shadow;
 	font-size: 0;
+	@include container;
 
 	@include tablet {
 		padding: 15px;

@@ -27,5 +27,22 @@ $container-shadow-phone: 0 2px 7px 0 rgba($black,0.05);
 
 $btn-shadow: 0 2px 19px 0 rgba($black,0.10);
 
-$section-bg: #F3F7F8
+$section-bg: #F3F7F8;
 
+@mixin container ($radius: null, $background: null, $shadow: null) {
+	@if $radius != null {
+		border-radius: $radius;
+	} @else {
+		border-radius: 4px;
+	}
+	@if $background != null {
+		background: $background;
+	} @else {
+		background: $white;
+	}
+	@if $shadow != null {
+		box-shadow: $shadow;
+	} @else {
+		box-shadow: $container-shadow;
+	}
+}

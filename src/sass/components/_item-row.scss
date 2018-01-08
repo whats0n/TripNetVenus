@@ -1,12 +1,10 @@
 .v-item-row {
 	padding: 15px;
 	margin-top: 40px;
-	border-radius: 4px;
 	color: $gray;
-	background: $white;
-	box-shadow: $container-shadow;
 	text-align: left;
 	@include clr;
+	@include container;
 
 	@include tablet {
 		margin-top: 20px;

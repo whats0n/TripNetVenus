@@ -1,8 +1,6 @@
 .v-policy {
 	padding: 10px 20px 15px;
-	border-radius: 4px;
-	background: $white;
-	box-shadow: $container-shadow;
+	@include container;
 
 	@include phone {
 		padding: 0 10px;

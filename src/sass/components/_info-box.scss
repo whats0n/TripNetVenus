@@ -1,11 +1,9 @@
 .v-info-box {
 	position: relative;
 	padding: 20px 20px 20px 68px;
-	border-radius: 4px;
 	height: 200px;
-	background: $white;
-	box-shadow: $container-shadow;
 	text-align: left;
+	@include container;
 
 	@include phone {
 		padding: 10px 10px 10px 50px;

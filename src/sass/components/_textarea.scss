@@ -1,9 +1,7 @@
 .v-textarea {
 	position: relative;
 	overflow: hidden;
-	border-radius: 4px;
-	background: $white;
-	box-shadow: $container-shadow;
+	@include container;
 
 	&.is-active {
 		.v-textarea {

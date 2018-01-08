@@ -1,9 +1,7 @@
 .v-item {
 	padding: 15px 15px 20px;
-	border-radius: 4px;
 	color: $gray;
-	background: $white;
-	box-shadow: $container-shadow;
+	@include container;
 
 	@include phone {
 		padding: 10px 10px 20px;

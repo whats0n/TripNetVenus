@@ -40,26 +40,6 @@
 	}
 }
 
-.v-overlay {
-	position: fixed;
-	z-index: 150;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	opacity: 0;
-	visibility: hidden;
-	background: rgba($black, 0.8);
-	transition: opacity 0.25s, visibility 0.25s;
-
-	&.is-open {
-		@include phone {
-			opacity: 1;
-			visibility: visible;
-		}
-	}
-}
-
 .slick {
 	&-dots {
 		margin: -5px 0;

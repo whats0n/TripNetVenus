@@ -2,11 +2,9 @@
 	position: relative;
 	padding: 20px;
 	margin: 40px auto;
-	border-radius: 4px;
 	max-width: 945px;
-	background: rgba($red, 0.1);
-	box-shadow: $container-shadow;
 	font-size: 0;
+	@include container(null, rgba($red, 0.1));
 
 	@include tablet {
 		padding: 15px;

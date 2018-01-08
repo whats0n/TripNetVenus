@@ -4,12 +4,10 @@
 	right: -44px;
 	margin-top: -2px;
 	border: 1px solid $theme-main-color-darken;
-	border-radius: 4px;
 	opacity: 0;
 	visibility: hidden;
-	background: $white;
-	box-shadow: $container-shadow;
 	transition: opacity 0.25s, visibility 0.25s;
+	@include container;
 
 	@include tablet {
 		right: 10px

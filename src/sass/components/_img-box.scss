@@ -3,9 +3,7 @@
 	display: block;
 	padding-bottom: 70%;
 	height: 0;
-	border-radius: 4px;
-	background: $white;
-	box-shadow: $container-shadow;
+	@include container;
 
 	@include hover {
 		.v-img-box__picture {

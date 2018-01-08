@@ -1,9 +1,7 @@
 .v-rating-box {
 	padding: 20px;
-	border-radius: 4px;
-	background: $white;
-	box-shadow: $container-shadow;
 	@include clr;
+	@include container;
 
 	@include tablet {
 		padding: 20px 15px 25px;

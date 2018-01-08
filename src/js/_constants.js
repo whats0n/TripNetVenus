@@ -20,4 +20,3 @@ export const WIN = $(window);
 export const DOC = $(document);
 export const BODY = $('body');
 export const HTML = $('html');
-export const OVERLAY = $('.js-overlay');

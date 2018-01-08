@@ -1,4 +1,4 @@
-import {ACTIVE, OPEN, PHONE, WIN, DOC, OVERLAY, phoneWidth} from '../_constants';
+import {ACTIVE, OPEN, PHONE, WIN, DOC, phoneWidth} from '../_constants';
 import {getWidth, toggleBodyScroll} from '../_utils';
 
 ;(() => {

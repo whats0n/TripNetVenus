@@ -1,8 +1,6 @@
 .v-input {
 	position: relative;
-	border-radius: 4px;
-	background: $white;
-	box-shadow: $container-shadow;
+	@include container;
 
 	&.is-success {
 		.icon-check {

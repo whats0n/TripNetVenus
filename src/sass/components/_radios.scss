@@ -1,10 +1,8 @@
 .v-radios {
 	position: relative;
 	padding: 14px 30px 14px 15px;
-	border-radius: 4px;
-	background: $white;
-	box-shadow: $container-shadow;
 	font-size: 0;
+	@include container;
 
 	&.is-success {
 		.icon-check {

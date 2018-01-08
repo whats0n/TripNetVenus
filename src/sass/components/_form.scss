@@ -4,24 +4,7 @@
 	padding: 0 15px;
 
 	@include phone {
-		position: fixed;
-		z-index: 300;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
 		padding: 0;
-		opacity: 0;
-		visibility: hidden;
-		background: rgba($black, 0.8);
-		transition: opacity 0.3s, visibility 0.3s;
-	}
-
-	&.is-open {
-		@include phone {
-			opacity: 1;
-			visibility: visible;
-		}
 	}
 	
 	&__inner {
@@ -35,28 +18,22 @@
 
 	&__title {
 		padding: 9px 10px 10px;
-		border-radius: 4px 4px 0 0;
-		background: rgba($white,0.8);
-		box-shadow: $container-shadow;
 		text-align: center;
+		@include container(4px 4px 0 0, rgba($white, 0.8), $container-shadow);
 
 		@include phone {
 			position: relative;
 			padding: 17px 40px 16px 10px;
-			border-radius: 0;
-			background: $white;
-			box-shadow: $container-shadow-phone;
+			@include container(0, $white, $container-shadow-phone);
 			text-align: left;
 		}
 	}
 
 	&__body {
 		padding: 21px 30px 30px;
-		border-radius: 0 0 4px 4px;
-		background: $white;
-		box-shadow: $container-shadow;
 		font-size: 0;
 		@include clr;
+		@include container(0 0 4px 4px)
 
 		@include tablet {
 			padding-left: 10px;

@@ -5,19 +5,21 @@ title: Index page
 
 {% block content %}
 	
-	{% include 'partials/header/_index.html' %}
-	{% include 'partials/hero/_index.html' %}
-	{% include 'partials/form/_index.html' %}
+	{% include 'partials/components/header/_index.html' %}
+	{% include 'partials/components/hero/_index.html' %}
+	{% include 'partials/components/_form.html' %}
 	{% include 'partials/components/_submenu.html' %}
 	{% include 'partials/components/_overview.html' %}
 	{% include 'partials/components/_gallery.html' %}
-	{% include 'partials/amenities/_index.html' %}
-	{% include 'partials/rooms/_index.html' %}
-	{% include 'partials/location/_index.html' %}
-	{% include 'partials/review/_index.html' %}
+	{% include 'partials/components/amenities/_index.html' %}
+	{% include 'partials/components/rooms/_index.html' %}
+	{% include 'partials/components/location/_index.html' %}
+	{% include 'partials/components/review/_index.html' %}
 	{% include 'partials/components/_popular.html' %}
 	{% include 'partials/components/_footer.html' %}
 
+	{% include 'partials/components/_fixed-button.html' %}
+	
 	<!-- begin modals -->
 	{% include 'partials/modals/_photo-gallery.html' %}
 	{% include 'partials/modals/_photo-gallery-details.html' %}

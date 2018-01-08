@@ -50,15 +50,7 @@
 		}
 
 		.v-form {
-			position: relative;
-			z-index: 1;
-			top: auto;
-			left: auto;
-			right: auto;
-			bottom: auto;
-			opacity: 1;
-			visibility: inherit;
-			transition: none;
+			display: block;
 
 			&__inner {
 				margin: 0 auto;
