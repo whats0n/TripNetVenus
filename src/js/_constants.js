@@ -11,6 +11,8 @@ export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
 
 export const TAB_CHANGE = 'TAB_CHANGE';
 
+export const phoneWidthEnd = 767;
+
 export const phoneWidthStart = 320;
 export const tabletWidthStart = 768;
 export const desktopWidthStart = 1280;

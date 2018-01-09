@@ -1,4 +1,4 @@
-import {ACTIVE, phoneWidth, WIN} from '../_constants';
+import {ACTIVE, phoneWidthEnd, WIN} from '../_constants';
 import {getWidth} from '../_utils';
 
 ;(() => {
@@ -51,9 +51,9 @@ import {getWidth} from '../_utils';
       const {selectors, multiple} = this.options;
       
       items.each((i, item) => {
-        const that = $(item);
-        const activeContainer = that.find(selectors.container);
-        const activeBtn = that.find(selectors.btn);
+        item = $(item);
+        const activeContainer = item.find(selectors.container);
+        const activeBtn = item.find(selectors.btn);
 
         activeBtn.on('click', e => {
           if (!this.getActive()) return;
@@ -81,7 +81,7 @@ import {getWidth} from '../_utils';
 
   $('[data-accordion-main="phone"]').each((i, accordion) => new Accordion({ 
     main: $(accordion),
-    activeWidth: phoneWidth,
+    activeWidth: phoneWidthEnd,
     selectors: {
       item: '[data-accordion-item]',
       btn: '[data-accordion-btn]',
