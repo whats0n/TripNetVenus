@@ -79,16 +79,14 @@ import {getWidth} from '../_utils';
 
   };
 
-  $('[data-accordion-main="phone"]').each((i, accordion) => {
-    new Accordion({ 
-      main: $(accordion),
-      activeWidth: phoneWidth,
-      selectors: {
-        item: '[data-accordion-item]',
-        btn: '[data-accordion-btn]',
-        container: '[data-accordion-container]'
-      }
-    });
-  });
+  $('[data-accordion-main="phone"]').each((i, accordion) => new Accordion({ 
+    main: $(accordion),
+    activeWidth: phoneWidth,
+    selectors: {
+      item: '[data-accordion-item]',
+      btn: '[data-accordion-btn]',
+      container: '[data-accordion-container]'
+    }
+  }));
 
 })();

@@ -158,26 +158,6 @@ import {getWidth, toggleBodyScroll} from '../_utils';
       });
     }
 
-    toggleOnClick() {
-      const {control, main, inner, forms} = this.cache;
-
-      control.on('click', e => {
-        e.preventDefault();
-        const target = $(e.currentTarget).data('form');
-        const currentForm = forms.filter(`[data-form="${target}"]`);
-        console.log(currentForm);
-        currentForm.toggleClass(OPEN);
-        toggleBodyScroll(currentForm.hasClass(OPEN));
-      });
-
-      main.on('click', e => {
-        e.preventDefault();
-        if ($(e.target).closest(inner).length) return;
-        toggleBodyScroll(false);
-        forms.removeClass(OPEN);
-      });
-    }
-
     moveAges() {
     	const {ages, containers} = this.cache;
     	getWidth(phoneWidth)
@@ -189,15 +169,6 @@ import {getWidth, toggleBodyScroll} from '../_utils';
 
   const forms = $('.js-form');
 
-  forms.each((i, form) => {
-    form = $(form);
-    const target = form.data('form');
-    const control = $(`.js-form-control[data-form="${target}"]`);
-    new Form({ 
-      main: form,
-      forms: forms,
-      control: control.length && control
-    });
-  });
+  forms.each((i, form) => new Form({ main: $(form) }));
 
 })();

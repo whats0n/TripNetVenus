@@ -1,6 +1,8 @@
 import {ACTIVE} from '../_constants';
 import autoComplete from 'js-autocomplete';
 //https://goodies.pixabay.com/javascript/auto-complete/demo.html
+import {getIcon} from '../_utils';
+
 ;(() => {
 
   //cache
@@ -10,7 +12,7 @@ import autoComplete from 'js-autocomplete';
     full: 'full',
     empty: 'empty'
   };
-  const icon = '<svg class="icon icon-marker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-marker"></use></svg>';
+  const icon = getIcon('marker');
   
   //utils  
   const setState = (inputFrom, inputTo, container) => {
@@ -23,9 +25,9 @@ import autoComplete from 'js-autocomplete';
   };
   
   $('.js-fields-group').each((i, group) => {
-    const _this = $(group);
+    group = $(group);
 
-    const inputs = _this.find('.js-fields-group-input');
+    const inputs = group.find('.js-fields-group-input');
     const inputFrom = inputs.filter(`[data-target="${states.from}"]`);
     const inputTo = inputs.filter(`[data-target="${states.to}"]`);
 
@@ -55,7 +57,7 @@ import autoComplete from 'js-autocomplete';
     });
 
     inputs.on('input', () => {
-      setState(inputFrom, inputTo, _this);
+      setState(inputFrom, inputTo, group);
     });
   });
 

@@ -1,9 +1,9 @@
 import {WIN, ACTIVE, tabletWidthStart, desktopWidthStart} from '../_constants';
+import {getSliderButton} from '../_utils';
 
 ;(() => {
-  const sliderButton = (direction, classList) => `<button class="btn-direction btn-direction_${direction} ${classList}"><svg class="icon icon-${direction}"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-${direction}"></use></svg></button>`;
-  const prev = sliderButton('prev', 'v-photo-gallery__prev');
-  const next = sliderButton('next', 'v-photo-gallery__next');
+  const prev = getSliderButton('prev', 'v-photo-gallery__prev');
+  const next = getSliderButton('next', 'v-photo-gallery__next');
 
   const addSliderToPagination = ({pagination, width, options}) => {
     const widthCondition = WIN.outerWidth() < width;

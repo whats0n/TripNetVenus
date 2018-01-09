@@ -1,4 +1,4 @@
-import {sliderButton} from '../_utils';
+import {getIcon} from '../_utils';
 import {tabletWidthStart, desktopWidthStart} from '../_constants';
 
 ;(() => {
@@ -9,7 +9,7 @@ import {tabletWidthStart, desktopWidthStart} from '../_constants';
     scrollPerPage: true,
     nav: false,
     dots: false,
-    navText: [sliderButton('prev'), sliderButton('next')],
+    navText: [getIcon('prev'), getIcon('next')],
     navElement: 'button',
     navClass: ['owl-prev btn-direction btn-direction_prev v-slider__prev', 'owl-next btn-direction btn-direction_next v-slider__next'],
     dotsClass: 'owl-dots v-slider__dots',

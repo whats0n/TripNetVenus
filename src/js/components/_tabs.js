@@ -1,4 +1,5 @@
-import {ACTIVE, OPEN, DISABLED} from '../_constants';
+import {ACTIVE, OPEN, DISABLED, TAB_CHANGE} from '../_constants';
+import connect from '../_connect';
 
 export default (() => {
 
@@ -20,8 +21,6 @@ export default (() => {
       this.cache.main = main;
       this.cache.controls = main.find('[data-tabs-control]');
       this.cache.containers = main.find('[data-tabs-container]');
-
-      this.events = { change: [] };
     }
 
     initializeEvents() {
@@ -60,12 +59,6 @@ export default (() => {
       });
     }
 
-    //callbacks
-    on(eventName, fn) {
-      if (typeof eventName !== 'string' || typeof fn !== 'function' || !this.events[eventName]) return;
-      this.events[eventName].push(fn);
-    }
-
     //utils
     checkTabState(control, container) {
       return control.hasClass(DISABLED) || control.attr('disabled') || !container.length;
@@ -79,17 +72,11 @@ export default (() => {
       this.cache.main.attr('data-tabs', control.data('tabs-control'));
       control.addClass(ACTIVE);
       container.addClass(OPEN);
-      this.events.change.forEach(fn => fn({ control, container }));
+      connect.fire(TAB_CHANGE, { control, container });
     }
 
   };
 
-  const tabs = [];
-
-  $('[data-tabs]').each((i, main) => {
-    tabs.push( new Tabs({ main: $(main) }) );
-  });
-
-  return tabs;
+  $('[data-tabs]').each((i, main) => new Tabs({ main: $(main) }) );
 
 })();

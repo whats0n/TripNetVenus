@@ -9,8 +9,7 @@ export const PHONE = 'is-phone';
 export const NO_TOUCH = 'is-notouch';
 export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
 
-export const tabletWidth = 1279;
-export const phoneWidth = 767;
+export const TAB_CHANGE = 'TAB_CHANGE';
 
 export const phoneWidthStart = 320;
 export const tabletWidthStart = 768;

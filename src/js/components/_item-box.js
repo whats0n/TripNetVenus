@@ -1,4 +1,4 @@
-import {sliderButton} from '../_utils';
+import {getIcon} from '../_utils';
 
 export default (() => {
 
@@ -9,7 +9,7 @@ export default (() => {
     touchDrag: false,
     animateOut: 'fadeOut',
     nav: true,
-    navText: [sliderButton('prev'), sliderButton('next')],
+    navText: [getIcon('prev'), getIcon('next')],
     navElement: 'button',
     navClass: ['owl-prev v-item-box__arrow v-item-box__prev', 'owl-next v-item-box__arrow v-item-box__next']
   });

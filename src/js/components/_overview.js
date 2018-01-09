@@ -10,19 +10,19 @@
 
   $('.js-overview').each((i, container) => {
 
-    const _this = $(container);
-    const content = _this.find('.js-overview-content');
-    const items = _this.find('.js-overview-item');
-    const btn = _this.find('.js-overview-toggle');
+    container = $(container);
+    const content = container.find('.js-overview-content');
+    const items = container.find('.js-overview-item');
+    const btn = container.find('.js-overview-toggle');
 
-    let state = !_this.hasClass(CUTTED);
+    let state = !container.hasClass(CUTTED);
 
     toggleContent(content, items, state);
 
     btn.on('click', e => {
       e.preventDefault();
       state = !state;
-      _this.toggleClass(CUTTED);
+      container.toggleClass(CUTTED);
       toggleContent(content, items, state);
     });
 

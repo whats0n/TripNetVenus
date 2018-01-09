@@ -7,25 +7,16 @@ import {toggleBodyScroll} from '../_utils';
   const controls = $('.js-modal-control');
   const modals = $('.js-modal');
 
-  DOC.on('click', '.js-modal-control', e => {
-    e.preventDefault();
-    const control = $(e.currentTarget);
+  controls.each((i, control) => {
+    control = $(control);
     const modal = modals.filter(`[data-modal="${control.data('modal')}"]`);
 
-    modal.toggleClass(OPEN);
-    toggleBodyScroll(true);
+    control.on('click', e => {
+      e.preventDefault();
+      modal.toggleClass(OPEN);
+      toggleBodyScroll(true);
+    });
   });
-
-  // controls.each((i, control) => {
-  //   control = $(control);
-  //   const modal = modals.filter(`[data-modal="${control.data('modal')}"]`);
-
-  //   control.on('click', e => {
-  //     e.preventDefault();
-  //     modal.toggleClass(OPEN);
-  //     toggleBodyScroll(true);
-  //   });
-  // });
 
   modals.each((i, modal) => {
     modal = $(modal);
