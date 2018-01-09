@@ -55,6 +55,10 @@
 		@include font(14px, null, normal);
 		transition: border-color 0.25s;
 
+		&::-ms-clear {
+			display: none;
+		}
+
 		&:focus {
 			border-color: $theme-main-color;
 
