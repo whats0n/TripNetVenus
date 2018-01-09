@@ -124,9 +124,12 @@
 			}
 
 			td {
-				vertical-align: top;
 				position: relative;
+				vertical-align: top;
+				padding: 8px 0;
+				height: 30px;
 				background: none !important;
+				line-height: 1;
 
 				@include hover {
 					&:before {
