@@ -138,6 +138,7 @@ import {getWidth, toggleBodyScroll} from '../_utils';
       const {all} = this.cache.selectBox;
       const input = select.find('[data-select-box-input]');
       const items = select.find('[data-select-box-item]');
+      const button = select.find('[data-select-box-button]');
       
       input.on('click', e => {
         if (select.hasClass(ACTIVE)) {
@@ -155,6 +156,11 @@ import {getWidth, toggleBodyScroll} from '../_utils';
         items.removeClass(ACTIVE);
         that.addClass(ACTIVE);
         if (single) select.removeClass(ACTIVE);
+      });
+
+      button.on('click', e => {
+        e.preventDefault();
+        select.removeClass(ACTIVE);
       });
     }
 

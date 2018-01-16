@@ -1,6 +1,7 @@
 .v-hero {
 	position: relative;
 	height: 516px;
+	color: $white;
 
 	@include phone {
 		height: 384px;
@@ -12,7 +13,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		padding: 20px 20px 18px;
+		padding: 16px 20px 16px;
 		text-align: center;
 
 		@include phone {
@@ -26,7 +27,7 @@
 	}
 
 	&__title {
-		@include font(24px, 700, 29px);
+		@include font(30px, 900, 36px);
 		@include textoverflow;
 		text-transform: uppercase;
 
@@ -36,7 +37,7 @@
 	}
 
 	&__subtitle {
-		margin-top: 7px;
+		margin-top: 6px;
 		@include font(14px, 700, 19px);
 		@include textoverflow;
 
@@ -133,12 +134,13 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
-			background: rgba(243,247,248,0.30);
+			background: rgba($gray,0.30);
 		}
 	}
 
 	&__slide-blur {
-		background-color: rgba(243,247,248,0.30);
+		background-color: rgba(243,247,248,0.10);
 		filter: blur(10px);
+
 	}
 }

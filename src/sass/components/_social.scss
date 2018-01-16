@@ -10,10 +10,16 @@
 		height: 30px;
 		color: $gray;
 		@include vertical;
+		transition: color 0.25s, border-color 0.25s;
 
 		@include phone {
 			width: 35px;
 			height: 35px;
+		}
+
+		@include hover {
+			border-color: $blue;
+			color: $blue;
 		}
 
 		&:not(:last-child) {

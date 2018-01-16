@@ -1,13 +1,17 @@
 {% import 'partials/_mixins.html' as mixins %}
 {% macro call(props) %}
 <div class="v-item">
-	<a href="#" class="v-item__img js-modal-control" data-modal="v-photo-gallery-details">
+	<div class="v-item__img">
 		{% if props.img %}
 			<div class="v-item__img-in" style="background-image: url({{props.img}});"></div>
 		{% else %}
 			{{mixins.icon('photo-camera')}}
 		{% endif %}
-	</a>
+		<a href="#" class="v-gallery-control v-item__btn js-modal-control" data-modal="v-photo-gallery-details">
+			{{mixins.icon('picture')}}
+			<span>Photo Gallery</span>
+		</a>
+	</div>
 	<div class="v-item__header">
 		<h3 class="title-md v-item__title">{{props.title or 'Superior Double Room'}}</h3>
 		<div class="v-item__meta">{{props.meta or 'Sea view'}}</div>

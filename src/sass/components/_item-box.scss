@@ -202,12 +202,28 @@
 	}
 
 	&__show {
+		position: relative;
 		margin-left: 5px;
 		color: $blue;
 		transition: color 0.25s;
 
 		@include hover {
 			color: $lightBlue;
+
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-bottom: 1px solid $lightBlue;
+			opacity: 0;
+			transition: opacity 0.25s;
 		}
 	}
 

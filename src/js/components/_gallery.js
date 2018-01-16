@@ -4,7 +4,9 @@ import {tabletWidthStart, desktopWidthStart} from '../_constants';
 ;(() => {
 
   $('.js-slider').owlCarousel({
-    items: 1.203,
+    // items: 1.203,
+    items: 1,
+    stagePadding: 27,
     loop: true,
     scrollPerPage: true,
     nav: false,

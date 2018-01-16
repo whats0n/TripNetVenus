@@ -383,7 +383,7 @@
 
 	&__items {
 		display: none;
-		padding-top: 2px;
+		padding-top: 10px;
 		padding-bottom: 5px;
 
 		@include phone {
@@ -479,5 +479,9 @@
 			fill: $gray;
 			font-size: 18px;
 		}
+	}
+
+	&__btn {
+		padding: 10px 15px 0;
 	}
 }

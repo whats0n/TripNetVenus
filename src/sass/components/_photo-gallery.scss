@@ -274,13 +274,16 @@
 			}
 
 			&__inner {
-				padding: 0;
-				max-width: 1110px;
+				padding: 40px 15px;
+				border-radius: 4px;
+				max-width: 1140px;
+				background: rgba($black, 0.32);
 				@include clr;
 
 				@include phone {
-					padding-top: 53px;
+					padding: 53px 0 15px;
 					height: auto;
+					background: $white;
 				}
 			}
 

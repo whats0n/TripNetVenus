@@ -56,4 +56,10 @@
 	&_wide {
 		width: 100%
 	}
+
+	&_md {
+		padding-top: 7px;
+		padding-bottom: 7px;
+		@include font(16px, 400, 19px);
+	}
 }

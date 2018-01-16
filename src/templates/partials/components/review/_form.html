@@ -38,12 +38,14 @@
 					</div>
 				{% endfor %}
 			</div>
-			<div class="v-sm-form__message">
-				<h4 class="v-sm-form__subtitle">Share your impressio</h4>
-				{{mixins.textarea({
-					placeholder: 'Type something'
-				})}}
-			</div>
+			{% if message %}
+				<div class="v-sm-form__message">
+					<h4 class="v-sm-form__subtitle">Share your impressio</h4>
+					{{mixins.textarea({
+						placeholder: 'Type something'
+					})}}
+				</div>
+			{% endif %}
 			<div class="v-sm-form__footer">
 				<button class="btn btn_large">Leave Review</button>
 			</div>

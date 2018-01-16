@@ -13,13 +13,13 @@
 		padding: 0 4px 0 5px;
 		display: inline-block;
 		vertical-align: top;
-		fill: currentColor;
 
 		@include phone {
 			margin: 0 2px;
 		}
 
 		.icon {
+			fill: currentColor;
 			font-size: 15px;
 
 			@include phone {
