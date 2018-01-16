@@ -1,4 +1,4 @@
-import {ACTIVE, OPEN, DOC, WIN, phoneWidth} from '../_constants';
+import {ACTIVE, OPEN, DOC, WIN, phoneWidthEnd} from '../_constants';
 import {getWidth, toggleBodyScroll} from '../_utils';
 
 ;(() => {
@@ -24,7 +24,6 @@ import {getWidth, toggleBodyScroll} from '../_utils';
       this.cache.ages = main.find('.js-form-ages');
       this.cache.datepickers = main.find('[data-datepicker]');
       this.cache.selects = main.find('[data-select]');
-      this.cache.control = $('.js-form-control');
       this.cache.containers = {
         ages: {
           default: main.find('.js-form-ages-container-default'),
@@ -166,7 +165,7 @@ import {getWidth, toggleBodyScroll} from '../_utils';
 
     moveAges() {
     	const {ages, containers} = this.cache;
-    	getWidth(phoneWidth)
+    	getWidth(phoneWidthEnd)
     		? ages.appendTo(containers.ages.mobile) 
     		: ages.appendTo(containers.ages.default);
     }

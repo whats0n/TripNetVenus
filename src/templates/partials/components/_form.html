@@ -58,26 +58,28 @@
 									</li>
 								{% endfor %}
 							</ul>
-
+							
 							{% if item.ages %}
-								<!-- begin ages -->
-								<div class="v-form__items js-form-ages" data-items="0">
-									<div class="v-form__label">Children Age</div>
-									<div class="v-form__container">
-										{% for item in range(0,3) %}
-											<div class="v-form__select" data-select-container>
-												<select name="first_child" data-select="{{loop.index}}" style="width: 100%;" data-placeholder="&#8212;">
-													<option></option>
-													<option value="< 1">< 1</option>
-													{% for item in range(0,16) %}
-													    <option value="{{loop.index}}">{{loop.index}}</option>
-													{% endfor %}
-												</select>
-											</div>
-										{% endfor %}
+								<div class="js-form-ages-container-default">
+									<!-- begin ages -->
+									<div class="v-form__items js-form-ages" data-items="0">
+										<div class="v-form__label">Children Age</div>
+										<div class="v-form__container">
+											{% for item in range(0,3) %}
+												<div class="v-form__select" data-select-container>
+													<select name="first_child" data-select="{{loop.index}}" style="width: 100%;" data-placeholder="&#8212;">
+														<option></option>
+														<option value="< 1">< 1</option>
+														{% for item in range(0,16) %}
+														    <option value="{{loop.index}}">{{loop.index}}</option>
+														{% endfor %}
+													</select>
+												</div>
+											{% endfor %}
+										</div>
 									</div>
+									<!-- end ages -->
 								</div>
-								<!-- end ages -->
 							{% endif %}
 
 							{% if item.button %}

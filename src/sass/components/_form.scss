@@ -489,5 +489,9 @@
 
 	&__btn {
 		padding: 10px 15px 0;
+
+		@include phone {
+			display: none;
+		}
 	}
 }
