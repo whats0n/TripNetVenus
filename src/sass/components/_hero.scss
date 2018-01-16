@@ -99,7 +99,8 @@
 			bottom: 0;
 			padding: 5px 10px;
 			border-radius: 4px 4px 0 0;
-			background: rgba($white,0.5);
+			// background: rgba($white,0.5);
+			background: rgba($gray,0.30);
 
 			@include clr;
 		}
