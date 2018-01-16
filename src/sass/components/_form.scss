@@ -6,6 +6,12 @@
 	@include phone {
 		padding: 0;
 	}
+
+	&_static {
+		@include phone {
+			display: none;
+		}
+	}
 	
 	&__inner {
 		margin: -41px auto 0;

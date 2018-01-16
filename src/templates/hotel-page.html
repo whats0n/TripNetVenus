@@ -7,6 +7,7 @@ title: Index page
 	
 	{% include 'partials/components/header/_index.html' %}
 	{% include 'partials/components/hero/_index.html' %}
+	{% set formStatic = true %}
 	{% include 'partials/components/_form.html' %}
 	{% include 'partials/components/_submenu.html' %}
 	{% include 'partials/components/_overview.html' %}
@@ -23,6 +24,7 @@ title: Index page
 	<!-- begin modals -->
 	{% include 'partials/modals/_photo-gallery.html' %}
 	{% include 'partials/modals/_photo-gallery-details.html' %}
+	{% set formStatic = false %}
 	{% include 'partials/modals/_form.html' %}
 	<!-- end modals -->
 
