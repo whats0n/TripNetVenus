@@ -280,6 +280,11 @@
 				background: rgba($black, 0.32);
 				@include clr;
 
+				@include tablet {
+					padding: 0 15px;
+					background: none;
+				}
+
 				@include phone {
 					padding: 53px 0 15px;
 					height: auto;
