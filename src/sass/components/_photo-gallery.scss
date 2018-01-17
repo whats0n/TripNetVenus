@@ -42,7 +42,7 @@
 		right: 0;
 		bottom: 0;
 		display: none;
-		padding: 20px;
+		padding: 20px 80px 30px;
 		opacity: 0.5;
 		@include font(18px, null, 22px);
 		text-align: center;
@@ -60,7 +60,7 @@
 		height: 100%;
 
 		@include phone {
-			padding: 58px 10px 62px;
+			padding: 58px 10px 72px;
 			border-radius: 4px;
 			background: $white;
 			box-shadow: $container-shadow;
@@ -107,6 +107,11 @@
 		z-index: 2;
 		top: 50%;
 		margin-top: -20px;
+
+		@include phone {
+			top: 100%;
+			margin-top: 10px;
+		}
 	}
 
 	&__prev {
@@ -115,6 +120,10 @@
 		@include tablet {
 			left: 15px;
 		}
+
+		@include phone {
+			left: 0;
+		}
 	}
 
 	&__next {
@@ -122,6 +131,10 @@
 
 		@include tablet {
 			right: 15px;
+		}
+
+		@include phone {
+			right: 0;
 		}
 	}
 

@@ -53,15 +53,7 @@ import {getSliderButton} from '../_utils';
       ? {
         fade: true,
         prevArrow: prev,
-        nextArrow: next,
-        responsive: [
-          {
-            breakpoint: tabletWidthStart,
-            settings: {
-              arrows: false
-            }
-          }
-        ]
+        nextArrow: next
       } : {
         fade: true,
         prevArrow: prev,
