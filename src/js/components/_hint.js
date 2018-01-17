@@ -10,6 +10,9 @@ import {ACTIVE, DOC} from '../_constants';
       .find('.js-hint-control')
       .on('click', e => {
         e.preventDefault();
+        hints
+          .not(hint)
+          .removeClass(ACTIVE);
         hint.toggleClass(ACTIVE);
       });
   });
