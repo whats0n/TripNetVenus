@@ -72,6 +72,14 @@
 			}
 
 			&.is-open {
+				[data-text*="less"] {
+					display: inline;
+				}
+
+				[data-text*="more"] {
+					display: none;
+				}
+
 				.icon-down {
 					transform: rotate(180deg);
 				}
@@ -86,6 +94,10 @@
 				@include gpu;
 				transition: transform 0.25s;
 			}
+		}
+
+		[data-text*="less"] {
+			display: none;
 		}
 	}
 }
