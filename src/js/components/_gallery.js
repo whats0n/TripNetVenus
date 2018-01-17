@@ -21,6 +21,7 @@ import {tabletWidthStart, desktopWidthStart} from '../_constants';
       [desktopWidthStart]: {
         nav: true,
         dots: true,
+        stagePadding: 0,
         items: 3
       },
       [tabletWidthStart]: {

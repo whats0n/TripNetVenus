@@ -32,8 +32,10 @@
 	.next {
 		position: relative;
 		vertical-align: middle;
-		font-size: 0;
+		color: rgba($white, 0);
 		background: none !important;
+		font-size: 0.1px;
+		line-height: 40px;
 
 		@include hover {
 			&:before {

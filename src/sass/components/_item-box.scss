@@ -7,10 +7,6 @@
 		padding: 10px 10px 20px;
 	}
 
-	.slick-list {
-		margin: 0 !important;
-	}
-
 	&__display {
 		position: relative;
 		overflow: hidden;
@@ -105,6 +101,10 @@
 		border-radius: 0 0 4px 4px;
 		height: 46px;
 		transition: opacity 0.25s, visibility 0.25s;
+
+		@include IE {
+			transition: none;
+		}
 
 		&:before {
 			content: '';
