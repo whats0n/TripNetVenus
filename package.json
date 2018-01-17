@@ -55,6 +55,7 @@
     "lint-staged": "^4.0.2",
     "lodash": "^4.3.0",
     "lost": "^7.1.0",
+    "moment": "^2.20.1",
     "owl-carousel-2": "0.0.3",
     "perfect-scrollbar": "^1.3.0",
     "postcss-csso": "^2.0.0",

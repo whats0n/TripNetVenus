@@ -13,7 +13,9 @@
 							{ key: "Falaise d'Etretat", value: '3.3 km' },
 							{ key: 'Espace Art contemporain', value: '1.3 km' },
 							{ key: 'Natterra Private Tours', value: '7.7 km' },
-							{ key: 'Le Clos Arsene Lupin', value: '0.5 km' }
+							{ key: 'Le Clos Arsene Lupin', value: '0.5 km' },
+							{ key: 'Le Clos Arsene Lupin 2', value: '3.5 km' },
+							{ key: 'Le Clos Arsene Lupin 3', value: '3.5 km' }
 						]
 					},
 					{
@@ -30,7 +32,7 @@
 						title: 'theaters',
 						list: [
 							{ key: 'Aiguille', value: '3.3 km' },
-							{ key: "Falaise d'Etretat", value: '1.3 km' },
+							{ key: "Lorem ipsum dolor sit amet, y.", value: '1.3 km' },
 							{ key: 'Espace Art contemporain', value: '7.7 km' },
 							{ key: 'Octeville', value: '0.5 km' },
 							{ key: 'Le Clos Arsene Lupin', value: '3.5 km' }
@@ -38,13 +40,13 @@
 					}
 				] %}
 					<div class="v-slider__item">
-						<div class="v-info-box">
-							{{mixins.icon(item.icon)}}
+						<div class="v-info-box js-location-item">
+							{{mixins.icon(item.icon, 'v-info-box__icon')}}
 							<div class="v-info-box__content">
 								<h3 class="title-md v-info-box__title">{{item.title}}</h3>
-								<ul class="v-info-box__list">
+								<ul class="v-info-box__list js-location-item-content">
 									{% for item in item.list %}
-										<li class="v-info-box__item">
+										<li class="v-info-box__item js-location-item-point">
 											<a href="#">
 												<div class="v-info-box__key">{{item.key}}</div>
 												<div class="v-info-box__value">{{item.value}}</div>
@@ -52,6 +54,11 @@
 										</li>
 									{% endfor %}
 								</ul>
+								<a href="#" class="v-info-box__control js-location-item-control" data-visible="false">
+									<span data-text="more">View more</span>
+									<span data-text="less">Less</span>
+									{{mixins.icon('down')}}
+								</a>
 							</div>
 						</div>
 					</div>

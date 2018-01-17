@@ -2,16 +2,16 @@
 	position: relative;
 	overflow: hidden;
 	padding: 20px 20px 20px 68px;
-	height: 200px;
+	// height: 200px;
 	text-align: left;
 	@include container;
 
 	@include phone {
 		padding: 10px 10px 10px 50px;
-		height: 181px;
+		// height: 181px;
 	}
 
-	.icon {
+	&__icon {
 		position: absolute;
 		top: 20px;
 		left: 15px;
@@ -43,10 +43,20 @@
 	}
 
 	&__list {
-		padding-bottom: 7px;
+		overflow: hidden;
+		// padding-bottom: 7px;
+		height: 23px*5;
 
-		@include phone {
-			padding: 0;
+		// @include phone {
+		// 	padding: 0;
+		// }
+
+		&[data-visible="false"] {
+			height: 23px*4;
+		}
+
+		&[data-visible="true"] {
+			height: auto;
 		}
 	}
 
@@ -55,12 +65,8 @@
 
 		a {
 			display: block;
-			padding: 4px 0;
+			padding: 1px 0;
 			@include clr;
-
-			@include phone {
-				padding: 3px 0;
-			}
 			
 			@include hover {
 				color: $blue;
@@ -75,7 +81,7 @@
 	&__key {
 		float: left;
 		width: 80%;
-		@include font(14px, null, 17px);
+		@include font(14px, null, 1.5);
 	}
 
 	&__value {
@@ -83,8 +89,54 @@
 		padding-top: 3px;
 		width: 20%;
 		opacity: 0.5;
-		@include font(12px, 700, 14px);
+		@include font(12px, 700, 1.5);
 		text-align: right;
 		transition: opacity 0.25s;
+	}
+
+	&__control {
+		position: relative;
+		display: none;
+		vertical-align: top;
+		padding: 1px 15px 1px 0;
+		color: $blue;
+		@include font(14px, 400, 1.5);
+		transition: color 0.25s;
+
+		&[data-visible="true"] {
+			display: inline-block;
+		}
+
+		&.is-open {
+			[data-text*="more"] {
+				display: none;
+			}
+
+			[data-text*="less"] {
+				display: inline;
+			}
+
+			.icon {
+				transform: translate3d(0,0,0) rotate(180deg);
+			}
+		}
+
+		@include hover {
+			color: $lightBlue;
+		}
+
+		[data-text*="less"] {
+			display: none;
+		}
+
+		.icon {
+			position: absolute;
+			right: 0;
+			bottom: 7px;
+			fill: currentColor;
+			font-size: 5px;
+			transform: translate3d(0,0,0);
+			transition: transform .25s;
+		}
 	}
 }

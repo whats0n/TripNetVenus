@@ -1,5 +1,6 @@
 import {ACTIVE, OPEN, DOC, WIN, phoneWidthEnd} from '../_constants';
 import {getWidth, toggleBodyScroll} from '../_utils';
+// import moment from 'moment';
 
 ;(() => {
 
@@ -63,9 +64,13 @@ import {getWidth, toggleBodyScroll} from '../_utils';
         }
       };
 
+      const formatDate = date => moment(date).format('D-MMM-YY');
+
       datepickers.each((i, datepicker) => {
         datepicker = $(datepicker);
         const inputs = datepicker.find('[data-datepicker-input]');
+        const start = inputs.filter('[name="start"]');
+        const end = inputs.filter('[name="end"]');
 
         datepicker
           .datepicker({
@@ -78,7 +83,26 @@ import {getWidth, toggleBodyScroll} from '../_utils';
             inputs: inputs
           })
           .on('show', toggleFieldState)
-          .on('hide', toggleFieldState);
+          .on('hide', toggleFieldState)
+          // .on('hide', e => {
+          //   if ($(e.target).attr('name') === 'start') {
+          //     const startDate = new Date(e.date);
+          //     const endDate = new Date(
+          //       new Date().setDate(new Date(e.date).getDate() + 1)
+          //     );
+          //     start.val(formatDate(startDate));
+          //     end.val(formatDate(endDate));
+
+          //     datepicker.datepicker('setEndDate', moment(endDate).format('D/M/YYYY'));
+          //     console.log(datepicker.datepicker('getEndDate'));
+          //     console.log('start');
+          //   }
+          //   if ($(e.target).attr('name') === 'end') {
+          //     console.log(e);
+          //     console.log('end');
+          //   }
+          // })
+        ;
 
       });
     }

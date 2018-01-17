@@ -1,5 +1,6 @@
 import {getIcon} from '../_utils';
-import {tabletWidthStart, desktopWidthStart} from '../_constants';
+import {tabletWidthStart, desktopWidthStart, GALLERY_RESIZED} from '../_constants';
+import connect from '../_connect';
 
 ;(() => {
 
@@ -30,6 +31,7 @@ import {tabletWidthStart, desktopWidthStart} from '../_constants';
         dots: true
       }
     }
-  });
+  })
+    .on('resized.owl.carousel', (e) => connect.fire(GALLERY_RESIZED, e));
 
 })();

@@ -10,6 +10,7 @@ export const NO_TOUCH = 'is-notouch';
 export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
 
 export const TAB_CHANGE = 'TAB_CHANGE';
+export const GALLERY_RESIZED = 'GALLERY_RESIZED';
 
 export const phoneWidthEnd = 767;
 
