@@ -70,7 +70,6 @@ import {getSliderButton} from '../_utils';
           {
             breakpoint: desktopWidthStart,
             settings: {
-              arrows: false,
               adaptiveHeight: true
             }
           },
