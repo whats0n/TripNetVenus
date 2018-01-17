@@ -1,6 +1,7 @@
 @import 'helpers/all';
 
 .Venus {
+	min-width: 320px;
 	color: $gray;
 	font-family: $lato;
 	@include font(14px, 400, 1.3);
