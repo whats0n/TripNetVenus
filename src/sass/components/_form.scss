@@ -328,11 +328,14 @@
 		color: $gray;
 		@include font(16px, 400, 19px);
 		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		cursor: pointer;
 		transition: color 0.2s, background 0.2s;
 
 		@include phone {
 			padding-left: 42px;
+			padding-right: 25px;
 		}
 
 		@include hover {
