@@ -178,7 +178,7 @@ import {getWidth, toggleBodyScroll} from '../_utils';
         input.val(value);
         items.removeClass(ACTIVE);
         that.addClass(ACTIVE);
-        if (single) select.removeClass(ACTIVE);
+        if (single || getWidth(phoneWidthEnd)) select.removeClass(ACTIVE);
       });
 
       button.on('click', e => {
