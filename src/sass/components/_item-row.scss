@@ -235,8 +235,26 @@
 	}
 
 	&__link {
+		position: relative;
 		color: $blue;
 		@include font(14px, 700, 17px);
+
+		@include hover {
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-bottom: 1px solid $blue;
+			opacity: 0;
+			transition: opacity 0.25s;
+		}
 	}
 
 	&__tablet {
@@ -440,16 +458,25 @@
 		}
 
 		&-control {
+			position: relative;
 			color: $blue;
 			@include font(14px, 700, 17px);
 
 			@include hover {
-				text-decoration: underline;
+				&:after {
+					opacity: 1;
+				}
+			}
 
-				// + .v-item-row__hint-container {
-				// 	opacity: 1;
-				// 	visibility: visible;
-				// }
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border-bottom: 1px solid $blue;
+				opacity: 0;
+				transition: opacity 0.25s;
 			}
 		}
 
@@ -567,13 +594,26 @@
 		@include font(14px, null, 17px);
 		text-transform: uppercase;
 
+		@include hover {
+			span:after {
+				opacity: 1;
+			}
+		}
+
+		span:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-bottom: 1px solid $blue;
+			opacity: 0;
+			transition: opacity 0.25s;
+		}
+
 		@include phone {
 			display: block;
 			padding: 10px 15px 9px;
-		}
-
-		@include hover {
-			text-decoration: underline;
 		}
 
 		&.is-active {
@@ -586,6 +626,10 @@
 					display: block;
 				}
 			}
+		}
+
+		span {
+			position: relative;
 		}
 	}
 

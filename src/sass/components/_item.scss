@@ -203,8 +203,26 @@
 	}
 
 	&__link {
+		position: relative;
 		color: $blue;
 		@include font(14px, 700, 17px);
+
+		@include hover {
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-bottom: 1px solid $blue;
+			opacity: 0;
+			transition: opacity 0.25s;
+		}
 	}
 
 	&__footer {
