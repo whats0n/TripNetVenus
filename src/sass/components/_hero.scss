@@ -1,10 +1,14 @@
 .v-hero {
 	position: relative;
-	height: 516px;
+	height: 379px;
 	color: $white;
 
+	@include tablet {
+		height: 341px;
+	}
+
 	@include phone {
-		height: 384px;
+		height: 421px;
 	}
 
 	&__heading {
@@ -13,7 +17,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		padding: 16px 20px 16px;
+		padding: 25px 20px 29px;
 		text-align: center;
 
 		@include phone {
@@ -37,8 +41,8 @@
 	}
 
 	&__subtitle {
-		margin-top: 6px;
-		@include font(14px, 700, 19px);
+		margin-top: 7px;
+		@include font(14px, 700, 17px);
 		@include textoverflow;
 
 		@include phone {
@@ -47,74 +51,20 @@
 		}
 	}
 
-	&__stars {
-		margin-top: 6px;
-
-		@include phone {
-			margin-top: 1px;
-		}
-	}
-
-	&__btn-gallery {
-		top: 38px;
-		right: 20px;
-
-		@include phone {
-			float: right;
-		}
-	}
-
-	&__rating {
-		top: 32px;
-		left: 20px;
-
-		@include phone {
-			float: left;
-		}
-	}
-
-	&__btn-gallery,
-	&__rating {
-		position: absolute;
-		z-index: 3;
-		
-		@include tablet {
-			top: 30px;
-		}
-
-		@include phone {
-			position: relative;
-			top: auto;
-			left: auto;
-			right: auto;
-		}
-	}
-
-	&__meta {
-		@include phone {
-			position: absolute;
-			z-index: 3;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			padding: 5px 10px;
-			border-radius: 4px 4px 0 0;
-			// background: rgba($white,0.5);
-			background: rgba($gray,0.30);
-
-			@include clr;
-		}
-	}
 
 	&__slide,
 	&__slide-blur {
 		position: relative;
 		z-index: 1;
-		height: 516px;
+		height: 379px;
 		@include cover;
 
+		@include tablet {
+			height: 341px;
+		}
+
 		@include phone {
-			height: 384px;
+			height: 421px;
 		}
 	}
 

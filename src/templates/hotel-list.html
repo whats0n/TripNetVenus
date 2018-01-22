@@ -1,0 +1,20 @@
+---
+title: Index page
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{% include 'partials/components/header/_index.html' %}
+	{% include 'partials/components/hero/_index.html' %}
+	{% set formStatic = true %}
+	{% include 'partials/components/_form.html' %}
+	{% include 'partials/components/_popular.html' %}
+	{% include 'partials/components/_footer.html' %}
+
+	<!-- begin modals -->
+	{% set formStatic = false %}
+	{% include 'partials/modals/_form.html' %}
+	<!-- end modals -->
+
+{% endblock %}

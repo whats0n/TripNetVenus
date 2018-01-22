@@ -1,29 +1,75 @@
 <!-- begin form -->
 <div class="v-form {% if formStatic %}v-form_static{% endif %} js-form">
-	<div class="v-form__inner js-form-inner">
-		<h2 class="title-lg v-form__title">Online HOTEL Booking</h2>
+	<div class="v-inner v-form__inner js-form-inner">
+		<h2 class="title-lg v-form__title">Search hotels</h2>
 		<form action="/" class="v-form__body">
 			<div class="v-form__row" data-datepicker>
-				<div class="v-form__box v-form__box_lg" data-datepicker-item>
-					<div class="v-form__label">Check-in</div>
-					<div class="v-form__field">
-						{{mixins.icon('calendar')}}
+				<div class="v-form__box v-form__box_xl" data-select-box="simple">
+					<div class="v-form__label">Destination</div>
+					<div class="v-form__field" data-select-box-prevent>
+						{{mixins.icon('earth')}}
 						{{mixins.icon('down')}}
-						<input type="text" class="v-form__control" data-datepicker-input name="start" readonly value="select date">
+						<input type="text" class="v-form__control" readonly data-select-box-input placeholder="City name">
+					</div>
+					<div class="v-form__dropdown v-form__dropdown_simple v-scrollbar js-scrollbar" data-select-box-prevent>
+						<ul class="v-form__list">
+							{% for subitem in [
+								'Bernay',
+								'Dieppe',
+								'Évreux',
+								'Fécamp',
+								'Le Havre',
+								'Le Petit-Quevilly',
+								'Louviers',
+								'Mont-Saint-Aignan',
+								'Rouen',
+								'Saint-Étienne-du-Rouvray',
+								'Sotteville-lès-Rouen',
+								'Vernon',
+								'Bernay',
+								'Dieppe',
+								'Évreux',
+								'Fécamp',
+								'Le Havre',
+								'Le Petit-Quevilly',
+								'Louviers',
+								'Mont-Saint-Aignan',
+								'Rouen',
+								'Saint-Étienne-du-Rouvray',
+								'Sotteville-lès-Rouen',
+								'Vernon'
+							] %}
+								<li class="v-form__item" data-value="{{subitem}}" data-select-box-item>
+									{{mixins.icon('check')}}
+									<span>{{subitem}}</span>
+								</li>
+							{% endfor %}
+						</ul>
 					</div>
 				</div>
-				<div class="v-form__box v-form__box_lg" data-datepicker-item>
-					<div class="v-form__label">Check-out</div>
-					<div class="v-form__field">
-						{{mixins.icon('calendar')}}
-						{{mixins.icon('down')}}
-						<input type="text" class="v-form__control" data-datepicker-input name="end" readonly value="select date">
+				{% for item in [
+					{
+						title: 'Check-in',
+						inputName: 'start'
+					},
+					{
+						title: 'Check-out',
+						inputName: 'end'
+					}
+				] %}
+					<div class="v-form__box v-form__box_lg" data-datepicker-item>
+						<div class="v-form__label">{{item.title}}</div>
+						<div class="v-form__field">
+							{{mixins.icon('calendar')}}
+							{{mixins.icon('down')}}
+							<input type="text" class="v-form__control" data-datepicker-input name="{{item.inputName}}" readonly value="select date">
+						</div>
 					</div>
-				</div>
+				{% endfor %}
 
 				{% for item in [
 					{
-						id: 'adults',
+						id: 'simple',
 						title: 'Adults',
 						icon: 'adults',
 						range: 4,
@@ -93,9 +139,15 @@
 			</div>
 			<div class="v-form__ages-mobile js-form-ages-container-mobile"></div>
 			<div class="v-form__submit">
-				<button type="submit" class="btn btn_wide">Check Availability</button>
+				<button type="submit" class="btn btn_wide">Search</button>
 			</div>
 		</form>
 	</div>
 </div>
 <!-- end form -->
+{% if formStatic %}
+<div class="v-form-placeholder">
+	<h3 class="v-form-placeholder__title">Choose dates and search your hotel</h3>
+	<button class="btn btn_wide js-modal-control" data-modal="check-availability-form">Search</button>
+</div>
+{% endif %}

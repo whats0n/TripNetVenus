@@ -33,7 +33,7 @@ import {getWidth, toggleBodyScroll} from '../_utils';
       };
       this.cache.selectBox = {
       	all: main.find('[data-select-box]'),
-      	adults: main.find('[data-select-box="adults"]'),
+      	simple: main.find('[data-select-box="simple"]'),
       	children: main.find('[data-select-box="children"]')
       };
     }
@@ -108,10 +108,10 @@ import {getWidth, toggleBodyScroll} from '../_utils';
     }
 
     initSelectBox() {
-    	const {all, adults, children} = this.cache.selectBox;
+    	const {all, simple, children} = this.cache.selectBox;
     	const {ages, selects} = this.cache;
 
-      adults.each((i, select) => this.addSelectBoxHandlers($(select), true));
+      simple.each((i, select) => this.addSelectBoxHandlers($(select), true));
 
       children.each((i, select) => {
         select = $(select);
