@@ -1,0 +1,43 @@
+<div class="v-modal v-modal_box js-modal" data-modal="sort" data-modal-media="mobile">
+	<div class="v-modal__inner js-modal-inner">
+		<button type="button" class="v-modal__close js-modal-close">
+			{{mixins.icon('close-button')}}
+		</button>
+		<h3 class="title-md v-modal__title">SORT by</h3>
+		<div class="v-filter-sort v-filter-sort_static js-filter-sort-mobile" data-sort="items">
+			<div class="v-filter-sort__main">
+				{% for item in [
+					{
+						sublabel: 'Sort by rating',
+						list: [ 'from lowest rating', 'from highest rating' ]
+					},
+					{
+						sublabel: 'Sort by price',
+						list: [ 'from the cheapest price', 'from the most expensive price' ]
+					},
+					{
+						sublabel: 'Sort by stars',
+						list: [ 'from lowest stars', 'from highest stars' ]
+					}
+				] %}
+					<div class="v-filter-sort__box">
+						<div class="v-filter-sort__sublabel">{{item.sublabel}}</div>
+						<div class="v-filter-sort__dropdown">
+							<ul class="v-filter-sort__list">
+								{% for item in item.list %}
+									<li class="v-filter-sort__item js-filter-sort-item" data-sort-val="{{item}}">
+										{{mixins.icon('check', 'v-filter-sort__check')}}
+										<div class="v-filter-sort__text">{{item}}</div>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="v-modal__submit">
+			<button class="btn btn_wide js-modal-close">View Hotels</button>
+		</div>
+	</div>
+</div>

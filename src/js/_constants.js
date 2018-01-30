@@ -13,6 +13,7 @@ export const TAB_CHANGE = 'TAB_CHANGE';
 export const GALLERY_RESIZED = 'GALLERY_RESIZED';
 
 export const phoneWidthEnd = 767;
+export const tabletWidthEnd = 1279;
 
 export const phoneWidthStart = 320;
 export const tabletWidthStart = 768;

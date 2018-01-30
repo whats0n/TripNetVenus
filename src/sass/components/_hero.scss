@@ -21,7 +21,7 @@
 		text-align: center;
 
 		@include phone {
-			padding: 25px 10px;
+			padding: 18px 10px 19px;
 		}
 	}
 
@@ -46,8 +46,8 @@
 		@include textoverflow;
 
 		@include phone {
-			margin-top: 3px;
-			@include font(12px, null, 17px);
+			margin-top: 4px;
+			@include font(12px, null, 15px);
 		}
 	}
 
@@ -74,7 +74,7 @@
 		height: 114px;
 
 		@include phone {
-			height: 103px;
+			height: 78px;
 		}
 
 		&:before {

@@ -1,0 +1,24 @@
+<div class="v-modal v-modal_box js-modal" data-modal="search" data-modal-media="mobile">
+	<div class="v-modal__inner js-modal-inner">
+		<button type="button" class="v-modal__close js-modal-close">
+			{{mixins.icon('close-button')}}
+		</button>
+		<h3 class="title-md v-modal__title">Search by hotel name</h3>
+		<div class="v-filter-search v-filter-search_static">
+			<div class="v-filter-search__container js-autocomplete">
+				<input type="text" class="v-filter-search__input js-autocomplete-input" placeholder="Hotel name">
+				<button class="v-filter-search__btn">
+					{{mixins.icon('search')}}
+				</button>
+				<ul class="js-autocomplete-list" hidden>
+					{% for item in range(0,25) %}
+						<li>Lorem {{loop.index}}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="v-modal__submit">
+			<button class="btn btn_wide js-modal-close">View Hotels</button>
+		</div>
+	</div>
+</div>

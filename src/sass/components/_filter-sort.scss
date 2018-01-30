@@ -1,0 +1,337 @@
+.v-filter-sort {
+	font-size: 0;
+	@include noselect;
+
+	@include tablet {
+		position: relative;
+		z-index: 20;
+	}
+
+	@include phone {
+		margin-left: -10px;
+	}
+
+	&.is-active {
+		.v-filter-sort {
+			&__main {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			&__toggle {
+				.icon {
+					fill: $theme-main-color;
+				}
+			}
+		}
+	}
+
+	&_static {
+		margin: 0 !important;
+
+		.v-filter-sort {
+			&__main {
+				position: relative;
+				top: auto;
+				left: auto;
+				display: block;
+				opacity: 1;
+				visibility: visible;
+				box-shadow: none;
+			}
+		}
+	}
+
+	//elements
+
+	&__main {
+		@include tablet {
+			position: absolute;
+			top: 100%;
+			left: 30px;
+			padding: 15px 0 8px;
+			@include container;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.25s, visibility 0.25s;
+		}
+
+		@include phone {
+			display: none;
+		}
+	}
+
+	&__title,
+	&__main {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	&__main {
+		@include tablet {
+			display: block;
+		}
+
+		@include phone {
+			padding: 15px 0;
+		}
+	}
+
+	&__title,
+	&__label {
+		padding-top: 12px; 
+		padding-bottom: 11px;
+
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&__box {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 15px;
+
+		@include tablet {
+			display: block;
+			padding: 1px 0;
+			margin: 0;
+		}
+
+		&.is-open {
+			.v-filter-sort {
+				&__dropdown {
+					opacity: 1;
+					visibility: visible;
+				}
+
+				&__arrow {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		&:not(:first-child) {
+			&:before {
+				content: '';
+				display: none;
+				padding-bottom: 10px;
+				margin: 0 15px;
+				border-top: 1px solid $theme-main-color;
+
+				@include tablet {
+					display: block;
+				}
+
+				@include phone {
+					padding-bottom: 15px;
+					margin: 0 10px;
+				}
+			}
+		}
+	}
+
+	&__label,
+	&__list {
+		@include font(14px, null, 17px);
+	}
+
+	&__label {
+		position: relative;
+		padding-right: 15px;
+		cursor: pointer;
+
+		@include hover {
+			&:before {
+				transform: translate3d(0,0,0) scaleX(1);
+			}
+		}
+
+		&.is-active {
+			font-weight: 700;
+
+			&:before {
+				transform: translate3d(0,0,0) scaleX(1);
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 15px;
+			bottom: 2px;
+			border-bottom: 2px solid $theme-main-color;
+			transform: translate3d(0,0,0) scaleX(0);
+			transition: transform 0.25s;
+		}
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		fill: currentColor;
+		font-size: 5px;
+		transition: transform 0.25s;
+	}
+
+	&__sublabel {
+		display: none;
+		padding: 0 15px 2px;
+		@include font(16px, 700, 19px);
+
+		@include tablet {
+			display: block;
+		}
+
+		@include phone {
+			padding: 0 10px 7px;
+			@include font(14px, null, 17px);
+		}
+	}
+
+	&__dropdown {
+		position: absolute;
+		z-index: 10;
+		top: 100%;
+		left: 0;
+		opacity: 0;
+		visibility: hidden;
+		@include container(0 0 4px 4px);
+		transition: opacity 0.25s, visibility 0.25s;
+
+		@include tablet {
+			position: relative;
+			top: auto;
+			left: auto;
+			opacity: 1;
+			visibility: inherit;
+			box-shadow: none;
+		}
+	}
+
+	&__item {
+		position: relative;
+		padding: 8px 15px;
+		border-radius: 4px;
+		min-width: 215px;
+		@include textoverflow;
+		cursor: pointer;
+		transition: color 0.25s, background 0.25s;
+
+		@include phone {
+			padding: 8px 10px;
+		}
+
+		@include hover {
+			color: $white;
+			background: $theme-main-color;
+
+			.v-filter-sort__icon {
+				fill: $white;
+			}
+		}
+
+		&.is-active {
+			color: $white;
+			background: $theme-main-color;
+
+			.v-filter-sort__check {
+				opacity: 1;
+			}
+
+			.v-filter-sort__icon {
+				fill: $white;
+			}
+		}
+	}
+
+	&__icon,
+	&__check {
+		position: absolute;
+		top: 50%;
+		transform: translate3d(0,-50%,0);
+	}
+
+	&__icon {
+		left: 15px;
+		fill: $blue;
+		font-size: 18px;
+		transition: fill 0.25s;
+
+		@include tablet {
+			display: none;
+		}
+
+		~ .v-filter-sort__text {
+			padding-left: 31px;
+
+			@include tablet {
+				padding-left: 0;
+			}
+		}
+	}
+
+	&__check {
+		right: 15px;
+		fill: $white;
+		opacity: 0;
+		font-size: 8px;
+		transition: opacity 0.25s;
+
+		~ .v-filter-sort__text {
+			padding-right: 25px;
+
+			@include tablet {
+				padding-right: 14px;
+			}
+		}
+	}
+
+	&__controls {
+		display: none;
+
+		@include tablet {
+			display: block;
+		}
+
+		@include phone {
+			padding: 0 7px 0 8px;
+		}
+	}
+
+	&__control {
+		display: inline-block;
+		vertical-align: top;
+		padding: 11px 10px;
+		font-size: 0;
+
+		@include phone {
+			padding: 11px 8px 11px 7px;
+		}
+
+		.icon {
+			display: inline-block;
+			vertical-align: top;
+			fill: $blue;
+			font-size: 18px;
+			transition: fill 0.25s;
+		}
+	}
+
+	&__toggle {
+		@include phone {
+			display: none;
+		}
+	}
+
+	&__modal-control {
+		display: none;
+
+		@include phone {
+			display: inline-block;
+		}
+	}
+}

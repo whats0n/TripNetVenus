@@ -1,11 +1,13 @@
-import {OPEN} from '../_constants';
-import {DOC} from '../_constants';
-import {toggleBodyScroll} from '../_utils';
+import {OPEN, DOC, WIN, phoneWidthEnd, tabletWidthEnd} from '../_constants';
+import {toggleBodyScroll, getWidth} from '../_utils';
 
 ;(() => {
 
   const controls = $('.js-modal-control');
   const modals = $('.js-modal');
+  const MOBILE = 'mobile';
+  const TABLET = 'tablet';
+  const watch = [];
 
   controls.each((i, control) => {
     control = $(control);
@@ -20,6 +22,7 @@ import {toggleBodyScroll} from '../_utils';
 
   modals.each((i, modal) => {
     modal = $(modal);
+    const media = modal.data('modal-media');
     const inner = modal.find('.js-modal-inner');
     const close = modal.find('.js-modal-close');
 
@@ -37,6 +40,22 @@ import {toggleBodyScroll} from '../_utils';
       e.preventDefault();
       hide();
     });
+
+    //reset modal state on resize
+    switch (media) {
+      case MOBILE:
+        watch.push(() => {
+          !getWidth(phoneWidthEnd) && modal.hasClass(OPEN) && hide();
+        });
+        return;
+      case TABLET:
+        watch.push(() => {
+          !getWidth(phoneWidthEnd) && modal.hasClass(OPEN) && hide();
+        });
+        return;
+    }
   });
+
+  watch.length && WIN.on('resize', e => watch.forEach(fn => fn()));
 
 })();

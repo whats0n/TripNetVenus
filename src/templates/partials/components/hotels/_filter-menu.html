@@ -1,0 +1,87 @@
+<!-- begin v-filter-menu -->
+<div class="v-filter-menu">
+	<div class="v-filter-search v-filter-menu__search js-filter-search">
+		<div class="v-filter-search__container js-autocomplete">
+			<button class="v-filter-search__control js-modal-control" data-modal="search">
+				{{mixins.icon('search')}}
+			</button>
+			<input type="text" class="v-filter-search__input js-filter-search-input js-autocomplete-input" placeholder="Hotel name">
+			<button class="v-filter-search__btn js-filter-search-btn">
+				{{mixins.icon('search')}}
+			</button>
+			<ul class="js-autocomplete-list" hidden>
+				{% for item in range(0,25) %}
+					<li>Lorem {{loop.index}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div class="v-filter-sort v-filter-menu__sort js-filter-sort" data-sort="items">
+		<div class="v-filter-sort__controls">
+			<button class="v-filter-sort__control" type="button">
+				{{mixins.icon('filter')}}
+			</button>
+			<button class="v-filter-sort__control v-filter-sort__toggle js-filter-sort-control">
+				{{mixins.icon('sort-ascending')}}
+			</button>
+			<button class="v-filter-sort__control v-filter-sort__modal-control js-modal-control" data-modal="sort">
+				{{mixins.icon('sort-ascending')}}
+			</button>
+		</div>
+		<h3 class="title-md v-filter-sort__title">Sort by:</h3>
+		<div class="v-filter-sort__main">
+			{% for item in [
+				{
+					label: 'Review score',
+					sublabel: 'Sort by rating',
+					list: [ 'from lowest rating', 'from highest rating' ]
+				},
+				{
+					label: 'Price',
+					sublabel: 'Sort by price',
+					list: [ 'from the cheapest price', 'from the most expensive price' ]
+				},
+				{
+					label: 'Star rating',
+					sublabel: 'Sort by stars',
+					list: [ 'from lowest stars', 'from highest stars' ]
+				}
+			] %}
+				<div class="v-filter-sort__box js-filter-sort-box">
+					<div class="v-filter-sort__label js-filter-sort-label">
+						{{mixins.icon('down', 'v-filter-sort__arrow')}}
+						<div>{{item.label}}</div>
+					</div>
+					<div class="v-filter-sort__sublabel">{{item.sublabel}}</div>
+					<div class="v-filter-sort__dropdown">
+						<ul class="v-filter-sort__list">
+							{% for item in item.list %}
+								<li class="v-filter-sort__item js-filter-sort-item" data-sort-val="{{item}}">
+									{% if loop.first %}
+										{{mixins.icon('sort-ascending', 'v-filter-sort__icon')}}
+									{% else %}
+										{{mixins.icon('sort-descending', 'v-filter-sort__icon')}}
+									{% endif %}
+									{{mixins.icon('check', 'v-filter-sort__check')}}
+									<div class="v-filter-sort__text">{{item}}</div>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="v-filter-controls v-filter-menu__controls">
+		<a href="#" class="v-filter-controls__item" data-tabs-control="v-list">
+			{{mixins.icon('list')}}
+			{{mixins.icon('items')}}
+			<span>List view</span>
+		</a>
+		<a href="#" class="v-filter-controls__item" data-tabs-control="v-map">
+			{{mixins.icon('marker')}}
+			<span>Show map</span>
+		</a>
+	</div>
+</div>
+<!-- end v-filter-menu -->

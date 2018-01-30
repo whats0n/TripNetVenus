@@ -1,0 +1,135 @@
+.v-filter-search {
+	padding: 0 15px;
+
+	@include phone {
+		padding: 0 10px;
+	}
+
+	&.is-active {
+		.v-filter-search {
+			&__container {
+				@include tablet {
+					width: 247px;
+					box-shadow: $container-shadow;
+				}
+			}
+
+			&__btn {
+				@include tablet {
+					border-radius: 4px 0 0 4px;
+				}
+
+				@include phone {
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+
+	&_static {
+		padding: 20px 10px !important;
+		min-height: 245px;
+
+		.v-filter-search {
+			&__container {
+				width: 100%;
+				box-shadow: $container-shadow;
+			}
+
+			&__btn {
+				display: block;
+				border-radius: 4px 0 0 4px;
+				background: $theme-main-color;
+			}
+
+			&__input {
+				border-color: $theme-main-color;
+			}
+		}
+	}
+	
+	//elements
+	&__container {
+		position: relative;
+		overflow: hidden;
+		width: 247px;
+		@include container;
+
+		@include tablet {
+			width: 40px;
+			box-shadow: none;
+			transition: width 0.4s, box-shadow 0.4s;
+		}
+	}
+
+	&__input {
+		display: block;
+		width: 100%;
+		padding-left: 50px;
+		padding-right: 15px;
+		border: 1px solid $white;
+		border-radius: 4px;
+		height: 40px;
+		color: $gray;
+		@include font(14px, null, normal);
+		transition: border-color 0.25s, opacity 0.4s, visibility 0.4s;
+
+		&:focus {
+			border-color: $theme-main-color;
+
+			~ .v-filter-search__btn {
+				background: $theme-main-color;
+			}
+		}
+
+		&::placeholder {
+			color: $gray;
+			opacity: 0.5;
+		}
+	}
+
+	&__btn,
+	&__control {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 40px;
+		height: 40px;
+		background: #85D9DD;
+		@include vertical;
+		transition: background 0.25s;
+
+		@include hover {
+			background: $theme-main-color-active;
+		}
+
+		.icon {
+			display: inline-block;
+			vertical-align: middle;
+			fill: $white;
+			font-size: 18px;
+		}
+	}
+
+	&__control {
+		display: none;
+		border-radius: 4px;
+
+		@include phone {
+			display: block;
+		}
+	}
+
+	&__btn {
+		border-radius: 4px 0 0 4px;
+
+		@include tablet {
+			border-radius: 4px;
+			transition: background 0.25s, border-radius 0.4s;
+		}
+
+		@include phone {
+			display: none;
+		}
+	}
+}
