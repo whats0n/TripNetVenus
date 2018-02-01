@@ -1,0 +1,272 @@
+.v-filters {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 263px;
+	height: 100%;
+
+	@include tablet {
+		position: fixed;
+		z-index: 1000;
+		right: 0;
+		padding: 14px 15px 20px;
+		width: auto;
+		opacity: 0;
+		visibility: hidden;
+		background: rgba($black, 0.8);
+		transition: opacity 0.3s, visibility 0.3s;
+	}
+
+	@include phone {
+		padding: 0;
+	}
+
+	&__container {
+		position: relative;
+		padding-top: 42px;
+		height: 100%;
+		@include container;
+
+		@include tablet {
+			width: 263px;
+			background: none;
+			transform: translate3d(-100%,0,0);
+			transition: transform 0.3s;
+		}
+
+		@include phone {
+			padding-top: 51px;
+			width: 100%;
+			@include gpu;
+		}
+	}
+
+	&__header {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 0 14px 0 15px;
+		@include container(4px 4px 0 0, rgba($white, 0.8));
+		@include clr;
+
+		@include phone {
+			z-index: 10;
+			padding: 5px 15px 4px;
+			border-radius: 0;
+			background: $white;
+			box-shadow: $container-shadow-phone;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: none;
+		padding: 11px 10px;
+		background: none;
+		font-size: 0;
+		transition: opacity 0.25s;
+
+		@include tablet {
+			display: block;
+		}
+
+		@include phone {
+			padding: 17px 10px 16px;
+			opacity: 0.5;
+		}
+
+		@include hover {
+			@include phone {
+				opacity: 1;
+			}
+		}
+
+		.icon {
+			fill: $gray;
+			font-size: 20px;
+
+			@include phone {
+				font-size: 18px;
+			}
+		}
+	}
+
+	&__link,
+	&__label {
+		padding: 13px 0 12px;
+		@include font(14px, 700, 17px);
+	}
+
+	&__link {
+		position: relative;
+		float: right;
+		color: $blue;
+
+		@include tablet {
+			float: left;
+		}
+
+		@include hover {
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 12px;
+			border-bottom: 1px solid $blue;
+			opacity: 0;
+			transition: opacity 0.25s;
+		}
+	}
+
+	&__label {
+		@include textoverflow;
+
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&__title {
+		display: none;
+		float: left;
+		padding: 10px 5px 10px 0;
+		text-transform: uppercase;
+
+		@include tablet {
+			display: block;
+		}
+	}
+
+	&__body{
+		overflow: auto;
+		padding: 0 15px;
+		height: 100%;
+
+		@include tablet {
+			padding-bottom: 50px;
+			border-radius: 0 0 4px 4px;
+			background: $white;
+		}
+
+		@include phone {
+			padding: 0 10px 56px;
+			border-radius: 0;
+		}
+
+		&.ps--active-y {
+			padding-right: 15px;
+
+			~ .v-filters__submit {
+				@include phone {
+					right: 16px;
+				}
+			}
+		}
+
+		.ps__rail-y {
+			right: 4px;
+		}
+	}
+
+	&__submit {
+		position: absolute;
+		z-index: 100;
+		left: 15px;
+		right: 15px;
+		bottom: 10px;
+		display: none;
+
+		@include tablet {
+			display: block;
+		}
+
+		@include phone {
+			left: 10px;
+			right: 10px;
+			bottom: 16px;
+		}
+	}
+
+	&__box {
+		padding: 20px 0;
+
+		@include phone {
+			padding: 0;
+		}
+
+		&:not(:first-child) {
+			border-top: 1px solid $theme-main-color;
+
+			@include phone {
+				border-top-color: $lightGray;
+			}
+		}
+	}
+
+	&__heading {
+		@include phone {
+			padding: 17px 20px 17px 0;
+		}
+
+		.icon-down {
+			margin-right: 5px;
+		}
+	}
+
+	&__content {
+		@include phone {
+			padding: 15px 0;
+			border-top: 1px solid $theme-main-color;
+		}
+	}
+
+	&__subtitle {
+		margin-bottom: 20px;
+		text-align: center;
+
+		@include phone {
+			margin: 0;
+			text-align: left;
+		}
+	}
+
+	&__item {
+		&:not(:first-child) {
+			padding-top: 15px;
+		}
+	}
+
+	&__more {
+		position: relative;
+		margin-top: 15px;
+		color: $blue;
+		@include font(14px, 700, 17px);
+
+		@include hover {
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-bottom: 1px solid $blue;
+			opacity: 0;
+			transition: opacity 0.25s;
+		}
+	}
+}

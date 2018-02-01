@@ -1,5 +1,7 @@
 import {ACTIVE, phoneWidthEnd, WIN} from '../_constants';
 import {getWidth} from '../_utils';
+import {ACCORDION_COMPLETE} from '../_constants';
+import connect from '../_connect';
 
 ;(() => {
 
@@ -71,7 +73,7 @@ import {getWidth} from '../_utils';
             }
             //open active
             activeBtn.addClass(ACTIVE);
-            activeContainer.slideDown(duration);
+            activeContainer.slideDown(duration, () => connect.fire(ACCORDION_COMPLETE, { container: activeContainer }));
           }
         });
       });

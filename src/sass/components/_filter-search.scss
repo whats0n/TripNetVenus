@@ -12,6 +12,11 @@
 					width: 247px;
 					box-shadow: $container-shadow;
 				}
+
+				@include tablet {
+					width: 40px;
+					box-shadow: none;
+				}
 			}
 
 			&__btn {

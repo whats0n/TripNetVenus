@@ -20,6 +20,7 @@
 
 [data-accordion-main*="phone"] {
 	[data-accordion-btn] {
+		position: relative;
 		
 		@include phone {
 			cursor: pointer;

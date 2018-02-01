@@ -54,10 +54,11 @@ import {getWidth} from '../_utils';
     labels.each((i, label) => {
       label = $(label);
       const box = label.closest(boxes);
+      const otherBoxes = boxes.not(box);
 
       label.on('click', e => {
         e.preventDefault();
-        boxes.removeClass(OPEN);
+        otherBoxes.removeClass(OPEN);
         box.toggleClass(OPEN);
       });
     });

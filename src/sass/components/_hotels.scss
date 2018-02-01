@@ -1,9 +1,30 @@
 .v-hotels {
 	padding-top: 30px;
+	padding-bottom: 40px;
 	background: rgba($lightGray, 0.25);
 
 	&__title {
 		padding-bottom: 30px;
 		text-align: center;
+	}
+
+	&__main {
+		position: relative;
+		margin-top: 30px;
+		padding-left: 293px;
+		min-height: 680px;
+		@include clr;
+
+		@include tablet {
+			padding: 0;
+		}
+	}
+
+	&__sidebar {
+
+	}
+
+	&__content {
+		
 	}
 }

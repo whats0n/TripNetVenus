@@ -14,3 +14,6 @@ import './_hint';
 import './_filter-sort';
 import './_filter-search';
 import './_autocomplete';
+import './_data-list';
+import './_range-slider';
+import './_filters';

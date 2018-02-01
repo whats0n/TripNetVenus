@@ -1,0 +1,13 @@
+.v-simple-input {
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid $white;
+	width: 100%;
+	height: 35px;
+	@include container;
+	transition: border-color 0.25s;
+
+	&:focus {
+		border-color: $theme-main-color;
+	}
+}

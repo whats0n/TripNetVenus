@@ -1,0 +1,21 @@
+<!-- begin v-filters__range -->
+<div class="v-range v-filters__range js-range">
+	<div class="v-range__container">
+		<div class="v-range__slider js-range-slider" data-min="{{range.min}}" data-max="{{range.max}}"></div>
+		<div class="v-range__limit">
+			<div class="v-range__min">{{range.min}}</div>
+			<div class="v-range__max">{{range.max}}+</div>
+		</div>
+	</div>
+	<div class="v-range__values">
+		<div class="v-range__value v-range__from">
+			<label class="v-range__label" for="v-range-from">From</label>
+			<input type="text" class="v-simple-input v-range__input js-range-from" value="{{range.from}}" id="v-range-from">
+		</div>
+		<div class="v-range__value v-range__to">
+			<label class="v-range__label" for="v-range-to">To</label>
+			<input type="text" class="v-simple-input v-range__input js-range-to" value="{{range.to}}" id="v-range-to">
+		</div>
+	</div>
+</div>
+<!-- end v-filters__range -->

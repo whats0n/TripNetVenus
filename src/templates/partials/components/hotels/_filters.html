@@ -1,0 +1,140 @@
+<!-- begin v-filters -->
+<aside class="v-hotels__sidebar v-filters js-filters">
+	<div class="v-filters__container js-filters-container">
+		<div class="v-filters__header">
+			<h2 class="title-lg v-filters__title">Filters (3)</h2>
+			<a href="#" class="v-filters__link">Clear filters</a>
+			<div class="v-filters__label">167 of 385 hotels</div>
+			<button class="v-filters__close js-filters-close">
+				{{mixins.icon('close-button')}}
+			</button>
+		</div>
+		<div class="v-filters__body v-scrollbar js-scrollbar" data-accordion-main="phone">
+			{% for item in [
+				{
+					title: 'Hotel class',
+					list: [
+						{ value: '26', label: '5-star hotels' },
+						{ value: '32', label: '4-star hotels', checked: true },
+						{ value: '135', label: '3-star hotels', checked: true },
+						{ value: '116', label: '2-star hotels' },
+						{ value: '116', label: 'Unrated' }
+					]
+				},
+				{
+					title: 'Nightly price, eur',
+					range: {
+						from: '120',
+						to: '1 350',
+						min: '0',
+						max: '5500'
+					}
+				},
+				{
+					title: 'Accommodation options',
+					list: [
+						{ value: '129', label: 'hotels' },
+						{ value: '84', label: 'bed & breackfast', checked: true },
+						{ value: '6', label: 'hostels' },
+						{ value: '4', label: 'aparthotel' }
+					]
+				},
+				{
+					title: 'Districts',
+					list: [
+						{ value: '6', label: 'Perret' }
+					]
+				},
+				{
+					title: 'Points of interest',
+					list: [
+						{ value: '43', label: 'Le Cadran' },
+						{ value: '38', label: 'Musée Centre des Arts' },
+						{ value: '29', label: "Musée des Arts et de l'Enfance" },
+						{ value: '22', label: 'Musée des Terre Neuvas' },
+						{ value: '21', label: 'Le Grand Large' },
+						{ value: '14', label: 'Palais Bénédictine' },
+						{ value: '1', label: 'Comédie Errante' },
+						{ value: '22', label: 'Musée des Terre Neuvas' },
+						{ value: '21', label: 'Le Grand Large' },
+						{ value: '14', label: 'Palais Bénédictine' },
+						{ value: '1', label: 'Comédie Errante' }
+					]
+				},
+				{
+					title: 'Hotel themes',
+					list: [
+						{ value: '37', label: 'Central hotels' },
+						{ value: '33', label: 'Resorts' },
+						{ value: '24', label: 'Family hotels' },
+						{ value: '22', label: 'Cheap and Budget hotels' },
+						{ value: '15', label: 'Airport hotels' },
+						{ value: '14', label: 'Golf hotels' },
+						{ value: '7', label: 'Design and Modern hotels' },
+						{ value: '22', label: 'Cheap and Budget hotels' },
+						{ value: '15', label: 'Airport hotels' },
+						{ value: '14', label: 'Golf hotels' },
+						{ value: '7', label: 'Design and Modern hotels' }
+					]
+				},
+				{
+					title: 'Guest rating',
+					list: [
+						{ value: '66', label: 'Excellent 4.5+' },
+						{ value: '69', label: 'Very Good 4+' },
+						{ value: '26', label: 'Good 3.5+' },
+						{ value: '13', label: 'Average 3+' }
+					]
+				},
+				{
+					title: 'Hotel amenities',
+					list: [
+						{ value: '96', label: 'Wi-Fi' },
+						{ value: '73', label: 'Pets allowed' },
+						{ value: '56', label: '24-hour reception' },
+						{ value: '47', label: 'A la carte restaurant' },
+						{ value: '39', label: 'Express check-in/ -out' },
+						{ value: '28', label: 'Indoor swimming pool' },
+						{ value: '13', label: 'Fitness center' },
+						{ value: '47', label: 'A la carte restaurant' },
+						{ value: '39', label: 'Express check-in/ -out' },
+						{ value: '28', label: 'Indoor swimming pool' },
+						{ value: '13', label: 'Fitness center' }
+					]
+				},
+				{
+					title: 'Room amenities',
+					list: [
+						{ value: '35', label: 'Soundproofed rooms' },
+						{ value: '27', label: 'Bathroom' },
+						{ value: '19', label: 'Central heating' },
+						{ value: '16', label: 'Free Wi-Fi in rooms' },
+						{ value: '9', label: 'Individual heating' },
+						{ value: '2', label: 'Mini-fridge' }
+					]
+				}
+			] %}
+				<div class="v-filters__box" data-accordion-item>
+					<div class="v-filters__heading" data-accordion-btn>
+						<h3 class="title-md v-filters__subtitle">{{item.title}}</h3>
+						{{mixins.icon('down')}}
+					</div>
+					<div class="v-filters__content" data-accordion-container>
+						{% if item.list %}
+							{% set list = item.list %}
+							{% include './_filters-list.html' %}
+						{% endif %}
+						{% if item.range %}
+							{% set range = item.range %}
+							{% include './_filters-range.html' %}
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="v-filters__submit">
+			<button class="btn btn_wide">Apply Filters</button>
+		</div>
+	</div>
+</aside>
+<!-- end v-filters -->

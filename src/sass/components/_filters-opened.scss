@@ -1,0 +1,22 @@
+&.is-filters-opened {
+	@include tablet {
+		margin-left: 278px;
+	}
+
+	@include phone {
+		margin-left: 0;
+	}
+
+	.v-filters {
+		@include tablet {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		&__container {
+			@include tablet {
+				@include gpu;
+			}
+		}
+	}
+}

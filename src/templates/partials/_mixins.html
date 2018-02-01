@@ -23,6 +23,18 @@
 </label>
 {% endmacro %}
 
+{% macro checkbox(props) %}
+<label class="v-checkbox {{props.classList}}">
+	<input type="checkbox" {% if props.checked %}checked{% endif %}>
+	<span class="v-checkbox__icon">
+		{{icon('check')}}
+	</span>
+	{% if props.content %}
+		<span class="v-checkbox__content">{{props.content | safe}}</span>
+	{% endif %}
+</label>
+{% endmacro %}
+
 {% macro input(props) %}
 <div class="v-input js-input">
 	{{icon('check')}}
