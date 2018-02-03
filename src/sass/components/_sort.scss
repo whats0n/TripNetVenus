@@ -1,4 +1,4 @@
-.v-filter-sort {
+.v-sort {
 	font-size: 0;
 	@include noselect;
 
@@ -12,7 +12,7 @@
 	}
 
 	&.is-active {
-		.v-filter-sort {
+		.v-sort {
 			&__main {
 				opacity: 1;
 				visibility: visible;
@@ -29,7 +29,7 @@
 	&_static {
 		margin: 0 !important;
 
-		.v-filter-sort {
+		.v-sort {
 			&__main {
 				position: relative;
 				top: auto;
@@ -100,7 +100,7 @@
 		}
 
 		&.is-open {
-			.v-filter-sort {
+			.v-sort {
 				&__dropdown {
 					opacity: 1;
 					visibility: visible;
@@ -230,21 +230,16 @@
 			color: $white;
 			background: $theme-main-color;
 
-			.v-filter-sort__icon {
+			.v-sort__icon,
+			.v-sort__check  {
 				fill: $white;
 			}
 		}
 
 		&.is-active {
-			color: $white;
-			background: $theme-main-color;
 
-			.v-filter-sort__check {
+			.v-sort__check {
 				opacity: 1;
-			}
-
-			.v-filter-sort__icon {
-				fill: $white;
 			}
 		}
 	}
@@ -266,7 +261,7 @@
 			display: none;
 		}
 
-		~ .v-filter-sort__text {
+		~ .v-sort__text {
 			padding-left: 31px;
 
 			@include tablet {
@@ -277,12 +272,12 @@
 
 	&__check {
 		right: 15px;
-		fill: $white;
+		fill: $theme-main-color;
 		opacity: 0;
 		font-size: 8px;
 		transition: opacity 0.25s;
 
-		~ .v-filter-sort__text {
+		~ .v-sort__text {
 			padding-right: 25px;
 
 			@include tablet {

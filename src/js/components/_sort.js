@@ -2,20 +2,20 @@ import {OPEN, ACTIVE, DOC, phoneWidthEnd} from '../_constants';
 import {getWidth} from '../_utils';
 
 ;(() => {
-  const itemsName = '.js-filter-sort-item';
-  const boxesName = '.js-filter-sort-box';
-  const labelsName = '.js-filter-sort-label';
-  const controlsName = '.js-filter-sort-control';
+  const itemsName = '.js-sort-item';
+  const boxesName = '.js-sort-box';
+  const labelsName = '.js-sort-label';
+  const controlsName = '.js-sort-control';
   
-  const defaultFilters = $('.js-filter-sort');
-  const mobileFilters = $('.js-filter-sort-mobile');
+  const sorts = $('.js-sort');
+  const mobileSorts = $('.js-sort-mobile');
   const allBoxes = $(boxesName);
 
   //start utils
-  const getItems = (defaultFilter, mobileFilter) => {
+  const getItems = (sort, mobileSort) => {
     return {
-      defaultItems: defaultFilter.find(itemsName),
-      mobileItems: mobileFilter.find(itemsName)
+      defaultItems: sort.find(itemsName),
+      mobileItems: mobileSort.find(itemsName)
     };
   };
 
@@ -34,20 +34,20 @@ import {getWidth} from '../_utils';
   };
   //end utils
 
-  defaultFilters.each((i, defaultFilter) => {
-    defaultFilter = $(defaultFilter);
-    const family = defaultFilter.data('sort');
-    const mobileFilter = mobileFilters.filter(`[data-sort="${family}"]`);
+  sorts.each((i, sort) => {
+    sort = $(sort);
+    const family = sort.data('sort');
+    const mobileSort = mobileSorts.filter(`[data-sort="${family}"]`);
 
     //elements
-    const {defaultItems, mobileItems} = getItems(defaultFilter, mobileFilter);
-    const labels = defaultFilter.find(labelsName);
-    const boxes = defaultFilter.find(boxesName);
-    const control = defaultFilter.find(controlsName);
+    const {defaultItems, mobileItems} = getItems(sort, mobileSort);
+    const labels = sort.find(labelsName);
+    const boxes = sort.find(boxesName);
+    const control = sort.find(controlsName);
 
     //open filters on click on the control
     control.on('click', e => {
-      defaultFilter.toggleClass(ACTIVE);
+      sort.toggleClass(ACTIVE);
     });
 
     //open dropdown on click on the label
@@ -89,7 +89,7 @@ import {getWidth} from '../_utils';
 
           box.removeClass(OPEN);
           if (getWidth(phoneWidthEnd)) return;
-          defaultFilter.removeClass(ACTIVE);
+          sort.removeClass(ACTIVE);
         });
 
       //set active on load
@@ -102,8 +102,8 @@ import {getWidth} from '../_utils';
   });
 
   DOC.on('click', e => {
-    if ($(e.target).closest(defaultFilters).length || $(e.target).closest(mobileFilters).length) return;
-    if (defaultFilters.hasClass(ACTIVE)) defaultFilters.removeClass(ACTIVE);
+    if ($(e.target).closest(sorts).length || $(e.target).closest(mobileSorts).length) return;
+    if (sorts.hasClass(ACTIVE)) sorts.removeClass(ACTIVE);
     if (allBoxes.hasClass(OPEN)) allBoxes.removeClass(OPEN);
   });
 

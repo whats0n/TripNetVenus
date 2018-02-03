@@ -3,9 +3,17 @@
 	padding-bottom: 40px;
 	background: rgba($lightGray, 0.25);
 
+	@include phone {
+		padding-top: 20px;
+	}
+
 	&__title {
 		padding-bottom: 30px;
 		text-align: center;
+
+		@include phone {
+			padding-bottom: 20px;
+		}
 	}
 
 	&__main {

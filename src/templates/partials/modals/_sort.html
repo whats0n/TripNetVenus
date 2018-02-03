@@ -4,8 +4,8 @@
 			{{mixins.icon('close-button')}}
 		</button>
 		<h3 class="title-md v-modal__title">SORT by</h3>
-		<div class="v-filter-sort v-filter-sort_static js-filter-sort-mobile" data-sort="items">
-			<div class="v-filter-sort__main">
+		<div class="v-sort v-sort_static js-sort-mobile" data-sort="items">
+			<div class="v-sort__main">
 				{% for item in [
 					{
 						sublabel: 'Sort by rating',
@@ -20,14 +20,14 @@
 						list: [ 'from lowest stars', 'from highest stars' ]
 					}
 				] %}
-					<div class="v-filter-sort__box">
-						<div class="v-filter-sort__sublabel">{{item.sublabel}}</div>
-						<div class="v-filter-sort__dropdown">
-							<ul class="v-filter-sort__list">
+					<div class="v-sort__box">
+						<div class="v-sort__sublabel">{{item.sublabel}}</div>
+						<div class="v-sort__dropdown">
+							<ul class="v-sort__list">
 								{% for item in item.list %}
-									<li class="v-filter-sort__item js-filter-sort-item" data-sort-val="{{item}}">
-										{{mixins.icon('check', 'v-filter-sort__check')}}
-										<div class="v-filter-sort__text">{{item}}</div>
+									<li class="v-sort__item js-sort-item" data-sort-val="{{item}}">
+										{{mixins.icon('check', 'v-sort__check')}}
+										<div class="v-sort__text">{{item}}</div>
 									</li>
 								{% endfor %}
 							</ul>

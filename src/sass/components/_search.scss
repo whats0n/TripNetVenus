@@ -1,4 +1,4 @@
-.v-filter-search {
+.v-search {
 	padding: 0 15px;
 
 	@include phone {
@@ -6,14 +6,14 @@
 	}
 
 	&.is-active {
-		.v-filter-search {
+		.v-search {
 			&__container {
 				@include tablet {
 					width: 247px;
 					box-shadow: $container-shadow;
 				}
 
-				@include tablet {
+				@include phone {
 					width: 40px;
 					box-shadow: none;
 				}
@@ -35,7 +35,7 @@
 		padding: 20px 10px !important;
 		min-height: 245px;
 
-		.v-filter-search {
+		.v-search {
 			&__container {
 				width: 100%;
 				box-shadow: $container-shadow;
@@ -82,7 +82,7 @@
 		&:focus {
 			border-color: $theme-main-color;
 
-			~ .v-filter-search__btn {
+			~ .v-search__btn {
 				background: $theme-main-color;
 			}
 		}

@@ -80,6 +80,10 @@
 
 	&__container {
 		padding-right: 10px;
+
+		@include phone {
+			padding-right: 2px;
+		}
 	}
 
 	&__limit {

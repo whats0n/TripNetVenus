@@ -11,8 +11,8 @@ import './_photo-gallery';
 import './_item-box';
 import './_hint';
 
-import './_filter-sort';
-import './_filter-search';
+import './_sort';
+import './_search';
 import './_autocomplete';
 import './_data-list';
 import './_range-slider';

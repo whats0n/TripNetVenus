@@ -3,14 +3,14 @@ import {getWidth} from '../_utils';
 
 ;(() => {
 	
-  $('.js-filter-search').each((i, filter) => {
-    filter = $(filter);
-    const btn = filter.find('.js-filter-search-btn');
+  $('.js-search').each((i, search) => {
+    search = $(search);
+    const btn = search.find('.js-search-btn');
 
     btn.on('click', e => {
       e.preventDefault();
       if (!getWidth(phoneWidthEnd) || getWidth(tabletWidthEnd)) {
-        filter.toggleClass(ACTIVE);
+        search.toggleClass(ACTIVE);
       }
     });
   });
