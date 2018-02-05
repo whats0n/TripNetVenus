@@ -1,0 +1,23 @@
+.v-map {
+	@include tablet {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	@include phone {
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	&__inner {
+		height: 680px;
+		@include container;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		@include phone {
+			height: 420px;
+		}
+	}
+}

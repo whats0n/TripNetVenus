@@ -5,6 +5,7 @@
 
 	@include phone {
 		padding-top: 20px;
+		padding-bottom: 20px;
 	}
 
 	&__title {
@@ -26,14 +27,7 @@
 		@include tablet {
 			padding: 0;
 			margin-top: 20px;
+			min-height: auto;
 		}
-	}
-
-	&__sidebar {
-
-	}
-
-	&__content {
-		
 	}
 }

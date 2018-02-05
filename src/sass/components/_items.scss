@@ -39,5 +39,9 @@
 
 	&__pagination {
 		padding-top: 30px;
+
+		@include phone {
+			padding-bottom: 10px;
+		}
 	}
 }
