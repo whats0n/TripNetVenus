@@ -17,6 +17,11 @@
 		margin: -41px auto 0;
 		// max-width: 945px;
 
+		@include tablet {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
 		@include phone {
 			padding: 0;
 			margin: 0;
