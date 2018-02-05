@@ -3,7 +3,7 @@
 	z-index: 30;
 	padding: 0 15px;
 
-	@include phone {
+	@include tablet {
 		padding: 0;
 	}
 
@@ -16,11 +16,6 @@
 	&__inner {
 		margin: -41px auto 0;
 		// max-width: 945px;
-
-		@include tablet {
-			padding-left: 0;
-			padding-right: 0;
-		}
 
 		@include phone {
 			padding: 0;

@@ -275,7 +275,7 @@
 		fill: $theme-main-color;
 		opacity: 0;
 		font-size: 8px;
-		transition: opacity 0.25s;
+		transition: opacity 0.25s, fill 0.25s;
 
 		~ .v-sort__text {
 			padding-right: 25px;
