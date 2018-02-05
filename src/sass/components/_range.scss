@@ -104,48 +104,30 @@
 		margin: 0 -7px 0 -8px;
 		font-size: 0;
 		@include clr;
+
+		@include phone {
+			margin: 0 -10px;
+		}
 	}
 
 	&__value {
-		padding: 0 7px 0 8px;
-	}
-
-	&__from {
 		float: left;
-		width: 53%;
+		padding: 0 7px 0 8px;
+		width: 50%;
 
-		.v-range__label {
-			width: 43px;
-		}
-
-		.v-range__input {
-			width: calc(100% - 43px);
-		}
-	}
-
-	&__to {
-		float: right;
-		width: 47%;
-
-		.v-range__label {
-			width: 27px;
-		}
-
-		.v-range__input {
-			width: calc(100% - 27px);
+		@include phone {
+			padding: 0 10px;
 		}
 	}
 
 	&__label {
-		display: inline-block;
-		vertical-align: middle;
-		// padding-right: 10px;
+		display: block;
+		padding-bottom: 10px;
 		@include font(14px, 400, 17px);
 	}
 
 	&__input {
-		vertical-align: middle;
-		// width: 74px;
+		width: 100%;
 		text-align: center;
 	}
 }
