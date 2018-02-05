@@ -1,0 +1,65 @@
+{% import 'partials/_mixins.html' as mixins %}
+{% macro call(props) %}
+<div class="v-item" {{props.attrs | safe}}>
+	<div class="v-item__display">
+		<div class="v-item__slider owl-carousel js-item-box-slider">
+			{% for item in props.imgs or [
+				'https://placekitten.com/g/300/300',
+				'https://placekitten.com/g/350/350',
+				'https://placekitten.com/g/400/400',
+				'https://placekitten.com/g/500/500'
+			] %}
+				<div class="v-item__img">
+					<div class="v-item__img-in" style="background-image: url({{item}});"></div>
+					<div class="v-item__blur">
+						<div class="v-item__blur-in" style="background-image: url({{item}});"></div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="v-item__caption">
+			<div class="v-item__rating">4.5</div>
+			<div class="v-item__caption-inner">
+				<div class="v-item__subtitle">Excellent</div>
+				<div class="v-item__reviews">12 reviews</div>
+			</div>
+		</div>
+	</div>
+	<div class="v-item__meta">
+		<div class="v-item__meta-top">
+			<div class="v-item__row">
+				<div class="v-item__stars">
+					{% for item in range(0,props.stars or 2) %}
+						{{mixins.icon('star')}}
+					{% endfor %}
+				</div>	
+				<h3 class="title-md v-item__title">{{props.title or 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, facere.'}}</h3>
+			</div>
+		</div>
+		<div class="v-item__meta-bottom">
+			<div class="v-item__row">
+				<a href="#" class="v-item__show">Show map</a>
+				<div class="v-item__place">
+					{{mixins.icon('marker')}}
+					<span>{{props.place or 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, commodi!'}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="v-item__container">
+		{{mixins.icon('coffee-cup')}}
+		{{mixins.icon('wifi')}}
+		{{mixins.icon('tv')}}
+		{{mixins.icon('coffee-cup')}}
+		{{mixins.icon('wifi')}}
+		{{mixins.icon('tv')}}
+	</div>
+	<div class="v-item__price">
+		<span>from</span>
+		<strong>{{props.price or '955'}} €</strong>
+	</div>
+	<div class="v-item__footer">
+		<a href="#" class="btn btn_large">Book now</a>
+	</div>
+</div>
+{% endmacro %}

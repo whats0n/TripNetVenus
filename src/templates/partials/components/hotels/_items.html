@@ -1,5 +1,12 @@
 <!-- begin v-items -->
 <div class="v-items" data-tabs-container="v-list">
-	list
+	{% for props in [
+		{},
+		{},
+		{},
+		{}
+	] %}
+		{{item.call(props)}}
+	{% endfor %}
 </div>
 <!-- end v-items -->
