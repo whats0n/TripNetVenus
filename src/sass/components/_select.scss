@@ -16,7 +16,7 @@
 		.select2-selection__rendered {
 			padding: 2px 16px 2px 8px;
 			color: $gray;
-			@include font(16px, null, 19px);
+			@include font(14px, null, 19px);
 
 			@include phone {
 				padding-top: 10px;
@@ -88,7 +88,7 @@
 		padding: 0;
 		margin-bottom: 1px;
 		border-radius: 4px;
-		@include font(16px, null, 18px);
+		@include font(14px, null, 18px);
 		text-align: center;
 
 		@include phone {
