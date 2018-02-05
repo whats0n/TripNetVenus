@@ -1,21 +1,48 @@
 .v-item {
-	padding: 15px 15px 20px;
+	padding: 15px;
 	text-align: left;
 	@include container;
+
+	@include tablet {
+		padding-bottom: 20px;
+	}
 
 	@include phone {
 		padding: 10px 10px 20px;
 	}
 
-	&__display {
-		position: relative;
+	&__pictures {
+		float: left;
 		overflow: hidden;
-		margin-bottom: 15px;
-		font-size: 0;
+		width: 244px;
+
+		@include tablet {
+			float: none;
+			margin-bottom: 15px;
+			width: 100%;
+		}
 
 		@include phone {
 			margin-bottom: 10px;
 		}
+	}
+
+	&__content {
+		margin-left: 259px;
+		border: 1px solid rgba($lightGray, 0.5);
+		border-radius: 4px;
+		@include clr;
+
+		@include tablet {
+			margin-left: 0;
+			border: none;
+		}
+	}
+
+	&__display {
+		position: relative;
+		overflow: hidden;
+		font-size: 0;
 
 		@include hover {
 			.v-item__blur, 
@@ -61,11 +88,15 @@
 	&__img,
 	&__blur-in,
 	&__display {
+		padding-bottom: 81.15%;
 		height: 0;
-		padding-bottom: 47.58%;
+
+		@include tablet {
+			padding-bottom: 47.724%;
+		}
 
 		@include phone {
-			padding-bottom: 58.945%;
+			padding-bottom: 51.79%;
 		}
 	}
 
@@ -139,6 +170,35 @@
 		}
 	}
 
+	&__info {
+		float: left;
+		padding: 15px;
+		width: 59.175%;
+
+		@include tablet {
+			float: none;
+			padding: 0;
+			width: 100%;
+		}
+	}
+
+	&__footer {
+		float: left;
+		padding: 56px 0;
+		border-left: 1px solid rgba($lightGray, 0.5);
+		width: 40.825%;
+		height: 196px;
+		text-align: center;
+
+		@include tablet {
+			float: none;
+			padding: 0;
+			border: none;
+			width: 100%;
+			height: auto;
+		}
+	}
+
 	&__rating {
 		float: left;
 		padding: 7px 3px 6px;
@@ -164,9 +224,12 @@
 
 	&__meta {
 		padding-bottom: 10px;
-		margin-bottom: 10px;
 		border-bottom: 1px solid $theme-main-color;
 		font-size: 0;
+
+		@include tablet {
+			margin-bottom: 10px;
+		}
 
 		&-bottom {
 			padding-top: 7px;
@@ -251,12 +314,16 @@
 	}
 
 	&__container {
-		padding: 17px 14px 16px;
-		margin-bottom: 15px;
-		border: 1px solid rgba($lightGray, 0.5);
-		border-radius: 4px;
+		padding: 15px 0;
 		font-size: 0;
 		text-align: left;
+
+		@include tablet {
+			padding: 17px 14px 16px;
+			margin-bottom: 20px;
+			border: 1px solid rgba($lightGray, 0.5);
+			border-radius: 4px;
+		}
 
 		@include phone {
 			padding: 18px 10px 17px;
@@ -273,7 +340,7 @@
 			}
 
 			&:not(:last-child) {
-				margin-right: 20px;
+				margin-right: 21px;
 
 				@include phone {
 					margin-right: 13px;
@@ -286,6 +353,39 @@
 
 			@include phone {
 				font-size: 19px;
+			}
+		}
+	}
+
+	&__description {
+		@include font(14px, 400, 21px);
+
+		@include tablet {
+			display: none;
+		}
+
+		a {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			color: $blue;
+			font-weight: 700;
+
+			@include hover {
+				&:before {
+					opacity: 1;
+				}
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border-bottom: 1px solid $blue;
+				opacity: 0;
+				transition: opacity 0.25s;
 			}
 		}
 	}
@@ -322,9 +422,5 @@
 				@include font(20px, null, 24px);
 			}
 		}
-	}
-
-	&__footer {
-		text-align: center;
 	}
 }

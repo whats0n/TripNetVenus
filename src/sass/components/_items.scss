@@ -1,0 +1,43 @@
+.v-items {
+
+	&__row {
+		@include clr;
+
+		@include tablet {
+			margin: -10px;
+		}
+
+		@include phone {
+			margin: 0;
+		}
+	}
+	
+	&__col {
+		@include tablet {
+			float: left;
+			padding: 10px;
+			width: 50%;
+		}
+
+		@include phone {
+			padding: 0;
+			width: 100%;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 30px;
+
+			@include tablet {
+				margin: 0;
+			}
+
+			@include phone {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	&__pagination {
+		padding-top: 30px;
+	}
+}

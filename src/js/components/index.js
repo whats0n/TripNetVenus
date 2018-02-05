@@ -8,7 +8,6 @@ import './_popular';
 import './_scroll-to';
 import './_modal';
 import './_photo-gallery';
-import './_item-box';
 import './_hint';
 
 import './_sort';
@@ -17,3 +16,4 @@ import './_autocomplete';
 import './_data-list';
 import './_range-slider';
 import './_filters';
+import './_item';
