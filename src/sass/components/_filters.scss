@@ -126,6 +126,20 @@
 			opacity: 0;
 			transition: opacity 0.25s;
 		}
+
+		[data-show*="desktop"] {
+			@include tablet {
+				display: none;
+			}
+		}
+
+		[data-show*="tablet"] {
+			display: none;
+
+			@include tablet {
+				display: inline;
+			}
+		}
 	}
 
 	&__label {
