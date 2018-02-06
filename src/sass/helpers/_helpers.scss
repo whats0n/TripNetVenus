@@ -91,6 +91,12 @@
 	}
 }
 
+@mixin notouch {
+	.is-notouch & {
+		@content;
+	}
+}
+
 //FONT STYLES
 @mixin font($font-size: null, $font-weight: null, $line-height: null) {
 	@if $font-size != null {

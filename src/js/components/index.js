@@ -1,7 +1,3 @@
-import './_scroll-to';
-import './_photo-gallery';
-import './_hint';
-
 import './_popular';
 import './_accordion';
 import './_header';
