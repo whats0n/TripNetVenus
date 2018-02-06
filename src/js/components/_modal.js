@@ -1,5 +1,6 @@
-import {OPEN, DOC, WIN, phoneWidthEnd, tabletWidthEnd} from '../_constants';
+import {OPEN, DOC, WIN, phoneWidthEnd, tabletWidthEnd, LOADER_OPEN} from '../_constants';
 import {toggleBodyScroll, getWidth} from '../_utils';
+import connect from '../_connect';
 
 ;(() => {
 
@@ -57,5 +58,10 @@ import {toggleBodyScroll, getWidth} from '../_utils';
   });
 
   watch.length && WIN.on('resize', e => watch.forEach(fn => fn()));
+
+  connect.subscribe(LOADER_OPEN, () => {
+    toggleBodyScroll(false);
+    modals.removeClass(OPEN);
+  });
 
 })();

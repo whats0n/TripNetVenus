@@ -12,6 +12,7 @@ export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
 export const TAB_CHANGE = 'TAB_CHANGE';
 export const GALLERY_RESIZED = 'GALLERY_RESIZED';
 export const ACCORDION_COMPLETE = 'ACCORDION_COMPLETE';
+export const LOADER_OPEN = 'LOADER_OPEN';
 
 export const phoneWidthEnd = 767;
 export const tabletWidthEnd = 1279;

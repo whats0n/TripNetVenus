@@ -3,8 +3,9 @@
 	padding: 20px;
 	margin: 40px auto;
 	max-width: 753px;
-	font-size: 0;
 	@include container;
+	font-size: 0;
+	text-align: center;
 
 	@include tablet {
 		padding: 15px;

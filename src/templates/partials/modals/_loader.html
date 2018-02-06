@@ -1,0 +1,18 @@
+<div class="v-modal v-modal_vertical js-loader">
+	<div class="v-modal__inner v-modal__center">
+		{% for item in [
+			{
+				iconClassList: 'is-rotation',
+				icon: 'spinner-circle',
+				title: 'Please wait, we are looking for&nbsp;available hotel'
+			}
+		] %}
+		    <div class="v-loader">
+		    	<div class="v-loader__icon {{item.iconClassList}}">
+		    		{{mixins.icon(item.icon)}}
+		    	</div>
+		    	<div class="v-loader__title">{{item.title | safe}}</div>
+		    </div>
+		{% endfor %}
+	</div>
+</div>
