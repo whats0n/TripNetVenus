@@ -18,6 +18,11 @@ import noUiSlider from 'nouislider';
     let val = input.val();
 
     if (!val) val = ''+defaultValue;
+    min = (''+min).match( numberPattern );
+    max = (''+max).match( numberPattern );
+
+    min = +(min.join(''));
+    max = +(max.join(''));
 
     let filtered = val.match( numberPattern );
     let newVal = (filtered && filtered.length) ? +(filtered.join('')) : defaultValue;
@@ -62,15 +67,17 @@ import noUiSlider from 'nouislider';
     });
 
     //INPUTS
-    inputTo.on('input', e => {
-      const value = getValue(inputTo, min, max, max, TO);
+    inputTo.on('change', e => {
+      const minVal = inputFrom.val();
+      const value = getValue(inputTo, minVal, max, max, TO);
       const formattedValue = splitOnGroup(value);
       inputTo.val(formattedValue);
       sliderDOM.noUiSlider.set([null, value]);
     });
 
-    inputFrom.on('input', e => {
-      const value = getValue(inputFrom, min, max, min, FROM);
+    inputFrom.on('change', e => {
+      const maxVal = inputTo.val();
+      const value = getValue(inputFrom, min, maxVal, min, FROM);
       const formattedValue = splitOnGroup(value);
       inputFrom.val(formattedValue);
       sliderDOM.noUiSlider.set([value, null]);

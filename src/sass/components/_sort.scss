@@ -227,16 +227,21 @@
 		}
 
 		@include hover {
+			color: $blue;
+		}
+
+		&.is-active {
 			color: $white;
 			background: $theme-main-color;
+
+			@include hover {
+				color: $white;
+			}
 
 			.v-sort__icon,
 			.v-sort__check  {
 				fill: $white;
 			}
-		}
-
-		&.is-active {
 
 			.v-sort__check {
 				opacity: 1;
