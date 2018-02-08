@@ -4,7 +4,7 @@
 	width: 100%;
 	min-width: 320px;
 	color: $gray;
-	font-family: $lato;
+	font-family: $fontfamilyMain;
 	@include font(14px, 400, 1.3);
 	
 	@include tablet {
@@ -88,5 +88,7 @@
 	@import 'components/item';
 	@import 'components/items';
 
+	@import 'components/map-price';
+	@import 'components/map-point';
 	@import 'components/map';
 }

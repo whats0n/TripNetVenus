@@ -1,0 +1,42 @@
+.v-map-price {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	padding: 4px 10px 13px;
+	min-width: 82px;
+	
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+	}
+
+	&:before {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 9px;
+		border-radius: 4px;
+		background: $gray;
+	}
+
+	&:after {
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		@include arr(11, 10, $gray, b);
+		transform: translate3d(-50%,0,0);
+	}
+
+	span {
+		position: relative;
+		z-index: 2;
+		display: block;
+		color: $white;
+		font-family: $fontfamilyMain;
+		@include font(14px, 700, 17px);
+		letter-spacing: 1px;
+		text-align: center;
+
+	}
+}
