@@ -10,9 +10,9 @@
 				'https://placekitten.com/g/500/500'
 			] %}
 				<div class="v-item-box__img">
-					<div class="v-item-box__img-in" style="background-image: url({{item}});"></div>
+					<div class="v-item-box__img-in owl-lazy" data-src="{{item}}"></div>
 					<div class="v-item-box__blur">
-						<div class="v-item-box__blur-in" style="background-image: url({{item}});"></div>
+						<div class="v-item-box__blur-in owl-lazy" data-src="{{item}}"></div>
 					</div>
 				</div>
 			{% endfor %}

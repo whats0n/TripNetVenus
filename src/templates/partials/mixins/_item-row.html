@@ -2,7 +2,7 @@
 {% macro call(props) %}
 <div class="v-item-row js-item-row">
 	<div class="v-item-row__sidebar">
-		<div class="v-item-row__img" style="background-image: url({{props.img or 'https://placekitten.com/g/300/300'}});"></div>
+		<div class="v-item-row__img js-lazy" data-src="{{props.img or 'https://placekitten.com/g/300/300'}}"></div>
 		<div class="v-item-row__info">
 			<h3 class="title-md v-item-row__title">{{props.title or 'Standard Double Room'}}</h3>
 			<div class="v-item-row__meta">Sea view</div>

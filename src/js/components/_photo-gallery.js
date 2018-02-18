@@ -53,11 +53,13 @@ import {getSliderButton} from '../_utils';
       ? {
         fade: true,
         prevArrow: prev,
-        nextArrow: next
+        nextArrow: next,
+        lazyLoad: 'ondemand'
       } : {
         fade: true,
         prevArrow: prev,
         nextArrow: next,
+        lazyLoad: 'ondemand',
         responsive: [
           {
             breakpoint: desktopWidthStart,

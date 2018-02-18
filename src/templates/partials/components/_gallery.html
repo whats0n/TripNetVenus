@@ -16,7 +16,10 @@
 					'https://fillmurray.com/400/400'
 				] %}
 					<div class="v-slider__item">
-						{{imgBox.call(item)}}
+						{{imgBox.call(item, {
+							lazy: true,
+							owlLazy: true
+						})}}
 					</div>
 				{% endfor %}
 			</div>

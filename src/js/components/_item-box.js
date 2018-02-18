@@ -9,6 +9,7 @@ export default (() => {
     touchDrag: false,
     animateOut: 'fadeOut',
     nav: true,
+    lazyLoad: true,
     navText: [getIcon('prev'), getIcon('next')],
     navElement: 'button',
     navClass: ['owl-prev v-item-box__arrow v-item-box__prev', 'owl-next v-item-box__arrow v-item-box__next']

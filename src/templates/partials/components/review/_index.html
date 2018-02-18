@@ -6,10 +6,17 @@
 			{% include './_sidebar.html' %}
 		</div>
 		<div class="v-review__main">
-			{% include './_items.html' %}
-			{{pagination.call({
-				classList: 'v-review__pagination'
-			})}}
+			<div class="js-list" data-list-show="4">
+				{% include './_items.html' %}
+				<div class="v-review__pagination">
+					<div class="v-pagination js-list-pagination"></div>
+					<div class="v-pagination__counter">
+						<span class="js-list-current"></span>
+						<span>/</span>
+						<span class="js-list-total"></span>
+					</div>
+				</div>
+			</div>
 			{% include './_form.html' %}
 			{% set message = true %}
 			{% include './_form.html' %}

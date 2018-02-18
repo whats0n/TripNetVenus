@@ -5,13 +5,13 @@ import connect from '../_connect';
 ;(() => {
 
   $('.js-slider').owlCarousel({
-    // items: 1.203,
     items: 1,
     stagePadding: 27,
     loop: true,
     scrollPerPage: true,
     nav: false,
     dots: false,
+    lazyLoad: true,
     navText: [getIcon('prev'), getIcon('next')],
     navElement: 'button',
     navClass: ['owl-prev btn-direction btn-direction_prev v-slider__prev', 'owl-next btn-direction btn-direction_next v-slider__next'],

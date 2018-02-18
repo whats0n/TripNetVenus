@@ -10,7 +10,11 @@ import {OPEN, ACTIVE, WIN} from '../_constants';
     const control = container.find('.js-more-control');
 
     showControl(control, content);
-    WIN.on('resize', () => showControl(control, content));
+    WIN.on('resize', e => {
+      content.removeClass(OPEN);
+      control.removeClass(OPEN);
+      showControl(control, content);
+    });
 
     control.click(e => {
       e.preventDefault();

@@ -1,7 +1,7 @@
 {% import 'partials/_mixins.html' as mixins %}
-{% macro call(img) %}
-<div class="v-img-box" data-im>
-	<div class="v-img-box__picture" style="background-image: url({{img}});">
+{% macro call(img, props) %}
+<div class="v-img-box">
+	<div class="v-img-box__picture {% if props.owlLazy %}owl-lazy{% endif %}" {% if props.lazy %}data-src="{{img}}"{% else %}style="background-image: url({{img}});"{% endif %}>
 		<a href="#" class="v-gallery-control v-img-box__btn js-modal-control" data-modal="v-photo-gallery">
 			{{mixins.icon('picture')}}
 			<span>Photo Gallery</span>

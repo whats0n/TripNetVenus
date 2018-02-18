@@ -17,3 +17,5 @@ import './_item-box';
 import './_hint';
 import './_item-row';
 import './_location-item';
+import './_pagination';
+import './_lazy-load';

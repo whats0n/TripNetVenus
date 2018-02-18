@@ -3,7 +3,7 @@
 <div class="v-item">
 	<div class="v-item__img">
 		{% if props.img %}
-			<div class="v-item__img-in" style="background-image: url({{props.img}});"></div>
+			<div class="v-item__img-in {% if props.owlLazy %}owl-lazy{% endif %}" {% if props.lazy %}data-src="{{props.img}}"{% else %}style="background-image: url({{props.img}});"{% endif %}></div>
 		{% else %}
 			{{mixins.icon('photo-camera')}}
 		{% endif %}
