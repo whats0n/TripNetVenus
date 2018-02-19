@@ -7,6 +7,7 @@
     mouseDrag: false,
     touchDrag: false,
     items: 1,
+    lazyLoad: true,
     animateOut: 'fadeOut'
   });
 

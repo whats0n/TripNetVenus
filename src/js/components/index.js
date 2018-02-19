@@ -14,3 +14,5 @@ import './_filters';
 import './_item';
 import './_scrollbar';
 import './_loader';
+import './_pagination';
+import './_lazy-load';

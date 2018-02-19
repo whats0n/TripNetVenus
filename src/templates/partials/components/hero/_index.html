@@ -7,9 +7,9 @@
 			'https://placekitten.com/1440/1440',
 			'https://placeholdit.co//i/1440x1440?bg=ffffcc'
 		] %}
-			<div class="v-hero__slide" style="background-image: url({{item}});">
+			<div class="v-hero__slide owl-lazy" data-src="{{item}}">
 				<div class="v-hero__slide-header">
-					<div class="v-hero__slide-blur" style="background-image: url({{item}});"></div>
+					<div class="v-hero__slide-blur owl-lazy" data-src="{{item}}"></div>
 				</div>
 			</div>
 		{% endfor %}

@@ -2,41 +2,110 @@
 	font-size: 0;
 	text-align: center;
 
-	&__prev,
-	&__next,
-	&__pages {
+	li {
 		display: inline-block;
 		vertical-align: top;
+
+		&.disabled {
+			.prev,
+			.next {
+				color: rgba($gray, 0.5) !important;
+				cursor: not-allowed;
+
+				@include tablet {
+					border-color: rgba($gray, 0.5);
+					opacity: 1;
+					background: none !important;
+				}
+			}
+		}
+
+		&:first-child {
+			@include tablet {
+				float: left;
+			}
+		}
+
+		&:last-child {
+			@include tablet {
+				float: right;
+			}
+		}
 	}
 
-	&__pages {
-		padding: 0 16px;
-	}
-
-	&__prev span,
-	&__next span,
-	&__page,
-	&__splitter,
-	&__splitter:before {
+	.page-link,
+	.current,
+	.ellipse,
+	.prev span,
+	.next span {
 		@include font(14px, null, 17px);
+	}
+
+	.page-link,
+	.current,
+	.ellipse {
+		display: inline-block;
+		vertical-align: top;
+		padding: 10px 0;
+		color: $gray;
+	}
+
+	.page-link,
+	.current {
+		padding-left: 4px;
+		padding-right: 4px;
+		transition: color 0.25s;
 
 		@include tablet {
-			@include font(16px, null, 20px);
+			padding-left: 0;
+			padding-right: 0;
 		}
 
-		@include phone {
-			font-size: 18px;
+		@include hover {
+			color: $theme-main-color;
 		}
 	}
 
-	&__prev,
-	&__next {
+	.page-link {
+		@include tablet {
+			display: none;
+		}
+	}
+
+	.ellipse {
+		font-size: 0 !important;
+
+		@include tablet {
+			display: none;
+		}
+
+		&:before {
+			content: '. . . . . . . . .';
+			display: inline-block;
+			vertical-align: top;
+			font-size: 14px;
+		}
+	}
+
+	.active {
+		cursor: pointer;
+		font-weight: 700;
+
+		@include tablet {
+			display: none;
+		}
+	}
+
+	.prev,
+	.next {
 		padding: 10px;
 		color: $theme-main-color;
+		font-size: 0;
 		cursor: pointer;
 		transition: color 0.25s, background 0.25s;
 
 		@include tablet {
+			display: inline-block;
 			padding: 0;
 			border: 1px solid $theme-main-color;
 			border-radius: 4px;
@@ -65,7 +134,14 @@
 			}
 		}
 
+		span,
 		.icon {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.icon {
+			margin: 5px 0 3px;
 			fill: currentColor;
 			font-size: 9px;
 
@@ -101,80 +177,33 @@
 		}
 	}
 
-	&__prev {
-		@include tablet {
-			float: left;
-		}
+	.prev {
+		margin-right: 16px;
 	}
 
-	&__next {
-		@include tablet {
-			float: right;
-		}
+	.next {
+		margin-left: 16px;
 	}
 
-	&__page,
-	&__splitter {
-		display: inline-block;
-		vertical-align: top;
-		padding: 10px 0;
-		color: $gray;
-	}
-
-	&__splitter {
-		margin: 0 -2px;
-		cursor: default;
+	&__counter {
+		display: none;
+		font-size: 0;
+		text-align: center;
 
 		@include tablet {
-			margin: 0;
-		}
-
-		&:before {
-			content: '/';
-			display: none;
-
-			@include tablet {
-				display: inline-block;
-				vertical-align: top;
-			}
+			display: block;
 		}
 
 		span {
-			@include tablet {
-				display: none;
-			}
-		}
-	}
-	
-	&__page {
-		padding-left: 4px;
-		padding-right: 4px;
-		cursor: pointer;
-		transition: color 0.25s;
-
-		@include tablet {
-			display: none;
-			padding-left: 0;
-			padding-right: 0;
-		}
-
-		&.is-active {
-			font-weight: 700;
-
-			@include tablet {
-				display: inline-block;
-				font-weight: 400;
-			}
-		}
-
-		@include hover {
-			color: $theme-main-color;
-		}
-	}
-
-	&__last {
-		@include tablet {
 			display: inline-block;
+			vertical-align: top;
+			padding: 10px 0;
+			font-size: 16px;
+			line-height: 20px;
+
+			@include phone {
+				font-size: 18px;
+			}
 		}
 	}
 }

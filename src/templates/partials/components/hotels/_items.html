@@ -1,14 +1,15 @@
 <!-- begin v-items -->
-<div class="v-items" data-tabs-container="v-list">
+<div class="v-items js-list" data-list-show="9" data-tabs-container="v-list">
 	<div class="v-items__row">
-		{% for props in range(0,9) %}
-			<div class="v-items__col">
+		{% for props in range(0,55) %}
+			<div class="v-items__col js-list-item">
 				{{item.call(props)}}
 			</div>
 		{% endfor %}
 	</div>
 	<div class="v-items__pagination">
 		{{pagination.call()}}
+		<div class="js-list-pagination v-pagination"></div>
 	</div>
 </div>
 <!-- end v-items -->
