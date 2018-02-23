@@ -1,0 +1,23 @@
+<!-- begin v-boxes -->
+<div class="v-boxes">
+	<h2 class="title-lg v-boxes__title">Why book with us?</h2>
+	<div class="v-boxes__description">
+		<p>We help you make best decisions on your upcoming Hotel Reservations. We understand that life is an experience, and we&nbsp;aim&nbsp;to&nbsp;help&nbsp;our&nbsp;users to create as many as they can in a simple yet informative site, and with thousands of hotels to choose from, we make landing the accommodation of your dreams as easy as one click.</p>
+	</div>
+	<div class="v-boxes__row">
+		{% for item in [
+			{ icon: 'building', title: '5000 great selected <br>properties' },
+			{ icon: 'light-bulb', title: '10 years <br>expertise' },
+			{ icon: 'location', title: '20+ languages & <br>currencies' },
+			{ icon: 'security', title: 'Secure <br>booking' }
+		] %}
+			<div class="v-boxes__col">
+				<div class="v-box">
+					{{mixins.icon(item.icon, 'v-box__icon')}}
+					<h3 class="title-md v-box__title">{{item.title | safe}}</h3>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+<!-- end v-boxes -->

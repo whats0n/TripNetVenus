@@ -27,7 +27,6 @@
 	@import 'components/tabs';
 	@import 'components/autocomplete';
 	@import 'components/scrollbar';
-	@import 'components/data-list';
 
 	@import 'components/typography';
 
@@ -57,13 +56,7 @@
 
 	@import 'components/slider';
 
-	@import 'components/checkbox';
-	@import 'components/radio';
-	@import 'components/radios';
-	@import 'components/simple-input';
 	@import 'components/input';
-	@import 'components/textarea';
-	@import 'components/popular';
 
 	@import 'components/social';
 	@import 'components/footer';
@@ -72,23 +65,12 @@
 
 	@import 'components/loader';
 
-	@import 'components/search';
-	@import 'components/sort';
-	@import 'components/controls';
-
-	@import 'components/filter-menu';
-
-	@import 'components/range';
-	@import 'components/filters';
-
-	@import 'components/hotels';
-
-	@import 'components/filters-opened';
-
 	@import 'components/item';
+
+	@import 'components/link-more';
+
+	@import 'components/section';
+	@import 'components/boxes';
 	@import 'components/items';
 
-	@import 'components/map-price';
-	@import 'components/map-point';
-	@import 'components/map';
 }

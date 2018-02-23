@@ -3,40 +3,13 @@
 	text-align: left;
 	@include container;
 
-	@include tablet {
-		padding-bottom: 20px;
-	}
-
 	@include phone {
-		padding: 10px 10px 20px;
+		padding: 10px 10px 15px;
 	}
 
 	&__pictures {
-		float: left;
 		overflow: hidden;
-		width: 244px;
-
-		@include tablet {
-			float: none;
-			margin-bottom: 15px;
-			width: 100%;
-		}
-
-		@include phone {
-			margin-bottom: 10px;
-		}
-	}
-
-	&__content {
-		margin-left: 259px;
-		border: 1px solid rgba($lightGray, 0.5);
-		border-radius: 4px;
-		@include clr;
-
-		@include tablet {
-			margin-left: 0;
-			border: none;
-		}
+		margin-bottom: 11px;
 	}
 
 	&__display {
@@ -88,7 +61,7 @@
 	&__img,
 	&__blur-in,
 	&__display {
-		padding-bottom: 81.15%;
+		padding-bottom: 54.556%;
 		height: 0;
 
 		@include tablet {
@@ -170,33 +143,9 @@
 		}
 	}
 
-	&__info {
-		float: left;
-		padding: 15px;
-		width: 59.175%;
-
-		@include tablet {
-			float: none;
-			padding: 0;
-			width: 100%;
-		}
-	}
-
 	&__footer {
-		float: left;
-		padding: 56px 0;
-		border-left: 1px solid rgba($lightGray, 0.5);
-		width: 40.825%;
-		height: 196px;
+		padding-top: 15px;
 		text-align: center;
-
-		@include tablet {
-			float: none;
-			padding: 0;
-			border: none;
-			width: 100%;
-			height: auto;
-		}
 	}
 
 	&__rating {
@@ -223,7 +172,7 @@
 	}
 
 	&__meta {
-		padding-bottom: 10px;
+		padding-bottom: 11px;
 		border-bottom: 1px solid $theme-main-color;
 		font-size: 0;
 
@@ -353,39 +302,6 @@
 
 			@include phone {
 				font-size: 19px;
-			}
-		}
-	}
-
-	&__description {
-		@include font(14px, 400, 21px);
-
-		@include tablet {
-			display: none;
-		}
-
-		a {
-			position: relative;
-			display: inline-block;
-			vertical-align: top;
-			color: $blue;
-			font-weight: 700;
-
-			@include hover {
-				&:before {
-					opacity: 1;
-				}
-			}
-
-			&:before {
-				content: '';
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				border-bottom: 1px solid $blue;
-				opacity: 0;
-				transition: opacity 0.25s;
 			}
 		}
 	}

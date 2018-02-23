@@ -50,24 +50,25 @@
 					</div>
 				</div>
 			</div>
-			<div class="v-item__container">
-				{{mixins.icon('coffee-cup')}}
-				{{mixins.icon('wifi')}}
-				{{mixins.icon('tv')}}
-				{{mixins.icon('coffee-cup')}}
-				{{mixins.icon('wifi')}}
-				{{mixins.icon('tv')}}
-			</div>
-			<div class="v-item__description">
-				<p>The 3-star L'Avenir Bed & Breakfast is set just 2.2 km from Rouen Exhibition Centre, Le Cadran and Rouen University. <a href="#">More</a></p>
-			</div>
+			{% if props.lg %}
+				<div class="v-item__container">
+					{{mixins.icon('coffee-cup')}}
+					{{mixins.icon('wifi')}}
+					{{mixins.icon('tv')}}
+					{{mixins.icon('coffee-cup')}}
+					{{mixins.icon('wifi')}}
+					{{mixins.icon('tv')}}
+				</div>
+			{% endif %}
 		</div>
 		<div class="v-item__footer">
-			<div class="v-item__price">
-				<span>from</span>
-				<strong>{{props.price or '955'}} €</strong>
-			</div>
-			<a href="#" class="btn btn_large">Book now</a>
+			{% if props.lg %}
+				<div class="v-item__price">
+					<span>from</span>
+					<strong>{{props.price or '955'}} €</strong>
+				</div>
+			{% endif %}
+			<a href="#" class="btn btn_large">{{props.btn or 'View hotel'}}</a>
 		</div>
 	</div>
 </div>

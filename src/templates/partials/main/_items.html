@@ -1,0 +1,57 @@
+<!-- begin v-items -->
+<div class="v-items">
+	<h2 class="title-lg v-items__title">HOTEL CLASS</h2>
+	{% for container in [
+		{ title: '5-star hotels in Upper Normandy', classList: 'js-items-slider' },
+		{ title: '4-star hotels in Upper Normandy', classList: 'js-items-slider' },
+		{ title: '3-star hotels in Upper Normandy', classList: 'js-items-slider' },
+		{ title: '2-star hotels in Upper Normandy', classList: 'js-items-carousel' }
+	] %}
+		<div class="v-items__section js-items">
+			<h3 class="title-md v-items__subtitle">{{container.title}}</h3>
+			<div class="v-items__container">
+				<div class="v-items__row {{container.classList}}">
+					{% for options in range(0,3) %}
+						<div class="v-items__col">
+							{{item.call()}}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="v-items__toggle">
+				<a href="#" class="v-link-more v-items__more js-items-toggle">
+					<span data-text="more">View All</span>
+					<span data-text="less">Less</span>
+					{{mixins.icon('down', 'v-link-more__icon')}}
+				</a>
+			</div>
+			<div class="v-items__content js-items-content">
+				<ul class="v-items__list">
+					{% for item in [
+						'Mercure Rouen Centre Cathedrale Hotel',
+						'Belle Isle Sur Risle Hotel Pont-Audemer',
+						'Novotel Suites Rouen Normandie',
+						'Qualys Hotel La Berteliere Rouen',
+						'Mercure Rouen Val De Reuil Hotel Val-de-Reuil',
+						'Best Western Plus Palais Des Congres Hotel Evreux',
+						'Novotel Rouen Sud',
+						'Best Western Hotel Litteraire Gustave Flaubert Rouen',
+						'Novotel Suites Rouen Normandie',
+						'Le Petit Coq Aux Champs Hotel Campigny',
+						'La Villa Florida Dieppe',
+						'Domaine Le Clos Des Fontaines Hotel Jumieges',
+						'Chateau Du Mesnil Bed & Breakfast La Vieille-Lyre',
+						'Mercure Centre Hotel Rouen',
+						'Spa Pasino Hotel Le Havre',
+						'La Folie Du Bois Des Fontaines Hotel Forges-les-Eaux',
+						'Inter-Hotel Rouen Sud Oissel',
+						'Hotel Du Grand Cerf & Spa Lyons-la-Foret'
+					] %}
+						<li><a href="#">{{item}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+<!-- end v-items -->

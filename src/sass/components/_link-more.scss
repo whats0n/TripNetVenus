@@ -1,0 +1,40 @@
+.v-link-more {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	padding-right: 14px;
+	color: $blue;
+	@include font(14px, 400, 17px);
+
+	@include hover {
+		color: #2fb4f9;
+	}
+
+	&.is-active {
+		[data-text*="more"] {
+			display: none;
+		}
+
+		[data-text*="less"] {
+			display: block;
+		}
+
+		.v-link-more__icon {
+			transform: rotate(180deg);
+		}
+	}
+
+	[data-text*="less"] {
+		display: none;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin-top: -0.5em;
+		fill: currentColor;
+		font-size: 5px;
+		transition: transform 0.25s;
+	}
+}
