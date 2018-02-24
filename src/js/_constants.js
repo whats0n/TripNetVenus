@@ -11,6 +11,8 @@ export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
 
 export const TAB_CHANGE = 'TAB_CHANGE';
 export const GALLERY_RESIZED = 'GALLERY_RESIZED';
+export const PAGE_CHANGED = 'PAGE_CHANGED';
+export const PAGE_INITED = 'PAGE_INITED';
 
 export const phoneWidthEnd = 767;
 

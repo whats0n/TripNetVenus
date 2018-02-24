@@ -1,7 +1,17 @@
 .v-textarea {
 	position: relative;
-	overflow: hidden;
 	@include container;
+
+	&.is-error {
+		.v-textarea__field {
+			border-color: $red;
+		}
+
+		.v-textarea__message {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 
 	&.is-active {
 		.v-textarea {
@@ -15,6 +25,10 @@
 				}
 			}
 		}
+	}
+
+	&__inner {
+		overflow: hidden;
 	}
 
 	&__field {
@@ -83,5 +97,18 @@
 			transform-origin: left top;
 			transition: transform 0.8s, fill 0.25s, opacity 0.25s;
 		}
+	}
+
+	&__message {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		margin-top: 5px;
+		color: $lightRed;
+		opacity: 0;
+		visibility: hidden;
+		@include font(12px, null, 15px);
+		transition: opacity 0.25s, visibility 0.25s;
 	}
 }

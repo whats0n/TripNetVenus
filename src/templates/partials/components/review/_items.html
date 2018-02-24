@@ -54,7 +54,7 @@
 				time: '03.09.2017',
 				logo: true,
 				title: 'Perfect location with fantastic views!',
-				content: [ 'Good-natured hosts, everything is cozy and clean. Excellent French breakfast.Magic Etretat is a wonderful hotel: a magical view from the window, very comfortable room. Of course, you need to book with a view of the sea. Breakfast may seem small, but all products are fresh and delicious!' ],
+				content: [ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id aspernatur natus, possimus beatae odit facere cumque, velit, necessitatibus nam porro consequatur dolorum eum vel? Ipsa fugiat cum qui, et illo iste officia numquam recusandae accusantium molestias rem saepe quia ad soluta animi dolore dolor aperiam dignissimos aut, nihil, iure facilis! Recusandae mollitia dignissimos voluptatibus, expedita illum asperiores, ad eligendi nobis non ullam magni magnam ratione nemo, natus consectetur quas, ab placeat facilis corporis. Dolorum pariatur illum neque magnam, voluptates delectus quia! Saepe accusantium error eos eveniet asperiores magnam atque esse architecto! Sed vitae tempore dolor officia odio, similique rem obcaecati animi qui accusantium, beatae corporis facere, cumque ex veniam iste reiciendis. Accusamus dicta sint velit quo eligendi sed deserunt temporibus animi! Nihil incidunt officiis voluptatem voluptatibus consequatur praesentium, ipsum ducimus numquam tempore. Sint dolorum tempora inventore nesciunt libero est velit, placeat consequatur neque, autem ex praesentium sed iusto reiciendis fugit dicta unde. Laboriosam natus ullam beatae repellendus iusto quo minima sed enim dolore adipisci veniam iste quam consequatur, perferendis cum omnis odit aut optio sapiente. Quas labore est, doloremque quidem molestias numquam vitae, voluptatum ut sed saepe ullam. Magnam numquam amet accusamus vel cupiditate, aperiam consequatur, porro at impedit pariatur.' ],
 				likes: '12'
 			}
 		] %}
@@ -80,13 +80,18 @@
 						<div class="v-comment__rating">{{item.rating}}</div>
 						<div class="v-comment__time sm-hidden">{{item.time}}</div>
 					</div>
-					<div class="v-comment__content">
+					<div class="v-comment__content js-cutted">
 						<div class="v-comment__title">{% if not first %}{{index + '.' + loop.index}}{% endif %} {{item.title}}</div>
-						<div class="v-comment__text">
+						<div class="v-comment__text js-cutted-content">
 							{% for item in item.content %}
 								<p>{{item | safe}}</p>
 							{% endfor %}
 						</div>
+						<a href="#" class="v-link-more v-comment__more js-cutted-control">
+							<span data-text="more">More</span>
+							<span data-text="less">Less</span> 
+							{{mixins.icon('down', 'v-link-more__icon')}}
+						</a>
 					</div>
 					<div class="v-comment__footer">
 						<button class="v-comment__like {% if item.liked %}is-active{% endif %}">

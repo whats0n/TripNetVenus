@@ -1,3 +1,6 @@
+import connect from '../_connect';
+import {PAGE_CHANGED, PAGE_INITED} from '../_constants';
+
 ;(() => {
 
   const PREV = 'prev';
@@ -41,6 +44,7 @@
           .filter((i, item) => i >= itemsOnPage)
           .attr('hidden', true);
         current.text(1);
+        connect.fire(PAGE_INITED, { min: -1, max: 3, page: 1 });
       },
 
       onPageClick(page) {
@@ -49,6 +53,7 @@
         const max = onPage;
         items.each((i, item) => i <= min || i > max ? $(item).attr('hidden', true) : $(item).attr('hidden', false));
         current.text(page);
+        connect.fire(PAGE_CHANGED, { min, max, page });
       }
     });
 

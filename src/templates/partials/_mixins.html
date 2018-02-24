@@ -24,10 +24,10 @@
 {% endmacro %}
 
 {% macro input(props) %}
-<div class="v-input js-input">
+<div class="v-input js-input {{props.classList}}">
 	{{icon('check')}}
 	{{icon('close')}}
-	<input type="{{props.type or 'text'}}" class="v-input__field js-input-field">
+	<input type="{{props.type or 'text'}}" class="v-input__field js-input-field {{props.inputClassList}}" {{props.attrs | safe}}>
 	<div class="v-input__label">{{props.placeholder}}</div>
 	{% if props.errorMessage %}
 		<div class="v-input__message">{{props.errorMessage}}</div>
@@ -36,10 +36,15 @@
 {% endmacro %}
 
 {% macro textarea(props) %}
-<div class="v-textarea js-input">
-	<textarea class="v-textarea__field js-input-field" placeholder="{{props.placeholder or 'Type something'}}"></textarea>
-	<div class="v-textarea__icon">
-		{{icon('speech-bubble')}}
+<div class="v-textarea js-input {{props.classList}}">
+	<div class="v-textarea__inner">
+		<textarea class="v-textarea__field js-input-field {{props.textareaClassList}}" placeholder="{{props.placeholder or 'Type something'}}" {{props.attrs | safe}}></textarea>
+		<div class="v-textarea__icon">
+			{{icon('speech-bubble')}}
+		</div>
 	</div>
+	{% if props.errorMessage %}
+		<div class="v-textarea__message">{{props.errorMessage}}</div>
+	{% endif %}
 </div>
 {% endmacro %}

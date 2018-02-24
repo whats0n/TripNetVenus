@@ -1,6 +1,7 @@
 .v-comment {
 	padding: 20px;
 	@include container;
+	@include clr;
 
 	@include tablet {
 		padding: 20px 15px;
@@ -180,7 +181,13 @@
 	}
 
 	&__text {
-		@include font(14px, null, 21px);
+		overflow: hidden;
+		height: 3em;
+		@include font(14px, null, 1.5);
+
+		&.is-open {
+			height: auto;
+		}
 
 		a {
 			color: $blue;
@@ -241,6 +248,12 @@
 				left: 0;
 				opacity: 0;
 			}
+		}
+	}
+
+	&__more {
+		&[data-state="true"] {
+			display: block;
 		}
 	}
 }
