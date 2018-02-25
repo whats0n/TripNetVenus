@@ -57,6 +57,12 @@
 		}
 
 		.v-service__item {
+			@supports (column-count: 3) {
+				-webkit-column-break-inside: avoid;
+				page-break-inside: avoid;
+				break-inside: avoid-column; 
+			}
+			
 			@include IE {
 				display: inline-block;
 				vertical-align: top;
