@@ -1,4 +1,53 @@
 .v-list {
+	&_wider {
+		.v-list {
+			&__item {
+				padding-left: 26px;
+			}
+		}
+	}
+
+	&_tablet-half {
+		font-size: 0;
+
+		@include tablet {
+			@supports (column-count: 2) {
+				column-count: 2;
+			}
+		}
+
+		@include phone {
+			@supports (column-count: 1) {
+				column-count: 1;
+			}
+		}
+
+		.v-list {
+			&__item {
+				@include tablet {
+					display: inline-block;
+					vertical-align: top;
+					padding-right: 10px;
+					width: 50%;
+
+					@supports (column-count: 2) {
+						display: list-item;
+						width: auto;
+						-webkit-column-break-inside: avoid;
+						page-break-inside: avoid;
+						break-inside: avoid-column; 
+					}
+				}
+
+				@include phone {
+					display: block;
+					padding-right: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+
 	&_tablet-inline {
 		@include tablet {
 			position: relative;

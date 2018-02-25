@@ -1,0 +1,48 @@
+.v-cities {
+	display: flex;
+	flex-direction: column;
+	@include container;
+	height: 500px;
+
+	@include tablet {
+		height: 292px;
+	}
+
+	&__header {
+		padding: 20px 20px 15px;
+		font-size: 0;
+		text-align: center;
+	}
+
+	&__title {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		padding: 6px 0 5px 38px;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		fill: $blue;
+		font-size: 28px;
+	}
+
+	&__body {
+		flex-grow: 1px;
+		padding: 0 20px 15px;
+
+		@include tablet {
+			padding-bottom: 15px;
+		}
+
+		&.ps--active-y {
+			padding-right: 20px;
+		}
+
+		.ps__rail-y {
+			right: 5px;
+		}
+	}
+}
