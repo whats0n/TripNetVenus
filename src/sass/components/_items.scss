@@ -6,10 +6,13 @@
 
 	&__section {
 		padding: 30px 0 20px;
-		border-bottom: 1px solid $lightGray;
 
 		@include phone {
 			padding: 20px 0 15px;
+		}
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $lightGray;
 		}
 	}
 
@@ -28,32 +31,16 @@
 		}
 	}
 
-	&__row {
-		margin: 0 -15px;
-		width: auto;
-		@include clr;
-
-		@include tablet {
-			margin: 0 -10px;
-		}
-
-		@include phone {
-			margin: 0 -10px;
-		}
-	}
-
 	&__col {
 		float: left;
-		padding: 15px 15px 20px;
 		width: 33.33%;
 
 		@include tablet {
-			padding: 10px 10px 20px;
-			width: 100%;
+			width: 50%;
 		}
 
 		@include phone {
-			padding: 5px 5px 20px;
+			width: 100%;
 		}
 	}
 

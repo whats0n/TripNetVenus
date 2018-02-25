@@ -7,6 +7,24 @@
 		padding: 10px 10px 15px;
 	}
 
+	&_sm {
+		.v-item {
+			&__img,
+			&__blur-in,
+			&__display {
+				padding-bottom: 77.42%;
+
+				@include tablet {
+					padding-bottom: 87.38%;
+				}
+
+				@include phone {
+					padding-bottom: 73.175%;
+				}
+			}
+		}
+	}
+
 	&__pictures {
 		overflow: hidden;
 		margin-bottom: 11px;
@@ -65,11 +83,11 @@
 		height: 0;
 
 		@include tablet {
-			padding-bottom: 47.724%;
+			padding-bottom: 54.715%;
 		}
 
 		@include phone {
-			padding-bottom: 51.79%;
+			padding-bottom: 70.315%;
 		}
 	}
 
@@ -146,6 +164,10 @@
 	&__footer {
 		padding-top: 15px;
 		text-align: center;
+
+		@include tablet {
+			padding-top: 5px;
+		}
 	}
 
 	&__rating {

@@ -1,6 +1,6 @@
 {% import 'partials/_mixins.html' as mixins %}
 {% macro call(props) %}
-<div class="v-item" {{props.attrs | safe}}>
+<div class="v-item {{props.classList}}" {{props.attrs | safe}}>
 	<div class="v-item__pictures">
 		<div class="v-item__display">
 			<div class="v-item__slider owl-carousel js-item-slider">
@@ -50,24 +50,8 @@
 					</div>
 				</div>
 			</div>
-			{% if props.lg %}
-				<div class="v-item__container">
-					{{mixins.icon('coffee-cup')}}
-					{{mixins.icon('wifi')}}
-					{{mixins.icon('tv')}}
-					{{mixins.icon('coffee-cup')}}
-					{{mixins.icon('wifi')}}
-					{{mixins.icon('tv')}}
-				</div>
-			{% endif %}
 		</div>
 		<div class="v-item__footer">
-			{% if props.lg %}
-				<div class="v-item__price">
-					<span>from</span>
-					<strong>{{props.price or '955'}} €</strong>
-				</div>
-			{% endif %}
 			<a href="#" class="btn btn_large">{{props.btn or 'View hotel'}}</a>
 		</div>
 	</div>

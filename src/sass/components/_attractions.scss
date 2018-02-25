@@ -1,0 +1,39 @@
+.v-attractions {
+	padding: 40px 0 30px;
+
+	@include tablet {
+		padding: 30px 0;
+	}
+
+	@include phone {
+		padding: 25px 0 5px;
+	}
+
+	&__title {
+		margin-bottom: 15px;
+		text-align: center;
+
+		@include tablet {
+			margin-bottom: 20px;
+		}
+
+		@include phone {
+			margin-bottom: 15px;
+		}
+	}
+
+	&__item {
+		float: left;
+		padding: 15px 15px 20px;
+		width: 33.33%;
+
+		@include tablet {
+			padding: 10px 10px 20px;
+			width: 100%;
+		}
+
+		@include phone {
+			padding: 5px 5px 20px;
+		}
+	}
+}

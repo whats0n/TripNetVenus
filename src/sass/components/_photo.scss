@@ -1,0 +1,54 @@
+.v-photo {
+	position: relative;
+	display: block;
+	@include container;
+	padding-bottom: 69.44%;
+	height: 0;
+
+	@include tablet {
+		padding-bottom: 70.755%;
+	}
+
+	@include phone {
+		padding-bottom: 72.266%;
+	}
+
+	&__inner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 15px;
+		border-radius: 4px;
+		@include cover;
+
+		@include phone {
+			margin: 10px;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-radius: 4px;
+			opacity: 0.5;
+			background: $darkGray;
+		}
+	}
+
+	&__title {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 90%;
+		max-width: 180px;
+		color: $white;
+		line-height: 1.5;
+		text-align: center;
+		transform: translate3d(-50%,-50%,0);
+	}
+}

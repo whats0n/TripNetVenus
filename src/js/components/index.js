@@ -16,3 +16,5 @@ import './_scrollbar';
 import './_loader';
 import './_pagination';
 import './_lazy-load';
+
+import './_slider';

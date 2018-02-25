@@ -1,5 +1,106 @@
-.owl-item {
-	.v-slider__item {
-		width: 100% !important;
+.v-slider {
+	margin: 0 -15px;
+	width: auto;
+	@include clr;
+
+	@include tablet {
+		margin: 0 -10px;
+	}
+
+	@include phone {
+		margin: 0 -10px;
+	}
+
+	&.owl-carousel {
+		.v-slider {
+			&__item {
+				float: none !important;
+				width: auto !important;
+			}
+		}
+	}
+
+	&__item {
+		padding: 15px 15px 20px;
+
+		@include tablet {
+			padding: 10px 10px 20px;
+		}
+
+		@include phone {
+			padding: 5px 5px 20px;
+		}
+	}
+
+	&__prev,
+	&__next {
+		position: absolute;
+		top: 50%;
+		margin-top: -20px;
+	}
+
+	&__prev {
+		left: -62px;
+
+		@include mediaWidth(1400) {
+			left: -40px;
+		}
+	}
+
+	&__next {
+		right: -62px;
+
+		@include mediaWidth(1400) {
+			right: -40px;
+		}
+	}
+
+	&__dots {
+		padding: 10px 0;
+		margin: -5px 0;
+		font-size: 0;
+		text-align: center;
+
+		@include tablet {
+			padding: 0;
+		}
+
+		&_simple {
+			padding: 0;
+		}
+	}
+
+	&__dot {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 20px;
+		height: 20px;
+		background: none;
+		font-size: 0;
+
+		&.active {
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			right: 5px;
+			bottom: 5px;
+			border: 1px solid $theme-main-color;
+			border-radius: 50%;
+		}
+
+		&:after {
+			opacity: 0;
+			background: $theme-main-color;
+			transition: opacity 0.25s;
+		}
 	}
 }
