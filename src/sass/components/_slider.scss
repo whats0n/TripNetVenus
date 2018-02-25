@@ -45,7 +45,7 @@
 	}
 
 	&__prev {
-		left: -77px;
+		left: -62px;
 
 		@include mediaWidth(1400) {
 			left: -40px;
@@ -53,7 +53,7 @@
 	}
 
 	&__next {
-		right: -77px;
+		right: -62px;
 
 		@include mediaWidth(1400) {
 			right: -40px;
