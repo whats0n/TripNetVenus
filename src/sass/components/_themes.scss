@@ -1,0 +1,153 @@
+.v-themes {
+	padding: 40px 0 16px;
+
+	@include tablet {
+		padding-top: 30px;
+	}
+
+	@include phone {
+		padding: 25px 0 5px;
+	}
+
+	&__title {
+		margin-bottom: 20px;
+		text-align: center;
+
+		@include phone {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__row {
+		margin: 0 -15px;
+		width: auto;
+		font-size: 0;
+
+		@include tablet {
+			margin: 0 -10px;
+		}
+	}
+
+	&__col {
+		display: inline-block;
+		vertical-align: top;
+		padding: 10px 15px 20px;
+		width: 100%;
+
+		@include tablet {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		@include phone {
+			width: 100%;
+		}
+
+		&_md {
+			width: 50%;
+
+			@include tablet {
+				width: 100%;
+			}
+		}
+
+		&_xs {
+			width: 25%;
+
+			@include tablet {
+				width: 50%;
+			}
+		}
+	}
+}
+
+.v-theme {
+	display: block;
+	padding: 15px;
+	@include container;
+
+	&__picture {
+		position: relative;
+		border-radius: 4px;
+		height: 168px;
+		@include cover;
+	}
+
+	&__icon {
+		position: absolute;
+		left: 10px;
+		bottom: -17px;
+		border-radius: 50%;
+		width: 34px;
+		height: 34px;
+		background: $white;
+		@include vertical;
+
+		.icon {
+			display: inline-block;
+			vertical-align: middle;
+			fill: $blue;
+
+			&-croissant {
+				font-size: 28px;
+			}
+
+			&-hotel {
+				font-size: 22px;
+			}
+
+			&-donation {
+				font-size: 26px;
+			}
+
+			&-golf {
+				font-size: 28px;
+			}
+
+			&-hug {
+				font-size: 20px;
+			}
+
+			&-clover {
+				font-size: 23px;
+			}
+
+			&-home {
+				font-size: 22px;
+			}
+
+			&-modern-chair {
+				font-size: 28px;
+			}
+
+			&-palm {
+				font-size: 27px;
+			}
+
+			&-chandelier {
+				font-size: 28px;
+			}
+		}
+	}
+
+	&__content {
+		padding: 30px 0 5px;
+		@include clr;
+	}
+
+	&__value {
+		float: right;
+		padding-left: 10px;
+		color: $blue;
+		@include font(14px, 700, 17px);
+	}
+
+	&__title {
+		@include textoverflow;
+		transition: color 0.25s;
+
+		@include hover {
+			color: $blue;
+		}
+	}
+}

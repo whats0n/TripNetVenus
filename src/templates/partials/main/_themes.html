@@ -1,0 +1,83 @@
+<!-- begin v-themes -->
+<div class="v-themes">
+	<h2 class="title-lg v-themes__title">Hotel Themes</h2>
+	<div class="v-themes__row js-themes-slider">
+		{% for item in [
+			{
+				size: 'xs',
+				icon: 'croissant',
+				img: 'https://placekitten.com/g/250/200',
+				title: 'Apartments and B&Bs',
+				value: '201'
+			},
+			{
+				size: 'xs',
+				icon: 'hotel',
+				img: 'https://placecage.com/250/200',
+				title: 'Central hotels',
+				value: '129'
+			},
+			{
+				size: 'md',
+				icon: 'donation',
+				img: 'https://placekitten.com/g/600/200',
+				title: 'Cheap and Budget hotels',
+				value: '129'
+			},
+			{
+				size: 'xs',
+				icon: 'golf',
+				img: 'https://placekitten.com/g/250/200',
+				title: 'Golf hotels',
+				value: '98'
+			},
+			{
+				size: 'xs',
+				icon: 'hug',
+				img: 'https://placecage.com/250/200',
+				title: 'Romantic hotels',
+				value: '84'
+			},
+			{
+				size: 'xs',
+				icon: 'clover',
+				img: 'https://placekitten.com/g/250/200',
+				title: 'Casino hotels',
+				value: '75'
+			},
+			{
+				size: 'xs',
+				icon: 'home',
+				img: 'https://placecage.com/250/200',
+				title: 'Family hotels',
+				value: '62'
+			},
+			{
+				size: 'md',
+				icon: 'modern-chair',
+				img: 'https://placekitten.com/g/500/200',
+				title: 'Design and Modern hotels',
+				value: '54'
+			},
+			{
+				size: 'xs',
+				icon: 'palm',
+				img: 'https://placekitten.com/g/250/200',
+				title: 'Resorts',
+				value: '26'
+			},
+			{
+				size: 'xs',
+				icon: 'chandelier',
+				img: 'https://placecage.com/250/200',
+				title: 'Luxury hotels',
+				value: '13'
+			}
+		] %}
+			<div class="v-themes__col v-themes__col_{{item.size}}">
+				{{theme.call(item)}}
+			</div>
+		{% endfor %}
+	</div>
+</div>
+<!-- end v-themes -->

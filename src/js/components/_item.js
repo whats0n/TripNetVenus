@@ -1,16 +1,15 @@
-import {tabletWidthStart, tabletWidthEnd, desktopWidthStart, WIN, ACTIVE, OPEN} from '../_constants';
+import {tabletWidthStart, tabletWidthEnd, desktopWidthStart, WIN, ACTIVE, OPEN, OWL_DEFAULT} from '../_constants';
 import {getIcon, getWidth} from '../_utils';
 
 export default (() => {
 
-  const owlDefault = 'owl-carousel';
   const items = $('.js-items');
   const sliders = $('.js-items-slider');
 
   WIN.on('resize load', () => {
     if (getWidth(tabletWidthEnd) && !sliders.hasClass('owl-loaded')) {
       sliders
-        .addClass(owlDefault)
+        .addClass(OWL_DEFAULT)
         .owlCarousel({
           items: 1,
           center: true,
@@ -28,7 +27,7 @@ export default (() => {
         });
     } else if (!getWidth(tabletWidthEnd) && sliders.hasClass('owl-loaded')) {
       sliders
-        .removeClass(owlDefault)
+        .removeClass(OWL_DEFAULT)
         .trigger('destroy.owl.carousel');
     }
   });
@@ -45,7 +44,7 @@ export default (() => {
       content.toggleClass(OPEN);
     });
 
-    carousel.length && carousel.addClass(owlDefault).owlCarousel({
+    carousel.length && carousel.addClass(OWL_DEFAULT).owlCarousel({
       items: 1,
       stagePadding: 27,
       loop: true,

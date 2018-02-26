@@ -8,6 +8,7 @@ export const FULL = 'is-full';
 export const PHONE = 'is-phone';
 export const NO_TOUCH = 'is-notouch';
 export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
+export const OWL_DEFAULT = 'owl-carousel';
 
 export const TAB_CHANGE = 'TAB_CHANGE';
 export const GALLERY_RESIZED = 'GALLERY_RESIZED';

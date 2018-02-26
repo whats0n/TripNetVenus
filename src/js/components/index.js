@@ -18,3 +18,5 @@ import './_pagination';
 import './_lazy-load';
 
 import './_slider';
+import './_options';
+import './_themes';
