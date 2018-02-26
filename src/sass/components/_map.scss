@@ -10,6 +10,15 @@
 		padding-bottom: 25px;
 	}
 
+	&__title {
+		margin-bottom: 30px;
+		text-align: center;
+
+		@include tablet {
+			margin-bottom: 20px;
+		}
+	}
+
 	&__main {
 		float: left;
 		padding-right: 30px;
