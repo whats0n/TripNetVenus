@@ -24,8 +24,6 @@
 	@import 'common';
 
 	@import 'components/accordion';
-	@import 'components/tabs';
-	@import 'components/autocomplete';
 	@import 'components/scrollbar';
 
 	@import 'components/typography';
@@ -50,7 +48,6 @@
 	@import 'components/form';
 	@import 'components/form-placeholder';
 
-	@import 'components/fixed-button';
 	@import 'components/datepicker';
 	@import 'components/select';
 
@@ -81,5 +78,6 @@
 	@import 'components/options';
 
 	@import 'components/themes';
+	@import 'components/articles';
 
 }

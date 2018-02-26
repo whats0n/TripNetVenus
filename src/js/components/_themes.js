@@ -14,7 +14,7 @@ import {getWidth} from '../_utils';
         .addClass(OWL_DEFAULT)
         .owlCarousel({
           items: 1,
-          stagePadding: 27,
+          stagePadding: 22,
           loop: true,
           scrollPerPage: true,
           nav: false,

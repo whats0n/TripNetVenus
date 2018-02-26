@@ -40,6 +40,8 @@
 		}
 
 		@include phone {
+			padding-left: 5px;
+			padding-right: 5px;
 			width: 100%;
 		}
 
@@ -65,6 +67,10 @@
 	display: block;
 	padding: 15px;
 	@include container;
+
+	@include phone {
+		padding: 10px 10px 15px;
+	}
 
 	&__picture {
 		position: relative;
@@ -148,6 +154,10 @@
 
 		@include hover {
 			color: $blue;
+		}
+
+		@include phone {
+			@include font(14px, null, 17px);
 		}
 	}
 }

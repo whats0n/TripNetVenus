@@ -23,7 +23,7 @@
 	&__container {
 		@include tablet {
 			padding-top: 5px;
-			margin: 0 -5px;
+			// margin: 0 -5px;
 		}
 
 		@include phone {

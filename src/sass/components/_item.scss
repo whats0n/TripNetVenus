@@ -33,6 +33,7 @@
 	&__display {
 		position: relative;
 		overflow: hidden;
+		border-radius: 4px;
 		font-size: 0;
 
 		@include hover {

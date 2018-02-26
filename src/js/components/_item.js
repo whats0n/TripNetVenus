@@ -20,7 +20,7 @@ export default (() => {
           responsive: {
             [tabletWidthStart]: {
               items: 2,
-              stagePadding: 5,
+              stagePadding: 0,
               center: false
             }
           }
@@ -46,7 +46,7 @@ export default (() => {
 
     carousel.length && carousel.addClass(OWL_DEFAULT).owlCarousel({
       items: 1,
-      stagePadding: 27,
+      stagePadding: 22,
       loop: true,
       scrollPerPage: true,
       nav: false,

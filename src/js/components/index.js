@@ -1,22 +1,13 @@
-import './_popular';
 import './_accordion';
 import './_header';
 import './_hero-slider';
 import './_form';
-import './_tabs';
 import './_modal';
-import './_sort';
-import './_search';
-import './_autocomplete';
-import './_data-list';
-import './_range-slider';
-import './_filters';
-import './_item';
 import './_scrollbar';
 import './_loader';
-import './_pagination';
-import './_lazy-load';
-
+import './_item';
 import './_slider';
 import './_options';
 import './_themes';
+import './_article';
+import './_lazy-load';
