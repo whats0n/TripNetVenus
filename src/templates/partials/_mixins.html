@@ -30,7 +30,7 @@
 	<input type="{{props.type or 'text'}}" class="v-input__field js-input-field {{props.inputClassList}}" {{props.attrs | safe}}>
 	<div class="v-input__label">{{props.placeholder}}</div>
 	{% if props.errorMessage %}
-		<div class="v-input__message">{{props.errorMessage}}</div>
+		<div class="v-input__message {{props.errorClassList}}">{{props.errorMessage}}</div>
 	{% endif %}
 </div>
 {% endmacro %}
@@ -44,7 +44,7 @@
 		</div>
 	</div>
 	{% if props.errorMessage %}
-		<div class="v-textarea__message">{{props.errorMessage}}</div>
+		<div class="v-textarea__message {{props.errorClassList}}">{{props.errorMessage}}</div>
 	{% endif %}
 </div>
 {% endmacro %}
