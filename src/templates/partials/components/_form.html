@@ -68,8 +68,8 @@
 											{% for item in range(0,3) %}
 												<div class="v-form__select" data-select-container>
 													<select name="first_child" data-select="{{loop.index}}" style="width: 100%;" data-placeholder="&#8212;">
-														<option></option>
-														<option value="< 1">< 1</option>
+														<option label="0"></option>
+														<option value="< 1">&lt; 1</option>
 														{% for item in range(0,16) %}
 														    <option value="{{loop.index}}">{{loop.index}}</option>
 														{% endfor %}
