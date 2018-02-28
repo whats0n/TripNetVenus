@@ -13,6 +13,14 @@
 		padding-bottom: 72.266%;
 	}
 
+	@include hover {
+		.v-photo {
+			&__title {
+				text-decoration: underline;
+			}
+		}
+	}
+
 	&__inner {
 		position: absolute;
 		top: 0;
