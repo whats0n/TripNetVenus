@@ -80,29 +80,11 @@ import {getWidth, toggleBodyScroll} from '../_utils';
             maxViewMode: 0,
             weekStart: 1,
             daysOfWeekHighlighted: [0,6],
-            inputs: inputs
+            inputs: inputs,
+            container: datepicker
           })
           .on('show', toggleFieldState)
-          .on('hide', toggleFieldState)
-          // .on('hide', e => {
-          //   if ($(e.target).attr('name') === 'start') {
-          //     const startDate = new Date(e.date);
-          //     const endDate = new Date(
-          //       new Date().setDate(new Date(e.date).getDate() + 1)
-          //     );
-          //     start.val(formatDate(startDate));
-          //     end.val(formatDate(endDate));
-
-          //     datepicker.datepicker('setEndDate', moment(endDate).format('D/M/YYYY'));
-          //     console.log(datepicker.datepicker('getEndDate'));
-          //     console.log('start');
-          //   }
-          //   if ($(e.target).attr('name') === 'end') {
-          //     console.log(e);
-          //     console.log('end');
-          //   }
-          // })
-        ;
+          .on('hide', toggleFieldState);
 
       });
     }
