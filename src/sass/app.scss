@@ -16,10 +16,9 @@
 	}
 
 	@import 'generated/sprite-svg';
-	@import 'lib/slick';
-	@import 'lib/owl';
-	@import 'lib/select2.min';
-	@import 'lib/_bootstrap-datepicker';
+	@import 'node_modules/owl-carousel-2/assets/owl.carousel';
+	@import 'node_modules/select2/dist/css/select2';
+	@import 'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker';
 
 	@import 'common';
 
