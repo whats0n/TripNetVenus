@@ -6,7 +6,7 @@ import {getIcon} from '../_utils';
   $('.js-slider').owlCarousel({
     items: 1,
     stagePadding: 22,
-    loop: true,
+    loop: false,
     scrollPerPage: true,
     nav: false,
     dots: false,

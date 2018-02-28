@@ -53,6 +53,7 @@
 	}
 
 	&__row {
+		position: relative;
 		width: calc(100% - 210px);
 		color: $gray;
 		@include clr;

@@ -22,10 +22,12 @@
 	}
 
 	&:disabled,
-	&.is-disabled {
+	&.is-disabled,
+	&.disabled {
 		border-color: rgba($gray, 0.5);
 		background: none !important;
 		cursor: not-allowed;
+		pointer-events: none;
 
 		&:after {
 			opacity: 0 !important;
