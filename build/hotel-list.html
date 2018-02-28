@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fff">
     <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" media="all" href="css/vendor.css">
     <link rel="stylesheet" media="all" href="css/app.css"> </head>
 
   <body class="Venus">
@@ -4762,24 +4763,8 @@ FAQ</a> </li>
                 </div>
               </div>
               <div class="v-items__pagination">
-                <!-- begin v-pagination -->
-                <div class="v-pagination ">
-                  <div class="v-pagination__inner"> <a href="#" class="v-pagination__prev is-disabled">
-			
-<svg class="icon icon-prev "><use xlink:href="img/sprite.svg#icon-prev"></use></svg>
-
-			<span>Previous</span>
-		</a>
-                    <div class="v-pagination__pages"> <a href="#" class="v-pagination__page is-active">1</a> <a href="#" class="v-pagination__page">2</a> <a href="#" class="v-pagination__page">3</a> <span class="v-pagination__splitter">
-				<span>. . . . . . . . .</span> </span> <a href="#" class="v-pagination__page v-pagination__last">10</a> </div> <a href="#" class="v-pagination__next">
-			<span>Next</span>
-			
-<svg class="icon icon-next "><use xlink:href="img/sprite.svg#icon-next"></use></svg>
-
-		</a> </div>
-                </div>
-                <!-- end v-pagination -->
-                <div class="js-list-pagination v-pagination"></div>
+                <div class="v-pagination js-list-pagination"></div>
+                <div class="v-pagination-counter"> <span class="js-list-current"></span> <span>/</span> <span class="js-list-total"></span> </div>
               </div>
             </div>
             <!-- end v-items -->

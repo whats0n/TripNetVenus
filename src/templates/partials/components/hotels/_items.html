@@ -8,8 +8,12 @@
 		{% endfor %}
 	</div>
 	<div class="v-items__pagination">
-		{{pagination.call()}}
-		<div class="js-list-pagination v-pagination"></div>
+		<div class="v-pagination js-list-pagination"></div>
+		<div class="v-pagination-counter">
+			<span class="js-list-current"></span>
+			<span>/</span>
+			<span class="js-list-total"></span>
+		</div>
 	</div>
 </div>
 <!-- end v-items -->
