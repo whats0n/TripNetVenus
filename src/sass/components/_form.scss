@@ -125,6 +125,15 @@
 		}
 
 		&:nth-child(2),
+		&:nth-child(3) {
+			.v-form__control {
+				@include tablet {
+					border-radius: 0;
+				}
+			}
+		}
+
+		&:nth-child(2),
 		&:nth-child(4), {
 			.v-form__control {
 				@include phone {
