@@ -94,6 +94,7 @@
 			padding: 3px 0 4px;
 			width: 33.33%;
 			@include font(14px, 400, 1.5);
+			list-style: none;
 
 			@supports (column-count: 3) {
 				display: list-item;
