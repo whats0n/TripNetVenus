@@ -264,7 +264,7 @@
 
 	&__title,
 	&__place {
-		max-width: 250px;
+		// max-width: 250px;
 		@include textoverflow;
 	}
 

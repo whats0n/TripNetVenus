@@ -334,6 +334,11 @@
 				font-size: 14px;
 			}
 		}
+
+		&::placeholder {
+			color: $gray;
+			opacity: 1;
+		}
 	}
 
 	&__dropdown {
