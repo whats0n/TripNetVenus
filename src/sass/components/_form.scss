@@ -392,12 +392,9 @@
 			max-height: 380px;
 
 			&.ps--active-y {
+				/*rtl:begin:ignore*/
 				padding-right: 11px;
-
-				@include rtl {
-					padding-left: 11px;
-					padding-right: 0;
-				}
+				/*rtl:end:ignore*/
 			}
 
 			.v-form__item {

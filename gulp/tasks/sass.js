@@ -45,9 +45,9 @@ gulp.task('style-rtl', function() {
             precision: 5
         }))
         .on('error', config.errorHandler)
-        .pipe(postcss(processors))
         .pipe(rtlcss())
         .pipe(rename({ suffix: '-rtl' }))
+        .pipe(postcss(processors))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dest.css))
 

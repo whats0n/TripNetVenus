@@ -3,7 +3,9 @@
 	overflow: hidden !important;
 
 	&.ps--active-y {
+		/*rtl:begin:ignore*/
 		padding-right: 26px;
+		/*rtl:end:ignore*/
 
 		.ps__rail-y {
 			opacity: 1;
