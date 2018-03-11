@@ -9,6 +9,7 @@ export const PHONE = 'is-phone';
 export const NO_TOUCH = 'is-notouch';
 export const OVERFLOW_HIDDEN = 'is-overflow-hidden';
 export const OWL_DEFAULT = 'owl-carousel';
+export const OWL_RTL = 'owl-rtl';
 
 export const TAB_CHANGE = 'TAB_CHANGE';
 export const GALLERY_RESIZED = 'GALLERY_RESIZED';
@@ -26,3 +27,5 @@ export const WIN = $(window);
 export const DOC = $(document);
 export const BODY = $('body');
 export const HTML = $('html');
+
+export const isRTL = $('html').attr('dir') === 'rtl';

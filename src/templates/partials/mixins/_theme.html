@@ -1,7 +1,7 @@
 {% import 'partials/_mixins.html' as mixins %}
 {% macro call(props) %}
 <a class="v-theme">
-	<div class="v-theme__picture js-lazy" data-src="{{props.img}}">
+	<div class="v-theme__picture" style="background-image: url({{props.img}});">
 		<div class="v-theme__icon">{{mixins.icon(props.icon)}}</div>
 	</div>
 	<div class="v-theme__content">

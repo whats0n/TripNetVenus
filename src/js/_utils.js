@@ -1,4 +1,4 @@
-import {BODY, OVERFLOW_HIDDEN} from './_constants';
+import {BODY, OVERFLOW_HIDDEN, HTML} from './_constants';
 
 export const isTouch = () => 'ontouchstart' in window;
 

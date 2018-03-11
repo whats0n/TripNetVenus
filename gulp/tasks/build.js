@@ -8,6 +8,7 @@ function build(cb) {
         'sprite:svg',
         'svgo',
         'sass',
+        'style-rtl',
         'nunjucks',
         'webpack',
         'copy',

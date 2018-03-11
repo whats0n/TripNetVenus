@@ -5,11 +5,11 @@
 		<ul class="v-nav-contacts__list">
 			{% for item in [
 				{ icon: 'mail', link: 'mailto:hello@hotel.com', text: 'hello@hotel.com' },
-				{ icon: 'phone', link: 'tel:+380638975262', text: '+380 63 897 52 62' },
+				{ icon: 'phone', link: 'tel:+380638975262', text: '<span dir="ltr">+380 63 897 52 62</span>' },
 				{ icon: 'chat', link: '#', text: 'FAQ' }
 			] %}
 				<li class="v-nav-contacts__item">
-					<a href="{{item.link}}" class="v-nav-contacts__link">{{mixins.icon(item.icon)}}{{item.text}}</a>
+					<a href="{{item.link}}" class="v-nav-contacts__link">{{mixins.icon(item.icon)}}{{item.text | safe}}</a>
 				</li>
 			{% endfor %}
 		</ul>

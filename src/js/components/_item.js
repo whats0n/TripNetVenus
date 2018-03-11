@@ -1,16 +1,19 @@
-import {tabletWidthStart, tabletWidthEnd, desktopWidthStart, WIN, ACTIVE, OPEN, OWL_DEFAULT} from '../_constants';
+import {tabletWidthStart, tabletWidthEnd, desktopWidthStart, WIN, ACTIVE, OPEN, OWL_DEFAULT, isRTL} from '../_constants';
 import {getIcon, getWidth} from '../_utils';
 
 export default (() => {
 
   const items = $('.js-items');
   const sliders = $('.js-items-slider');
+  let navText = [getIcon('prev'), getIcon('next')];
+  isRTL && navText.reverse();
 
   WIN.on('resize load', () => {
     if (getWidth(tabletWidthEnd) && !sliders.hasClass('owl-loaded')) {
       sliders
         .addClass(OWL_DEFAULT)
         .owlCarousel({
+          rtl: isRTL,
           items: 1,
           center: true,
           stagePadding: 22,
@@ -45,6 +48,7 @@ export default (() => {
     });
 
     carousel.length && carousel.addClass(OWL_DEFAULT).owlCarousel({
+      rtl: isRTL,
       items: 1,
       stagePadding: 22,
       loop: true,
@@ -52,7 +56,7 @@ export default (() => {
       nav: false,
       dots: false,
       lazyLoad: true,
-      navText: [getIcon('prev'), getIcon('next')],
+      navText: navText,
       navElement: 'button',
       navClass: ['owl-prev btn-direction btn-direction_prev v-slider__prev', 'owl-next btn-direction btn-direction_next v-slider__next'],
       dotsClass: 'owl-dots v-slider__dots',
@@ -74,17 +78,21 @@ export default (() => {
     });
   });
 
-  $('.js-item-slider').owlCarousel({
-    items: 1,
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    animateOut: 'fadeOut',
-    nav: true,
-    lazyLoad: true,
-    navText: [getIcon('prev'), getIcon('next')],
-    navElement: 'button',
-    navClass: ['owl-prev v-item__arrow v-item__prev', 'owl-next v-item__arrow v-item__next']
+  WIN.on('load', () => {
+    $('.js-item-slider').owlCarousel({
+      rtl: isRTL,
+      items: 1,
+      loop: true,
+      mouseDrag: false,
+      touchDrag: false,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      nav: true,
+      lazyLoad: true,
+      navText: navText,
+      navElement: 'button',
+      navClass: ['owl-prev v-item__arrow v-item__prev', 'owl-next v-item__arrow v-item__next']
+    });
   });
 
 })();

@@ -43,6 +43,7 @@
     "gulp-postcss": "^6.2.0",
     "gulp-prettify": "^0.4.0",
     "gulp-rename": "^1.2.2",
+    "gulp-rtlcss": "^1.1.0",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-svgmin": "^1.2.0",

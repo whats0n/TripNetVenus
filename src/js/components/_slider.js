@@ -1,7 +1,11 @@
-import {tabletWidthStart, desktopWidthStart} from '../_constants';
+import {tabletWidthStart, desktopWidthStart, isRTL} from '../_constants';
 import {getIcon} from '../_utils';
 
 ;(() => {
+
+
+  let navText = [getIcon('prev'), getIcon('next')];
+  isRTL && navText.reverse();
 
   $('.js-slider').owlCarousel({
     items: 1,
@@ -11,12 +15,13 @@ import {getIcon} from '../_utils';
     nav: false,
     dots: false,
     lazyLoad: true,
-    navText: [getIcon('prev'), getIcon('next')],
+    navText: navText,
     navElement: 'button',
     navClass: ['owl-prev btn-direction btn-direction_prev v-slider__prev', 'owl-next btn-direction btn-direction_next v-slider__next'],
     dotsClass: 'owl-dots v-slider__dots v-slider__dots_simple',
     dotClass: 'owl-dot v-slider__dot',
     slideBy: 'page',
+    rtl: isRTL,
     responsive: {
       [desktopWidthStart]: {
         nav: true,

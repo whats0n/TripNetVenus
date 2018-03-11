@@ -141,6 +141,7 @@
 
 				&.selected, 
 				&.selected.highlighted {
+					color: $white;
 					font-weight: 700;
 					text-shadow: none;
 
@@ -174,6 +175,11 @@
 					&:after {
 						left: 50%;
 						opacity: 1;
+
+						@include rtl {
+							left: 0;
+							right: 50%;
+						}
 					}
 				}
 
@@ -182,6 +188,11 @@
 						left: 0;
 						right: 50%;
 						opacity: 1;
+
+						@include rtl {
+							left: 50%;
+							right: 0;
+						}
 					}
 				}
 

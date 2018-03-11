@@ -6,6 +6,8 @@ var autoprefixer = require('autoprefixer');
 var mqpacker     = require('css-mqpacker');
 var config       = require('../config');
 var csso = require('postcss-csso');
+var rtlcss = require('gulp-rtlcss');
+var rename = require('gulp-rename');
 
 var processors = [
     autoprefixer({
@@ -30,11 +32,29 @@ gulp.task('sass', function() {
         .on('error', config.errorHandler)
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(config.dest.css));
+        .pipe(gulp.dest(config.dest.css))
+
+});
+
+gulp.task('style-rtl', function() {
+    return gulp
+        .src(config.src.sass + '/app.{sass,scss}')
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            outputStyle: config.production ? 'compact' : 'expanded', // nested, expanded, compact, compressed
+            precision: 5
+        }))
+        .on('error', config.errorHandler)
+        .pipe(postcss(processors))
+        .pipe(rtlcss())
+        .pipe(rename({ suffix: '-rtl' }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(config.dest.css))
+
 });
 
 gulp.task('sass:watch', function() {
-    gulp.watch(config.src.sass + '/**/*.{sass,scss}', ['sass']);
+    gulp.watch(config.src.sass + '/**/*.{sass,scss}', ['sass', 'style-rtl']);
 });
 
 function isMax(mq) {
