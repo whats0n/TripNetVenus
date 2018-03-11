@@ -118,7 +118,7 @@
 			}
 		}
 
-		&:last-child {
+		&:nth-child(5) {
 			.v-form__control {
 				border-radius: 0 4px 4px 0;
 			}
@@ -150,7 +150,7 @@
 			}
 		}
 
-		&:not(:last-child) {
+		&:not(:nth-child(5)) {
 			.v-form__field {
 				&:before {
 					content: '';
