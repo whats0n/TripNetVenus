@@ -109,12 +109,22 @@
 					&:first-child {
 						&:after {
 							left: 12px;
+
+							@include rtl {
+								left: 0;
+								right: 12px;
+							}
 						}
 					}
 
 					&:last-child {
 						&:after {
 							right: 12px;
+
+							@include rtl {
+								left: 12px;
+								right: 0;
+							}
 						}
 					}
 				}
