@@ -339,6 +339,12 @@
 			color: $gray;
 			opacity: 1;
 		}
+
+		&[dir="ltr"] {
+			@include rtl {
+				text-align: left;
+			}
+		}
 	}
 
 	&__dropdown {
