@@ -11,7 +11,6 @@
 	transition: background 0.25s, border-color 0.25s;
 
 	@include hover {
-		// background: $theme-main-color;
 		&:after {
 			opacity: 1;
 		}
