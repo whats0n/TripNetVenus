@@ -1,14 +1,10 @@
 .v-hero {
 	position: relative;
-	height: 379px;
+	height: 472px;
 	color: $white;
 
-	@include tablet {
-		height: 341px;
-	}
-
 	@include phone {
-		height: 421px;
+		height: 358px;
 	}
 
 	&__heading {
@@ -17,64 +13,12 @@
 		top: 0;
 		left: 0;
 		right: 0;
+		overflow: hidden;
 		padding: 25px 20px 29px;
 		text-align: center;
 
 		@include phone {
-			padding: 18px 10px 19px;
-		}
-	}
-
-	&__heading-in {
-		margin: 0 auto;
-		max-width: 500px;
-	}
-
-	&__title {
-		@include font(30px, 900, 36px);
-		@include textoverflow;
-		text-transform: uppercase;
-
-		@include phone {
-			@include font(18px, null, 22px);
-		}
-	}
-
-	&__subtitle {
-		margin-top: 7px;
-		@include font(14px, 700, 17px);
-		@include textoverflow;
-
-		@include phone {
-			margin-top: 4px;
-			@include font(12px, null, 15px);
-		}
-	}
-
-
-	&__slide,
-	&__slide-blur {
-		position: relative;
-		z-index: 1;
-		height: 379px;
-		@include cover;
-
-		@include tablet {
-			height: 341px;
-		}
-
-		@include phone {
-			height: 421px;
-		}
-	}
-
-	&__slide-header{
-		position: relative;
-		overflow: hidden;
-		height: 114px;
-
-		@include phone {
-			height: 78px;
+			padding: 13px 10px 13px;
 		}
 
 		&:before {
@@ -89,9 +33,49 @@
 		}
 	}
 
-	&__slide-blur {
+	&__heading-in {
+		position: relative;
+		z-index: 3;
+	}
+
+	&__title {
+		@include font(30px, 900, 36px);
+		text-transform: uppercase;
+
+		@include phone {
+			@include font(18px, null, 22px);
+		}
+	}
+
+	&__subtitle {
+		margin-top: 7px;
+		@include font(14px, 700, 17px);
+
+		@include phone {
+			margin-top: 0;
+			@include font(12px, null, 15px);
+		}
+	}
+
+
+	&__slide,
+	&__blur {
+		position: relative;
+		z-index: 1;
+		height: 472px;
+		@include cover;
+
+		@include phone {
+			height: 358px;
+		}
+	}
+
+	&__blur {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 		background-color: rgba(243,247,248,0.10);
 		filter: blur(10px);
-
 	}
 }

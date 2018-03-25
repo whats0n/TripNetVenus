@@ -1,0 +1,83 @@
+.v-attraction {
+	position: relative;
+	padding: 20px 10px 20px 68px;
+	@include container;
+	text-align: left;
+
+	@include phone {
+		padding: 10px 10px 20px 50px;
+	}
+
+	&__user {
+		position: absolute;
+		top: 20px;
+		left: 15px;
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		@include cover;
+		background-color: #FBA1AB;
+
+		@include phone {
+			top: 10px;
+			left: 10px;
+			width: 30px;
+			height: 30px;
+		}
+	}
+
+	&__name {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		margin-top: -0.55em;
+		color: $white;
+		@include font(19px, 700, 23px);
+		text-align: center;
+	}
+
+	&__content {
+		padding-left: 20px;
+		padding-bottom: 5px;
+		border-left: 1px solid $theme-main-color;
+
+		@include phone {
+			padding-top: 7px;
+			padding-bottom: 0;
+		}
+
+		&-in {
+			overflow: hidden;
+			height: 155px;
+
+			@include phone {
+				height: 152px;
+			}
+
+			&.is-cutted {
+				height: (155px-21);
+
+				@include phone {
+					height: (152px-21);
+				}
+			}
+
+			&.is-open {
+				height: auto !important;
+			}
+		}
+	}
+
+	&__title {
+		margin-bottom: 11px;
+
+		@include phone {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__description {
+		@include font(14px, 400, 1.5);
+	}
+}

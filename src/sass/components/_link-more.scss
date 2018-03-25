@@ -4,7 +4,8 @@
 	vertical-align: top;
 	padding-right: 14px;
 	color: $blue;
-	@include font(14px, 400, 17px);
+	@include font(14px, 400, 1.5);
+	cursor: pointer;
 
 	@include hover {
 		color: #2fb4f9;
@@ -32,7 +33,7 @@
 		position: absolute;
 		top: 50%;
 		right: 0;
-		margin-top: -0.5em;
+		margin-top: -0.2em;
 		fill: currentColor;
 		font-size: 5px;
 		transition: transform 0.25s;

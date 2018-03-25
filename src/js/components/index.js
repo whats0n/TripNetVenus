@@ -1,13 +1,11 @@
 import './_accordion';
 import './_header';
-import './_hero-slider';
-import './_form';
-import './_modal';
 import './_scrollbar';
-import './_loader';
-import './_item';
 import './_slider';
-import './_options';
-import './_themes';
-import './_article';
 import './_lazy-load';
+
+import Toggle from './_toggle';
+import Attraction from './_attraction';
+
+$('.js-toggle').each((i, container) => new Toggle({ container }));
+$('.js-attraction').each((i, container) => new Attraction({ container }));

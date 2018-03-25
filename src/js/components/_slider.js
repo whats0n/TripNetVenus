@@ -1,5 +1,6 @@
-import {tabletWidthStart, desktopWidthStart, isRTL} from '../_constants';
+import {tabletWidthStart, desktopWidthStart, isRTL, GALLERY_RESIZED} from '../_constants';
 import {getIcon} from '../_utils';
+import connect from '../_connect';
 
 ;(() => {
 
@@ -10,7 +11,7 @@ import {getIcon} from '../_utils';
   $('.js-slider').owlCarousel({
     items: 1,
     stagePadding: 22,
-    loop: false,
+    loop: true,
     scrollPerPage: true,
     nav: false,
     dots: false,
@@ -35,6 +36,7 @@ import {getIcon} from '../_utils';
         dots: true
       }
     }
-  });
+  })
+    .on('resized.owl.carousel', (e) => connect.fire(GALLERY_RESIZED, e));
 
 })();
