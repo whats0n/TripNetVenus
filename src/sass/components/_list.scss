@@ -1,4 +1,6 @@
 .v-list {
+	list-style-type: none;
+
 	&_wider {
 		.v-list {
 			&__item {
@@ -119,7 +121,9 @@
 	&__item {
 		position: relative;
 		padding: 5px 0 5px 16px;
+		margin: 0;
 		@include font(14px, null, 17px);
+		list-style-type: none;
 
 		&:before {
 			content: '';

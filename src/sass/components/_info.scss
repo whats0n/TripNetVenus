@@ -28,7 +28,7 @@
 
 		@include phone {
 			overflow: hidden;
-			max-height: 290px;
+			max-height: 355px;
 		}
 
 		&.is-open {
@@ -47,8 +47,14 @@
 
 		@include phone {
 			display: block;
-			padding: 15px 15px 4px;
+			padding: 15px 15px 6px;
 			width: 100%;
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: 1.5em;
+			}
 		}
 	}
 
