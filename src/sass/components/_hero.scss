@@ -1,6 +1,6 @@
 .v-hero {
 	position: relative;
-	height: 472px;
+	height: 387px;
 	color: $white;
 
 	@include phone {
@@ -14,7 +14,7 @@
 		left: 0;
 		right: 0;
 		overflow: hidden;
-		padding: 25px 20px 29px;
+		padding: 38px 20px 38px;
 		text-align: center;
 
 		@include phone {
@@ -47,22 +47,12 @@
 		}
 	}
 
-	&__subtitle {
-		margin-top: 7px;
-		@include font(14px, 700, 17px);
-
-		@include phone {
-			margin-top: 0;
-			@include font(12px, null, 15px);
-		}
-	}
-
 
 	&__slide,
 	&__blur {
 		position: relative;
 		z-index: 1;
-		height: 472px;
+		height: 387px;
 		@include cover;
 
 		@include phone {

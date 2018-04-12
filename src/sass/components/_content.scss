@@ -1,0 +1,296 @@
+.v-content {
+	padding: 40px 0;
+	text-align: center;
+
+	@include phone {
+		padding: 25px 0;
+	}
+
+	&__title {
+		margin-bottom: 20px;
+	}
+
+	&__description {
+		@include font(14px, 400, 1.5);
+
+		@include phone {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		br {
+			@include phone {
+				display: none;
+			}
+		}
+	}
+
+	&__container {
+		padding-top: 40px;
+		margin: 0 -15px;
+		text-align: left;
+		@include clr;
+
+		@include tablet {
+			margin: 0 -10px;
+		}
+
+		@include phone {
+			padding-top: 25px;
+		}
+	}
+
+	&__main {
+		float: left;
+		padding: 0 15px;
+		width: 75%;
+
+		@include tablet {
+			padding: 0 10px;
+			width: 65%;
+		}
+
+		@include phone {
+			width: 100%;
+		}
+	}
+
+	&__sidebar {
+		float: left;
+		padding: 0 15px;
+		width: 25%;
+
+		@include tablet {
+			padding: 0 10px;
+			width: 35%;
+		}
+
+		@include phone {
+			display: none;
+		}
+	}
+
+	&__controls {
+		padding: 0 20px 15px;
+		@include container;
+
+		@include tablet {
+			padding: 0 15px 10px;
+		}
+	}
+
+	&__info {
+		padding: 0 20px 10px;
+		@include container;
+
+		@include tablet {
+			padding: 0 15px 10px;
+		}
+
+		@include phone {
+			padding: 0 10px;
+		}
+	}
+
+	&__control,
+	&__heading {
+		position: relative;
+		display: block;
+		padding: 22px 15px 22px 50px;
+		@include font(14px, 700, 17px);
+		text-transform: uppercase;
+
+		@include tablet {
+			padding-left: 40px;
+		}
+	}
+
+	&__control {
+		transition: color 0.25s;
+
+		@include hover {
+			color: $blue;
+		}
+
+		&.is-active {
+			color: $blue;
+
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-bottom: 1px solid $theme-main-color;
+			opacity: 0;
+			transition: opacity 0.25s;
+		}
+	}
+
+	&__heading {
+		@include phone {
+			display: none;
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		left: -9px;
+		margin-top: -0.5em;
+		fill: $blue;
+		font-size: 48px;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin-top: -0.5em;
+		fill: currentColor;
+		font-size: 13px;
+	}
+
+	&__box {
+		&:not(:last-child) {
+			.v-content__section	{
+				@include phone {
+					border-bottom: 1px solid $theme-main-color;
+				}
+			}
+		}
+
+		&:last-child {
+			.v-content__sm-control {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__section {
+		display: none;
+		background: $white;
+
+		&.is-active {
+			display: block;
+		}
+	}
+
+	&__subtitle {
+		position: relative;
+		padding: 20px 30px 20px 0;
+		@include font(14px, 400, 1.5);
+		transition: color 0.25s;
+
+		@include hover {
+			color: $blue;
+		}
+
+		&.is-active {
+			color: $blue;
+
+			.v-content__plus {
+				border-color: $blue;
+
+				&:before,
+				&:after {
+					border-color: $blue;
+				}
+
+				&:after {
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	&__text {
+		padding: 3px 0 20px;
+		@include font(14px, 400, 1.5);
+	}
+
+	&__questions {
+		padding: 0 45px;
+
+		@include tablet {
+			padding: 0 20px 0 40px;
+		}
+
+		@include phone {
+			padding: 0 0 0 40px;
+		}
+	}
+
+	&__question {
+		&:not(:last-child) {
+			border-bottom: 1px solid $lightGray;
+		}
+	}
+
+	&__plus {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin-top: -10px;
+		border: 1px solid $gray;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		transition: border-color 0.25s;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3d(-50%,-50%,0);
+			transition: border-color 0.25s, opacity 0.25s;
+		}
+
+		&:before {
+			border-top: 1px solid $gray;
+			width: 10px;
+		}
+
+		&:after {
+			border-left: 1px solid $gray;
+			height: 10px;
+		}
+	}
+
+	&__sm-control {
+		display: none;
+
+		@include phone {
+			display: block;
+		}
+
+		&.is-active {
+			.v-content__arrow {
+				transform: rotate(180deg);
+			}
+
+			&:before {
+				border-color: $theme-main-color;
+			}
+		}
+
+		&:before {
+			border-color: $lightGray;
+			opacity: 1;
+			transition: border-color 0.25s;
+		}
+
+		.v-content__arrow {
+			font-size: 7px;
+		}
+	}
+}

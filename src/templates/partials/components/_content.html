@@ -1,0 +1,119 @@
+<!-- begin v-content -->
+<div class="v-content v-section v-section_dark">
+	<div class="v-inner v-content__inner">
+		<h2 class="title-lg v-content__title">FAQ's</h2>
+		<div class="v-content__description">
+			<p>We've gathered the questions our customers often ask about booking & travelling on a holiday with us. <br>We hope our answers offer you the peace of mind you need to enjoy your holiday. If you've got a question we haven't answered, just give us a call.</p>
+		</div>
+		{% set content = [
+			{
+				icon: 'top-questing',
+				title: 'TOP QUESTION '
+			},
+			{
+				icon: 'extra',
+				title: 'Extra facilities'
+			},
+			{
+				icon: 'policies',
+				title: 'Hotel policies '
+			},
+			{
+				icon: 'cancellation',
+				title: 'Cancellation'
+			},
+			{
+				icon: 'confirm',
+				title: 'Confirmation'
+			},
+			{
+				icon: 'room-type',
+				title: 'Room types'
+			},
+			{
+				icon: 'availability',
+				title: 'Availability'
+			},
+			{
+				icon: 'search',
+				title: 'Searching'
+			},
+			{
+				icon: 'pricing',
+				title: 'Pricing'
+			},
+			{
+				icon: 'payment',
+				title: 'Payments'
+			},
+			{
+				icon: 'card',
+				title: 'Credit cards'
+			},
+			{
+				icon: 'directions',
+				title: 'Directions'
+			}
+		] %}
+		<div class="v-content__container js-content">
+			<div class="v-content__sidebar">
+				<div class="v-content__controls">
+					<ul class="v-content__list">
+						<li class="v-content__item">
+							{% for item in content %}
+								<a href="#" class="v-content__control js-content-control {% if loop.first %}is-active{% endif %}" data-target="{{item.icon}}">
+									{{mixins.icon(item.icon, 'v-content__icon')}}
+									{{mixins.icon('next', 'v-content__arrow')}}
+									<span>{{item.title}}</span>
+								</a>
+							{% endfor %}
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="v-content__main">
+				<div class="v-content__info">
+					{% for item in content %}
+						<div class="v-content__box">
+							<a href="#" class="v-content__control v-content__sm-control js-content-control {% if loop.first %}is-active{% endif %}" data-target="{{item.icon}}">
+								{{mixins.icon(item.icon, 'v-content__icon')}}
+								{{mixins.icon('down', 'v-content__arrow')}}
+								<span>{{item.title}}</span>
+							</a>
+							<div class="v-content__section js-content-section {% if loop.first %}is-active{% endif %}" data-section="{{item.icon}}">
+								<div class="v-content__heading">
+									{{mixins.icon(item.icon, 'v-content__icon')}}
+									<span>{{item.title}}</span>
+								</div>
+								<div class="v-content__body">
+									<ul class="v-content__questions" data-accordion-main="desktop">
+										{% for item in [
+											'Can I book a room if I don’t have a credit card?',
+											'Why do I need to give my credit card details?',
+											'When do I pay for my stay?',
+											'I have not received a confirmation email after I made the reservation. What should I do?',
+											'How can I be sure that Booked.net is a secure website?',
+											'Is it possible to pay for my bookings using a card different from the one I used to make a reservation?',
+											'Where can I find the hotel cancellation policy?'
+										] %}
+											<li class="v-content__question" data-accordion-item>
+												<div class="v-content__subtitle" data-accordion-btn>
+													<div class="v-content__plus"></div>
+													<span>{{item}}</span>
+												</div>
+												<div class="v-content__text" data-accordion-container>
+													<p>The time of payment depends on the conditions of the reservation you make. This information is provided in Terms of payment on the booking page. You can also find it in your confirmation email.</p>
+												</div>
+											</li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end v-content -->

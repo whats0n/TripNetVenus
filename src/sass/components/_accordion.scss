@@ -47,3 +47,22 @@
 		}
 	}
 }
+
+[data-accordion-main*="desktop"] {
+	[data-accordion-btn] {
+		position: relative;
+		cursor: pointer;
+
+		.icon-down {
+			display: block;
+		}
+	}
+
+	[data-accordion-container] {
+		display: none;
+
+		&.is-active {
+			display: block;
+		}
+	}
+}

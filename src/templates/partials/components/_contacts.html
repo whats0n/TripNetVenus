@@ -1,0 +1,114 @@
+<!-- begin v-contacts -->
+<div class="v-contacts">
+	<div class="v-inner">
+		<h2 class="title-lg v-contacts__title">Still have question?</h2>
+		<div class="v-contacts__container">
+			<div class="v-contacts__main">
+				<form action="/" class="v-contacts__form js-validation">
+					<div class="v-contacts__subtitle">Call us</div>
+					<div class="v-contacts__body">
+						<div class="v-contacts__row">
+							<div class="v-contacts__col v-contacts__col_md">
+								{{mixins.input({
+									placeholder: 'Name',
+									classList: 'js-validation-container',
+									inputClassList: 'js-validation-field',
+									attrs: 'data-validation="name" data-validation-type="length"'
+								})}}
+							</div>
+							<div class="v-contacts__col v-contacts__col_md">
+								{{mixins.input({
+									placeholder: 'Email',
+									errorMessage: 'Please enter a valid',
+									errorClassList: 'js-validation-error',
+									classList: 'js-validation-container',
+									inputClassList: 'js-validation-field',
+									attrs: 'data-validation="email" data-validation-type="email"'
+								})}}
+							</div>
+						</div>
+						<div class="v-contacts__row">
+							<div class="v-contacts__col">
+								{{mixins.select({
+									classList: 'js-validation-container',
+									selectClassList: 'js-validation-select',
+									attrs: 'data-validation-type="length"',
+									placeholder: 'Choose subject',
+									options: [
+										'Option 1',
+										'Option 2',
+										'Option 3',
+										'Option 4',
+										'Option 5',
+										'Option 6',
+										'Option 7',
+										'Option 8'
+									]
+								})}}
+							</div>
+						</div>
+						<div class="v-contacts__row">
+							<div class="v-contacts__col v-contacts__checkbox">
+								{{mixins.checkbox({
+									content: 'I have a reservation'
+								})}}
+							</div>
+						</div>
+						<div class="v-contacts__row">
+							<div class="v-contacts__col">
+								<h4 class="v-contacts__sm-label">Leave your message</h4>
+								{{mixins.textarea({
+									placeholder: 'Type something',
+									classList: 'js-validation-container',
+									textareaClassList: 'js-validation-field',
+									attrs: 'data-validation="textarea" data-validation-type="length"'
+								})}}
+							</div>
+						</div>
+					</div>
+					<div class="v-contacts__footer">
+						<button class="btn btn_large" type="submit">Send</button>
+					</div>
+				</form>
+			</div>
+			<div class="v-contacts__sidebar">
+				<div class="v-contacts__info">
+					<div class="v-contacts__box v-contacts__heading">
+						<div class="v-contacts__subtitle">Call us</div>
+					</div>
+					<div class="v-contacts__box">
+						<ul class="v-contacts__list">
+							{% for item in [
+								{ icon: 'ua', title: '+380 44 594 75 95' },
+								{ icon: 'us', title: '+1 650 360 31 26' },
+								{ icon: 'uk', title: '+44 (0)20 3026 5047' },
+								{ icon: 'fr', title: '+33 (0)1 82 88 94 93' },
+								{ icon: 'it', title: '+39 06 9672 7300' },
+								{ icon: 'sp', title: '+34 93 180 79 59' },
+								{ icon: 'ru', title: '+7 499 271 60 00' },
+								{ icon: 'internet', title: '+44 (0)20 3026 5047' }
+							] %}
+								<li class="v-contacts__item">
+									{% if loop.last %}
+										{{mixins.icon(item.icon, 'v-contacts__icon')}}
+									{% else %}
+										<img src="img/{{item.icon}}.svg" alt="flag">
+									{% endif %}
+									<span>{{item.title}}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="v-contacts__box v-contacts__schedule">
+						<div class="v-contacts__label">Available time for call:</div>
+						<div class="v-contacts__value">Monday to Friday: 3am - 12pm ‪(EST)‬</div>
+					</div>
+					<div class="v-contacts__description">
+						<p>Telephone numbers are in-country and only local charges apply, except for the international number.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end v-contacts -->

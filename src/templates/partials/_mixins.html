@@ -25,7 +25,7 @@
 
 {% macro checkbox(props) %}
 <label class="v-checkbox {{props.classList}}">
-	<input type="checkbox" {% if props.checked %}checked{% endif %}>
+	<input type="checkbox" {% if props.checked %}checked{% endif %} {{props.attrs | safe}}>
 	<span class="v-checkbox__icon">
 		{{icon('check')}}
 	</span>
@@ -36,10 +36,10 @@
 {% endmacro %}
 
 {% macro input(props) %}
-<div class="v-input js-input">
+<div class="v-input js-input {{props.classList}}">
 	{{icon('check')}}
 	{{icon('close')}}
-	<input type="{{props.type or 'text'}}" class="v-input__field js-input-field">
+	<input type="{{props.type or 'text'}}" class="v-input__field js-input-field {{props.inputClassList}}" {{props.attrs | safe}}>
 	<div class="v-input__label">{{props.placeholder}}</div>
 	{% if props.errorMessage %}
 		<div class="v-input__message">{{props.errorMessage}}</div>
@@ -48,10 +48,21 @@
 {% endmacro %}
 
 {% macro textarea(props) %}
-<div class="v-textarea js-input">
-	<textarea class="v-textarea__field js-input-field" placeholder="{{props.placeholder or 'Type something'}}"></textarea>
+<div class="v-textarea js-input {{props.classList}}">
+	<textarea class="v-textarea__field js-input-field {{props.textareaClassList}}" placeholder="{{props.placeholder or 'Type something'}}" {{props.attrs | safe}}></textarea>
 	<div class="v-textarea__icon">
 		{{icon('speech-bubble')}}
 	</div>
+</div>
+{% endmacro %}
+
+{% macro select(props) %}
+<div class="v-select js-select {{props.classList}}">
+	<select class="js-select-field {{props.selectClassList}}" data-placeholder="{{props.placeholder}}" {{props.attrs | safe}}>
+		<option></option>
+		{% for item in props.options %}
+			<option value="{{item}}">{{item}}</option>
+		{% endfor %}
+	</select>
 </div>
 {% endmacro %}

@@ -43,7 +43,7 @@ import connect from '../_connect';
     }
 
     resetStyles() {
-		  if (this.getActive() || !this.active) return;
+		  if ((this.options.activeWidth && this.getActive()) || !this.active) return;
 		  this.cache.containers.removeAttr('style');
 		  this.cache.btns.removeClass(ACTIVE);
     }
@@ -58,7 +58,7 @@ import connect from '../_connect';
         const activeBtn = item.find(selectors.btn);
 
         activeBtn.on('click', e => {
-          if (!this.getActive()) return;
+          if (this.options.activeWidth && !this.getActive()) return;
           e.preventDefault();
           
           //close on click if it's active
@@ -81,9 +81,18 @@ import connect from '../_connect';
 
   };
 
-  $('[data-accordion-main="phone"]').each((i, accordion) => new Accordion({ 
+  $('[data-accordion-main*="phone"]').each((i, accordion) => new Accordion({ 
     main: $(accordion),
     activeWidth: phoneWidthEnd,
+    selectors: {
+      item: '[data-accordion-item]',
+      btn: '[data-accordion-btn]',
+      container: '[data-accordion-container]'
+    }
+  }));
+
+  $('[data-accordion-main*="desktop"]').each((i, accordion) => new Accordion({ 
+    main: $(accordion),
     selectors: {
       item: '[data-accordion-item]',
       btn: '[data-accordion-btn]',
