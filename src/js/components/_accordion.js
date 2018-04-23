@@ -64,16 +64,16 @@ import connect from '../_connect';
           //close on click if it's active
           if (activeBtn.hasClass(ACTIVE)) {
             activeBtn.removeClass(ACTIVE);
-            activeContainer.slideUp(duration);
+            activeContainer.stop(true, true, true).slideUp(duration);
           } else {
             //close other if accordion is not multiple
             if (!multiple) {
               btns.removeClass(ACTIVE);
-              containers.slideUp(duration);
+              containers.stop(true, true, true).slideUp(duration);
             }
             //open active
             activeBtn.addClass(ACTIVE);
-            activeContainer.slideDown(duration, () => connect.fire(ACCORDION_COMPLETE, { container: activeContainer }));
+            activeContainer.stop(true, true, true).slideDown(duration, () => connect.fire(ACCORDION_COMPLETE, { container: activeContainer }));
           }
         });
       });

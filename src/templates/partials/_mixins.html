@@ -58,7 +58,7 @@
 
 {% macro select(props) %}
 <div class="v-select js-select {{props.classList}}">
-	<select class="js-select-field {{props.selectClassList}}" data-placeholder="{{props.placeholder}}" {{props.attrs | safe}}>
+	<select class="js-select-field {{props.selectClassList}}" data-placeholder="{{props.placeholder}}" {{props.attrs | safe}} style="width: 100%;">
 		<option></option>
 		{% for item in props.options %}
 			<option value="{{item}}">{{item}}</option>

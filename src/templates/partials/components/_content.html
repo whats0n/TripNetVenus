@@ -61,7 +61,7 @@
 					<ul class="v-content__list">
 						<li class="v-content__item">
 							{% for item in content %}
-								<a href="#" class="v-content__control js-content-control {% if loop.first %}is-active{% endif %}" data-target="{{item.icon}}">
+								<a href="#" class="v-content__control js-content-control" data-target="{{item.icon}}">
 									{{mixins.icon(item.icon, 'v-content__icon')}}
 									{{mixins.icon('next', 'v-content__arrow')}}
 									<span>{{item.title}}</span>
@@ -75,12 +75,12 @@
 				<div class="v-content__info">
 					{% for item in content %}
 						<div class="v-content__box">
-							<a href="#" class="v-content__control v-content__sm-control js-content-control {% if loop.first %}is-active{% endif %}" data-target="{{item.icon}}">
+							<a href="#" class="v-content__control v-content__sm-control js-content-control" data-target="{{item.icon}}">
 								{{mixins.icon(item.icon, 'v-content__icon')}}
 								{{mixins.icon('down', 'v-content__arrow')}}
 								<span>{{item.title}}</span>
 							</a>
-							<div class="v-content__section js-content-section {% if loop.first %}is-active{% endif %}" data-section="{{item.icon}}">
+							<div class="v-content__section js-content-section" data-section="{{item.icon}}">
 								<div class="v-content__heading">
 									{{mixins.icon(item.icon, 'v-content__icon')}}
 									<span>{{item.title}}</span>

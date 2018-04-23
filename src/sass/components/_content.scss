@@ -164,14 +164,6 @@
 				}
 			}
 		}
-
-		&:last-child {
-			.v-content__sm-control {
-				&:before {
-					display: none;
-				}
-			}
-		}
 	}
 
 	&__section {
@@ -218,6 +210,7 @@
 
 	&__questions {
 		padding: 0 45px;
+		list-style-type: none;
 
 		@include tablet {
 			padding: 0 20px 0 40px;
@@ -229,6 +222,8 @@
 	}
 
 	&__question {
+		list-style-type: none;
+		
 		&:not(:last-child) {
 			border-bottom: 1px solid $lightGray;
 		}
