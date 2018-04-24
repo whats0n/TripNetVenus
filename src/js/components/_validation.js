@@ -29,6 +29,7 @@ $('.js-validation').each((i, form) => {
   const email = fields.filter(`[data-validation="${EMAIL}"]`);
   const textarea = fields.filter(`[data-validation="${TEXTAREA}"]`);
   const select = form.find('.js-validation-select');
+  const selectContainer = select.closest('.js-validation-container');
 
   let valid = (validate(name) && validate(email) && validate(textarea) && validate(select));
 
@@ -36,11 +37,10 @@ $('.js-validation').each((i, form) => {
 
   select.each((i, field) => {
     field = $(field);
-    const container = field.closest('.js-validation-container');
 
     field.on('change', e => {
       valid = (validate(name) && validate(email) && validate(textarea) && validate(select));
-      container
+      selectContainer
         .removeClass(ERROR)
         .addClass(SUCCESS);
       button.attr('disabled', !valid);
@@ -68,12 +68,16 @@ $('.js-validation').each((i, form) => {
         if (type === EMAIL) errorMessage.attr('hidden', !field.val().length);
       }
 
-      valid = (validate(name) && validate(email) && validate(textarea) && validate(select));
+      valid = (validate(name) && validate(email) && validate(textarea));
       button.attr('disabled', !valid);
     });
   });
 
   form.on('submit', e => {
+    if (!validate(select)) {
+      e.preventDefault();
+      selectContainer.addClass(ERROR);
+    }
     if (!valid) e.preventDefault();
   });
 });

@@ -64,5 +64,8 @@
 			<option value="{{item}}">{{item}}</option>
 		{% endfor %}
 	</select>
+	{% if props.errorMessage %}
+		<div class="v-select__message">{{props.errorMessage}}</div>
+	{% endif %}
 </div>
 {% endmacro %}
